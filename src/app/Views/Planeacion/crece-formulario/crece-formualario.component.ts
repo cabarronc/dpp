@@ -15,7 +15,7 @@ import { BadgeAlign, BadgePosition, BadgeShape, BadgeThemeColor, BadgeSize } fro
 import { ElementSchemaRegistry } from '@angular/compiler';
 import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
 import { GridDataResult } from '@progress/kendo-angular-grid';
-import { SortDescriptor } from '@progress/kendo-data-query';
+import { SortDescriptor,groupBy, GroupResult } from '@progress/kendo-data-query';
 import { IntlService } from "@progress/kendo-angular-intl";
 import { formatDate } from '@progress//kendo-angular-intl';
 import * as htmlDocx from 'html-docx-js/dist/html-docx';
@@ -26,7 +26,6 @@ import { ChartComponent } from "@progress/kendo-angular-charts";
 import { saveAs } from "@progress/kendo-file-saver";
 
 
-
 export interface JsonModel {
   value: string;
 }
@@ -34,7 +33,13 @@ export interface Fecha {
   value: Date;
 }
 
-
+export interface Grafico{
+  avSeccion : number;
+  clave: string;
+  encabezado: string;
+  pp: string;
+  seccion:string;
+}
 
 
 @Component({
@@ -43,37 +48,35 @@ export interface Fecha {
   styleUrls: ['./crece-formualario.component.css']
 })
 export class CreceFormualarioComponent implements OnInit {
-  public grafico: Observable<any>;
+
   @ViewChild("chart")
-  public categories: any[] = [
-    "avAnalisisCorresponsabilidad","avAnalisisInvolucrados","avAnalisisProblema","avCobertura","avEstructuraAnalitica","avGeneral","avIdentificacionProblema","avIndicadores","avIntroduccion","avJustificacionObjetivos","avLineaEstrategica","avMIR","avMedios","avObjetivo","avPadron","avRelacionPp","avSeleccionAlternativa","avSupuestos"
-  ];
   // public categories : number[] =[2000,2001,2002,2003,2004,2005, 2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018];
   private chart: ChartComponent;
-  public graficos: Array<{ pp: string; data:{avGeneral:number,
-    avIntroduccion: number,
-    avAnalisisInvolucrados:number,
-    avIdentificacionProblema: number,
-    avAnalisisProblema: number,
-    avAnalisisCorresponsabilidad: number,
-    avSeleccionAlternativa: number,
-    avEstructuraAnalitica: number,
-    avJustificacionObjetivos: number,
-    avRelacionPp:number,
-    avMIR: number,
-    avCobertura: number,
-    avPadron: number,
-    avLineaEstrategica: number,
-    avObjetivo: number,
-    avIndicadores: number,
-    avMedios: number,
-    avSupuestos: number}}> = [];
-    // public graficos: any[] = [];
+  // public graficos: Array<{ pp: string; data:{avGeneral:number,
+  //   avIntroduccion: number,
+  //   avAnalisisInvolucrados:number,
+  //   avIdentificacionProblema: number,
+  //   avAnalisisProblema: number,
+  //   avAnalisisCorresponsabilidad: number,
+  //   avSeleccionAlternativa: number,
+  //   avEstructuraAnalitica: number,
+  //   avJustificacionObjetivos: number,
+  //   avRelacionPp:number,
+  //   avMIR: number,
+  //   avCobertura: number,
+  //   avPadron: number,
+  //   avLineaEstrategica: number,
+  //   avObjetivo: number,
+  //   avIndicadores: number,
+  //   avMedios: number,
+  //   avSupuestos: number}}> = [];
+  public graficos: Grafico[] = [];
+  public series: GroupResult[];
 
 
-  // public labelContent(e: AxisLabelContentArgs): string {
-  //   return `${e.dataItem.time.substring(0, 2)}h`;
-  // }
+  public labelContent(e: AxisLabelContentArgs): string {
+    return `${e.dataItem.time.substring(0, 2)}h`;
+  }
 
 
 
@@ -2285,11 +2288,26 @@ export class CreceFormualarioComponent implements OnInit {
     private intl: IntlService,
     private graficosService: GraficosService
   ) {
+    this.series = groupBy(this.graficos, [{ field: "pp" }]) as GroupResult[];
+
+    console.log(JSON.stringify(this.series, null, 2));
 
     //graficos
+
     this.graficosService.getGraficos().pipe(
         map(response => response)
       ).subscribe(_data => {
+        _data = _data?.map(_graph => {
+                  const { avSeccion, clave, encabezado, pp, seccion } = _graph;
+                  return {
+                    avSeccion: avSeccion,
+                    clave: clave,
+                    encabezado: encabezado,
+                    pp: pp,
+                    seccion:seccion
+                  }
+                 }
+                 );
         this.graficos = _data;
         console.log(_data);
         console.log(this.graficos);
@@ -2297,6 +2315,10 @@ export class CreceFormualarioComponent implements OnInit {
         error => {
           console.log(error);
         })
+
+
+
+
 
 
     this.form = this.fb.group({

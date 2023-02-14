@@ -310,20 +310,18 @@
                                     <div class="row">
                                       <div class="col-md-12">
                                         <button kendoButton (click)="exportChart()">Exportar como Imagen</button>
-                                        <kendo-chart [categoryAxis]="{ categories: categories }"
-                                          [title]="{ text: 'Graficos de Desempeño' }">
-                                          <kendo-chart-category-axis>
-                                            <kendo-chart-category-axis-item [categories]="categories">
-                                            </kendo-chart-category-axis-item>
-                                          </kendo-chart-category-axis>
+                                        <kendo-chart #chart
+                                          [title]="{ text: 'Graficos de Desempeño'}">
+
                                           <kendo-chart-legend position="top" orientation="horizontal">
                                           </kendo-chart-legend>
                                           <kendo-chart-tooltip [shared]="true"></kendo-chart-tooltip>
-                                          <kendo-chart-series>
+                                          <kendo-chart-series >
                                             <kendo-chart-series-item
-                                              *ngFor="let grafico of graficos | filters:'pp': filterclavepp "
-                                              type="radarLine" name="Analisis de Corresponsabilidad" [name]="grafico.pp"
-                                              [data]="grafico.data"  >
+                                            *ngFor="let item of graficos | filters:'pp': filterclavepp "
+                                              type="radarLine"
+                                              [data]="graficos | filters:'pp': filterclavepp" [name]="item.pp" field="avSeccion" fromField="avSeccion"
+                                              categoryField="seccion">
                                             </kendo-chart-series-item>
 
                                           </kendo-chart-series>

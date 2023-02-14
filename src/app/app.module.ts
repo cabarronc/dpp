@@ -105,7 +105,8 @@ import { SafePipeModule } from 'safe-pipe';
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
-import 'hammerjs';
+
+import "hammerjs";
 
 
 
