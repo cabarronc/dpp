@@ -10,7 +10,7 @@ export class PmcService {
   constructor(public  angularFirebase: AngularFireDatabase) { }
 
   public getPmc(){
-    return this.angularFirebase.list("PMC/clave").valueChanges();
+    return this.angularFirebase.list("PMC").valueChanges();
   }
   public createPmc(data:any,isNew?:boolean){
     if (isNew) {

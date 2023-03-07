@@ -105,7 +105,10 @@ import { SafePipeModule } from 'safe-pipe';
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
-import 'hammerjs';
+
+import "hammerjs";
+
+import { CreceProgramacionComponent } from './Views/Programacion/crece-programacion/crece-programacion.component';
 
 
 
@@ -165,6 +168,7 @@ import 'hammerjs';
     APGComponent,
     MapaComponent,
     FiltersPipe,
+    CreceProgramacionComponent,
 
 
   ],

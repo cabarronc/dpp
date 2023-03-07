@@ -44,57 +44,60 @@ import { GoogleMapsComponent } from './Views/Administracion/google-maps/google-m
 import { PaisesComponent } from './Views/Administracion/Mapas/paises/paises.component';
 import { APGComponent } from './Views/Administracion/ConsumirApis/apg/apg.component';
 import { MapaComponent } from './Views/Administracion/BienesServicios/mapa/mapa.component';
+import { RoleGuardServiceService } from './services/role-guard-service.service';
+import { CreceProgramacionComponent } from './Views/Programacion/crece-programacion/crece-programacion.component';
 
 const routes: Routes = [
 
   {path: 'cuestionarios', component:CuestionariosComponent, canActivate:[AuthGuard]},
 
-  {path: 'usuarios', component:UsuariosComponent},
-  { path: 'crece', component:CreceComponent },
+  {path: 'usuarios', component:UsuariosComponent,canActivate:[RoleGuardServiceService,AuthGuard]},
+  { path: 'crece', component:CreceComponent,canActivate:[AuthGuard] },
   { path: 'home', component:HomeComponent,canActivate:[AuthGuard]},
-  { path: 'crece_preguntas', component:CreceCuestionarioComponent},
+  { path: 'crece_preguntas', component:CreceCuestionarioComponent,canActivate:[AuthGuard]},
   { path: "login", component: LoginComponent},
   { path: "login2", component: Login2Component},
   { path: "register", component: RegisterComponent, pathMatch: "full" },
   { path: "carrusel", component:CarruselComponent, canActivate:[AuthGuard] },
-  { path: "pruebaspdf", component:PruebaspdfComponent},
-  { path: "pruebaExcel", component:PruebaExcelComponent},
- {path: "crece-respuestas",component:CreceRespuestasComponent},
- {path: "crece-monitor-seguimiento",component:CreceMonitorAvanceComponent},
- {path: "crece-informe",component:CreceInformeComponent},
- {path:"formato", component:FormatoComponent},
- {path:"presentacion", component:PresentacionComponent},
- {path:"re-admin", component:RestrucAdminComponent},
- {path:"re-progra", component:RestrucPrograComponent},
- {path: "censo",component:CensoComponent},
- {path:"censo-seguimiento",component:CensoSeguimientoComponent},
- {path:"censo-tablero",component:CensoTableroComponent},
- {path: "tabs-tablero", component:TabsTableroComponent,
+  { path: "pruebaspdf", component:PruebaspdfComponent,canActivate:[AuthGuard]},
+  { path: "pruebaExcel", component:PruebaExcelComponent,canActivate:[AuthGuard]},
+ {path: "crece-respuestas",component:CreceRespuestasComponent,canActivate:[AuthGuard]},
+ {path: "crece-monitor-seguimiento",component:CreceMonitorAvanceComponent,canActivate:[AuthGuard]},
+ {path: "crece-informe",component:CreceInformeComponent,canActivate:[AuthGuard]},
+ {path:"formato", component:FormatoComponent,canActivate:[AuthGuard]},
+ {path:"presentacion", component:PresentacionComponent,canActivate:[AuthGuard]},
+ {path:"re-admin", component:RestrucAdminComponent,canActivate:[AuthGuard]},
+ {path:"re-progra", component:RestrucPrograComponent, canActivate:[AuthGuard]},
+ {path: "censo",component:CensoComponent,canActivate:[AuthGuard]},
+ {path:"censo-seguimiento",component:CensoSeguimientoComponent,canActivate:[AuthGuard]},
+ {path:"censo-tablero",component:CensoTableroComponent,canActivate:[AuthGuard]},
+ {path: "tabs-tablero", component:TabsTableroComponent,canActivate:[AuthGuard],
   children:[
     {
-      path:"tablero-reestructura", component:TableroReestructuraComponent
+      path:"tablero-reestructura", component:TableroReestructuraComponent,canActivate:[AuthGuard]
     },
     {
-     path:'tablero-power', component:TableroPowerComponent
+     path:'tablero-power', component:TableroPowerComponent,canActivate:[AuthGuard]
     },
   ],
 },
-{path: "formulario_pac",component:FormularioPacComponent},
-{path: "integrador",component:IntegradorComponent},
-{path: "tablero_pac",component:TableroComponent},
+{path: "formulario_pac",component:FormularioPacComponent,canActivate:[AuthGuard]},
+{path: "integrador",component:IntegradorComponent, canActivate:[AuthGuard]},
+{path: "tablero_pac",component:TableroComponent, canActivate:[AuthGuard]},
 
-  {path: "indicedpp",component:IndiceDppComponent},
-  { path: "kendoui", component:KendoComponent},
-  { path: "catalogo_pp", component:CatalogoProgramasComponent},
-  {path:"crece-formulario", component:CreceFormualarioComponent},
-  {path:"directorio", component:DirectorioGpRComponent},
-  {path:"avance-res", component:AvanceRestructuraComponent},
-  {path: "prueba-firestore", component:PruebaFirebaseComponent},
-  {path: "pf2023", component:Pf2023Component},
-  {path: "google-map", component:GoogleMapsComponent},
-  {path: "map-paises", component: PaisesComponent},
-  {path: "apg", component: APGComponent},
-  {path: "mapa_bienes", component: MapaComponent},
+  {path: "indicedpp",component:IndiceDppComponent, canActivate:[AuthGuard]},
+  { path: "kendoui", component:KendoComponent, canActivate:[AuthGuard]},
+  { path: "catalogo_pp", component:CatalogoProgramasComponent, canActivate:[AuthGuard]},
+  {path:"crece-formulario", component:CreceFormualarioComponent,canActivate:[AuthGuard]},
+  {path:"directorio", component:DirectorioGpRComponent,canActivate:[AuthGuard]},
+  {path:"avance-res", component:AvanceRestructuraComponent,canActivate:[AuthGuard]},
+  {path: "prueba-firestore", component:PruebaFirebaseComponent,canActivate:[AuthGuard]},
+  {path: "pf2023", component:Pf2023Component,canActivate:[AuthGuard]},
+  {path: "google-map", component:GoogleMapsComponent,canActivate:[AuthGuard]},
+  {path: "map-paises", component: PaisesComponent,canActivate:[AuthGuard]},
+  {path: "apg", component: APGComponent,canActivate:[AuthGuard]},
+  {path: "mapa_bienes", component: MapaComponent,canActivate:[AuthGuard]},
+  {path: "crece_programacion", component:CreceProgramacionComponent,canActivate:[AuthGuard]},
 
 
 

@@ -71,6 +71,7 @@ export class CreceComponent {
 
 
       this.formGroup = new FormGroup({
+        id: new FormControl(dataItem.id, Validators.required),
         eje: new FormControl(dataItem.eje, Validators.required),
         responsablePrograma: new FormControl(dataItem.responsablePrograma, Validators.required),
         clavePrograma: new FormControl(dataItem.clavePrograma, Validators.required),
@@ -96,7 +97,7 @@ export class CreceComponent {
 
   public saveHandler({sender, rowIndex, formGroup, isNew, dataItem}) {
       const Pmc = formGroup.value;
-      Pmc.key = dataItem.key;
+      Pmc.id = dataItem.id;
 
       this._PmcService.createPmc(Pmc, isNew);
 

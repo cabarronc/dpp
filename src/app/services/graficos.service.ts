@@ -10,7 +10,7 @@ export class GraficosService {
 
   constructor(public angularFirebase : AngularFireDatabase) { }
   public getGraficos(): Observable<any>{
-    return this.angularFirebase.list("GraficoDes").valueChanges();
+    return this.angularFirebase.list("Graficos").valueChanges();
   }
   public createGrafico(data:any,isNew?:boolean){
     if (isNew) {

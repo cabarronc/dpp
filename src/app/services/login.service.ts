@@ -12,17 +12,24 @@ export class LoginService {
   private myAppUrl: string;
   private myApiUrl: string;
 
-  constructor(private http:HttpClient)
+  constructor(private http:HttpClient, public jwtHelper:JwtHelperService)
   {
     this.myAppUrl = UrlApi;
     this.myApiUrl = '/BackEndApi/api/Login'
 
    }
+   //login con la base de datos
    login(usuario: any): Observable<any>
    {
      return this.http.post(this.myAppUrl+this.myApiUrl,usuario);
 
    }
+   //Autenticacion
+  public IsAuthenticated():boolean{
+    const token =localStorage.getItem('token');
+    return !this.jwtHelper.isTokenExpired(token)
+  }
+
    //Almacenar el valor de Login
    setLocalStorage(data):  void
    {

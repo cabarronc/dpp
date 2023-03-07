@@ -22,7 +22,7 @@
     </div>
     <fieldset class="k-form-fieldset">
       <div class="container-fluid">
-        <h1> Bienvenido: <strong>{{Nombre}}</strong></h1>Usted esta {{accion}} el Crece del Programa Presupuestario
+        <h1> Bienvenido: <strong>{{Nombre}}</strong></h1>Usted esta {{accion}} el Crece Programacion del Programa Presupuestario
         <strong>
           <font color="yellow">{{pp}} - {{NombrePp}}</font>
         </strong> de <strong>
@@ -32,7 +32,7 @@
         <div class="row">
           <div class="col-md-4">
             <kendo-panelbar>
-              <kendo-panelbar-item icon="folder" title="CRECE DATOS GENERALES" [expanded]="true">
+              <kendo-panelbar-item icon="folder" title="CRECE PROGRAMACIÓN DATOS GENERALES" [expanded]="true">
                 <ng-template kendoPanelBarContent>
 
                   <div class="container-fluid"
@@ -40,9 +40,16 @@
 
                     <div class="col-lg-12 d-flex flex-column" style="padding-top: 0.5rem; ">
                       <div class="row pt-lg-0">
-                        <kendo-floatinglabel text="Email" style="font-weight: bold;">
+                        <!-- <kendo-floatinglabel text="Email" style="font-weight: bold;">
                           <div class="col-md-12 d-flex flex-column" style="padding-top: 1rem; ">
                             <kendo-textbox style="font-weight: normal;" formControlName="Email" fillMode="outline"
+                              [readonly]="true">
+                            </kendo-textbox>
+                          </div>
+                        </kendo-floatinglabel> -->
+                        <kendo-floatinglabel text="Ejercicio" style="font-weight: bold;">
+                          <div class="col-md-12 d-flex flex-column" style="padding-top: 1rem; ">
+                            <kendo-textbox style="font-weight: normal;" formControlName="Ejercicio" fillMode="outline"
                               [readonly]="true">
                             </kendo-textbox>
                           </div>
@@ -54,15 +61,15 @@
 
                     <div class="col-lg-12 d-flex flex-column">
                       <div class="row pt-lg-0">
-                        <kendo-floatinglabel text="Revision" style="font-weight: bold;">
+                        <kendo-floatinglabel text="Eje" style="font-weight: bold;">
 
                           <kendo-formfield showHints="initial">
                             <div class="col-md-12 d-flex flex-column" style="padding-top: 1rem;">
                               <kendo-textbox style="font-weight: normal;" formControlName="Revision"
-                                [clearButton]="true" placeholder="Periodo" fillMode="outline">
+                                [clearButton]="true" placeholder="Eje" fillMode="outline">
                                 <ng-template kendoTextBoxPrefixTemplate>
                                   <button
-                                    title="Esta etiqueta nos sirve para identificar a que versión corresponde la calificación."
+                                    title="Referente al Eje de Gobierno correspondiente."
                                     kendoButton fillMode="clear" icon="edit"></button>
 
                                 </ng-template>
@@ -5203,3 +5210,4 @@
     </div>
   </form>
 </section>
+

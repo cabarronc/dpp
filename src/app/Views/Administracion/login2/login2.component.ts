@@ -45,7 +45,7 @@ export class Login2Component implements OnInit {
       setTimeout(() => {
       this.toastr.success("Usted se ha logeado correctamente");
       this.loginService.setLocalStorage(data.token);
-      this.cookieService.set('token_access',data.token,4,'/');
+      this.cookieService.set('token_access',data.token,0,'/');
       this.router.navigate(['/carrusel']);
       },1500);
     }, error => {

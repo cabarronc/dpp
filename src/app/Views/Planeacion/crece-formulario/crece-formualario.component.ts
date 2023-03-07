@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SelectEvent, TabPosition } from '@progress/kendo-angular-layout';
 import { ToastrService } from 'ngx-toastr';
@@ -15,16 +15,15 @@ import { BadgeAlign, BadgePosition, BadgeShape, BadgeThemeColor, BadgeSize } fro
 import { ElementSchemaRegistry } from '@angular/compiler';
 import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
 import { GridDataResult } from '@progress/kendo-angular-grid';
-import { SortDescriptor } from '@progress/kendo-data-query';
+import { SortDescriptor,groupBy, GroupResult, State } from '@progress/kendo-data-query';
 import { IntlService } from "@progress/kendo-angular-intl";
 import { formatDate } from '@progress//kendo-angular-intl';
 import * as htmlDocx from 'html-docx-js/dist/html-docx';
 // import { saveAs } from 'file-saver';
 import { toJSON } from '@progress/kendo-angular-grid/dist/es2015/filtering/operators/filter-operator.base';
-import { AxisLabelContentArgs } from '@progress/kendo-angular-charts';
+import { AxisLabelContentArgs, ValueAxisLabels } from '@progress/kendo-angular-charts';
 import { ChartComponent } from "@progress/kendo-angular-charts";
 import { saveAs } from "@progress/kendo-file-saver";
-
 
 
 export interface JsonModel {
@@ -34,47 +33,35 @@ export interface Fecha {
   value: Date;
 }
 
-
+export interface Grafico{
+  avSeccion : number;
+  clave: string;
+  encabezado: string;
+  pp: string;
+  seccion:string;
+  tipo:string;
+}
 
 
 @Component({
   selector: 'app-crece-formualario',
   templateUrl: './crece-formualario.component.html',
-  styleUrls: ['./crece-formualario.component.css']
+  styleUrls: ['./crece-formualario.component.css', "./pdf-styles.css", "./page-template.css"],
+  encapsulation: ViewEncapsulation.None,
 })
 export class CreceFormualarioComponent implements OnInit {
-  public grafico: Observable<any>;
+//Variables para el Graficos
   @ViewChild("chart")
-  public categories: any[] = [
-    "avAnalisisCorresponsabilidad","avAnalisisInvolucrados","avAnalisisProblema","avCobertura","avEstructuraAnalitica","avGeneral","avIdentificacionProblema","avIndicadores","avIntroduccion","avJustificacionObjetivos","avLineaEstrategica","avMIR","avMedios","avObjetivo","avPadron","avRelacionPp","avSeleccionAlternativa","avSupuestos"
-  ];
-  // public categories : number[] =[2000,2001,2002,2003,2004,2005, 2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018];
   private chart: ChartComponent;
-  public graficos: Array<{ pp: string; data:{avGeneral:number,
-    avIntroduccion: number,
-    avAnalisisInvolucrados:number,
-    avIdentificacionProblema: number,
-    avAnalisisProblema: number,
-    avAnalisisCorresponsabilidad: number,
-    avSeleccionAlternativa: number,
-    avEstructuraAnalitica: number,
-    avJustificacionObjetivos: number,
-    avRelacionPp:number,
-    avMIR: number,
-    avCobertura: number,
-    avPadron: number,
-    avLineaEstrategica: number,
-    avObjetivo: number,
-    avIndicadores: number,
-    avMedios: number,
-    avSupuestos: number}}> = [];
-    // public graficos: any[] = [];
+  public graficos: Grafico[] = [];
+  public series: GroupResult[];
 
+  public labelContent(e: AxisLabelContentArgs): string {
+    return `${e.dataItem.time.substring(0, 2)}h`;
+  }
 
-  // public labelContent(e: AxisLabelContentArgs): string {
-  //   return `${e.dataItem.time.substring(0, 2)}h`;
-  // }
-
+//varaibles Grid
+public view: Observable<any>;
 
 
 
@@ -83,7 +70,10 @@ export class CreceFormualarioComponent implements OnInit {
 
 
   filterPp = this.loginServices.getTokenDecoded().email;
+  //Filtros Pipes
   public filterclavepp:string;
+  public elementoSeleccionado:string;
+  //variables sin usar
   public p :number;
   public fecha: Fecha;
   public model: JsonModel = JSON.parse('{"value": "" }');
@@ -419,12 +409,17 @@ export class CreceFormualarioComponent implements OnInit {
   public badgeAlign: BadgeAlign = { vertical: "bottom", horizontal: "end" };
   //-------------------------DECELARACION DE VARIABLES PARA LA UI KENDO GRID --------------------
   public gridItems: Observable<GridDataResult>;
-  public pageSize: number = 10;
+  public pageSize: number = 18;
   public skip: number = 0;
   public sortDescriptor: SortDescriptor[] = [];
   public filterTerm: number = null;
   public gridView: any[];
   public mySelection: string[] = [];
+  public gridState: State = {
+    sort: [],
+    skip: 0,
+    take: 18,
+  };
 
 
 
@@ -646,10 +641,10 @@ export class CreceFormualarioComponent implements OnInit {
     console.log(this.loginServices.getTokenDecoded());
 
   }
-
+//Exportar imagen del grafico
   public exportChart(): void {
     this.chart.exportImage().then((dataURI) => {
-      saveAs(dataURI, "chart.png");
+      saveAs(dataURI, this.filterclavepp+".png");
     });
   }
   public onTabSelect(e: SelectEvent): void {
@@ -659,6 +654,11 @@ export class CreceFormualarioComponent implements OnInit {
     prevButtonIcon: "fa fa-arrow-circle-left",
     nextButtonIcon: "fa fa-arrow-circle-right",
   };
+
+  public elemento: Array<string> = [
+   "DP",
+   "MIR"
+  ];
 
   //  ---------------OBTENER PROGRAMAS PRESUPUESTARIOS---------------
   obtenerPp() {
@@ -2072,6 +2072,8 @@ export class CreceFormualarioComponent implements OnInit {
     this.TotalDp = crece.calDp;
     this.TotalMir = crece.calMir;
 
+
+
     this.form.patchValue({
       Email: crece.email,
       Revision: crece.revision,
@@ -2265,7 +2267,8 @@ export class CreceFormualarioComponent implements OnInit {
       TotalMir:crece.calMir
 
 
-    })
+  })
+  this.form.getRawValue();
     console.log(this.form.value);
     console.log(this.NombrePp);
     console.log(this.CalProm);
@@ -2283,13 +2286,29 @@ export class CreceFormualarioComponent implements OnInit {
     private _catPpService: CatPpService,
     private loginServices: LoginService,
     private intl: IntlService,
-    private graficosService: GraficosService
+    private graficosService: GraficosService,
   ) {
+    this.series = groupBy(this.graficos, [{ field: "pp" }]) as GroupResult[];
+
+    console.log(JSON.stringify(this.series, null, 2));
 
     //graficos
+
     this.graficosService.getGraficos().pipe(
         map(response => response)
       ).subscribe(_data => {
+        _data = _data?.map(_graph => {
+                  const { avSeccion, clave, encabezado, pp, seccion, tipo } = _graph;
+                  return {
+                    avSeccion: avSeccion,
+                    clave: clave,
+                    encabezado: encabezado,
+                    pp: pp,
+                    seccion:seccion,
+                    tipo:tipo,
+                  }
+                 }
+                 );
         this.graficos = _data;
         console.log(_data);
         console.log(this.graficos);
@@ -2297,6 +2316,13 @@ export class CreceFormualarioComponent implements OnInit {
         error => {
           console.log(error);
         })
+
+ //grid datos abiertos
+ this.view = this.graficosService.getGraficos();
+
+
+
+
 
 
     this.form = this.fb.group({
@@ -2781,10 +2807,10 @@ export class CreceFormualarioComponent implements OnInit {
       this.Dp1Calf = 0
     }
     else if (this.countElementsSi == 13) {
-      this.Dp1Calf = 2
+      this.Dp1Calf = 0
     }
     else if (this.countElementsSi == 14) {
-      this.Dp1Calf = 2
+      this.Dp1Calf = 0
     }
     else if (this.countElementsSi == 15) {
       this.Dp1Calf = 2
@@ -2808,10 +2834,10 @@ export class CreceFormualarioComponent implements OnInit {
       this.Dp1Calf = 2
     }
     else if (this.countElementsSi == 22) {
-      this.Dp1Calf = 4
+      this.Dp1Calf = 2
     }
     else if (this.countElementsSi == 23) {
-      this.Dp1Calf = 4
+      this.Dp1Calf = 2
     }
     else if (this.countElementsSi == 24) {
       this.Dp1Calf = 4
@@ -2997,11 +3023,14 @@ export class CreceFormualarioComponent implements OnInit {
   // }
   //******************************PREGUNTA 1******************************************
   public RespuestaDp2(): void {
-    if (this.year == 2021 || this.year == 2022) {
+    if (this.year == 2022 || this.year == 2023 ) {
       this.PonDp2 = 4;
     }
-    else if (this.year == 2019 || this.year == 2020) {
+    else if ( this.year == 2021  ) {
       this.PonDp2 = 2;
+    }
+    else if (this.year <= 2020 ) {
+      this.PonDp2 = 0;
     }
     else if (this.year == undefined) {
       this.PonDp2 = null;
@@ -3220,7 +3249,7 @@ export class CreceFormualarioComponent implements OnInit {
       this.textAreaValueDp13 = "";
       this.CalfDp13 = "La lógica del análisis de corresponsabilidad no es clara, por lo que se requiere verificar la relación entre causas-medios y efectos-fines."
         + "\nEsta recomendación formará parte del plan de mejora continua del Programa, su atención se considera relevante.";
-      this.PonDp13 = 2;
+      this.PonDp13 = 0;
     }
   }
   //******************************PREGUNTA 14******************************************
@@ -3920,7 +3949,8 @@ export class CreceFormualarioComponent implements OnInit {
     "2020",
     "2021",
     "2022",
-    "2023"
+    "2023",
+    "2024"
   ];
   public listDepPar: Array<string> = [
     "Si",
