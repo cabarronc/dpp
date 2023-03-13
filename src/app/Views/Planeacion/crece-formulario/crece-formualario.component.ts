@@ -34,12 +34,15 @@ export interface Fecha {
 }
 
 export interface Grafico{
+  id:number;
   avSeccion : number;
   clave: string;
   encabezado: string;
   pp: string;
-  seccion:string;
-  tipo:string;
+  seccion: string;
+  tipo: string;
+  periodo: string;
+  version: string;
 }
 
 
@@ -54,7 +57,9 @@ export class CreceFormualarioComponent implements OnInit {
   @ViewChild("chart")
   private chart: ChartComponent;
   public graficos: Grafico[] = [];
-  public series: GroupResult[];
+  //public series: GroupResult[];
+
+
 
   public labelContent(e: AxisLabelContentArgs): string {
     return `${e.dataItem.time.substring(0, 2)}h`;
@@ -63,7 +68,13 @@ export class CreceFormualarioComponent implements OnInit {
 //varaibles Grid
 public view: Observable<any>;
 
-
+public Periodos: Array<string> = [
+  "4to Trimestre 2022",
+  "1er Trimestre 2023",
+  "2do Trimestre 2023",
+  "3er Trimestre 2023",
+  "4to Trimestre 2023",
+];
 
 
 
@@ -73,6 +84,7 @@ public view: Observable<any>;
   //Filtros Pipes
   public filterclavepp:string;
   public elementoSeleccionado:string;
+  public filtroPeriodo:string;
   //variables sin usar
   public p :number;
   public fecha: Fecha;
@@ -1576,6 +1588,11 @@ public view: Observable<any>;
       this.ListDepPar = "SDAYR";
       this.dep = "SDAYR";
     }
+    else if (this.pp == "X001") {
+      this.NombrePp = "Este Programa es Dummy";
+      this.ListDepPar = "Dependencia Dummy";
+      this.dep = "DD";
+    }
 
 
 
@@ -2278,6 +2295,7 @@ public view: Observable<any>;
   //-----------------------------------------------------------------------------------------
   //--------------------------CONSTRUCTOR DONDE SE ESTABLECE EL FORM-------------------------
   //-----------------------------------------------------------------------------------------
+  public series: GroupResult[];
 
   constructor(private fb: FormBuilder,
     private toastr: ToastrService,
@@ -2288,9 +2306,9 @@ public view: Observable<any>;
     private intl: IntlService,
     private graficosService: GraficosService,
   ) {
-    this.series = groupBy(this.graficos, [{ field: "pp" }]) as GroupResult[];
+    //this.series = groupBy(this.graficos, [{ field: "pp" }]) as GroupResult[];
 
-    console.log(JSON.stringify(this.series, null, 2));
+
 
     //graficos
 
@@ -2298,20 +2316,26 @@ public view: Observable<any>;
         map(response => response)
       ).subscribe(_data => {
         _data = _data?.map(_graph => {
-                  const { avSeccion, clave, encabezado, pp, seccion, tipo } = _graph;
+                  const { id ,avSeccion, clave, encabezado, pp, seccion, tipo, periodo, version } = _graph;
                   return {
+                    id: id,
                     avSeccion: avSeccion,
                     clave: clave,
                     encabezado: encabezado,
                     pp: pp,
                     seccion:seccion,
                     tipo:tipo,
+                    periodo:periodo,
+                    version:version,
+
                   }
                  }
                  );
         this.graficos = _data;
+        this.series = groupBy(this.graficos, [{ dir:"desc", field: "seccion"}]) as GroupResult[];
         console.log(_data);
         console.log(this.graficos);
+        console.log(this.series);
       },
         error => {
           console.log(error);
