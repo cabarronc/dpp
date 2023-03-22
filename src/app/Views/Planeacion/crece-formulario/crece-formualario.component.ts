@@ -21,7 +21,7 @@ import { formatDate } from '@progress//kendo-angular-intl';
 import * as htmlDocx from 'html-docx-js/dist/html-docx';
 // import { saveAs } from 'file-saver';
 import { toJSON } from '@progress/kendo-angular-grid/dist/es2015/filtering/operators/filter-operator.base';
-import { AxisLabelContentArgs, ValueAxisLabels } from '@progress/kendo-angular-charts';
+import { AxisLabelContentArgs, LegendItemClickEvent, SeriesLabels, ValueAxisLabels } from '@progress/kendo-angular-charts';
 import { ChartComponent } from "@progress/kendo-angular-charts";
 import { saveAs } from "@progress/kendo-file-saver";
 
@@ -2295,8 +2295,22 @@ public Periodos: Array<string> = [
   //-----------------------------------------------------------------------------------------
   //--------------------------CONSTRUCTOR DONDE SE ESTABLECE EL FORM-------------------------
   //-----------------------------------------------------------------------------------------
-  public series: GroupResult[];
+  public series: GroupResult[];//Filtro por seccion
+  public series2: GroupResult[];//Filtro por PP
+  public seriesLabels: SeriesLabels = {
+    visible: true, // Note that visible defaults to false
+    padding: 3,
+    font: "bold 12px Arial, sans-serif",
 
+  };
+  public seriesVisible = false;
+  public onLegendItemClick(e: LegendItemClickEvent): void {
+    /* Do not hide the series on legend click */
+    e.preventDefault();
+
+    /* Hide the series manually */
+    this.seriesVisible = !this.seriesVisible;
+  }
   constructor(private fb: FormBuilder,
     private toastr: ToastrService,
     private _depService: DependenciasService,
@@ -2333,9 +2347,11 @@ public Periodos: Array<string> = [
                  );
         this.graficos = _data;
         this.series = groupBy(this.graficos, [{ dir:"desc", field: "seccion"}]) as GroupResult[];
+        this.series2 = groupBy(this.graficos, [{ dir:"desc", field: "tipo"}]) as GroupResult[];
         console.log(_data);
         console.log(this.graficos);
         console.log(this.series);
+        console.log(this.series2);
       },
         error => {
           console.log(error);
