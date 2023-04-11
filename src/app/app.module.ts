@@ -69,7 +69,7 @@ import { JwtModule } from "@auth0/angular-jwt";
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { GridModule, PDFModule,ExcelModule } from '@progress/kendo-angular-grid';
 import { ButtonsModule} from "@progress/kendo-angular-buttons";
-import { IconsModule } from "@progress/kendo-angular-icons";
+import { IconsModule} from "@progress/kendo-angular-icons";
 import { LabelModule } from "@progress/kendo-angular-label";
 import { InputsModule } from "@progress/kendo-angular-inputs";
 import { LayoutModule } from "@progress/kendo-angular-layout";
@@ -85,6 +85,7 @@ import { ListBoxModule } from "@progress/kendo-angular-listbox";
 import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { TypographyModule } from '@progress/kendo-angular-typography';
 import { ChartsModule } from '@progress/kendo-angular-charts';
+
 //firebase
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';

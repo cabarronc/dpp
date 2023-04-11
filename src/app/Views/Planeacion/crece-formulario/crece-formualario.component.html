@@ -197,7 +197,8 @@
                 <ng-template kendoPanelBarContent>
                   <div style="padding-left: 1.5rem; padding-right: 1.5rem;  padding-left: 3rem;">
                     <kendo-card width="auto" style="padding: 1rem; align-content: center;">
-                      <kendo-tabstrip [scrollable]="settings" (tabSelect)="onTabSelect($event)"
+                      <kendo-tabstrip [scrollable]="settings" (tabSelect)="onTabSelect($event)
+                      " icon="eye"
                         [tabPosition]="position">
                         <kendo-tabstrip-tab [selected]="true">
                           <ng-template kendoTabTitle>
@@ -301,8 +302,8 @@
 
                           </ng-template>
                         </kendo-tabstrip-tab>
-                        <kendo-tabstrip-tab [selected]="false">
-                          <ng-template kendoTabTitle>
+                        <kendo-tabstrip-tab    [selected]="false">
+                          <ng-template kendoTabTitle icon ="chart-radar">
                             <strong>
                               Desempeño
                             </strong>
@@ -589,16 +590,22 @@
 
             </kendo-panelbar>
             <br>
-            <div class="col-md-3">
+
+            <div class="col-md-2">
             <kendo-panelbar>
-              <kendo-panelbar-item icon="eye" title="RECURSOS DE APOYO" [expanded]="true">
+              <kendo-panelbar-item icon="folder-open" class="none" title="MANUAL USUARIO" [expanded]="true">
                 <ng-template kendoPanelBarContent>
-                  <div style="padding-left: 1.5rem; padding-right: 1.5rem;  padding-left: 3rem;">
-                    <div class="col-md-9">
+                  <div style="padding-left: 1rem; padding-right: 1rem;  padding-left: 1rem;">
+                    <div class="col-md-12">
                     <kendo-card width="auto" style="padding: 1rem; align-content: center;">
-                      <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                      <button   kendoButton type="button" class="none" aria-hidden="true" icon="file-pdf"  data-bs-toggle="modal"
                         data-bs-target="#exampleModal2">
-                        Open PDF
+                       Version PDF
+                      </button>
+                      <br>
+                      <button   kendoButton type="button" class="none" aria-hidden="true" icon="file-ppt"  data-bs-toggle="modal"
+                        data-bs-target="#exampleModal3">
+                        Version Dinamica
                       </button>
                     </kendo-card>
                     </div>
@@ -5509,18 +5516,36 @@
       <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title text-danger" id="exampleModalLabel">PDF</h5>
+            <h5 class="modal-title text-danger" id="exampleModalLabel">Manual de Usuario del Sistema MEJORA</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <iframe src="../../../../assets/pdf/atlas_ieca.pdf" frameBorder="0" scrolling="auto" height="100%"
+            <iframe src="../../../../assets/pdf/ManualMejora.pdf" frameBorder="0" scrolling="auto" height="100%"
               width="100%"></iframe>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerar Ventana</button>
           </div>
         </div>
       </div>
     </div>
+       <!-- Modal 3-->
+       <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-danger" id="exampleModalLabel">Manual Dinamico con Videos</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <iframe src="../../../../assets/pdf/Manual.pdf" frameBorder="0" scrolling="auto" height="100%"
+                width="100%"></iframe>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar Ventana</button>
+            </div>
+          </div>
+        </div>
+      </div>
   </form>
 </section>
