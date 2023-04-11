@@ -20,6 +20,7 @@
         </ng-template>
       </kendo-circulargauge>
     </div>
+
     <fieldset class="k-form-fieldset">
       <div class="container-fluid">
         <h1> Bienvenido: <strong>{{Nombre}}</strong></h1>Usted esta {{accion}} el Crece del Programa Presupuestario
@@ -43,7 +44,7 @@
                         <kendo-floatinglabel text="Email" style="font-weight: bold;">
                           <div class="col-md-12 d-flex flex-column" style="padding-top: 1rem; ">
                             <kendo-textbox style="font-weight: normal;" formControlName="Email" fillMode="outline"
-                              [readonly]="true">
+                              [readonly]="false">
                             </kendo-textbox>
                           </div>
                         </kendo-floatinglabel>
@@ -57,7 +58,6 @@
                     <div class="col-lg-12 d-flex flex-column">
                       <div class="row pt-lg-0">
                         <kendo-floatinglabel text="Periodo" style="font-weight: bold;">
-
                           <kendo-formfield showHints="initial">
                             <div class="col-md-12 d-flex flex-column" style="padding-top: 1rem;">
                               <kendo-dropdownlist style="font-weight: normal;" formControlName="Revision"
@@ -81,6 +81,7 @@
                     </div>
                     <div class="col-lg-12 d-flex flex-column">
                       <div class="row pt-lg-0">
+
                         <kendo-floatinglabel text="Fecha de Entrega" style="font-weight: bold;">
                           <kendo-formfield showHints="initial">
                             <div class="col-md-12 d-flex flex-column" style="padding-top: 1rem;">
@@ -230,9 +231,10 @@
 
                                           </div>
 
-                                         <input type="text" name="filterPp" class="form-control"
+                                          <input type="text" name="filterPp" class="form-control"
                                             placeholder="buscar por Pp" [(ngModel)]="filterclavepp"
-                                            [ngModelOptions]="{standalone: true}" oninput="this.value=this.value.toUpperCase()">
+                                            [ngModelOptions]="{standalone: true}"
+                                            oninput="this.value=this.value.toUpperCase()">
 
 
                                         </div>
@@ -350,8 +352,7 @@
                                           </kendo-chart-category-axis>
 
                                           <kendo-chart-value-axis>
-                                            <kendo-chart-value-axis-item
-                                              font="9px Calibri, sans-serif" rotation=45>
+                                            <kendo-chart-value-axis-item font="9px Calibri, sans-serif" rotation=45>
                                             </kendo-chart-value-axis-item>
                                           </kendo-chart-value-axis>
                                           <!-- <kendo-chart-value-axis>
@@ -418,13 +419,13 @@
                                             <button kendoButton (click)="exportChart()">Exportar como Imagen</button>
                                           </div>
                                         </div>
-                                        <kendo-chart #chart>
+                                        <kendo-chart #chart style="height:500px; width:800px">
                                           <!-- <kendo-chart-legend position="custom" [offsetX]="40" [offsetY]="25">
                                           </kendo-chart-legend> -->
                                           <kendo-chart-legend [visible]="true">
                                           </kendo-chart-legend>
                                           <kendo-chart-series-defaults type="line">
-                                            <kendo-chart-series-defaults-labels >
+                                            <kendo-chart-series-defaults-labels>
                                             </kendo-chart-series-defaults-labels>
                                           </kendo-chart-series-defaults>
                                           <kendo-chart-series>
@@ -435,8 +436,7 @@
                                             </kendo-chart-series-item>
                                           </kendo-chart-series>
                                           <kendo-chart-value-axis>
-                                            <kendo-chart-value-axis-item
-                                              font="9px Calibri, sans-serif" rotation=45>
+                                            <kendo-chart-value-axis-item font="9px Calibri, sans-serif" rotation=45>
                                             </kendo-chart-value-axis-item>
                                           </kendo-chart-value-axis>
                                         </kendo-chart>
@@ -453,7 +453,7 @@
                         <kendo-tabstrip-tab [selected]="false">
                           <ng-template kendoTabTitle>
                             <strong>
-                              Historico Geneeral
+                              Historico General
                             </strong>
                           </ng-template>
                           <ng-template kendoTabContent>
@@ -588,9 +588,29 @@
               </kendo-panelbar-item>
 
             </kendo-panelbar>
+            <br>
+            <div class="col-md-3">
+            <kendo-panelbar>
+              <kendo-panelbar-item icon="eye" title="RECURSOS DE APOYO" [expanded]="true">
+                <ng-template kendoPanelBarContent>
+                  <div style="padding-left: 1.5rem; padding-right: 1.5rem;  padding-left: 3rem;">
+                    <div class="col-md-9">
+                    <kendo-card width="auto" style="padding: 1rem; align-content: center;">
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal2">
+                        Open PDF
+                      </button>
+                    </kendo-card>
+                    </div>
+                  </div>
+                </ng-template>
+              </kendo-panelbar-item>
+            </kendo-panelbar>
+            </div>
           </div>
           <br>
           <p></p>
+
           <div class="col-md-12">
             <kendo-panelbar>
               <kendo-panelbar-item icon="folder" title="Elementos Diagnóstico Particular" [expanded]="true">
@@ -5387,7 +5407,7 @@
 
                     <div class="row">
                       <div class="col-md-6">
-                        <kendo-label class="k-radio-label" style="font-weight: bold;">FMIR
+                        <kendo-label class="k-radio-label" style="font-weight: bold;">AO MIR
                         </kendo-label>
                         <kendo-formfield style="width:auto" showHints="initial" showErrors="initial">
                           <kendo-textarea style="font-weight: normal;" resizable="auto" flow="horizontal"
@@ -5406,7 +5426,7 @@
                       </div>
 
                       <div class="col-md-6">
-                        <kendo-label class="k-radio-label" style="font-weight: bold;">FDP
+                        <kendo-label class="k-radio-label" style="font-weight: bold;">AO DP
                         </kendo-label>
                         <kendo-formfield style="width:auto;" showHints="initial" showErrors="initial">
                           <kendo-textarea style="font-weight: normal;" resizable="auto" flow="horizontal"
@@ -5452,7 +5472,9 @@
           </div>
           <div class="modal-body">
             <div class="container-fluid" style="background-color: rgb(204, 198, 198);">
-              <iframe src="https://script.google.com/a/macros/guanajuato.gob.mx/s/AKfycbzV37dvoUrBgTG51FongBXieoQgvIkc0qCaa-4KR5yCloluITXEh3NOGbwlQyiIo4WXIA/exec" style="width: 100%;height: 800px; padding-left: 5em; padding-right: 5em;"></iframe>
+              <iframe
+                src="https://script.google.com/a/macros/guanajuato.gob.mx/s/AKfycbzV37dvoUrBgTG51FongBXieoQgvIkc0qCaa-4KR5yCloluITXEh3NOGbwlQyiIo4WXIA/exec"
+                style="width: 100%;height:700px; padding-left: 5em;  padding-right: 5em; background-color: rgb(204, 198, 198);"></iframe>
 
               <h4>
                 <p>Enlace para ir a ver los creces <a
@@ -5477,6 +5499,25 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             <button type="button" class="btn btn-primary">Guardar Cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2-->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-danger" id="exampleModalLabel">PDF</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <iframe src="../../../../assets/pdf/atlas_ieca.pdf" frameBorder="0" scrolling="auto" height="100%"
+              width="100%"></iframe>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
