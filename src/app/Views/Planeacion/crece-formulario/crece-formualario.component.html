@@ -25,7 +25,7 @@
 
 
         <div class="col-md-5">
-          <kendo-card width="100%" style="background-color:#dee4ec">
+          <!-- <kendo-card width="100%" style="background-color:#dee4ec"> -->
             <h1>
               <p> Bienvenido: <strong>{{Nombre}}</strong></p>
             </h1>
@@ -50,9 +50,11 @@
                 </strong>
               </ng-template>
               <ng-container *ngIf="version=='Preliminar';else Final">
+                <p>
                 Version: <strong>
                   <font color="red">{{version}}</font>
                 </strong>
+              </p>
               </ng-container>
               <ng-template #Final>
                 <p>
@@ -62,17 +64,13 @@
                 </p>
               </ng-template>
             </h2>
-          </kendo-card>
+          <!-- </kendo-card> -->
         </div>
         <div class="col-md-6"></div>
       </div>
     </div>
-
-
     <fieldset class="k-form-fieldset">
       <div class="container-fluid">
-
-        <p></p>
         <div class="row">
           <div class="col-md-4">
             <kendo-panelbar>
@@ -590,15 +588,17 @@
                                             </button>
                                           </ng-template>
 
-                                          <kendo-grid-column field="clave" editor="text" title="Clave" [width]="90">
+                                          <kendo-grid-column field="clave" editor="text" title="Clave"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"[width]="90">
                                           </kendo-grid-column>
-                                          <kendo-grid-column field="pp" editor="text" title="Eje" [width]="90">
+                                          <kendo-grid-column field="pp" editor="text" title="Pp"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"[width]="90">
                                           </kendo-grid-column>
-                                          <kendo-grid-column field="encabezado" editor="text" title="Pregunta"
+                                          <kendo-grid-column field="encabezado" editor="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Pregunta"
                                             [width]="150"></kendo-grid-column>
-                                          <kendo-grid-column field="seccion" editor="text" title="Sección"
+                                          <kendo-grid-column field="seccion" editor="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Sección"
                                             [width]="250"></kendo-grid-column>
-                                          <kendo-grid-column field="avSeccion" url="text" title="Avance Seccion"
+                                            <kendo-grid-column field="periodo" editor="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Periodo"
+                                            [width]="250"></kendo-grid-column>
+                                          <kendo-grid-column field="avSeccion" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Avance"
                                             [width]="100"></kendo-grid-column>
                                           <kendo-grid-pdf fileName="Calficaciones_{{filterclavepp}}.pdf"
                                             [allPages]="true" paperSize="A4" [repeatHeaders]="true" [landscape]="true">
