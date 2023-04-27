@@ -48,7 +48,7 @@
     "@progress/kendo-angular-treeview": "^5.0.0",
     "@progress/kendo-angular-typography": "^11.0.0",
     "@progress/kendo-data-query": "^1.0.0",
-    "@progress/kendo-drawing": "^1.0.0",
+    "@progress/kendo-drawing": "^1.17.5",
     "@progress/kendo-licensing": "^1.2.2",
     "@progress/kendo-theme-bootstrap": "^5.2.0",
     "@progress/kendo-theme-default": "^4.42.0",

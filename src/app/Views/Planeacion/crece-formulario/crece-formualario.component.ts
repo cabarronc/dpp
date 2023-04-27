@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild,ElementRef, ViewEncapsulation, AfterViewInit, OnDestroy } from '@angular/core';
 import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SelectEvent, TabPosition } from '@progress/kendo-angular-layout';
 import { ToastrService } from 'ngx-toastr';
@@ -12,7 +12,7 @@ import { LoginService } from 'src/app/services/login.service';
 import { CrecePlaneacionService } from 'src/app/services/crece-planeacion.service'
 
 import { BadgeAlign, BadgePosition, BadgeShape, BadgeThemeColor, BadgeSize } from "@progress/kendo-angular-indicators";
-import { ElementSchemaRegistry } from '@angular/compiler';
+import { ElementSchemaRegistry, R3TargetBinder } from '@angular/compiler';
 import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
 import { GridDataResult } from '@progress/kendo-angular-grid';
 import { SortDescriptor,groupBy, GroupResult, State } from '@progress/kendo-data-query';
@@ -24,7 +24,13 @@ import { toJSON } from '@progress/kendo-angular-grid/dist/es2015/filtering/opera
 import { AxisLabelContentArgs, LegendItemClickEvent, SeriesLabels, ValueAxisLabels } from '@progress/kendo-angular-charts';
 import { ChartComponent } from "@progress/kendo-angular-charts";
 import { saveAs } from "@progress/kendo-file-saver";
+import {DomSanitizer, SafeUrl} from '@angular/platform-browser'
 
+import {OnExit} from '../../../shared/guards/on-exit.guard'
+import { UrlTree } from '@angular/router';
+//Dibujar
+import{drawScene} from './crear-escena'
+import { Surface } from "@progress/kendo-drawing";
 
 export interface JsonModel {
   value: string;
@@ -52,13 +58,37 @@ export interface Grafico{
   styleUrls: ['./crece-formualario.component.css', "./pdf-styles.css", "./page-template.css"],
   encapsulation: ViewEncapsulation.None,
 })
-export class CreceFormualarioComponent implements OnInit {
+export class CreceFormualarioComponent implements OnInit, OnExit, AfterViewInit, OnDestroy{
 //Variables para el Graficos
   @ViewChild("chart")
   private chart: ChartComponent;
   public graficos: Grafico[] = [];
   //public series: GroupResult[];
 
+//Dibujar
+  @ViewChild("surface")
+  private surfaceElement: ElementRef;
+  private surface: Surface;
+  public ngAfterViewInit(): void {
+    drawScene(this.createSurface());
+  }
+
+  public ngOnDestroy() {
+    this.surface.destroy();
+  }
+  private createSurface(): Surface {
+    // Obtain a reference to the native DOM element of the wrapper
+    const element = this.surfaceElement.nativeElement;
+
+    // Create a drawing surface
+    this.surface = Surface.create(element);
+
+    return this.surface;
+  }
+
+  //PDFViewer
+  pdfSource = 'https://github.com/cabarronc/dpp/blob/master/src/assets/pdf/ManualMejora.pdf';
+  safeUrl:SafeUrl
 
 
   public labelContent(e: AxisLabelContentArgs): string {
@@ -76,6 +106,10 @@ public Periodos: Array<string> = [
   "4to Trimestre 2023",
 ];
 
+public Versiones: Array<string> = [
+  "Preliminar",
+  "Final",
+];
 
 
 
@@ -100,6 +134,7 @@ public Periodos: Array<string> = [
   public includeLiterals = true;
 
   accion = 'Elaborando';
+  version = "";
   // public model: JsonModel = JSON.parse('{ "fecha": "2017-06-30" }');
   // public output: string = JSON.stringify(this.model);
   public checked1: boolean = false;
@@ -193,6 +228,7 @@ public Periodos: Array<string> = [
     id: number;
     email: string;
     revision: string;
+    version:string;
     pp: string;
     dependencia: string;
     fechaEntrega:string
@@ -742,6 +778,7 @@ public Periodos: Array<string> = [
           const { id,
             email,
             revision,
+            version,
             pp,
             dependencia,
             fecha,
@@ -934,6 +971,7 @@ public Periodos: Array<string> = [
             id: id,
             email: email,
             revision: revision,
+            version:version,
             pp: pp,
             dependencia: dependencia,
             fechaEntrega: fechaEntrega,
@@ -1799,6 +1837,7 @@ public Periodos: Array<string> = [
     const crece: any = {
       Email: this.form.get('Email')?.value,
       Revision: this.form.get('Revision')?.value,
+      Version:this.form.get('Version')?.value,
       Pp: this.form.get('Pp')?.value,
       NombrePp: this.NombrePp,
       ListDepPar: this.ListDepPar,
@@ -2094,6 +2133,7 @@ public Periodos: Array<string> = [
     this.form.patchValue({
       Email: crece.email,
       Revision: crece.revision,
+      Version: crece.version,
       Pp: crece.pp,
       Dependencia: crece.dependencia,
       Ano: crece.ano,
@@ -2289,6 +2329,7 @@ public Periodos: Array<string> = [
     console.log(this.form.value);
     console.log(this.NombrePp);
     console.log(this.CalProm);
+
   }
 
 
@@ -2319,6 +2360,7 @@ public Periodos: Array<string> = [
     private loginServices: LoginService,
     private intl: IntlService,
     private graficosService: GraficosService,
+    private sanitizer: DomSanitizer,
   ) {
     //this.series = groupBy(this.graficos, [{ field: "pp" }]) as GroupResult[];
 
@@ -2368,6 +2410,7 @@ public Periodos: Array<string> = [
     this.form = this.fb.group({
       Email: [this.loginServices.getTokenDecoded().email, Validators.required],
       Revision: ['', Validators.required],
+      Version:['',Validators.required],
       Pp: ['', [Validators.required, Validators.maxLength(4), Validators.minLength(4)]],
       FechaEntrega:[this.userData.FechaEntrega,Validators.required],
       NombrePp:[this.NombrePp,Validators.required],
@@ -2595,7 +2638,7 @@ public Periodos: Array<string> = [
     this.RespuestaDp4();
     this.creces;
 
-
+    this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.pdfSource)
     //this.fecha = this.parseExact(this.model);
     //console.log(this.fecha);
 
@@ -2603,6 +2646,26 @@ public Periodos: Array<string> = [
     // this.ponderacionDp4();
     //this.Elemento2Calculo();
   }
+
+  onExit() {
+      if(this.form.dirty){
+        const rta = confirm('estas seguro de salir?');
+        console.log(rta)
+        return rta;
+      }
+     return true;
+
+  }
+  //Metodo para mostrar PDF
+  _base64ToArrayBuffer(base64) {
+    const binary_string = window.atob(base64);
+    const len = binary_string.length;
+    const bytes = new Uint8Array(len);
+    for (let i = 0; i < len; i++) {
+        bytes[i] = binary_string.charCodeAt(i);
+    }
+    return bytes.buffer;
+}
   //------------------------------------------------------------------------
   //------------------METODOS PARA LIMPIAR LOS CAMPOS-----------------------
   //------------------------------------------------------------------------

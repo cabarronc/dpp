@@ -2,33 +2,76 @@
 
 <section id="sectiondefault">
   <form class="k-form" [formGroup]="form" (ngSubmit)="GuardarCrece()">
-    <div id="total">
-      <strong>
 
-      </strong>
-      <kendo-circulargauge [value]="CalProm" [scale]="{ max: 100 }" [colors]="colors"
-        style="width: 100px; height: 100px;">
-        <ng-template kendoCircularGaugeCenterTemplate let-value="CalProm" let-color="color">
-          <strong>
-            <span>
-              <font color="white">{{ CalProm }}&nbsp;</font>
-            </span>
-          </strong>
-          <span>
-            <font color="yellow">{{pp}} </font>
-          </span>
-        </ng-template>
-      </kendo-circulargauge>
+
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-md-1">
+          <kendo-circulargauge [value]="CalProm" [scale]="{ max: 100 }" [colors]="colors"
+            style="width: 100px; height: 100px;">
+            <ng-template kendoCircularGaugeCenterTemplate let-value="CalProm" let-color="color">
+              <strong>
+                <span>
+                  <font color="white">{{ CalProm }}&nbsp;</font>
+                </span>
+              </strong>
+              <span>
+                <font color="yellow">{{pp}} </font>
+              </span>
+            </ng-template>
+          </kendo-circulargauge>
+        </div>
+
+
+        <div class="col-md-5">
+          <kendo-card width="100%" style="background-color:#dee4ec">
+            <h1>
+              <p> Bienvenido: <strong>{{Nombre}}</strong></p>
+            </h1>
+            <h2>
+              <ng-container *ngIf="accion=='Elaborando';else Actualizando">Usted esta <strong>
+                  <font color="red">{{accion}}</font>
+                </strong> el Crece del Programa Presupuestario
+                <strong>
+                  <font color="black">{{pp}} - {{NombrePp}} </font>
+                </strong> de <strong>
+                  <font color="black">{{dep}}</font>
+                </strong>
+              </ng-container>
+              <ng-template #Actualizando>
+                Usted esta <strong>
+                  <font color="green">{{accion}}</font>
+                </strong> el Crece del Programa Presupuestario
+                <strong>
+                  <font color="black">{{pp}} - {{NombrePp}} </font>
+                </strong> de <strong>
+                  <font color="black">{{dep}}</font>
+                </strong>
+              </ng-template>
+              <ng-container *ngIf="version=='Preliminar';else Final">
+                Version: <strong>
+                  <font color="red">{{version}}</font>
+                </strong>
+              </ng-container>
+              <ng-template #Final>
+                <p>
+                  Version: <strong>
+                    <font color="green">{{version}}</font>
+                  </strong>
+                </p>
+              </ng-template>
+            </h2>
+          </kendo-card>
+        </div>
+        <div class="col-md-6"></div>
+      </div>
     </div>
+
 
     <fieldset class="k-form-fieldset">
       <div class="container-fluid">
-        <h1> Bienvenido: <strong>{{Nombre}}</strong></h1>Usted esta {{accion}} el Crece del Programa Presupuestario
-        <strong>
-          <font color="yellow">{{pp}} - {{NombrePp}}</font>
-        </strong> de <strong>
-          <font color="yellow">{{dep}}</font>
-        </strong>
+
         <p></p>
         <div class="row">
           <div class="col-md-4">
@@ -64,21 +107,22 @@
                                 [clearButton]="true" placeholder="Periodo" [data]="Periodos" fillMode="outline">
                                 <ng-template kendoTextBoxPrefixTemplate>
                                   <button
-                                    title="Esta etiqueta nos sirve para identificar a que versión corresponde la calificación."
+                                    title="Esta etiqueta nos sirve para identificar al periodo que corresponde la evaluación."
                                     kendoButton fillMode="clear" icon="edit"></button>
 
                                 </ng-template>
                               </kendo-dropdownlist>
                             </div>
-                            <kendo-formhint style="font-weight: normal;">Identifica a que versión
+                            <kendo-formhint style="font-weight: normal;">Identifica el periodo que
                               corresponde
-                              la calificación.</kendo-formhint>
+                              la evaluacion.</kendo-formhint>
                             <kendo-formerror>Error: Revision es requerido</kendo-formerror>
                           </kendo-formfield>
 
                         </kendo-floatinglabel>
                       </div>
                     </div>
+
                     <div class="col-lg-12 d-flex flex-column">
                       <div class="row pt-lg-0">
 
@@ -198,10 +242,10 @@
                   <div style="padding-left: 1.5rem; padding-right: 1.5rem;  padding-left: 3rem;">
                     <kendo-card width="auto" style="padding: 1rem; align-content: center;">
                       <kendo-tabstrip [scrollable]="settings" (tabSelect)="onTabSelect($event)
-                      " icon="eye"
-                        [tabPosition]="position">
+                      " icon="eye" [tabPosition]="position">
                         <kendo-tabstrip-tab [selected]="true">
                           <ng-template kendoTabTitle>
+                            <kendo-icon name="table-unmerge" themeColor="error"></kendo-icon>
                             <strong>
                               Tablero de Control
                             </strong>
@@ -302,8 +346,9 @@
 
                           </ng-template>
                         </kendo-tabstrip-tab>
-                        <kendo-tabstrip-tab    [selected]="false">
-                          <ng-template kendoTabTitle icon ="chart-radar">
+                        <kendo-tabstrip-tab [selected]="false">
+                          <ng-template kendoTabTitle icon="chart-radar">
+                            <kendo-icon name="chart-radar" themeColor="error"></kendo-icon>
                             <strong>
                               Desempeño
                             </strong>
@@ -381,6 +426,7 @@
 
                         <kendo-tabstrip-tab [selected]="false">
                           <ng-template kendoTabTitle>
+                            <kendo-icon name="chart-line-markers" themeColor="error"></kendo-icon>
                             <strong>
                               Historico por sección
                             </strong>
@@ -453,6 +499,7 @@
 
                         <kendo-tabstrip-tab [selected]="false">
                           <ng-template kendoTabTitle>
+                            <kendo-icon name="chart-line-stacked-markers" themeColor="error"></kendo-icon>
                             <strong>
                               Historico General
                             </strong>
@@ -516,7 +563,8 @@
                         </kendo-tabstrip-tab>
 
                         <kendo-tabstrip-tab [selected]="false">
-                          <ng-template kendoTabTitle>
+                          <ng-template icon="folder-open" kendoTabTitle>
+                            <kendo-icon name="table-unmerge" themeColor="error"></kendo-icon>
                             <strong>
                               Tabla de Calificaciones
                             </strong>
@@ -590,29 +638,57 @@
 
             </kendo-panelbar>
             <br>
+            <div class="row">
+              <div class="col-md-3">
+                <kendo-panelbar>
+                  <kendo-panelbar-item icon="folder-open" class="none" title="MANUAL USUARIO" [expanded]="true">
+                    <ng-template kendoPanelBarContent>
 
-            <div class="col-md-2">
-            <kendo-panelbar>
-              <kendo-panelbar-item icon="folder-open" class="none" title="MANUAL USUARIO" [expanded]="true">
-                <ng-template kendoPanelBarContent>
-                  <div style="padding-left: 1rem; padding-right: 1rem;  padding-left: 1rem;">
-                    <div class="col-md-12">
-                    <kendo-card width="auto" style="padding: 1rem; align-content: center;">
-                      <button   kendoButton type="button" class="none" aria-hidden="true" icon="file-pdf"  data-bs-toggle="modal"
-                        data-bs-target="#exampleModal2">
-                       Version PDF
-                      </button>
-                      <br>
-                      <button   kendoButton type="button" class="none" aria-hidden="true" icon="file-ppt"  data-bs-toggle="modal"
-                        data-bs-target="#exampleModal3">
-                        Version Dinamica
-                      </button>
-                    </kendo-card>
-                    </div>
-                  </div>
-                </ng-template>
-              </kendo-panelbar-item>
-            </kendo-panelbar>
+                      <div class="col-md-12">
+                        <div class="container-fluid">
+                          <kendo-card width="100%" style="padding: 0.5rem; align-content: center;">
+                            <button kendoButton type="button" class="none" aria-hidden="true" icon="file-pdf"
+                              data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                              Version PDF
+                            </button>
+                            <br>
+                            <button kendoButton type="button" class="none" aria-hidden="true" icon="file-ppt"
+                              data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                              Version Dinamica
+                            </button>
+                          </kendo-card>
+                        </div>
+                      </div>
+
+
+                    </ng-template>
+                  </kendo-panelbar-item>
+                </kendo-panelbar>
+              </div>
+              <div class="col-md-7">
+              </div>
+              <div class="col-md-2">
+                <kendo-panelbar>
+                  <kendo-panelbar-item icon="data" class="none" title="SINCRONIZACION" [expanded]="false">
+                    <ng-template kendoPanelBarContent>
+
+                      <div class="col-md-12">
+                        <div class="container-fluid">
+                          <kendo-card width="100%" style="padding: 0.5rem; align-content: center;">
+                            <button kendoButton type="button" class="none" aria-hidden="true" icon="cloud"
+                              data-bs-toggle="modal" data-bs-target="#exampleModal4">
+                              Do
+                            </button>
+                            <br>
+                          </kendo-card>
+                        </div>
+                      </div>
+
+
+                    </ng-template>
+                  </kendo-panelbar-item>
+                </kendo-panelbar>
+              </div>
             </div>
           </div>
           <br>
@@ -5462,6 +5538,33 @@
         </div>
         <p></p>
         <div class="row">
+
+          <div class="col-md-7 ms-md-auto">
+            <div class="row pt-lg-0">
+              <kendo-floatinglabel text="Version" style="font-weight: bold;">
+                <kendo-formfield showHints="initial">
+                  <div class="col-md-4 d-flex flex-column" style="padding-top: 1rem;">
+                    <kendo-dropdownlist style="font-weight: normal;" formControlName="Version" [clearButton]="true"
+                      placeholder="Version" [(ngModel)]="version" [data]="Versiones" fillMode="outline">
+                      <ng-template kendoTextBoxPrefixTemplate>
+                        <button title="Esta etiqueta nos sirve para identificar a que versión corresponde la evaluación"
+                          kendoButton fillMode="clear" icon="edit"></button>
+
+                      </ng-template>
+                    </kendo-dropdownlist>
+                  </div>
+                  <kendo-formhint style="font-weight: normal;">Identifica a que versión
+                    corresponde
+                    la evaluacion.</kendo-formhint>
+                  <kendo-formerror>Error: Revision es requerido</kendo-formerror>
+                </kendo-formfield>
+
+              </kendo-floatinglabel>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
           <div class="col-md-6 ms-md-auto">
             <button kendoButton type="submit" class="none" aria-hidden="true" icon="redo">Enviar</button>
           </div>
@@ -5471,17 +5574,15 @@
     </fieldset>
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog  modal-xl">
+      <div class="modal-dialog modal-fullscreen" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">INFORMES CRECE PLANEACION</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <div class="container-fluid" style="background-color: rgb(204, 198, 198);">
-              <iframe
-                src="https://script.google.com/a/macros/guanajuato.gob.mx/s/AKfycbzV37dvoUrBgTG51FongBXieoQgvIkc0qCaa-4KR5yCloluITXEh3NOGbwlQyiIo4WXIA/exec"
-                style="width: 100%;height:700px; padding-left: 5em;  padding-right: 5em; background-color: rgb(204, 198, 198);"></iframe>
+            <!-- <div class="container-fluid" style="background-color: rgb(204, 198, 198);">
+
 
               <h4>
                 <p>Enlace para ir a ver los creces <a
@@ -5489,23 +5590,17 @@
                     target="_blank">Lista de Creces</a>.</p>
                 <a href="https://drive.google.com/drive/folders/1-0O_0pR9Ob2yQrJh8Jkd1DbDTTKJeIGN?usp=share_link"></a>
               </h4>
-              <h4>
-                <p>Enlace Script Graficos <a
-                    href="https://docs.google.com/spreadsheets/d/16Nocgw9TM5XSVtGam6VykE_QhALJDfBXSF5DyfPvyp8/edit#gid=0"
-                    target="_blank">Ejecutar comando</a>.</p>
-              </h4>
-              <h4>
-                <p>Enlace Script PMC <a
-                    href="https://docs.google.com/spreadsheets/d/1sL7uokVTA87k065lwVH2fTLuyeY30lbP1PjsLCqVAoI/edit#gid=0"
-                    target="_blank">Ejecutar comando</a>.</p>
-              </h4>
 
-            </div>
+
+
+            </div> -->
+            <iframe referrerpolicy="no-referrer-when-downgrade" height="100%" width="100%" style="border:none;"
+              src="https://view-awesome-table.com/-NTo1QxtF25GV_14l4EP/view"></iframe>
 
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary">Guardar Cambios</button>
+            <!-- <button type="button" class="btn btn-primary">Guardar Cambios</button> -->
           </div>
         </div>
       </div>
@@ -5520,32 +5615,58 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <iframe src="../../../../assets/pdf/ManualMejora.pdf" frameBorder="0" scrolling="auto" height="100%"
-              width="100%"></iframe>
+            <iframe src="https://drive.google.com/file/d/1VBxmZhZbJjS8viseb6QjT_HuzToa9obR/preview" frameBorder="0"
+              scrolling="auto" height="100%" width="100%"></iframe>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerar Ventana</button>
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar Ventana</button>
+            <a href="https://github.com/cabarronc/dpp/blob/master/src/assets/pdf/ManualMejora.pdf?raw=true"
+              class="btn btn-info">Descargar</a>
           </div>
         </div>
       </div>
     </div>
-       <!-- Modal 3-->
-       <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title text-danger" id="exampleModalLabel">Manual Dinamico con Videos</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <iframe src="../../../../assets/pdf/Manual.pdf" frameBorder="0" scrolling="auto" height="100%"
-                width="100%"></iframe>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar Ventana</button>
-            </div>
+    <!-- Modal 3-->
+    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-danger" id="exampleModalLabel">Manual Dinamico con Videos</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <iframe src="https://drive.google.com/file/d/1VEyXrYlSHgNHnTCAfShxVT6mX7vWMkMm/preview" scrolling="auto"
+              height="100%" width="100%" allow="autoplay"></iframe>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar Ventana</button>
+            <a href="https://github.com/cabarronc/dpp/blob/master/src/assets/pdf/Manual.pdf?raw=true"
+              class="btn btn-info">Descargar</a>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Modal 4-->
+    <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-danger" id="exampleModalLabel">Manual Dinamico con Videos</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid" style="background-color: rgb(204, 198, 198);">
+              <iframe
+                src="https://script.google.com/a/macros/guanajuato.gob.mx/s/AKfycbzV37dvoUrBgTG51FongBXieoQgvIkc0qCaa-4KR5yCloluITXEh3NOGbwlQyiIo4WXIA/exec"
+                style="width: 100%;height:700px; padding-left: 5em;  padding-right: 5em; background-color: rgb(204, 198, 198);"></iframe>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar Ventana</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </form>
 </section>

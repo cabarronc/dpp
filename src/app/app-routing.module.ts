@@ -28,6 +28,7 @@ import { TabsTableroComponent } from './Views/Reestructura/tabs-tablero/tabs-tab
 import { TableroPowerComponent } from './Views/Reestructura/tabs-tablero/tablero-power/tablero-power.component';
 
 import{AuthGuard} from './shared/guards/auth.guard'
+import{OnExitGuard} from './shared/guards/on-exit.guard'
 import { IndiceDppComponent } from './Views/IndiceDpp/indice-dpp/indice-dpp.component';
 import { IntegradorComponent } from './Views/Capacitacion/integrador/integrador.component';
 import { TableroComponent } from './Views/Capacitacion/tablero/tablero.component';
@@ -88,7 +89,7 @@ const routes: Routes = [
   {path: "indicedpp",component:IndiceDppComponent, canActivate:[AuthGuard]},
   { path: "kendoui", component:KendoComponent, canActivate:[AuthGuard]},
   { path: "catalogo_pp", component:CatalogoProgramasComponent, canActivate:[AuthGuard]},
-  {path:"crece-formulario", component:CreceFormualarioComponent,canActivate:[AuthGuard]},
+  {path:"crece-formulario", component:CreceFormualarioComponent,canActivate:[AuthGuard],canDeactivate:[OnExitGuard]},
   {path:"directorio", component:DirectorioGpRComponent,canActivate:[AuthGuard]},
   {path:"avance-res", component:AvanceRestructuraComponent,canActivate:[AuthGuard]},
   {path: "prueba-firestore", component:PruebaFirebaseComponent,canActivate:[AuthGuard]},
