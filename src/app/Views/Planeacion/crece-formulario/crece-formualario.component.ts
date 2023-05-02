@@ -58,33 +58,15 @@ export interface Grafico{
   styleUrls: ['./crece-formualario.component.css', "./pdf-styles.css", "./page-template.css"],
   encapsulation: ViewEncapsulation.None,
 })
-export class CreceFormualarioComponent implements OnInit, OnExit, AfterViewInit, OnDestroy{
+export class CreceFormualarioComponent implements OnInit, OnExit{
 //Variables para el Graficos
   @ViewChild("chart")
   private chart: ChartComponent;
   public graficos: Grafico[] = [];
   //public series: GroupResult[];
 
-//Dibujar
-  @ViewChild("surface")
-  private surfaceElement: ElementRef;
-  private surface: Surface;
-  public ngAfterViewInit(): void {
-    drawScene(this.createSurface());
-  }
 
-  public ngOnDestroy() {
-    this.surface.destroy();
-  }
-  private createSurface(): Surface {
-    // Obtain a reference to the native DOM element of the wrapper
-    const element = this.surfaceElement.nativeElement;
 
-    // Create a drawing surface
-    this.surface = Surface.create(element);
-
-    return this.surface;
-  }
 
   //PDFViewer
   pdfSource = 'https://github.com/cabarronc/dpp/blob/master/src/assets/pdf/ManualMejora.pdf';
