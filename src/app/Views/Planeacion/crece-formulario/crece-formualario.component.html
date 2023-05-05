@@ -1072,7 +1072,7 @@
                                           resizable="auto" name="Dp1" flow="horizontal">
                                           <kendo-textarea-suffix>
                                             <button kendoButton type="button" class="suffix-clear-button"
-                                              (click)="CalculoDp()" fillMode="clear" icon="edit">Ponderacion</button>
+                                              (click)="CalculoDp()" (click)="MethodTotalDp()" fillMode="clear" icon="edit">Ponderacion</button>
                                           </kendo-textarea-suffix>
                                         </kendo-textarea>
                                         <kendo-formhint style="font-weight: normal;" align="start">1 DP Ponderacion
@@ -1099,7 +1099,7 @@
                                           resizable="auto" name="Dp2" flow="horizontal">
                                           <kendo-textarea-suffix>
                                             <button kendoButton type="button" class="suffix-clear-button"
-                                              (click)="RespuestaDp2()" (click)="Anexo()" fillMode="clear"
+                                              (click)="RespuestaDp2()" (click)="Anexo()" (click)="MethodTotalDp()" fillMode="clear"
                                               icon="edit">Ponderacion</button>
                                           </kendo-textarea-suffix>
                                         </kendo-textarea>
@@ -1127,7 +1127,7 @@
                                           resizable="auto" name="Dp3" flow="horizontal">
                                           <kendo-textarea-suffix>
                                             <button kendoButton type="button" class="suffix-clear-button"
-                                              (click)="RespuestaDp3()" (click)="ResPreg123()" fillMode="clear"
+                                              (click)="RespuestaDp3()" (click)="MethodTotalDp()" (click)="ResPreg123()" fillMode="clear"
                                               icon="edit">Ponderacion</button>
 
                                           </kendo-textarea-suffix>
@@ -4095,7 +4095,7 @@
                     <!-- Seccion Componente -->
 
                     <kendo-panelbar>
-                      <kendo-panelbar-item icon="folder" title="Componente" [expanded]="true">
+                      <kendo-panelbar-item icon="folder" title="Indicadores" [expanded]="true">
                         <ng-template kendoPanelBarContent>
                           <div class="container-fluid">
                             <!--3 MIR  &nbsp; -->
@@ -4654,7 +4654,7 @@
 
                     <!-- Seccion Medios de Verificacion -->
                     <kendo-panelbar>
-                      <kendo-panelbar-item icon="folder" title="Medios de Verificacio" [expanded]="true">
+                      <kendo-panelbar-item icon="folder" title="Medios de Verificación" [expanded]="true">
                         <ng-template kendoPanelBarContent>
                           <div class="container-fluid">
                             <!--4 MIR  &nbsp; -->
@@ -4947,10 +4947,10 @@
                         </ng-template>
                       </kendo-panelbar-item>
                     </kendo-panelbar>
-                    <!-- Seccion Indicadores -->
+                    <!-- Seccion Supuestos -->
 
                     <kendo-panelbar>
-                      <kendo-panelbar-item icon="folder" title="Indicadores" [expanded]="true">
+                      <kendo-panelbar-item icon="folder" title="Supuestos" [expanded]="true">
                         <ng-template kendoPanelBarContent>
                           <div class="container-fluid">
                             <!--5 MIR  &nbsp; -->
