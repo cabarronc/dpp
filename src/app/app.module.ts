@@ -116,6 +116,7 @@ import { CreceProgramacionComponent } from './Views/Programacion/crece-programac
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -132,7 +133,6 @@ import { CreceProgramacionComponent } from './Views/Programacion/crece-programac
     PruebaspdfComponent,
     KendoComponent,
     CatalogoProgramasComponent,
-
     ChrtshighComponent,
     Login2Component,
     PruebaExcelComponent,
@@ -170,6 +170,7 @@ import { CreceProgramacionComponent } from './Views/Programacion/crece-programac
     MapaComponent,
     FiltersPipe,
     CreceProgramacionComponent,
+ 
 
 
   ],
@@ -217,8 +218,8 @@ import { CreceProgramacionComponent } from './Views/Programacion/crece-programac
         allowedDomains: ["localhost:4200"],
         disallowedRoutes: []
       }
-    })
-
+    }),
+   
   ],
 
 

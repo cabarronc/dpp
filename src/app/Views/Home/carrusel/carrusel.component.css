@@ -10,11 +10,19 @@ html, body {
     overflow-y: auto;
 
 }
+#graficos { 
+    margin:0 auto; 
+    padding-top: 0px;
+    height: 100%;
+    width: 100%;
+   
+    box-sizing: border-box;
+}
 
 #slideshow {
     margin: 0 auto;
-    padding-top: 50px;
-    height: 900px;
+    padding-top: 0px;
+    height: 40%;
     width: 100%;
    
     box-sizing: border-box;
