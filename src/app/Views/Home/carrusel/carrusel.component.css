@@ -10,19 +10,11 @@ html, body {
     overflow-y: auto;
 
 }
-#graficos { 
-    margin:0 auto; 
-    padding-top: 0px;
-    height: 100%;
-    width: 100%;
-   
-    box-sizing: border-box;
-}
 
 #slideshow {
     margin: 0 auto;
-    padding-top: 0px;
-    height: 40%;
+    padding-top: 50px;
+    height: 900px;
     width: 100%;
    
     box-sizing: border-box;
@@ -140,13 +132,9 @@ html, body {
     }
 }
 
-#LetrasCarru{
-    
-    margin:50px;
-    width: 190px;
-    perspective: 1000px;
-    position: sticky;
-    padding-top: 80px;
-
-
+.ajustamelo{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: -20%;
 }
