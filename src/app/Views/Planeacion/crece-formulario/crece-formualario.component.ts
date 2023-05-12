@@ -58,7 +58,7 @@ export interface Grafico{
   styleUrls: ['./crece-formualario.component.css', "./pdf-styles.css", "./page-template.css"],
   encapsulation: ViewEncapsulation.None,
 })
-export class CreceFormualarioComponent implements OnInit, OnExit{
+export class CreceFormualarioComponent implements OnInit, OnExit, AfterViewInit{
 //Variables para el Graficos
   @ViewChild("chart")
   private chart: ChartComponent;
@@ -2347,7 +2347,7 @@ public Versiones: Array<string> = [
     //this.series = groupBy(this.graficos, [{ field: "pp" }]) as GroupResult[];
 
 
-
+    this.obtenerCreces();
     //graficos
 
     this.graficosService.getGraficos().pipe(
@@ -2608,6 +2608,7 @@ public Versiones: Array<string> = [
   ngOnInit(): void {
 
     this.obtenerDependencias();
+    this.obtenerCreces()
     this.getUsuario();
     this.obtenerPp();
     this.MethodTotalDp();
@@ -2618,6 +2619,7 @@ public Versiones: Array<string> = [
     this.RespuestaDp3();
     this.RespuestaDp4();
     this.RespuestaDp4();
+    
     this.creces;
 
     this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.pdfSource)
@@ -2627,6 +2629,10 @@ public Versiones: Array<string> = [
     // this.respuestaGenericaDp4();
     // this.ponderacionDp4();
     //this.Elemento2Calculo();
+  }
+  //----------------------------------------------------------------------------------------------------------------------------------
+  ngAfterViewInit():void{
+    this.obtenerCreces();
   }
 
   onExit() {
