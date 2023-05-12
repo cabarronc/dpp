@@ -3108,13 +3108,13 @@ public Versiones: Array<string> = [
   // }
   //******************************PREGUNTA 1******************************************
   public RespuestaDp2(): void {
-    if (this.year == 2022 || this.year == 2023 ) {
+    if (this.year == 2023 ) {
       this.PonDp2 = 4;
     }
-    else if ( this.year == 2021  ) {
+    else if ( this.year == 2022  ) {
       this.PonDp2 = 2;
     }
-    else if (this.year <= 2020 ) {
+    else if (this.year <= 2021 ) {
       this.PonDp2 = 0;
     }
     else if (this.year == undefined) {
