@@ -132,13 +132,9 @@ html, body {
     }
 }
 
-#LetrasCarru{
-    
-    margin:50px;
-    width: 190px;
-    perspective: 1000px;
-    position: sticky;
-    padding-top: 80px;
-
-
+.ajustamelo{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: -20%;
 }

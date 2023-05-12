@@ -48,6 +48,7 @@ import { MapaComponent } from './Views/Administracion/BienesServicios/mapa/mapa.
 import { RoleGuardServiceService } from './services/role-guard-service.service';
 import { CreceProgramacionComponent } from './Views/Programacion/crece-programacion/crece-programacion.component';
 
+
 const routes: Routes = [
 
   {path: 'cuestionarios', component:CuestionariosComponent, canActivate:[AuthGuard]},
@@ -99,6 +100,7 @@ const routes: Routes = [
   {path: "apg", component: APGComponent,canActivate:[AuthGuard]},
   {path: "mapa_bienes", component: MapaComponent,canActivate:[AuthGuard]},
   {path: "crece_programacion", component:CreceProgramacionComponent,canActivate:[AuthGuard]},
+  
 
 
 

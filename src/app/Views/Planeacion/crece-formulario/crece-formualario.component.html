@@ -296,7 +296,7 @@
                                         </tr>
                                       </thead>
                                       <tbody>
-                                        <i class="fas fa-redo" style="cursor:pointer" (click)="obtenerCreces()"></i>
+                                        <!-- <i class="fas fa-redo" style="cursor:pointer" (click)="obtenerCreces()"></i> -->
                                         <tr
                                           *ngFor="let crece of creces | filters:'email':filterPp | filters:'pp': filterclavepp | paginate: { itemsPerPage: 5, currentPage: p }">
                                           <td>{{ crece.pp }}</td>
