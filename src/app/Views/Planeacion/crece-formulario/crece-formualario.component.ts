@@ -31,6 +31,7 @@ import { UrlTree } from '@angular/router';
 //Dibujar
 import{drawScene} from './crear-escena'
 import { Surface } from "@progress/kendo-drawing";
+import { RespuestasService } from 'src/app/services/respuestas.service';
 
 export interface JsonModel {
   value: string;
@@ -79,6 +80,7 @@ export class CreceFormualarioComponent implements OnInit, OnExit, AfterViewInit{
 
 //varaibles Grid
 public view: Observable<any>;
+public view2: Observable<any>;
 
 public Periodos: Array<string> = [
   "4to Trimestre 2022",
@@ -2343,6 +2345,7 @@ public Versiones: Array<string> = [
     private intl: IntlService,
     private graficosService: GraficosService,
     private sanitizer: DomSanitizer,
+    private respuestaService:RespuestasService
   ) {
     //this.series = groupBy(this.graficos, [{ field: "pp" }]) as GroupResult[];
 
@@ -2383,6 +2386,10 @@ public Versiones: Array<string> = [
 
  //grid datos abiertos
  this.view = this.graficosService.getGraficos();
+
+ //Grid Datos Respuestas
+ this.view2 = this.respuestaService.getRespuestas();
+
 
 
 

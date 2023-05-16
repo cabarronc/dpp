@@ -630,6 +630,78 @@
 
                           </ng-template>
                         </kendo-tabstrip-tab>
+
+                        
+                        <kendo-tabstrip-tab [selected]="false">
+                          <ng-template icon="folder-open" kendoTabTitle>
+                            <kendo-icon name="table-unmerge" themeColor="error"></kendo-icon>
+                            <strong>
+                              Respuestas 
+                            </strong>
+                          </ng-template>
+                          <ng-template kendoTabContent>
+                            <div class="container-fluid">
+                              <div class="col-lg-12">
+                                <div class="card">
+                                  <div class="card-body">
+                                    <h5 class="titulo">Calificaciones del Programa {{filterclavepp}} </h5>
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <kendo-grid [data]="view2 | async | filters:'pp': filterclavepp " [height]="470"
+                                          [pageable]="true" [sortable]="true" [pageSize]="gridState.take"
+                                          [resizable]="true" [skip]="gridState.skip" [sort]="gridState.sort"
+                                          [filterable]="true"
+                                          [kendoGridBinding]="view2 | async | filters:'pp': filterclavepp"
+                                          kendoGridSelectBy="pp">
+                                          <ng-template kendoGridToolbarTemplate>
+                                            <button kendoGridPDFCommand icon="file-pdf">Exportar a PDF</button>
+                                            <button type="button" kendoGridExcelCommand icon="file-excel">
+                                              Exportar a Excel
+                                            </button>
+                                          </ng-template>
+
+                                          <kendo-grid-column field="dependencia" editor="text" title="Clave"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"[width]="90">
+                                          </kendo-grid-column>
+                                          <kendo-grid-column field="pp" editor="text" title="Pp"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"[width]="90">
+                                          </kendo-grid-column>
+                                          <kendo-grid-column field="direccion" editor="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Pregunta"
+                                            [width]="150"></kendo-grid-column>
+                                          <kendo-grid-column field="dp" editor="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Sección"
+                                            [width]="250"></kendo-grid-column>
+                                            <kendo-grid-column field="dp10" editor="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Periodo"
+                                            [width]="250"></kendo-grid-column>
+                                          <kendo-grid-column field="dp10res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Avance"
+                                            [width]="100"></kendo-grid-column>
+                                          <kendo-grid-pdf fileName="Calficaciones_{{filterclavepp}}.pdf"
+                                            [allPages]="true" paperSize="A4" [repeatHeaders]="true" [landscape]="true">
+                                            <kendo-grid-pdf-margin top="2cm" left="1cm" right="1cm" bottom="2cm">
+                                            </kendo-grid-pdf-margin>
+                                            <ng-template kendoGridPDFTemplate let-pageNum="pageNum"
+                                              let-totalPages="totalPages">
+                                              <div class="page-template">
+                                                <div class="header">
+                                                  <div style="float: right">
+                                                    Page {{ pageNum }} of {{ totalPages }}
+                                                  </div>
+                                                  Multi-page grid with automatic page breaking
+                                                </div>
+                                                <div class="footer">Page {{ pageNum }} of {{ totalPages }}</div>
+                                              </div>
+                                            </ng-template>
+                                          </kendo-grid-pdf>
+                                          <kendo-grid-excel fileName="Respuestas_{{filterclavepp}}.xlsx">
+                                          </kendo-grid-excel>
+                                        </kendo-grid>
+
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          </ng-template>
+                        </kendo-tabstrip-tab>
                       </kendo-tabstrip>
                     </kendo-card>
                   </div>
