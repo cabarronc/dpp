@@ -1,4 +1,4 @@
-/* 3D Slideshow */ 
+/* 3D Slideshow */
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +16,7 @@ html, body {
     padding-top: 20px;
     height: 900px;
     width: 100%;
-   
+
     box-sizing: border-box;
 }
 
@@ -66,7 +66,7 @@ html, body {
     float: right;
     animation: rotar 60s infinite linear;
     transform-style: preserve-3d;
-    
+
 }
 
 .content-carrousel:hover {
@@ -83,26 +83,26 @@ html, body {
 }
 
 .content-carrousel figure:nth-child(1) {
-    transform: rotateY(0deg) translateZ(400px); 
+    transform: rotateY(0deg) translateZ(400px);
 } .content-carrousel figure:nth-child(2) {
-    transform: rotateY(36deg) translateZ(400px); 
+    transform: rotateY(36deg) translateZ(400px);
 } .content-carrousel figure:nth-child(3) {
-    transform: rotateY(72deg) translateZ(400px); 
+    transform: rotateY(72deg) translateZ(400px);
 } .content-carrousel figure:nth-child(4) {
-    transform: rotateY(108deg) translateZ(400px); 
+    transform: rotateY(108deg) translateZ(400px);
 } .content-carrousel figure:nth-child(5) {
-    transform: rotateY(144deg) translateZ(400px); 
+    transform: rotateY(144deg) translateZ(400px);
 } .content-carrousel figure:nth-child(6) {
-    transform: rotateY(180deg) translateZ(400px); 
+    transform: rotateY(180deg) translateZ(400px);
 } .content-carrousel figure:nth-child(7) {
-    transform: rotateY(216deg) translateZ(400px); 
+    transform: rotateY(216deg) translateZ(400px);
 } .content-carrousel figure:nth-child(8) {
-    transform: rotateY(252deg) translateZ(400px); 
+    transform: rotateY(252deg) translateZ(400px);
 } .content-carrousel figure:nth-child(9) {
-    transform: rotateY(288deg) translateZ(400px); 
+    transform: rotateY(288deg) translateZ(400px);
 } .content-carrousel figure:nth-child(10) {
-    transform: rotateY(324deg) translateZ(400px); 
-} 
+    transform: rotateY(324deg) translateZ(400px);
+}
 
 .shadow {
     position: absolute;
@@ -136,5 +136,5 @@ html, body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: -45%;
+    margin-top: -25%;
 }
