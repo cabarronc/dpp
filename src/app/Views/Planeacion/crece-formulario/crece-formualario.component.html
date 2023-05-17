@@ -578,7 +578,7 @@
                                         <kendo-grid [data]="view | async | filters:'pp': filterclavepp " [height]="470"
                                           [pageable]="true" [sortable]="true" [pageSize]="gridState.take"
                                           [resizable]="true" [skip]="gridState.skip" [sort]="gridState.sort"
-                                          [filterable]="true"
+                                          [filterable]="true" [columnMenu]="menuSettings"
                                           [kendoGridBinding]="view | async | filters:'pp': filterclavepp"
                                           kendoGridSelectBy="clave">
                                           <ng-template kendoGridToolbarTemplate>
@@ -647,61 +647,284 @@
                                     <h5 class="titulo">Calificaciones del Programa {{filterclavepp}} </h5>
                                     <div class="row">
                                       <div class="col-md-12">
-                                        <kendo-grid [data]="view2 | async | filters:'pp': filterclavepp " [height]="470"
-                                          [pageable]="true" [sortable]="true" [pageSize]="gridState.take"
-                                          [resizable]="true" [skip]="gridState.skip" [sort]="gridState.sort"
-                                          [filterable]="true"
-                                          [kendoGridBinding]="view2 | async | filters:'pp': filterclavepp"
-                                          kendoGridSelectBy="pp">
-                                          <ng-template kendoGridToolbarTemplate>
-                                            <button kendoGridPDFCommand icon="file-pdf">Exportar a PDF</button>
-                                            <button type="button" kendoGridExcelCommand icon="file-excel">
-                                              Exportar a Excel
-                                            </button>
-                                          </ng-template>
+                                        <kendo-grid [data]="view2 | async | filters:'pp': filterclavepp " [height]="550"
+                                    [pageable]="true" [sortable]="true" [pageSize]="gridState.take"
+                                    [resizable]="true" [skip]="gridState.skip" [sort]="gridState.sort"
+                                    [filterable]="true" [columnMenu]="menuSettings"
+                                    [kendoGridBinding]="view2 | async | filters:'pp': filterclavepp"
+                                    kendoGridSelectBy="pp">
+                                    <ng-template kendoGridToolbarTemplate>
+                                      <button kendoGridPDFCommand icon="file-pdf">Exportar a PDF</button>
+                                      <button type="button" kendoGridExcelCommand icon="file-excel">
+                                        Exportar a Excel
+                                      </button>
+                                    </ng-template>
 
-                                          <kendo-grid-column field="dependencia" editor="text" title="Clave"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"[width]="90">
-                                          </kendo-grid-column>
-                                          <kendo-grid-column field="pp" editor="text" title="Pp"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"[width]="90">
-                                          </kendo-grid-column>
-                                          <kendo-grid-column field="direccion" editor="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Pregunta"
-                                            [width]="150"></kendo-grid-column>
-                                          <kendo-grid-column field="dp" editor="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Sección"
-                                            [width]="250"></kendo-grid-column>
-                                            <kendo-grid-column field="dp10" editor="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Periodo"
-                                            [width]="250"></kendo-grid-column>
-                                          <kendo-grid-column field="dp10res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Avance"
-                                            [width]="100"></kendo-grid-column>
-                                          <kendo-grid-pdf fileName="Calficaciones_{{filterclavepp}}.pdf"
-                                            [allPages]="true" paperSize="A4" [repeatHeaders]="true" [landscape]="true">
-                                            <kendo-grid-pdf-margin top="2cm" left="1cm" right="1cm" bottom="2cm">
-                                            </kendo-grid-pdf-margin>
-                                            <ng-template kendoGridPDFTemplate let-pageNum="pageNum"
-                                              let-totalPages="totalPages">
-                                              <div class="page-template">
-                                                <div class="header">
-                                                  <div style="float: right">
-                                                    Page {{ pageNum }} of {{ totalPages }}
-                                                  </div>
-                                                  Multi-page grid with automatic page breaking
-                                                </div>
-                                                <div class="footer">Page {{ pageNum }} of {{ totalPages }}</div>
-                                              </div>
-                                            </ng-template>
-                                          </kendo-grid-pdf>
-                                          <kendo-grid-excel fileName="Respuestas_{{filterclavepp}}.xlsx">
-                                          </kendo-grid-excel>
-                                        </kendo-grid>
-
+                                    <kendo-grid-column field="marca_temporal" editor="text" title="Marca_temporal"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"
+                                       [width]="200">
+                                    </kendo-grid-column>
+                                    <kendo-grid-column field="pp" editor="text" title="Pp"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"
+                                    [width]="100">
+                                    </kendo-grid-column>
+                                    <kendo-grid-column field="direccion" editor="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Email"
+                                      [width]="250"></kendo-grid-column>
+                                    <kendo-grid-column field="fecha" editor="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Fecha"
+                                      [width]="150"></kendo-grid-column>
+                                      <kendo-grid-column field="ejercicio_actualizacion" editor="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Eje_Actualizacion"
+                                      [width]="150"></kendo-grid-column>
+                                      <kendo-grid-column field="periodo" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Periodo"
+                                      [width]="180"></kendo-grid-column>
+                                    <kendo-grid-column field="dependencia" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Dependencia"
+                                      [width]="150"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_1" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Clave y Nombre del Programa Presupuestario"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_2" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Dependencia responsable del Programa Presupuestario"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_3" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Dependencias o Entidades participantes en el Programa Presupuestario"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_4" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Fecha de actualización del Diagnóstico Particular"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_5" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Introducción"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_6" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Análisis de involucrados"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_7" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Identificación/Definición del Problema"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_8" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Evolución del problema"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_9" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Estado actual del problema"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_10" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Experiencias de Atención"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_11" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Definición de los objetivos"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_12" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Análisis de Corresponsabilidad"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_13" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Selección de Alternativa"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_14" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Estructura analítica del programa"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_15" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Justificación de los objetivos de la intervención"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_16" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Identificación y cuantificación de la población"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_17" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Identificación de las áreas de influencia"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_18" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Relación con otros Programas Presupuestarios"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_19" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Elementos para la integración de un padrón de beneficiarios"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_20" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="MIR"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_21" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Evolución del Programa Presupuestario"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_22" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Glosario de términos"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_23" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Impacto presupuestario"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_24" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Fuentes de Financiamiento"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="dp4" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp4"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="dp4res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp4res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp5" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp5"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="dp5res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp5res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp6" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp6"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="dp6res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp6res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp7" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp7"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="dp7res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp7res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp8" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp8"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="dp8res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp8res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp9" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp9"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="dp9res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp9res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp10" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp10"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="dp10res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp10res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp11" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp11"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="dp11res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp11res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp12" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp12"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="dp12res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp12res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp13" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp13"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="dp13res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp13res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp14" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp14"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="dp14res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp14res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp15" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp15"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="dp15res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp15res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp16" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp16"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="dp16res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp16res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp17" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp17"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="dp17res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp17res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp18" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp18"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="dp18res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp18res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp19" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp19"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="dp19res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp19res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp20" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp20"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="dp20res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp20res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir1" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir1"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres1" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres1"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir2" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir2"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres2" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres2"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir3" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir3"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres3" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres3"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir4" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir4"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres4" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres4"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir5" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir5"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres5" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres5"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir6" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir6"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres6" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres6"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir7" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir7"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres7" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres7"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir8" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir8"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres8" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres8"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir9" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir9"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres9" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres9"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir10" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir10"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres10" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres10"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir11" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir11"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres11" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres11"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir12" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir12"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres12" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres12"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir13" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir13"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres13" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres13"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir14" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir14"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres14" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres14"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir15" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir15"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres15" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres15"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir16" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir16"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres16" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres16"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir17" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir17"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres17" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres17"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir18" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir18"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres18" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres18"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir19" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir19"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres19" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres19"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir20" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir20"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres20" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres20"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir21" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir21"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres21" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres21"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir22" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir22"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres22" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres22"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir23" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir23"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres23" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres23"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir24" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir24"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres24" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres24"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir25" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir25"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres25" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres25"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir26" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir26"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres26" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres26"
+                                      [width]="700"></kendo-grid-column>
+                                    <kendo-grid-pdf fileName="Calficaciones_{{filterclavepp}}.pdf"
+                                      [allPages]="true" paperSize="A4" [repeatHeaders]="true" [landscape]="true">
+                                      <kendo-grid-pdf-margin top="2cm" left="1cm" right="1cm" bottom="2cm">
+                                      </kendo-grid-pdf-margin>
+                                      <ng-template kendoGridPDFTemplate let-pageNum="pageNum"
+                                        let-totalPages="totalPages">
+                                        <div class="page-template">
+                                          <div class="header">
+                                            <div style="float: right">
+                                              Page {{ pageNum }} of {{ totalPages }}
+                                            </div>
+                                            Multi-page grid with automatic page breaking
+                                          </div>
+                                          <div class="footer">Page {{ pageNum }} of {{ totalPages }}</div>
+                                        </div>
+                                      </ng-template>
+                                    </kendo-grid-pdf>
+                                    <kendo-grid-excel [allPages]="true" fileName="Respuestas_{{filterclavepp}}.xlsx">
+                                    </kendo-grid-excel>
+                                  </kendo-grid>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
-
                           </ng-template>
                         </kendo-tabstrip-tab>
+
                       </kendo-tabstrip>
                     </kendo-card>
                   </div>
@@ -737,26 +960,44 @@
                   </kendo-panelbar-item>
                 </kendo-panelbar>
               </div>
-              <div class="col-md-7">
+              <div class="col-md-3">
               </div>
-              <div class="col-md-2">
+              <div class="col-md-3">
                 <kendo-panelbar>
-                  <kendo-panelbar-item icon="data" class="none" title="SINCRONIZACION" [expanded]="false">
+                  <kendo-panelbar-item icon="data" class="none" title="RESPUESTAS" [expanded]="true">
                     <ng-template kendoPanelBarContent>
 
                       <div class="col-md-12">
                         <div class="container-fluid">
                           <kendo-card width="100%" style="padding: 0.5rem; align-content: center;">
-                            <button kendoButton type="button" class="none" aria-hidden="true" icon="cloud"
-                              data-bs-toggle="modal" data-bs-target="#exampleModal4">
-                              Do
+                            <button kendoButton type="button" class="none" aria-hidden="true" icon="file-excel"
+                              data-bs-toggle="modal" data-bs-target="#exampleModal5">
+                              Ver Respuestas
                             </button>
                             <br>
                           </kendo-card>
                         </div>
                       </div>
+                    </ng-template>
+                  </kendo-panelbar-item>
+                </kendo-panelbar>
+              </div>
+              <div class="col-md-3">
+                <kendo-panelbar>
+                  <kendo-panelbar-item icon="data-web" class="none" title="SINCRONIZACION" [expanded]="false">
+                    <ng-template kendoPanelBarContent>
 
-
+                      <div class="col-md-12">
+                        <div class="container-fluid">
+                          <kendo-card width="100%" style="padding: 0.5rem; align-content: center;">
+                            <button kendoButton type="button" class="none" aria-hidden="true" icon="exe"
+                              data-bs-toggle="modal" data-bs-target="#exampleModal4">
+                              Ejecutar
+                            </button>
+                            <br>
+                          </kendo-card>
+                        </div>
+                      </div>
                     </ng-template>
                   </kendo-panelbar-item>
                 </kendo-panelbar>
@@ -5740,5 +5981,319 @@
         </div>
       </div>
     </div>
+        <!-- Modal 5-->
+        <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-danger" id="exampleModalLabel">Base de Respuestas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid" style="background-color: rgb(204, 198, 198);">
+                <kendo-tabstrip>
+                  <kendo-tabstrip-tab [selected]="true">
+                    <ng-template icon="folder-open" kendoTabTitle>
+                      <kendo-icon name="table-unmerge" themeColor="error"></kendo-icon>
+                      <strong>
+                        Respuestas 
+                      </strong>
+                    </ng-template>
+                    <ng-template kendoTabContent>
+                      <div class="container-fluid">
+                        <div class="col-lg-12">
+                          <div class="card">
+                            <div class="card-body">
+                              <h5 class="titulo">Respuestas de Programa {{filterclavepp}} </h5>
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <kendo-grid [data]="view2 | async | filters:'pp': filterclavepp " [height]="550"
+                                    [pageable]="true" [sortable]="true" [pageSize]="gridState.take"
+                                    [resizable]="true" [skip]="gridState.skip" [sort]="gridState.sort"
+                                    [filterable]="true"
+                                    [kendoGridBinding]="view2 | async | filters:'pp': filterclavepp"
+                                    kendoGridSelectBy="pp">
+                                    <ng-template kendoGridToolbarTemplate>
+                                      <button kendoGridPDFCommand icon="file-pdf">Exportar a PDF</button>
+                                      <button type="button" kendoGridExcelCommand icon="file-excel">
+                                        Exportar a Excel
+                                      </button>
+                                    </ng-template>
+
+                                    <kendo-grid-column field="marca_temporal" editor="text" title="Marca_temporal"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"
+                                       [width]="200">
+                                    </kendo-grid-column>
+                                    <kendo-grid-column field="pp" editor="text" title="Pp"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"
+                                    [width]="100">
+                                    </kendo-grid-column>
+                                    <kendo-grid-column field="direccion" editor="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Email"
+                                      [width]="250"></kendo-grid-column>
+                                    <kendo-grid-column field="fecha" editor="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Fecha"
+                                      [width]="150"></kendo-grid-column>
+                                      <kendo-grid-column field="ejercicio_actualizacion" editor="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Eje_Actualizacion"
+                                      [width]="150"></kendo-grid-column>
+                                      <kendo-grid-column field="periodo" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Periodo"
+                                      [width]="180"></kendo-grid-column>
+                                    <kendo-grid-column field="dependencia" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Dependencia"
+                                      [width]="150"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_1" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Clave y Nombre del Programa Presupuestario"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_2" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Dependencia responsable del Programa Presupuestario"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_3" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Dependencias o Entidades participantes en el Programa Presupuestario"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_4" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Fecha de actualización del Diagnóstico Particular"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_5" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Introducción"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_6" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Análisis de involucrados"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_7" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Identificación/Definición del Problema"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_8" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Evolución del problema"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_9" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Estado actual del problema"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_10" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Experiencias de Atención"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_11" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Definición de los objetivos"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_12" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Análisis de Corresponsabilidad"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_13" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Selección de Alternativa"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_14" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Estructura analítica del programa"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_15" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Justificación de los objetivos de la intervención"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_16" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Identificación y cuantificación de la población"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_17" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Identificación de las áreas de influencia"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_18" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Relación con otros Programas Presupuestarios"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_19" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Elementos para la integración de un padrón de beneficiarios"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_20" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="MIR"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_21" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Evolución del Programa Presupuestario"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_22" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Glosario de términos"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_23" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Impacto presupuestario"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="elem_24" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="Fuentes de Financiamiento"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="dp4" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp4"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="dp4res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp4res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp5" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp5"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="dp5res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp5res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp6" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp6"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="dp6res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp6res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp7" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp7"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="dp7res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp7res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp8" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp8"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="dp8res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp8res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp9" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp9"
+                                      [width]="50"></kendo-grid-column>
+                                      <kendo-grid-column field="dp9res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp9res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp10" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp10"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="dp10res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp10res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp11" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp11"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="dp11res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp11res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp12" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp12"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="dp12res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp12res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp13" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp13"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="dp13res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp13res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp14" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp14"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="dp14res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp14res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp15" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp15"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="dp15res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp15res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp16" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp16"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="dp16res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp16res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp17" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp17"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="dp17res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp17res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp18" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp18"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="dp18res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp18res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp19" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp19"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="dp19res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp19res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="dp20" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp20"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="dp20res" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="dp20res"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir1" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir1"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres1" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres1"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir2" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir2"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres2" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres2"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir3" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir3"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres3" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres3"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir4" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir4"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres4" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres4"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir5" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir5"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres5" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres5"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir6" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir6"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres6" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres6"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir7" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir7"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres7" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres7"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir8" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir8"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres8" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres8"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir9" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir9"
+                                      [width]="60"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres9" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres9"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir10" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir10"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres10" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres10"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir11" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir11"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres11" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres11"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir12" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir12"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres12" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres12"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir13" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir13"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres13" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres13"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir14" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir14"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres14" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres14"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir15" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir15"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres15" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres15"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir16" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir16"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres16" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres16"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir17" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir17"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres17" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres17"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir18" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir18"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres18" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres18"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir19" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir19"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres19" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres19"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir20" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir20"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres20" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres20"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir21" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir21"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres21" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres21"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir22" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir22"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres22" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres22"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir23" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir23"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres23" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres23"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir24" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir24"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres24" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres24"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir25" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir25"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres25" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres25"
+                                      [width]="700"></kendo-grid-column>
+                                      <kendo-grid-column field="mir26" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mir26"
+                                      [width]="70"></kendo-grid-column>
+                                      <kendo-grid-column field="mirres26" url="text"  [headerStyle]="{ 'background-color': ' #D2EDF0' }"title="mirres26"
+                                      [width]="700"></kendo-grid-column>
+                                    <kendo-grid-pdf fileName="Calficaciones_{{filterclavepp}}.pdf"
+                                      [allPages]="true" paperSize="A4" [repeatHeaders]="true" [landscape]="true">
+                                      <kendo-grid-pdf-margin top="2cm" left="1cm" right="1cm" bottom="2cm">
+                                      </kendo-grid-pdf-margin>
+                                      <ng-template kendoGridPDFTemplate let-pageNum="pageNum"
+                                        let-totalPages="totalPages">
+                                        <div class="page-template">
+                                          <div class="header">
+                                            <div style="float: right">
+                                              Page {{ pageNum }} of {{ totalPages }}
+                                            </div>
+                                            Multi-page grid with automatic page breaking
+                                          </div>
+                                          <div class="footer">Page {{ pageNum }} of {{ totalPages }}</div>
+                                        </div>
+                                      </ng-template>
+                                    </kendo-grid-pdf>
+                                    <kendo-grid-excel fileName="Respuestas_{{filterclavepp}}.xlsx">
+                                    </kendo-grid-excel>
+                                  </kendo-grid>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </kendo-tabstrip-tab>
+
+                </kendo-tabstrip>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar Ventana</button>
+              </div>
+            </div>
+          </div>
+        </div>
+   
   </form>
 </section>

@@ -14,7 +14,7 @@ import { CrecePlaneacionService } from 'src/app/services/crece-planeacion.servic
 import { BadgeAlign, BadgePosition, BadgeShape, BadgeThemeColor, BadgeSize } from "@progress/kendo-angular-indicators";
 import { ElementSchemaRegistry, R3TargetBinder } from '@angular/compiler';
 import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
-import { GridDataResult } from '@progress/kendo-angular-grid';
+import { ColumnMenuSettings, GridDataResult } from '@progress/kendo-angular-grid';
 import { SortDescriptor,groupBy, GroupResult, State } from '@progress/kendo-data-query';
 import { IntlService } from "@progress/kendo-angular-intl";
 import { formatDate } from '@progress//kendo-angular-intl';
@@ -450,7 +450,12 @@ public Versiones: Array<string> = [
   public gridState: State = {
     sort: [],
     skip: 0,
-    take: 18,
+    take: 20,
+  };
+  public menuSettings: ColumnMenuSettings = {
+    lock: true,
+    stick: true,
+    setColumnPosition: { expanded: true },
   };
 
 
@@ -2351,6 +2356,7 @@ public Versiones: Array<string> = [
 
 
     this.obtenerCreces();
+    this.creces;
     //graficos
 
     this.graficosService.getGraficos().pipe(
@@ -2613,7 +2619,7 @@ public Versiones: Array<string> = [
 
 
   ngOnInit(): void {
-
+    this.creces;
     this.obtenerDependencias();
     this.obtenerCreces()
     this.getUsuario();
@@ -2627,7 +2633,7 @@ public Versiones: Array<string> = [
     this.RespuestaDp4();
     this.RespuestaDp4();
     
-    this.creces;
+    
 
     this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.pdfSource)
     //this.fecha = this.parseExact(this.model);
