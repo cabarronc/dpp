@@ -109,4 +109,10 @@ color:rgb(255, 255, 255);
   background: #571004;
   color:rgb(255, 255, 255);
 }
-
+.example-info {
+  background: rgba(83, 146, 228, 0.1);
+  border-radius: 2px;
+  margin: 20px auto 40px auto;
+  padding: 10px;
+  border-left: 4px solid #5392e4;
+}

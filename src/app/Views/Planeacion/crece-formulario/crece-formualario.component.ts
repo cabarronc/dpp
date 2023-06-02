@@ -101,6 +101,8 @@ public Versiones: Array<string> = [
   filterPp = this.loginServices.getTokenDecoded().email;
   //Filtros Pipes
   public filterclavepp:string;
+  public filterrev: string;
+  public filterver: string;
   public elementoSeleccionado:string;
   public filtroPeriodo:string;
   //variables sin usar
@@ -111,6 +113,28 @@ public Versiones: Array<string> = [
   id: number | undefined;
   public maskvalue ="";
   public mask:string  = "00/00/0000";
+  //Droplist data
+  public splitButtonData: Array<{ text: string }> = [
+    {
+      text: "Preliminar",
+    },
+    {
+      text: "Final",
+    }
+  ];
+
+  public listPeriodo: Array<string> = [
+    "1er Trimestre 2023",
+    "2do Trimestre 2023", 
+    "3er Trimestre 2023",
+    "4to Trimestre 2023",
+  ];
+  public listversion: Array<string> = [
+    "Preliminar",
+    "Final", 
+ 
+  ];
+
 
   public userData: { FechaEntrega: string } = {
     FechaEntrega: this.maskvalue,
@@ -2072,7 +2096,7 @@ public Versiones: Array<string> = [
         // }
 
       }, error => {
-        this.toastr.error('Opss.. ocurrio un error', 'Error')
+        this.toastr.error('Error: ' + error.error.substr(-35,35));
         console.log(error);
         console.log(this.form.value);
       })
@@ -2084,10 +2108,10 @@ public Versiones: Array<string> = [
 
         this.accion = 'Elaborando';
         this.id = undefined;
-        this.toastr.info('El CRECE' + crece.NombrePp +'fue actualizada con exito!', 'Crece  Actualizado');
+        this.toastr.info('El CRECE ' + crece.NombrePp +' fue actualizada con exito!', 'Crece  Actualizado');
         this.obtenerCreces();
       }, error => {
-        this.toastr.error("no a completado");
+        this.toastr.error('Error: ' + error.error.substr(-35,35),'Completa el siguiente campo:',{timeOut:10000,});
         console.log(error);
       })
 

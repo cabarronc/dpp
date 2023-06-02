@@ -86,6 +86,7 @@ import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { TypographyModule } from '@progress/kendo-angular-typography';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 
+
 //firebase
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
