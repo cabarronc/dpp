@@ -1180,6 +1180,7 @@ public Versiones: Array<string> = [
 
 
       }, error => {
+        this.toastr.error("Error:",error.message);
         console.log(error);
       })
   }
@@ -2110,8 +2111,11 @@ public Versiones: Array<string> = [
         this.id = undefined;
         this.toastr.info('El CRECE ' + crece.NombrePp +' fue actualizada con exito!', 'Crece  Actualizado');
         this.obtenerCreces();
+        this.form.reset();
+        
       }, error => {
-        this.toastr.error('Error: ' + error.error.substr(-35,35),'Completa el siguiente campo:',{timeOut:10000,});
+        this.toastr.error('Error: ' + error.error.substr(-35,35),'Debe completar el siguiente campo:',{timeOut:10000,});
+        this.toastr.error('Error: ' + error.message,'No es posible el envio de informacion:',{timeOut:10000,});
         console.log(error);
       })
 
@@ -3190,13 +3194,13 @@ public Versiones: Array<string> = [
       this.PonDp4 = 2;
     }
     else if (this.Dp4Calf == 6) {
-      this.textAreaValueDp4 = "";
+      //this.textAreaValueDp4 = "";
       this.CalfDp4 = "La introducción del Diagnóstico no es lo suficientemente clara para dar a conocer la problemática, como ésta será atendida y la justificación de la intervención de gobierno, en este apartado se espera un resumen ejecutivo."
         + "\nEsta recomendación se incluirá en el plan de mejora continua del Programa, su atención se considera deseable, pero no urgente.";
       this.PonDp4 = 1;
     }
     else if (this.Dp4Calf == 3) {
-      this.textAreaValueDp4 = "";
+      //this.textAreaValueDp4 = "";
       this.CalfDp4 = "La introducción del Diagnóstico no contiene los elementos necesarios que permitan identificar la problemática, su atención o la justificación del programa. Este apartado comprende un resumen ejecutivo del resto del documento."
         + "\nEsta recomendación se incluirá en el plan de mejora continua del Programa, su atención se considera deseable, pero no urgente.";
       this.PonDp4 = 0;

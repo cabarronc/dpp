@@ -1499,7 +1499,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked24" [ngModelOptions]="{standalone: true}"
-                                      formControlName="Fuente" kendoCheckBox (click)="Anexo()" />
+                                      formControlName="Fuente"  (click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                               </section>
@@ -1708,19 +1708,17 @@
                                     </kendo-formfield>
                                     <p> </p>
                                     <!------------------- 4Dp Especifica &nbsp; ------------>
-                                    <kendo-label class="k-radio-label" style="font-weight: bold;">Recomendación
+                                    <!-- <kendo-label class="k-radio-label" style="font-weight: bold;">Recomendación
                                       especifica,
                                       en
                                       caso de que la calificación sea 9 documentar "Sin recomendaciones".
-                                    </kendo-label>
-                                    <kendo-formfield style="width: auto;" showHints="initial" showErrors="initial">
-                                      <kendo-textarea style="font-weight: normal;" resizable="auto" flow="horizontal"
+                                    </kendo-label> -->
+                                    <kendo-formfield >
+                                      <kendo-textarea 
                                         [(ngModel)]="textAreaValueDp4" formControlName="Dp4Esp">
                                         <kendo-textarea-suffix>
-                                          <button kendoButton type="button" class="suffix-clear-button" fillMode="clear"
+                                          <button kendoButton type="button" class="suffix-clear-button" 
                                             icon="close" (click)="clearValue4()"></button>
-                                          <button kendoButton type="button" class="suffix-clear-button" fillMode="clear"
-                                            icon="edit" (click)="RespuestaDp4()">Sin recomendaciones</button>
                                         </kendo-textarea-suffix>
                                       </kendo-textarea>
                                       <kendo-formhint style="font-weight: normal;" align="start">4 DP RE
@@ -1746,7 +1744,7 @@
                                         [(ngModel)]="PonDp4" resizable="auto" name="PonDp4" flow="horizontal">
                                         <kendo-textarea-suffix>
                                           <button kendoButton type="button" suffix-clear-button fillMode="clear"
-                                            icon="edit" (click)="RespuestaDp4()">Ponderacion</button>
+                                            icon="edit" (click)="RespuestaDp4()" [disabled]="true">Ponderacion</button>
                                         </kendo-textarea-suffix>
                                       </kendo-textarea>
                                       <kendo-formhint style="font-weight: normal;" align="start">4 DP Ponderacion
@@ -4626,7 +4624,7 @@
                                   <div class="row pt-lg-0">
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;">
-                                      <input required type="radio" class="custom-size" name="Mir3" value="3" #6
+                                      <input required type="radio" class="custom-size" name="Mir3" value="6" #6
                                         formControlName="Mir3" [(ngModel)]="Mir3Calf" (click)="RespuestaMir3()"
                                         (click)="MethodTotalMir()" kendoRadioButton />
                                     </div>
