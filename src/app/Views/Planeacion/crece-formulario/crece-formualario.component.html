@@ -1565,7 +1565,7 @@
                                           resizable="auto" name="Dp1" flow="horizontal">
                                           <kendo-textarea-suffix>
                                             <button kendoButton type="button" class="suffix-clear-button"
-                                              (click)="CalculoDp()" (click)="MethodTotalDp()" fillMode="clear"
+                                              (click)="CalculoDp()"  fillMode="clear"
                                               icon="edit">Ponderacion</button>
                                           </kendo-textarea-suffix>
                                         </kendo-textarea>
@@ -1593,7 +1593,7 @@
                                           resizable="auto" name="Dp2" flow="horizontal">
                                           <kendo-textarea-suffix>
                                             <button kendoButton type="button" class="suffix-clear-button"
-                                              (click)="RespuestaDp2()" (click)="Anexo()" (click)="MethodTotalDp()"
+                                              (click)="RespuestaDp2()" (click)="Anexo()" 
                                               fillMode="clear" icon="edit">Ponderacion</button>
                                           </kendo-textarea-suffix>
                                         </kendo-textarea>
@@ -1621,7 +1621,7 @@
                                           resizable="auto" name="Dp3" flow="horizontal">
                                           <kendo-textarea-suffix>
                                             <button kendoButton type="button" class="suffix-clear-button"
-                                              (click)="RespuestaDp3()" (click)="MethodTotalDp()" (click)="ResPreg123()"
+                                              (click)="RespuestaDp3()"  (click)="ResPreg123()"
                                               fillMode="clear" icon="edit">Ponderacion</button>
 
                                           </kendo-textarea-suffix>
@@ -1670,8 +1670,8 @@
                                       <div class="row pt-lg-0">
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
-                                          <input required type="radio" class="custom-size" name="Dp4" value="9" #9
-                                            formControlName="Dp4" [(ngModel)]="Dp4Calf" (click)="MethodTotalDp()"
+                                          <input required type="radio" formControlName="Dp4"class="custom-size" name="Dp4" value="9" #9
+                                          [(ngModel)]="Dp4Calf" [ngModelOptions]="{standalone: true}" 
                                             (click)="RespuestaDp4()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-2 d-flex flex-column align-items-left"
@@ -1682,8 +1682,8 @@
                                       <div class="row pt-lg-0">
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
-                                          <input required type="radio" class="custom-size" name="Dp4" value="6" #6
-                                            formControlName="Dp4" [(ngModel)]="Dp4Calf" (click)="MethodTotalDp()"
+                                          <input required type="radio" formControlName="Dp4" class="custom-size" name="Dp4" value="6" #6
+                                          [(ngModel)]="Dp4Calf" [ngModelOptions]="{standalone: true}"   
                                             (click)="RespuestaDp4()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-6 d-flex flex-column align-items-left"
@@ -1695,8 +1695,8 @@
                                       <div class="row pt-lg-0">
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
-                                          <input required type="radio" class="custom-size" name="Dp4" value="3" #3
-                                            formControlName="Dp4" [(ngModel)]="Dp4Calf" (click)="MethodTotalDp()"
+                                          <input required type="radio" formControlName="Dp4"class="custom-size" name="Dp4" value="3" #3
+                                          [(ngModel)]="Dp4Calf" [ngModelOptions]="{standalone: true}"   
                                             (click)="RespuestaDp4()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-3 d-flex flex-column align-items-left"
@@ -1713,9 +1713,10 @@
                                       en
                                       caso de que la calificación sea 9 documentar "Sin recomendaciones".
                                     </kendo-label> -->
-                                    <kendo-formfield >
-                                      <kendo-textarea 
-                                        [(ngModel)]="textAreaValueDp4" formControlName="Dp4Esp">
+                                
+                                    <kendo-formfield style="width: auto;" showHints="initial" showErrors="initial">
+                                      <kendo-textarea  formControlName="Dp4Esp" resizable="auto" flow="horizontal"
+                                        [(ngModel)]="textAreaValueDp4" [ngModelOptions]="{standalone: true}">
                                         <kendo-textarea-suffix>
                                           <button kendoButton type="button" class="suffix-clear-button" 
                                             icon="close" (click)="clearValue4()"></button>
@@ -1727,7 +1728,7 @@
                                     </kendo-formfield>
                                     <!----------------4Dp Generica &nbsp; --------->
                                     <kendo-formfield style="width: auto;" showHints="initial" showErrors="initial">
-                                      <kendo-textarea formControlName="CalfDp4form" [(ngModel)]="CalfDp4"
+                                      <kendo-textarea formControlName="CalfDp4form" [(ngModel)]="CalfDp4" [ngModelOptions]="{standalone: true}"
                                         [readonly]="true" resizable="auto" name="CalfDp4" flow="horizontal">
                                         <kendo-textarea-suffix>
                                           <button kendoButton type="button" class="suffix-clear-button" fillMode="clear"
@@ -1741,7 +1742,7 @@
                                     <!--------------------- 4Dp Ponderacion -------->
                                     <kendo-formfield style="width: auto;" showHints="initial" showErrors="initial">
                                       <kendo-textarea formControlName="ponDp4form" [readonly]="true"
-                                        [(ngModel)]="PonDp4" resizable="auto" name="PonDp4" flow="horizontal">
+                                        [(ngModel)]="PonDp4" [ngModelOptions]="{standalone: true}"resizable="auto" name="PonDp4" flow="horizontal">
                                         <kendo-textarea-suffix>
                                           <button kendoButton type="button" suffix-clear-button fillMode="clear"
                                             icon="edit" (click)="RespuestaDp4()" [disabled]="true">Ponderacion</button>
@@ -1784,7 +1785,7 @@
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
                                           <input required type="radio" class="custom-size" name="Dp5" value="9" #9
-                                            formControlName="Dp5" (click)="MethodTotalDp()" [(ngModel)]="Dp5Calf"
+                                            formControlName="Dp5"  [(ngModel)]="Dp5Calf"
                                             (click)="RespuestaDp5()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-3 d-flex flex-column align-items-left"
@@ -1797,7 +1798,7 @@
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
                                           <input required type="radio" class="custom-size" name="Dp5" value="6" #6
-                                            formControlName="Dp5" (click)="MethodTotalDp()" [(ngModel)]="Dp5Calf"
+                                            formControlName="Dp5"  [(ngModel)]="Dp5Calf"
                                             (click)="RespuestaDp5()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-6 d-flex flex-column align-items-left"
@@ -1810,7 +1811,7 @@
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
                                           <input required type="radio" class="custom-size" name="Dp5" value="3" #No
-                                            formControlName="Dp5" (click)="MethodTotalDp()" [(ngModel)]="Dp5Calf"
+                                            formControlName="Dp5"  [(ngModel)]="Dp5Calf"
                                             (click)="RespuestaDp5()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-3 d-flex flex-column align-items-left"
@@ -1834,8 +1835,8 @@
                                         <kendo-textarea-suffix>
                                           <button kendoButton type="button" class="suffix-clear-button" fillMode="clear"
                                             icon="close" (click)="clearValue5()"></button>
-                                          <button kendoButton type="button" class="suffix-clear-button" fillMode="clear"
-                                            icon="edit" (click)="RespuestaDp5()">Sin recomendaciones</button>
+                                          <!-- <button kendoButton type="button" class="suffix-clear-button" fillMode="clear"
+                                            icon="edit" (click)="RespuestaDp5()">Sin recomendaciones</button> -->
                                         </kendo-textarea-suffix>
                                       </kendo-textarea>
                                       <kendo-formhint style="font-weight: normal;" align="start">5 DP RE
@@ -1900,7 +1901,7 @@
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Dp6" value="9" #9
-                                        formControlName="Dp6" (click)="MethodTotalDp()" [(ngModel)]="Dp6Calf"
+                                        formControlName="Dp6"  [(ngModel)]="Dp6Calf"
                                         (click)="RespuestaDp6()" kendoRadioButton />
                                     </div>
                                     <div class="col-lg-3 d-flex flex-column align-items-left"
@@ -1912,7 +1913,7 @@
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Dp6" value="3" #No
-                                        formControlName="Dp6" (click)="MethodTotalDp()" [(ngModel)]="Dp6Calf"
+                                        formControlName="Dp6"  [(ngModel)]="Dp6Calf"
                                         (click)="RespuestaDp6()" kendoRadioButton />
                                     </div>
                                     <div class="col-lg-3 d-flex flex-column align-items-left"
@@ -1985,7 +1986,7 @@
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Dp7" value="9" #9
-                                        formControlName="Dp7" (click)="MethodTotalDp()" [(ngModel)]="Dp7Calf"
+                                        formControlName="Dp7"  [(ngModel)]="Dp7Calf"
                                         (click)="RespuestaDp7()" kendoRadioButton />
                                     </div>
                                     <div class="col-lg-3 d-flex flex-column align-items-left"
@@ -1997,7 +1998,7 @@
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Dp7" value="6" #6
-                                        formControlName="Dp7" (click)="MethodTotalDp()" [(ngModel)]="Dp7Calf"
+                                        formControlName="Dp7"  [(ngModel)]="Dp7Calf"
                                         (click)="RespuestaDp7()" kendoRadioButton />
                                     </div>
                                     <div class="col-lg-6 d-flex flex-column align-items-left"
@@ -2010,7 +2011,7 @@
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Dp7" value="3" #No
-                                        formControlName="Dp7" (click)="MethodTotalDp()" [(ngModel)]="Dp7Calf"
+                                        formControlName="Dp7"  [(ngModel)]="Dp7Calf"
                                         (click)="RespuestaDp7()" kendoRadioButton />
                                     </div>
                                     <div class="col-lg-3 d-flex flex-column align-items-left"
@@ -2085,7 +2086,7 @@
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Dp8" value="9" #9
-                                        formControlName="Dp8" (click)="MethodTotalDp()" [(ngModel)]="Dp8Calf"
+                                        formControlName="Dp8"  [(ngModel)]="Dp8Calf"
                                         (click)="RespuestaDp8()" kendoRadioButton />
                                     </div>
                                     <div class="col-lg-3 d-flex flex-column align-items-left"
@@ -2097,7 +2098,7 @@
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Dp8" value="6" #6
-                                        formControlName="Dp8" (click)="MethodTotalDp()" [(ngModel)]="Dp8Calf"
+                                        formControlName="Dp8"  [(ngModel)]="Dp8Calf"
                                         (click)="RespuestaDp8()" kendoRadioButton />
                                     </div>
                                     <div class="col-lg-6 d-flex flex-column align-items-left"
@@ -2110,7 +2111,7 @@
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Dp8" value="3" #No
-                                        formControlName="Dp8" (click)="MethodTotalDp()" [(ngModel)]="Dp8Calf"
+                                        formControlName="Dp8"  [(ngModel)]="Dp8Calf"
                                         (click)="RespuestaDp8()" kendoRadioButton />
                                     </div>
                                     <div class="col-lg-3 d-flex flex-column align-items-left"
@@ -2199,7 +2200,7 @@
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Dp9" value="9" #9
-                                        formControlName="Dp9" (click)="MethodTotalDp()" [(ngModel)]="Dp9Calf"
+                                        formControlName="Dp9"  [(ngModel)]="Dp9Calf"
                                         (click)="RespuestaDp9()" kendoRadioButton />
                                     </div>
                                     <div class="col-lg-3 d-flex flex-column align-items-left"
@@ -2211,7 +2212,7 @@
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Dp9" value="6" #6
-                                        formControlName="Dp9" (click)="MethodTotalDp()" [(ngModel)]="Dp9Calf"
+                                        formControlName="Dp9"  [(ngModel)]="Dp9Calf"
                                         (click)="RespuestaDp9()" kendoRadioButton />
                                     </div>
                                     <div class="col-lg-6 d-flex flex-column align-items-left"
@@ -2224,7 +2225,7 @@
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Dp9" value="3" #No
-                                        formControlName="Dp9" (click)="MethodTotalDp()" [(ngModel)]="Dp9Calf"
+                                        formControlName="Dp9"  [(ngModel)]="Dp9Calf"
                                         (click)="RespuestaDp9()" kendoRadioButton />
                                     </div>
                                     <div class="col-lg-3 d-flex flex-column align-items-left"
@@ -2299,7 +2300,7 @@
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Dp10" value="9" #9
-                                        formControlName="Dp10" (click)="MethodTotalDp()" [(ngModel)]="Dp10Calf"
+                                        formControlName="Dp10"  [(ngModel)]="Dp10Calf"
                                         (click)="RespuestaDp10()" kendoRadioButton />
                                     </div>
                                     <div class="col-lg-3 d-flex flex-column align-items-left"
@@ -2311,7 +2312,7 @@
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Dp10" value="6" #6
-                                        formControlName="Dp10" (click)="MethodTotalDp()" [(ngModel)]="Dp10Calf"
+                                        formControlName="Dp10"  [(ngModel)]="Dp10Calf"
                                         (click)="RespuestaDp10()" kendoRadioButton />
                                     </div>
                                     <div class="col-lg-7 d-flex flex-column align-items-left"
@@ -2324,7 +2325,7 @@
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Dp10" value="3" #No
-                                        formControlName="Dp10" (click)="MethodTotalDp()" [(ngModel)]="Dp10Calf"
+                                        formControlName="Dp10"  [(ngModel)]="Dp10Calf"
                                         (click)="RespuestaDp10()" kendoRadioButton />
                                     </div>
                                     <div class="col-lg-6 d-flex flex-column align-items-left"
@@ -2400,7 +2401,7 @@
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Dp11" value="9" #9
-                                        formControlName="Dp11" (click)="MethodTotalDp()" [(ngModel)]="Dp11Calf"
+                                        formControlName="Dp11"  [(ngModel)]="Dp11Calf"
                                         (click)="RespuestaDp11()" kendoRadioButton />
                                     </div>
                                     <div class="col-lg-3 d-flex flex-column align-items-left"
@@ -2412,7 +2413,7 @@
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Dp11" value="6" #6
-                                        formControlName="Dp11" (click)="MethodTotalDp()" [(ngModel)]="Dp11Calf"
+                                        formControlName="Dp11"  [(ngModel)]="Dp11Calf"
                                         (click)="RespuestaDp11()" kendoRadioButton />
                                     </div>
                                     <div class="col-lg-6 d-flex flex-column align-items-left"
@@ -2425,7 +2426,7 @@
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Dp11" value="3" #No
-                                        formControlName="Dp11" (click)="MethodTotalDp()" [(ngModel)]="Dp11Calf"
+                                        formControlName="Dp11"  [(ngModel)]="Dp11Calf"
                                         (click)="RespuestaDp11()" kendoRadioButton />
                                     </div>
                                     <div class="col-lg-3 d-flex flex-column align-items-left"
@@ -2499,7 +2500,7 @@
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Dp12" value="9" #9
-                                        formControlName="Dp12" (click)="MethodTotalDp()" [(ngModel)]="Dp12Calf"
+                                        formControlName="Dp12"  [(ngModel)]="Dp12Calf"
                                         (click)="RespuestaDp12()" kendoRadioButton />
                                     </div>
                                     <div class="col-lg-4 d-flex flex-column align-items-left"
@@ -2511,7 +2512,7 @@
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Dp12" value="6" #6
-                                        formControlName="Dp12" (click)="MethodTotalDp()" [(ngModel)]="Dp12Calf"
+                                        formControlName="Dp12"  [(ngModel)]="Dp12Calf"
                                         (click)="RespuestaDp12()" kendoRadioButton />
                                     </div>
                                     <div class="col-lg-6 d-flex flex-column align-items-left"
@@ -2523,7 +2524,7 @@
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Dp12" value="3" #No
-                                        formControlName="Dp12" (click)="MethodTotalDp()" [(ngModel)]="Dp12Calf"
+                                        formControlName="Dp12"  [(ngModel)]="Dp12Calf"
                                         (click)="RespuestaDp12()" kendoRadioButton />
                                     </div>
                                     <div class="col-lg-4 d-flex flex-column align-items-left"
@@ -2615,7 +2616,7 @@
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
                                           <input required type="radio" class="custom-size" name="Dp13" value="9" #9
-                                            formControlName="Dp13" (click)="MethodTotalDp()" [(ngModel)]="Dp13Calf"
+                                            formControlName="Dp13"  [(ngModel)]="Dp13Calf"
                                             (click)="RespuestaDp13()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-3 d-flex flex-column align-items-left"
@@ -2627,7 +2628,7 @@
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
                                           <input required type="radio" class="custom-size" name="Dp13" value="6" #6
-                                            formControlName="Dp13" (click)="MethodTotalDp()" [(ngModel)]="Dp13Calf"
+                                            formControlName="Dp13"  [(ngModel)]="Dp13Calf"
                                             (click)="RespuestaDp13()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-6 d-flex flex-column align-items-left"
@@ -2640,7 +2641,7 @@
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
                                           <input required type="radio" class="custom-size" name="Dp13" value="3" #No
-                                            formControlName="Dp13" (click)="MethodTotalDp()" [(ngModel)]="Dp13Calf"
+                                            formControlName="Dp13"  [(ngModel)]="Dp13Calf"
                                             (click)="RespuestaDp13()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-3 d-flex flex-column align-items-left"
@@ -2719,7 +2720,7 @@
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
                                           <input required type="radio" class="custom-size" name="Dp14" value="9" #9
-                                            formControlName="Dp14" (click)="MethodTotalDp()" [(ngModel)]="Dp14Calf"
+                                            formControlName="Dp14"  [(ngModel)]="Dp14Calf"
                                             (click)="RespuestaDp14()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-3 d-flex flex-column align-items-left"
@@ -2731,7 +2732,7 @@
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
                                           <input required type="radio" class="custom-size" name="Dp14" value="6" #6
-                                            formControlName="Dp14" (click)="MethodTotalDp()" [(ngModel)]="Dp14Calf"
+                                            formControlName="Dp14"  [(ngModel)]="Dp14Calf"
                                             (click)="RespuestaDp14()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-8 d-flex flex-column align-items-left"
@@ -2746,7 +2747,7 @@
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
                                           <input required type="radio" class="custom-size" name="Dp14" value="3" #No
-                                            formControlName="Dp14" (click)="MethodTotalDp()" [(ngModel)]="Dp14Calf"
+                                            formControlName="Dp14"  [(ngModel)]="Dp14Calf"
                                             (click)="RespuestaDp14()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-1 d-flex flex-column align-items-left"
@@ -2839,7 +2840,7 @@
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
                                           <input required type="radio" class="custom-size" name="Dp15" value="9" #9
-                                            formControlName="Dp15" (click)="MethodTotalDp()" [(ngModel)]="Dp15Calf"
+                                            formControlName="Dp15"  [(ngModel)]="Dp15Calf"
                                             (click)="RespuestaDp15()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-1 d-flex flex-column align-items-left"
@@ -2851,7 +2852,7 @@
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
                                           <input required type="radio" class="custom-size" name="Dp15" value="6" #6
-                                            formControlName="Dp15" (click)="MethodTotalDp()" [(ngModel)]="Dp15Calf"
+                                            formControlName="Dp15"  [(ngModel)]="Dp15Calf"
                                             (click)="RespuestaDp15()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-6 d-flex flex-column align-items-left"
@@ -2864,7 +2865,7 @@
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
                                           <input required type="radio" class="custom-size" name="Dp15" value="3" #No
-                                            formControlName="Dp15" (click)="MethodTotalDp()" [(ngModel)]="Dp15Calf"
+                                            formControlName="Dp15"  [(ngModel)]="Dp15Calf"
                                             (click)="RespuestaDp15()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-1 d-flex flex-column align-items-left"
@@ -2956,7 +2957,7 @@
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
                                           <input required type="radio" class="custom-size" name="Dp16" value="9" #9
-                                            formControlName="Dp16" (click)="MethodTotalDp()" [(ngModel)]="Dp16Calf"
+                                            formControlName="Dp16"  [(ngModel)]="Dp16Calf"
                                             (click)="RespuestaDp16()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-3 d-flex flex-column align-items-left"
@@ -2968,7 +2969,7 @@
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
                                           <input required type="radio" class="custom-size" name="Dp16" value="6" #6
-                                            formControlName="Dp16" (click)="MethodTotalDp()" [(ngModel)]="Dp16Calf"
+                                            formControlName="Dp16"  [(ngModel)]="Dp16Calf"
                                             (click)="RespuestaDp16()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-6 d-flex flex-column align-items-left"
@@ -2980,7 +2981,7 @@
                                       <div class="row pt-lg-0">
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
-                                          <input required type="radio" (click)="MethodTotalDp()" [(ngModel)]="Dp16Calf"
+                                          <input required type="radio"  [(ngModel)]="Dp16Calf"
                                             class="custom-size" name="Dp16" value="3" #No formControlName="Dp16"
                                             (click)="RespuestaDp16()" kendoRadioButton />
                                         </div>
@@ -3071,7 +3072,7 @@
                                       <div class="col-md-1 d-flex flex-column"
                                         style="padding-top: 1rem; margin-left: 1rem;">
                                         <input required type="radio" class="custom-size" name="Dp17" value="9" #9
-                                          formControlName="Dp17" (click)="MethodTotalDp()" [(ngModel)]="Dp17Calf"
+                                          formControlName="Dp17"  [(ngModel)]="Dp17Calf"
                                           (click)="RespuestaDp17()" kendoRadioButton />
                                       </div>
                                       <div class="col-lg-1 d-flex flex-column align-items-left"
@@ -3083,7 +3084,7 @@
                                       <div class="col-md-1 d-flex flex-column"
                                         style="padding-top: 1rem; margin-left: 1rem;">
                                         <input required type="radio" class="custom-size" name="Dp17" value="6" #6
-                                          formControlName="Dp17" (click)="MethodTotalDp()" [(ngModel)]="Dp17Calf"
+                                          formControlName="Dp17"  [(ngModel)]="Dp17Calf"
                                           (click)="RespuestaDp17()" kendoRadioButton />
                                       </div>
                                       <div class="col-lg-4 d-flex flex-column align-items-left"
@@ -3096,7 +3097,7 @@
                                       <div class="col-md-1 d-flex flex-column"
                                         style="padding-top: 1rem; margin-left: 1rem;">
                                         <input required type="radio" class="custom-size" name="Dp17" value="3" #3
-                                          formControlName="Dp17" (click)="MethodTotalDp()" [(ngModel)]="Dp17Calf"
+                                          formControlName="Dp17" [(ngModel)]="Dp17Calf"
                                           (click)="RespuestaDp17()" kendoRadioButton />
                                       </div>
                                       <div class="col-lg-1 d-flex flex-column align-items-left"
@@ -3185,7 +3186,7 @@
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
                                           <input required type="radio" class="custom-size" name="Dp18" value="9" #9
-                                            formControlName="Dp18" (click)="MethodTotalDp()" [(ngModel)]="Dp18Calf"
+                                            formControlName="Dp18"  [(ngModel)]="Dp18Calf"
                                             (click)="RespuestaDp18()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-2 d-flex flex-column align-items-left"
@@ -3197,7 +3198,7 @@
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
                                           <input required type="radio" class="custom-size" name="Dp18" value="6" #6
-                                            formControlName="Dp18" (click)="MethodTotalDp()" [(ngModel)]="Dp18Calf"
+                                            formControlName="Dp18"  [(ngModel)]="Dp18Calf"
                                             (click)="RespuestaDp18()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-5 d-flex flex-column align-items-left"
@@ -3211,7 +3212,7 @@
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
                                           <input required type="radio" class="custom-size" name="Dp18" value="3" #3
-                                            formControlName="Dp18" (click)="MethodTotalDp()" [(ngModel)]="Dp18Calf"
+                                            formControlName="Dp18"  [(ngModel)]="Dp18Calf"
                                             (click)="RespuestaDp18()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-2 d-flex flex-column align-items-left"
@@ -3304,7 +3305,7 @@
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
                                           <input required type="radio" class="custom-size" name="Dp19" value="9" #9
-                                            formControlName="Dp19" (click)="MethodTotalDp()" [(ngModel)]="Dp19Calf"
+                                            formControlName="Dp19"  [(ngModel)]="Dp19Calf"
                                             (click)="RespuestaDp19()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-2 d-flex flex-column align-items-left"
@@ -3316,7 +3317,7 @@
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
                                           <input required type="radio" class="custom-size" name="Dp19" value="6" #6
-                                            formControlName="Dp19" (click)="MethodTotalDp()" [(ngModel)]="Dp19Calf"
+                                            formControlName="Dp19"  [(ngModel)]="Dp19Calf"
                                             (click)="RespuestaDp19()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-6 d-flex flex-column align-items-left"
@@ -3329,7 +3330,7 @@
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
                                           <input required type="radio" class="custom-size" name="Dp19" value="3" #3
-                                            formControlName="Dp19" (click)="MethodTotalDp()" [(ngModel)]="Dp19Calf"
+                                            formControlName="Dp19" [(ngModel)]="Dp19Calf"
                                             (click)="RespuestaDp19()" kendoRadioButton />
                                         </div>
                                         <div class="col-lg-2 d-flex flex-column align-items-left"
@@ -3419,7 +3420,7 @@
                                       <div class="col-md-1 d-flex flex-column"
                                         style="padding-top: 1rem; margin-left: 1rem;">
                                         <input required type="radio" class="custom-size" name="Dp20" value="9" #9
-                                          formControlName="Dp20" (click)="MethodTotalDp()" [(ngModel)]="Dp20Calf"
+                                          formControlName="Dp20"  [(ngModel)]="Dp20Calf"
                                           (click)="RespuestaDp20()" kendoRadioButton />
                                       </div>
                                       <div class="col-lg-2 d-flex flex-column align-items-left"
@@ -3431,7 +3432,7 @@
                                       <div class="col-md-1 d-flex flex-column"
                                         style="padding-top: 1rem; margin-left: 1rem;">
                                         <input required type="radio" class="custom-size" name="Dp20" value="3" #No
-                                          formControlName="Dp20" (click)="MethodTotalDp()" [(ngModel)]="Dp20Calf"
+                                          formControlName="Dp20"  [(ngModel)]="Dp20Calf"
                                           (click)="RespuestaDp20()" kendoRadioButton />
                                       </div>
                                       <div class="col-lg-2 d-flex flex-column align-items-left"
@@ -3550,7 +3551,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir2" value="9" #9
                                         formControlName="Mir2" [(ngModel)]="Mir2Calf" (click)="RespuestaMir2()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -3562,7 +3563,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir2" value="3" #No
                                         formControlName="Mir2" [(ngModel)]="Mir2Calf" (click)="RespuestaMir2()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                       kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -3629,7 +3630,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir8" value="9" #9
                                         formControlName="Mir8" [(ngModel)]="Mir8Calf" (click)="RespuestaMir8()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -3641,7 +3642,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir8" value="6" #No
                                         formControlName="Mir8" [(ngModel)]="Mir8Calf" (click)="RespuestaMir8()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-4 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -3653,7 +3654,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir8" value="3" #No
                                         formControlName="Mir8" [(ngModel)]="Mir8Calf" (click)="RespuestaMir8()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -3718,7 +3719,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir13" value="9" #9
                                         formControlName="Mir13" [(ngModel)]="Mir13Calf" (click)="RespuestaMir13()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -3730,7 +3731,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir13" value="6" #No
                                         formControlName="Mir13" [(ngModel)]="Mir13Calf" (click)="RespuestaMir13()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                        kendoRadioButton />
                                     </div>
                                     <div class="col-lg-4 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -3742,7 +3743,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir13" value="3" #No
                                         formControlName="Mir13" [(ngModel)]="Mir13Calf" (click)="RespuestaMir13()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -3822,7 +3823,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir1" value="9" #9
                                         formControlName="Mir1" [(ngModel)]="Mir1Calf" (click)="RespuestaMir1()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -3834,7 +3835,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir1" value="3" #No
                                         formControlName="Mir1" [(ngModel)]="Mir1Calf" (click)="RespuestaMir1()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                        kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -3901,7 +3902,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir17" value="9" #9
                                         formControlName="Mir17" [(ngModel)]="Mir17Calf" (click)="RespuestaMir17()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -3913,7 +3914,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir17" value="6" #6
                                         formControlName="Mir17" [(ngModel)]="Mir17Calf" (click)="RespuestaMir17()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-4 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -3925,7 +3926,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir17" value="3" #3
                                         formControlName="Mir17" [(ngModel)]="Mir17Calf" (click)="RespuestaMir17()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -3998,7 +3999,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir6" value="9" #9
                                         formControlName="Mir6" [(ngModel)]="Mir6Calf" (click)="RespuestaMir6()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4010,7 +4011,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir6" value="3" #No
                                         formControlName="Mir6" [(ngModel)]="Mir6Calf" (click)="RespuestaMir6()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4077,7 +4078,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir18" value="9" #9
                                         formControlName="Mir18" [(ngModel)]="Mir18Calf" (click)="RespuestaMir18()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-3 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4089,7 +4090,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir18" value="6" #6
                                         formControlName="Mir18" [(ngModel)]="Mir18Calf" (click)="RespuestaMir18()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-3 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4101,7 +4102,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir18" value="3" #3
                                         formControlName="Mir18" [(ngModel)]="Mir18Calf" (click)="RespuestaMir18()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4168,7 +4169,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir7" value="9" #9
                                         formControlName="Mir7" [(ngModel)]="Mir7Calf" (click)="RespuestaMir7()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4180,7 +4181,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir7" value="3" #No
                                         formControlName="Mir7" [(ngModel)]="Mir7Calf" (click)="RespuestaMir7()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                        kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4245,7 +4246,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir19" value="9" #9
                                         formControlName="Mir19" [(ngModel)]="Mir19Calf" (click)="RespuestaMir19()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4257,7 +4258,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir19" value="3" #3
                                         formControlName="Mir19" [(ngModel)]="Mir19Calf" (click)="RespuestaMir19()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4325,7 +4326,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir12" value="9" #9
                                         formControlName="Mir12" [(ngModel)]="Mir12Calf" (click)="RespuestaMir12()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4337,7 +4338,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir12" value="6" #6
                                         formControlName="Mir12" [(ngModel)]="Mir12Calf" (click)="RespuestaMir12()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
 
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
@@ -4350,7 +4351,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir12" value="3" #3
                                         formControlName="Mir12" [(ngModel)]="Mir12Calf" (click)="RespuestaMir12()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4418,7 +4419,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir21" value="9" #9
                                         formControlName="Mir21" [(ngModel)]="Mir21Calf" (click)="RespuestaMir21()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4430,7 +4431,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir21" value="6" #6
                                         formControlName="Mir21" [(ngModel)]="Mir21Calf" (click)="RespuestaMir21()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                        kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4442,7 +4443,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir21" value="3" #3
                                         formControlName="Mir21" [(ngModel)]="Mir21Calf" (click)="RespuestaMir21()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4511,7 +4512,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir16" value="9" #9
                                         formControlName="Mir16" [(ngModel)]="Mir16Calf" (click)="RespuestaMir16()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4523,7 +4524,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir16" value="6" #No
                                         formControlName="Mir16" [(ngModel)]="Mir16Calf" (click)="RespuestaMir16()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4535,7 +4536,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir16" value="3" #No
                                         formControlName="Mir16" [(ngModel)]="Mir16Calf" (click)="RespuestaMir16()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4613,7 +4614,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir3" value="9" #9
                                         formControlName="Mir3" [(ngModel)]="Mir3Calf" (click)="RespuestaMir3()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-6 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; ">
@@ -4626,7 +4627,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir3" value="6" #6
                                         formControlName="Mir3" [(ngModel)]="Mir3Calf" (click)="RespuestaMir3()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-9 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem;">
@@ -4639,7 +4640,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir3" value="3" #3
                                         formControlName="Mir3" [(ngModel)]="Mir3Calf" (click)="RespuestaMir3()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-5 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem;">
@@ -4706,7 +4707,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir23" value="9" #9
                                         formControlName="Mir23" [(ngModel)]="Mir23Calf" (click)="RespuestaMir23()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4718,7 +4719,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir23" value="6" #6
                                         formControlName="Mir23" [(ngModel)]="Mir23Calf" (click)="RespuestaMir23()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4730,7 +4731,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir23" value="3" #3
                                         formControlName="Mir23" [(ngModel)]="Mir23Calf" (click)="RespuestaMir23()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4798,7 +4799,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir9" value="9" #9
                                         formControlName="Mir9" [(ngModel)]="Mir9Calf" (click)="RespuestaMir9()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-6 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4811,7 +4812,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir9" value="6" #6
                                         formControlName="Mir9" [(ngModel)]="Mir9Calf" (click)="RespuestaMir9()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-8 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4824,7 +4825,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir9" value="3" #3
                                         formControlName="Mir9" [(ngModel)]="Mir9Calf" (click)="RespuestaMir9()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                        kendoRadioButton />
                                     </div>
                                     <div class="col-lg-5 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4890,7 +4891,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir24" value="9" #9
                                         formControlName="Mir24" [(ngModel)]="Mir24Calf" (click)="RespuestaMir24()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4902,7 +4903,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir24" value="6" #6
                                         formControlName="Mir24" [(ngModel)]="Mir24Calf" (click)="RespuestaMir24()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4914,7 +4915,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir24" value="3" #3
                                         formControlName="Mir24" [(ngModel)]="Mir24Calf" (click)="RespuestaMir24()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4981,7 +4982,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir14" value="9" #9
                                         formControlName="Mir14" [(ngModel)]="Mir14Calf" (click)="RespuestaMir14()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                        kendoRadioButton />
                                     </div>
                                     <div class="col-lg-5 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -4994,7 +4995,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir14" value="6" #6
                                         formControlName="Mir14" [(ngModel)]="Mir14Calf" (click)="RespuestaMir14()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-8 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5007,7 +5008,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir14" value="3" #3
                                         formControlName="Mir14" [(ngModel)]="Mir14Calf" (click)="RespuestaMir14()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-5 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5071,7 +5072,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir25" value="9" #9
                                         formControlName="Mir25" [(ngModel)]="Mir25Calf" (click)="RespuestaMir25()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5083,7 +5084,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir25" value="6" #6
                                         formControlName="Mir25" [(ngModel)]="Mir25Calf" (click)="RespuestaMir25()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                        kendoRadioButton />
                                     </div>
                                     <div class="col-lg-5 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5095,7 +5096,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir25" value="3" #3
                                         formControlName="Mir25" [(ngModel)]="Mir25Calf" (click)="RespuestaMir25()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-5 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5173,7 +5174,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir4" value="9" #9
                                         formControlName="Mir4" [(ngModel)]="Mir4Calf" (click)="RespuestaMir4()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5183,9 +5184,9 @@
                                   <div class="row pt-lg-0">
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;">
-                                      <input required type="radio" class="custom-size" name="Mir4" value="3" #6
+                                      <input required type="radio" class="custom-size" name="Mir4" value="6" #6
                                         formControlName="Mir4" [(ngModel)]="Mir4Calf" (click)="RespuestaMir4()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-4 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5197,7 +5198,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir4" value="3" #3
                                         formControlName="Mir4" [(ngModel)]="Mir4Calf" (click)="RespuestaMir4()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5267,7 +5268,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir15" value="9" #9
                                         formControlName="Mir15" [(ngModel)]="Mir15Calf" (click)="RespuestaMir15()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5279,7 +5280,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir15" value="6" #6
                                         formControlName="Mir15" [(ngModel)]="Mir15Calf" (click)="RespuestaMir15()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                       kendoRadioButton />
                                     </div>
                                     <div class="col-lg-4 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5291,7 +5292,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir15" value="3" #3
                                         formControlName="Mir15" [(ngModel)]="Mir15Calf" (click)="RespuestaMir15()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5363,7 +5364,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir10" value="9" #9
                                         formControlName="Mir10" [(ngModel)]="Mir10Calf" (click)="RespuestaMir10()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5375,7 +5376,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir10" value="6" #6
                                         formControlName="Mir10" [(ngModel)]="Mir10Calf" (click)="RespuestaMir10()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-6 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5387,7 +5388,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir10" value="3" #3
                                         formControlName="Mir10" [(ngModel)]="Mir10Calf" (click)="RespuestaMir10()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-3 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5470,7 +5471,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir5" value="9" #9
                                         formControlName="Mir5" [(ngModel)]="Mir5Calf" (click)="RespuestaMir5()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5482,7 +5483,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir5" value="6" #6
                                         formControlName="Mir5" [(ngModel)]="Mir5Calf" (click)="RespuestaMir5()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-6 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5496,7 +5497,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir5" value="3" #3
                                         formControlName="Mir5" [(ngModel)]="Mir5Calf" (click)="RespuestaMir5()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5566,7 +5567,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir22" value="9" #9
                                         formControlName="Mir22" [(ngModel)]="Mir22Calf" (click)="RespuestaMir22()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-3 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5578,7 +5579,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir22" value="6" #6
                                         formControlName="Mir22" [(ngModel)]="Mir22Calf" (click)="RespuestaMir22()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-6 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5590,7 +5591,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir22" value="3" #3
                                         formControlName="Mir22" [(ngModel)]="Mir22Calf" (click)="RespuestaMir22()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-3 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5665,7 +5666,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir11" value="9" #9
                                         formControlName="Mir11" [(ngModel)]="Mir11Calf" (click)="RespuestaMir11()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-2 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5677,7 +5678,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir11" value="6" #6
                                         formControlName="Mir11" [(ngModel)]="Mir11Calf" (click)="RespuestaMir11()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                        kendoRadioButton />
                                     </div>
                                     <div class="col-lg-6 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5689,7 +5690,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir11" value="3" #3
                                         formControlName="Mir11" [(ngModel)]="Mir11Calf" (click)="RespuestaMir11()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-6 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5758,7 +5759,7 @@
                                     <div class="col-md-1 d-flex flex-column"
                                       style="padding-top: 1rem; margin-left: 1rem;"> <input required type="radio"
                                         class="custom-size" name="Mir26" value="9" #9 formControlName="Mir26"
-                                        [(ngModel)]="Mir26Calf" (click)="RespuestaMir26()" (click)="MethodTotalMir()"
+                                        [(ngModel)]="Mir26Calf" (click)="RespuestaMir26()" 
                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-3 d-flex flex-column align-items-left"
@@ -5771,7 +5772,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir26" value="6" #6
                                         formControlName="Mir26" [(ngModel)]="Mir26Calf" (click)="RespuestaMir26()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-6 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5783,7 +5784,7 @@
                                       style="padding-top: 1rem; margin-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir26" value="3" #3
                                         formControlName="Mir26" [(ngModel)]="Mir26Calf" (click)="RespuestaMir26()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                     </div>
                                     <div class="col-lg-3 d-flex flex-column align-items-left"
                                       style="padding-top: 1rem; margin-left: 1rem;">
@@ -5857,19 +5858,19 @@
                                       </kendo-badge-container>
                                       <input required type="radio" class="custom-size" name="Mir20" value="9" #9
                                         formControlName="Mir20" [(ngModel)]="Mir20Calf" (click)="RespuestaMir20()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                       <kendo-label class="k-radio-label" [for]="9">9.- Si </kendo-label>
                                     </li>
                                     <li class="k-radio-item" style="padding-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir20" value="6" #6
                                         formControlName="Mir20" [(ngModel)]="Mir20Calf" (click)="RespuestaMir20()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                         kendoRadioButton />
                                       <kendo-label class="k-radio-label" [for]="6">6.- Parcialmente</kendo-label>
                                     </li>
                                     <li class="k-radio-item" style="padding-left: 1rem;">
                                       <input required type="radio" class="custom-size" name="Mir20" value="3" #3
                                         formControlName="Mir20" [(ngModel)]="Mir20Calf" (click)="RespuestaMir20()"
-                                        (click)="MethodTotalMir()" kendoRadioButton />
+                                        kendoRadioButton />
                                       <kendo-label class="k-radio-label" [for]="3">3.- No</kendo-label>
                                     </li>
                                   </ul>

@@ -5,14 +5,14 @@
 export const environment = {
   production: false,
   firebaseDb : {
-    apiKey: "AIzaSyA_9YneBL1iVOeVgvy2epHAp35H0Kc2Jps",
-    authDomain: "dgp-database.firebaseapp.com",
-    databaseURL: "https://dgp-database-default-rtdb.firebaseio.com",
-    projectId: "dgp-database",
-    storageBucket: "dgp-database.appspot.com",
-    messagingSenderId: "847079238944",
-    appId: "1:847079238944:web:8195601b58a73843f7bb45",
-    measurementId: "G-VSJFXPL5VR"
+    apiKey: "AIzaSyB-tZfULiFEgdkFGmU0rlbFO7h44230aEA",
+  authDomain: "dpp-database.firebaseapp.com",
+  databaseURL: "https://dpp-database-default-rtdb.firebaseio.com",
+  projectId: "dpp-database",
+  storageBucket: "dpp-database.appspot.com",
+  messagingSenderId: "254791989219",
+  appId: "1:254791989219:web:ee8ba2cf9accb8606552d6",
+  measurementId: "G-21YC9BKVTZ"
   }
 };
 

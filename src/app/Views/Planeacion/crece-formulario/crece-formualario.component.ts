@@ -65,9 +65,7 @@ export class CreceFormualarioComponent implements OnInit, OnExit, AfterViewInit{
   private chart: ChartComponent;
   public graficos: Grafico[] = [];
   //public series: GroupResult[];
-
-
-
+ 
 
   //PDFViewer
   pdfSource = 'https://github.com/cabarronc/dpp/blob/master/src/assets/pdf/ManualMejora.pdf';
@@ -2659,7 +2657,7 @@ public Versiones: Array<string> = [
     this.RespuestaDp2();
     this.RespuestaDp3();
     this.RespuestaDp4();
-    this.RespuestaDp4();
+    this.Dp4Calf;
     
     
 
@@ -2977,6 +2975,50 @@ public Versiones: Array<string> = [
     else if (this.countElementsSi == undefined) {
       this.Dp1Calf = null;
     }
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
     console.log(this.elementos);
     console.log(this.elementosTrue);
     console.log(this.checked1);
@@ -3167,6 +3209,50 @@ public Versiones: Array<string> = [
     else if (this.year == undefined) {
       this.PonDp2 = null;
     }
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
     // else{
     //   this.PonDp2 = 0;
     // }
@@ -3183,6 +3269,50 @@ public Versiones: Array<string> = [
     }
     else if (this.depModelo == undefined) {
       this.PonDp3 = null;
+    }
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
     }
 
   }
@@ -3205,7 +3335,63 @@ public Versiones: Array<string> = [
         + "\nEsta recomendación se incluirá en el plan de mejora continua del Programa, su atención se considera deseable, pero no urgente.";
       this.PonDp4 = 0;
     }
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
+    // switch(this.Dp4Calf){
+    //   case 9: this.PonDp4 = 2, this.textAreaValueDp4="Sin recomendaciones",this.CalfDp4 = "La introducción del Diagnóstico es lo suficientemente clara para dar a conocer la problemática, como ésta será atendida y la justificación de la intervención de gobierno";
+    //   break;
+    //   case 6: this.PonDp4 = 1, this.CalfDp4 = "La introducción del Diagnóstico no es lo suficientemente clara para dar a conocer la problemática, como ésta será atendida y la justificación de la intervención de gobierno, en este apartado se espera un resumen ejecutivo."
+    //        + "\nEsta recomendación se incluirá en el plan de mejora continua del Programa, su atención se considera deseable, pero no urgente.";
+    //   break;
+    //   case 3: this.PonDp4=0, this.CalfDp4 = "La introducción del Diagnóstico no contiene los elementos necesarios que permitan identificar la problemática, su atención o la justificación del programa. Este apartado comprende un resumen ejecutivo del resto del documento."
+    //       + "\nEsta recomendación se incluirá en el plan de mejora continua del Programa, su atención se considera deseable, pero no urgente.";     
+      
+    // }
   }
+  
   //******************************PREGUNTA 5******************************************
   public RespuestaDp5(): void {
     if (this.Dp5Calf == 9) {
@@ -3214,18 +3400,62 @@ public Versiones: Array<string> = [
       this.PonDp5 = 10;
     }
     else if (this.Dp5Calf == 6) {
-      this.textAreaValueDp5 = "";
+      //this.textAreaValueDp5 = "";
       this.CalfDp5 = "Se considera que no se identifican todos los involucrados relacionados con la problemática, por lo que es necesario ampliar el análisis. "
         + "\nEste punto es muy relevante para el éxito del Programa presupuestario, ya que los involucrados pueden afectar los resultados del mismo."
         + "\nDada su importancia, esta recomendación será incluida en el plan de mejora continua del Programa.";
       this.PonDp5 = 5;
     }
     else if (this.Dp5Calf == 3) {
-      this.textAreaValueDp5 = "";
+      //this.textAreaValueDp5 = "";
       this.CalfDp5 = "Se considera que no se identifican los involucrados relacionados con la problemática, por lo que es necesario realizar el análisis."
         + "\nEste punto es muy relevante para el éxito del Programa presupuestario, ya que los involucrados pueden afectar los resultados del mismo."
         + "\nDada su importancia, esta recomendación será incluida en el plan de mejora continua del Programa.";
       this.PonDp5 = 0;
+    }
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
     }
   }
   //******************************PREGUNTA 6******************************************
@@ -3236,11 +3466,55 @@ public Versiones: Array<string> = [
       this.PonDp6 = 10;
     }
     else if (this.Dp6Calf == 3) {
-      this.textAreaValueDp6 = "";
+      //this.textAreaValueDp6 = "";
       this.CalfDp6 = "En lo que respecta a la problemática, el problema no se expresa claramente, por lo que es necesario replantearlo."
         + "\nEs importante considerar que para la definición del problema se requiere de la participación de todos los involucrados."
         + "\nEsta recomendación formará parte del plan de mejora continua del Programa, siendo su atención urgente, ya que es la base para el resto del diagnóstico.";
       this.PonDp6 = 0;
+    }
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
     }
   }
   //******************************PREGUNTA 7******************************************
@@ -3251,16 +3525,60 @@ public Versiones: Array<string> = [
       this.PonDp7 = 10;
     }
     else if (this.Dp7Calf == 6) {
-      this.textAreaValueDp7 = "";
+      //this.textAreaValueDp7 = "";
       this.CalfDp7 = "Las causas de la problemática se encuentran parcialmente documentadas, es necesario estructurar la información de manera lógica, así cómo ampliar la información cualitativa y cuantitativa que permita establecer una relación clara con el problema."
         + "\nEsta recomendación formará parte del plan de mejora continua del Programa, considerando su atención como urgente, ya que las causas impactan en la definición de los objetivos de la intervención.";
       this.PonDp7 = 5;
     }
     else if (this.Dp7Calf == 3) {
-      this.textAreaValueDp7 = "";
+     // this.textAreaValueDp7 = "";
       this.CalfDp7 = "Las causas de la problemática no se encuentran documentadas, es necesario incluir la información cualitativa y cuantitativa que sustente las causas del problema."
         + "\nEsta recomendación formará parte del plan de mejora continua del Programa, considerando su atención como urgente, ya que las causas impactan en la definición de los objetivos de la intervención.";
       this.PonDp7 = 0;
+    }
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
     }
   }
   //******************************PREGUNTA 8******************************************
@@ -3271,18 +3589,62 @@ public Versiones: Array<string> = [
       this.PonDp8 = 8;
     }
     else if (this.Dp8Calf == 6) {
-      this.textAreaValueDp8 = "";
+      //this.textAreaValueDp8 = "";
       this.CalfDp8 = "Se identifica que existen causas o efectos que no corresponden con el problema, por lo que es necesario verificar que las causas sean efectivamente el origen del problema y que los efectos resultan de éste. "
         + "\nEs importante considerar que para la elaboración del árbol de problemas se requiere de la participación de todos los involucrados."
         + "\nEsta recomendación formará parte del plan de mejora continua del Programa, considerando su atención como urgente, ya que las causas y efectos impactan en la definición de los objetivos de la intervención.";
       this.PonDp8 = 4;
     }
     else if (this.Dp8Calf == 3) {
-      this.textAreaValueDp8 = "";
+      //this.textAreaValueDp8 = "";
       this.CalfDp8 = "Se identifica que las causas o efectos no corresponden con la problemática, por lo que es necesario verificar que las causas sean efectivamente el origen del problema y que los efectos resultan de éste."
         + "\nEs importante considerar que para la elaboración del árbol de problemas se requiere de la participación de todos los involucrados. "
         + "\nEsta recomendación formará parte del plan de mejora continua del Programa, considerando su atención como urgente, ya que las causas y efectos impactan en la definición de los objetivos de la intervención.";
       this.PonDp8 = 0;
+    }
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
     }
   }
   //******************************PREGUNTA 9******************************************
@@ -3293,16 +3655,60 @@ public Versiones: Array<string> = [
       this.PonDp9 = 4;
     }
     else if (this.Dp9Calf == 6) {
-      this.textAreaValueDp9 = "";
+      //this.textAreaValueDp9 = "";
       this.CalfDp9 = "El Diagnóstico Particular incluye información histórica parcial sobre el cambio de la problemática a lo largo del tiempo, por lo que es necesario ampliar el análisis y su documentación."
         + "\nEsta recomendación formará parte del plan de mejora continua del Programa, ya que es importante conocer la tendencia de la problemática, su atención se considera relevante.";
       this.PonDp9 = 2;
     }
     else if (this.Dp9Calf == 3) {
-      this.textAreaValueDp9 = "";
+      //this.textAreaValueDp9 = "";
       this.CalfDp9 = "El Diagnóstico Particular no incluye información histórica que permita visualizar como ha cambiado la problemática a lo largo del tiempo, por lo que es necesario realizar el análisis e incluir esta información."
         + "\nEsta recomendación formará parte del plan de mejora continua del Programa, ya que es importante conocer la tendencia de la problemática, su atención se considera relevante.";
       this.PonDp9 = 0;
+    }
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
     }
   }
   //******************************PREGUNTA 10******************************************
@@ -3313,16 +3719,60 @@ public Versiones: Array<string> = [
       this.PonDp10 = 8;
     }
     else if (this.Dp10Calf == 6) {
-      this.textAreaValueDp10 = "";
+      //this.textAreaValueDp10 = "";
       this.CalfDp10 = "La situación actual del problema no está cuantificada, esta información permite conocer la magnitud o tamaño del problema en función de la población o área de enfoque, por lo que se requiere documentar."
       "\nEsta recomendación formará parte del plan de mejora continua del Programa, su atención se considera urgente ya que la situación actual nos permite medir los resultados del Programa.";
       this.PonDp10 = 4;
     }
     else if (this.Dp10Calf == 3) {
-      this.textAreaValueDp10 = "";
+      //this.textAreaValueDp10 = "";
       this.CalfDp10 = "La situación actual del problema no se presenta de manera clara, esta información debe estructurarse de forma que permita conocer la magnitud o tamaño del problema en función de la población o área de enfoque, por lo que se requiere documentar."
         + "\nEsta recomendación formará parte del plan de mejora continua del Programa, su atención se considera urgente ya que la situación actual nos permite medir los resultados del Programa.";
       this.PonDp10 = 0;
+    }
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
     }
   }
   //******************************PREGUNTA 11******************************************
@@ -3333,15 +3783,59 @@ public Versiones: Array<string> = [
       this.PonDp11 = 4;
     }
     else if (this.Dp11Calf == 6) {
-      this.textAreaValueDp11 = "";
+      //this.textAreaValueDp11 = "";
       this.CalfDp11 = "No aplica";
       this.PonDp11 = 2;
     }
     else if (this.Dp11Calf == 3) {
-      this.textAreaValueDp11 = "";
+      //this.textAreaValueDp11 = "";
       this.CalfDp11 = "No se cuenta, cuando menos, con dos niveles de causas."
         + "\nEsta recomendación formará parte del plan de mejora continua del Programa, su atención se considera urgente, para garantizar la correcta atención a la problemática.";
       this.PonDp11 = 0;
+    }
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
     }
   }
   //******************************PREGUNTA 12******************************************
@@ -3352,16 +3846,60 @@ public Versiones: Array<string> = [
       this.PonDp12 = 4;
     }
     else if (this.Dp12Calf == 6) {
-      this.textAreaValueDp12 = "";
+      //this.textAreaValueDp12 = "";
       this.CalfDp12 = "En lo que respecta al árbol de problemas, se considera que es necesario ampliar el análisis de la problemática para identificar un mayor número de causas que permitan identificar alternativas de solución."
         + "\nEsta recomendación formará parte del plan de mejora continua del Programa, su atención se considera relevante.";
       this.PonDp12 = 2;
     }
     else if (this.Dp12Calf == 3) {
-      this.textAreaValueDp12 = "";
+      //this.textAreaValueDp12 = "";
       this.CalfDp12 = "En lo que respecta al árbol de problemas, se considera que el análisis de la problemática no identifica todas las causas que dan origen al problema, por lo que es necesario ampliar el análisis y replantear el árbol de problemas."
       "\nEsta recomendación formará parte del plan de mejora continua del Programa, su atención se considera relevante.";
       this.PonDp12 = 0;
+    }
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
     }
   }
   //******************************PREGUNTA 13******************************************
@@ -3372,16 +3910,60 @@ public Versiones: Array<string> = [
       this.PonDp13 = 4;
     }
     else if (this.Dp13Calf == 6) {
-      this.textAreaValueDp13 = "";
+      //this.textAreaValueDp13 = "";
       this.CalfDp13 = "El análisis de corresponsabilidad no es claro para algunas relaciones causas-medios y efectos-fines, por lo que es necesario verificarlas. "
         + "\nEsta recomendación formará parte del plan de mejora continua del Programa, su atención se considera relevante.";
       this.PonDp13 = 2;
     }
     else if (this.Dp13Calf == 3) {
-      this.textAreaValueDp13 = "";
+      //this.textAreaValueDp13 = "";
       this.CalfDp13 = "La lógica del análisis de corresponsabilidad no es clara, por lo que se requiere verificar la relación entre causas-medios y efectos-fines."
         + "\nEsta recomendación formará parte del plan de mejora continua del Programa, su atención se considera relevante.";
       this.PonDp13 = 0;
+    }
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
     }
   }
   //******************************PREGUNTA 14******************************************
@@ -3392,16 +3974,60 @@ public Versiones: Array<string> = [
       this.PonDp14 = 4;
     }
     else if (this.Dp14Calf == 6) {
-      this.textAreaValueDp14 = "";
+      //this.textAreaValueDp14 = "";
       this.CalfDp14 = "Se considera que es necesario ampliar el análisis de las alternativas de solución, de acuerdo a las atribuciones normativas, factibilidad técnica, económica y ambiental, así como aquella que resulte pertinente, eficiente y eficaz."
         + "\nEsta recomendación formará parte del plan de mejora continua del Programa, ya que el análisis de alternativas permite identificar soluciones más eficientes, su atención se considera relevante.";
       this.PonDp14 = 2;
     }
     else if (this.Dp14Calf == 3) {
-      this.textAreaValueDp14 = "";
+      //this.textAreaValueDp14 = "";
       this.CalfDp14 = "En el diagnóstico no se presentan alternativas de solución, por lo que se requiere identificarlas y analizarlas de acuerdo a las atribuciones normativas, factibilidad técnica, económica y ambiental, así como aquella que resulte pertinente, eficiente y eficaz. "
         + "\nEsta recomendación formará parte del plan de mejora continua del Programa, ya que el análisis de alternativas permite identificar soluciones más eficientes, su atención se considera relevante.";
       this.PonDp14 = 0;
+    }
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
     }
   }
   //******************************PREGUNTA 15******************************************
@@ -3412,16 +4038,60 @@ public Versiones: Array<string> = [
       this.PonDp15 = 4;
     }
     else if (this.Dp15Calf == 6) {
-      this.textAreaValueDp15 = "";
+      //this.textAreaValueDp15 = "";
       this.CalfDp15 = "La estructura analítica del programa no es consistente con la información del análisis de alternativas, por lo que es necesario verificar el análisis de alternativas."
         + "\nEsta recomendación formará parte del plan de mejora continua del Programa, su atención se considera relevante.";
       this.PonDp15 = 2;
     }
     else if (this.Dp15Calf == 3) {
-      this.textAreaValueDp15 = "";
+      //this.textAreaValueDp15 = "";
       this.CalfDp15 = "No se presenta la estructura analítica del programa, por lo que es necesario actualizar el Diagnóstico Particular con esta información."
         + "\nEsta recomendación formará parte del plan de mejora continua del Programa, su atención se considera relevante.";
       this.PonDp15 = 0;
+    }
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
     }
   }
   //******************************PREGUNTA 16******************************************
@@ -3432,16 +4102,60 @@ public Versiones: Array<string> = [
       this.PonDp16 = 4;
     }
     else if (this.Dp16Calf == 6) {
-      this.textAreaValueDp16 = "";
+      //this.textAreaValueDp16 = "";
       this.CalfDp16 = "La información cualitativa y cuantitativa que se requiere para justificar los objetivos de la intervención se encuentra incompleta, por lo que es necesario ampliarla."
         + "\nEsta recomendación formará parte del plan de mejora continua del Programa, su atención se considera relevante.";
       this.PonDp16 = 2;
     }
     else if (this.Dp16Calf == 3) {
-      this.textAreaValueDp16 = "";
+      //this.textAreaValueDp16 = "";
       this.CalfDp16 = "No se presenta información cualitativa y cuantitativa que justifique los objetivos de la intervención, por lo que es necesario incluirla."
         + "\nEsta recomendación formará parte del plan de mejora continua del Programa, su atención se considera relevante.";
       this.PonDp16 = 0;
+    }
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
     }
   }
   //******************************PREGUNTA 17******************************************
@@ -3452,16 +4166,60 @@ public Versiones: Array<string> = [
       this.PonDp17 = 8;
     }
     else if (this.Dp17Calf == 6) {
-      this.textAreaValueDp17 = "";
+      //this.textAreaValueDp17 = "";
       this.CalfDp17 = "De acuerdo con el tipo de intervención, se presenta parcialmente la identificación y cuantificación de la población, por lo que es necesario complementarla."
         + "\nEsta recomendación formará parte del plan de mejora continua del Programa, su atención se considera urgente, ya que es necesario identificar y cuantificar la cobertura del programa.";
       this.PonDp17 = 4;
     }
     else if (this.Dp17Calf == 3) {
-      this.textAreaValueDp17 = "";
+      //this.textAreaValueDp17 = "";
       this.CalfDp17 = "De acuerdo con el tipo de intervención, no se identifica o cuantifica la población, por lo que se requiere incluir esta información."
         + "\nEsta recomendación formará parte del plan de mejora continua del Programa, su atención se considera urgente, ya que es necesario identificar y cuantificar la cobertura del programa.";
       this.PonDp17 = 0;
+    }
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
     }
   }
   //******************************PREGUNTA 18******************************************
@@ -3472,16 +4230,60 @@ public Versiones: Array<string> = [
       this.PonDp18 = 2;
     }
     else if (this.Dp18Calf == 6) {
-      this.textAreaValueDp18 = "";
+      //this.textAreaValueDp18 = "";
       this.CalfDp18 = "Se considera que se identifican parcialmente los programas complementarios, por lo que es necesario revisar los instrumentos de desarrollo y Ley de Presupuesto para identificar otros programas relacionados."
         + "\nEsta recomendación se integrará al plan de mejora continua del Programa.";
       this.PonDp18 = 1;
     }
     else if (this.Dp18Calf == 3) {
-      this.textAreaValueDp18 = "";
+      //this.textAreaValueDp18 = "";
       this.CalfDp18 = "No se identifican programas complementarios, por lo que es necesario revisar los instrumentos de desarrollo y Ley de Presupuesto para identificar otros programas relacionados."
       + "\nEsta recomendación se integrará al plan de mejora continua del Programa";
       this.PonDp18 = 0;
+    }
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
     }
   }
   //******************************PREGUNTA 19******************************************
@@ -3492,16 +4294,60 @@ public Versiones: Array<string> = [
       this.PonDp19 = 2;
     }
     else if (this.Dp19Calf == 6) {
-      this.textAreaValueDp19 = "";
+      //this.textAreaValueDp19 = "";
       this.CalfDp19 = "De acuerdo con la población objetivo, se identifica el tipo de beneficiario y algunos elementos que se requieren para la construcción del padrón de beneficiarios."
         + "\nEsta recomendación será registrada en el plan de mejora continua del Programa.";
       this.PonDp19 = 1;
     }
     else if (this.Dp19Calf == 3) {
-      this.textAreaValueDp19 = "";
+      //this.textAreaValueDp19 = "";
       this.CalfDp19 = "De acuerdo con la población objetivo, no se identifica el tipo de beneficiario o los elementos que se requieren para la construcción del padrón de beneficiarios."
         + "\nEsta recomendación será registrada en el plan de mejora continua del Programa.";
       this.PonDp19 = 0;
+    }
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
     }
   }
   //  //******************************PREGUNTA 20******************************************
@@ -3512,15 +4358,59 @@ public Versiones: Array<string> = [
       this.PonDp20 = 2;
     }
     else if (this.Dp20Calf == 6) {
-      this.textAreaValueDp20 = "";
+      //this.textAreaValueDp20 = "";
       this.CalfDp20 = "No aplica";
       this.PonDp20 = 1;
     }
     else if (this.Dp20Calf == 3) {
-      this.textAreaValueDp20 = "";
+      //this.textAreaValueDp20 = "";
       this.CalfDp20 = "No se presenta la MIR en el apartado correspondiente."
         + "\nEsta recomendación se integrará al plan de mejora continua del Programa.";
       this.PonDp20 = 0;
+    }
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
     }
   }
   //  //******************************PREGUNTA 1 MIR ******************************************
@@ -3537,7 +4427,7 @@ public Versiones: Array<string> = [
     }
 
     else if (this.Mir1Calf == 3) {
-      this.textAreaValueMir1 = "";
+      //this.textAreaValueMir1 = "";
       if (this.dep == "UG" || this.dep == "TJA" || this.dep == "PDH" || this.dep == "TEEG" || this.dep == "IEEG" || this.dep == "IACIP" || this.dep == "FGEG") {
         this.PonMir1 = 0;
       }
@@ -3545,6 +4435,52 @@ public Versiones: Array<string> = [
         this.PonMir1 = 0
       }
     }
+
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   //  //******************************PREGUNTA 2 MIR ******************************************
   public RespuestaMir2(): void {
@@ -3559,7 +4495,7 @@ public Versiones: Array<string> = [
     }
 
     else if (this.Mir2Calf == 3) {
-      this.textAreaValueMir2 = "";
+      //this.textAreaValueMir2 = "";
       if (this.dep == "UG" || this.dep == "TJA" || this.dep == "PDH" || this.dep == "TEEG" || this.dep == "IEEG" || this.dep == "IACIP" || this.dep == "FGEG") {
         this.PonMir2 = 0;
       }
@@ -3567,6 +4503,51 @@ public Versiones: Array<string> = [
         this.PonMir2 = 0
       }
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   // Seccion 3. Fin
   //  //******************************PREGUNTA 3 MIR ******************************************
@@ -3583,7 +4564,7 @@ public Versiones: Array<string> = [
       }
     }
     else if (this.Mir3Calf == 6) {
-      this.textAreaValueMir3 = "";
+      //this.textAreaValueMir3 = "";
       if (this.dep == "UG" || this.dep == "TJA" || this.dep == "PDH" || this.dep == "TEEG" || this.dep == "IEEG" || this.dep == "IACIP" || this.dep == "FGEG") {
         this.PonMir3 = 2;
       }
@@ -3592,7 +4573,7 @@ public Versiones: Array<string> = [
       }
     }
     else if (this.Mir3Calf == 3) {
-      this.textAreaValueMir3 = "";
+      //this.textAreaValueMir3 = "";
       if (this.dep == "UG" || this.dep == "TJA" || this.dep == "PDH" || this.dep == "TEEG" || this.dep == "IEEG" || this.dep == "IACIP" || this.dep == "FGEG") {
         this.PonMir3 = 0;
       }
@@ -3600,6 +4581,51 @@ public Versiones: Array<string> = [
         this.PonMir3 = 0
       }
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   // 4. Medios de verificación
   // 4 .-¿Los medios de verificación de los indicadores de nivel fin se encuentran totalmente
@@ -3612,13 +4638,58 @@ public Versiones: Array<string> = [
       this.PonMir4 = 2;
     }
     else if (this.Mir4Calf == 6) {
-      this.textAreaValueMir4 = "";
+      //this.textAreaValueMir4 = "";
       this.PonMir4 = 1;
     }
     else if (this.Mir4Calf == 3) {
-      this.textAreaValueMir4 = "";
+      //this.textAreaValueMir4 = "";
       this.PonMir4 = 0;
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   //5. Supuestos
   //5.-¿Si se contribuye al logro del Fin y se mantienen vigentes los Supuestos asociados a éste, se garantizará la sustentabilidad de losbeneficios del programa?
@@ -3630,11 +4701,11 @@ public Versiones: Array<string> = [
       this.PonMir5 = 4;
     }
     else if (this.Mir5Calf == 6) {
-      this.textAreaValueMir5 = "";
+      //this.textAreaValueMir5 = "";
       this.PonMir5 = 2;
     }
     else if (this.Mir5Calf == 3) {
-      this.textAreaValueMir5 = "";
+      //this.textAreaValueMir5 = "";
       this.PonMir5 = 0;
     }
   }
@@ -3654,7 +4725,7 @@ public Versiones: Array<string> = [
     }
 
     else if (this.Mir6Calf == 3) {
-      this.textAreaValueMir6 = "";
+      //this.textAreaValueMir6 = "";
       if (this.dep == "UG" || this.dep == "TJA" || this.dep == "PDH" || this.dep == "TEEG" || this.dep == "IEEG" || this.dep == "IACIP" || this.dep == "FGEG") {
         this.PonMir6 = 0;
       }
@@ -3662,6 +4733,51 @@ public Versiones: Array<string> = [
         this.PonMir6 = 0
       }
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   // Seccion 2. Objetivos
   // 7.- ¿La redacción del propósito es consistente con la población objetivo identificada en el DxP?
@@ -3679,7 +4795,7 @@ public Versiones: Array<string> = [
     }
 
     else if (this.Mir7Calf == 3) {
-      this.textAreaValueMir7 = "";
+      //this.textAreaValueMir7 = "";
       if (this.dep == "UG" || this.dep == "TJA" || this.dep == "PDH" || this.dep == "TEEG" || this.dep == "IEEG" || this.dep == "IACIP" || this.dep == "FGEG") {
         this.PonMir7 = 0;
       }
@@ -3687,6 +4803,51 @@ public Versiones: Array<string> = [
         this.PonMir7 = 0
       }
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   // Seccion 1. Alineacion Estrategica
   // 8.- ¿La MIR cuenta los indicadores publicados en el PG 18-24 que corresponde de acuerdo con el pre análisis entregado a la dependencia?
@@ -3704,7 +4865,7 @@ public Versiones: Array<string> = [
 
     }
     else if (this.Mir8Calf == 6) {
-      this.textAreaValueMir8 = "";
+      //this.textAreaValueMir8 = "";
       if (this.dep == "UG" || this.dep == "TJA" || this.dep == "PDH" || this.dep == "TEEG" || this.dep == "IEEG" || this.dep == "IACIP" || this.dep == "FGEG") {
         this.PonMir8 = 0;
       }
@@ -3713,7 +4874,7 @@ public Versiones: Array<string> = [
       }
     }
     else if (this.Mir8Calf == 3) {
-      this.textAreaValueMir8 = "";
+      //this.textAreaValueMir8 = "";
       if (this.dep == "UG" || this.dep == "TJA" || this.dep == "PDH" || this.dep == "TEEG" || this.dep == "IEEG" || this.dep == "IACIP" || this.dep == "FGEG") {
         this.PonMir8 = 0;
       }
@@ -3721,6 +4882,51 @@ public Versiones: Array<string> = [
         this.PonMir8 = 0
       }
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   //Seccion 3. Indicadores
   //.-¿Los indicadores permiten medir el objetivo planteado en el resumen narrativo de nivel propósito?
@@ -3732,13 +4938,58 @@ public Versiones: Array<string> = [
       this.PonMir9 = 4
     }
     else if (this.Mir9Calf == 6) {
-      this.textAreaValueMir9 = "";
+      //this.textAreaValueMir9 = "";
       this.PonMir9 = 2
     }
     else if (this.Mir9Calf == 3) {
-      this.textAreaValueMir9 = "";
+      //this.textAreaValueMir9 = "";
       this.PonMir9 = 0
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   //4. Medios de verificación
   //10.- ¿Los medios de verificación de los indicadores de nivel propósito están totalmente documentados?
@@ -3750,13 +5001,58 @@ public Versiones: Array<string> = [
       this.PonMir10 = 2
     }
     else if (this.Mir10Calf == 6) {
-      this.textAreaValueMir10 = "";
+      //this.textAreaValueMir10 = "";
       this.PonMir10 = 1
     }
     else if (this.Mir10Calf == 3) {
-      this.textAreaValueMir10 = "";
+      //this.textAreaValueMir10 = "";
       this.PonMir10 = 0
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   // 5. Supuestos
   // 11.- ¿Si se logra el Propósito del Pp y se cumplen los Supuestos asociados a éste, se contribuirá al logro del Fin?
@@ -3768,13 +5064,58 @@ public Versiones: Array<string> = [
       this.PonMir11 = 4
     }
     else if (this.Mir11Calf == 6) {
-      this.textAreaValueMir11 = "";
+      //this.textAreaValueMir11 = "";
       this.PonMir11 = 2
     }
     else if (this.Mir11Calf == 3) {
-      this.textAreaValueMir11 = "";
+      //this.textAreaValueMir11 = "";
       this.PonMir11 = 0
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   // Seccion 2. Objetivos
   //12.- ¿A nivel componente, se describen claramente los Productos terminados o Servicios proporcionados, seguidos de Verbo en pasado participio?
@@ -3786,13 +5127,58 @@ public Versiones: Array<string> = [
       this.PonMir12 = 4;
     }
     else if (this.Mir12Calf == 6) {
-      this.textAreaValueMir12 = "";
+     // this.textAreaValueMir12 = "";
       this.PonMir12 = 2;
     }
     else if (this.Mir12Calf == 3) {
-      this.textAreaValueMir12 = "";
+      //this.textAreaValueMir12 = "";
       this.PonMir12 = 0;
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   // Seccion 1. Alineación estratégica
   //13.- ¿La MIR incluye los indicadores publicados en los Programas Sectoriales que corresponde de acuerdo con el pre análisis entregado a la dependencia?
@@ -3809,7 +5195,7 @@ public Versiones: Array<string> = [
       }
     }
     else if (this.Mir13Calf == 6) {
-      this.textAreaValueMir13 = "";
+      //this.textAreaValueMir13 = "";
       if (this.dep == "UG" || this.dep == "TJA" || this.dep == "PDH" || this.dep == "TEEG" || this.dep == "IEEG" || this.dep == "IACIP" || this.dep == "FGEG") {
         this.PonMir13 = 0;
       }
@@ -3818,7 +5204,7 @@ public Versiones: Array<string> = [
       }
     }
     else if (this.Mir13Calf == 3) {
-      this.textAreaValueMir13 = "";
+      //this.textAreaValueMir13 = "";
       if (this.dep == "UG" || this.dep == "TJA" || this.dep == "PDH" || this.dep == "TEEG" || this.dep == "IEEG" || this.dep == "IACIP" || this.dep == "FGEG") {
         this.PonMir13 = 0;
       }
@@ -3826,6 +5212,51 @@ public Versiones: Array<string> = [
         this.PonMir13 = 0
       }
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   //Seccion 3. Indicadores
   //¿Los indicadores permiten medir el objetivo planteado en el resumen narrativo a nivel componente?
@@ -3837,11 +5268,11 @@ public Versiones: Array<string> = [
       this.PonMir14 = 4
     }
     else if (this.Mir14Calf == 6) {
-      this.textAreaValueMir14 = "";
+      //this.textAreaValueMir14 = "";
       this.PonMir14 = 2
     }
     else if (this.Mir14Calf == 3) {
-      this.textAreaValueMir14 = "";
+      //this.textAreaValueMir14 = "";
       this.PonMir14 = 0
     }
   }
@@ -3855,13 +5286,58 @@ public Versiones: Array<string> = [
       this.PonMir15 = 2
     }
     else if (this.Mir15Calf == 6) {
-      this.textAreaValueMir15 = "";
+      //this.textAreaValueMir15 = "";
       this.PonMir15 = 1
     }
     else if (this.Mir15Calf == 3) {
-      this.textAreaValueMir15 = "";
+      //this.textAreaValueMir15 = "";
       this.PonMir15 = 0
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   // Secion 2. Objetivos
   //¿Cuál es el número de entregables máximo que tienen los componentes?
@@ -3873,13 +5349,58 @@ public Versiones: Array<string> = [
       this.PonMir16 = 2
     }
     else if (this.Mir16Calf == 6) {
-      this.textAreaValueMir16 = "";
+      //this.textAreaValueMir16 = "";
       this.PonMir16 = 1
     }
     else if (this.Mir16Calf == 3) {
-      this.textAreaValueMir16 = "";
+      //this.textAreaValueMir16 = "";
       this.PonMir16 = 0
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   //Seccion 2. Objetivos
   //¿Los entregables de componente son consistentes con el objetivo?
@@ -3891,13 +5412,58 @@ public Versiones: Array<string> = [
       this.PonMir17 = 4
     }
     else if (this.Mir17Calf == 6) {
-      this.textAreaValueMir17 = "";
+      //this.textAreaValueMir17 = "";
       this.PonMir17 = 2
     }
     else if (this.Mir17Calf == 3) {
-      this.textAreaValueMir17 = "";
+      //this.textAreaValueMir17 = "";
       this.PonMir17 = 0
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   // Seccion 2 Objetivos
   // 18.- ¿Qué porcentaje de los entregables de componente se replican en los entregables de las actividades?
@@ -3909,13 +5475,58 @@ public Versiones: Array<string> = [
       this.PonMir18 = 4
     }
     else if (this.Mir18Calf == 6) {
-      this.textAreaValueMir18 = "";
+      //this.textAreaValueMir18 = "";
       this.PonMir18 = 2
     }
     else if (this.Mir18Calf == 3) {
-      this.textAreaValueMir18 = "";
+      //this.textAreaValueMir18 = "";
       this.PonMir18 = 0
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   // Seccion 2 Objetivos
   // 19.- ¿Todos los componentes tienen actividades asociadas?
@@ -3928,9 +5539,54 @@ public Versiones: Array<string> = [
     }
 
     else if (this.Mir19Calf == 3) {
-      this.textAreaValueMir19 = "";
+      //this.textAreaValueMir19 = "";
       this.PonMir19 = 0
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   // Seccion 5. Supuestos
   // ¿Si se producen los componentes y se cumplen con los supuestos asociados a éstos, se logrará el Propósito del Pp?
@@ -3942,13 +5598,58 @@ public Versiones: Array<string> = [
       this.PonMir20 = 4
     }
     else if (this.Mir20Calf == 6) {
-      this.textAreaValueMir20 = "";
+      //this.textAreaValueMir20 = "";
       this.PonMir20 = 2
     }
     else if (this.Mir20Calf == 3) {
-      this.textAreaValueMir20 = "";
+      //this.textAreaValueMir20 = "";
       this.PonMir20 = 0
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   //Seccion 2. Objetivo
   //21. ¿Las actividades se describen como sustantivo derivado de verbo, seguido del complemento?
@@ -3960,13 +5661,58 @@ public Versiones: Array<string> = [
       this.PonMir21 = 2
     }
     else if (this.Mir21Calf == 6) {
-      this.textAreaValueMir21 = "";
+     //this.textAreaValueMir21 = "";
       this.PonMir21 = 1
     }
     else if (this.Mir21Calf == 3) {
-      this.textAreaValueMir21 = "";
+      //this.textAreaValueMir21 = "";
       this.PonMir21 = 0
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   //Seccion 5. Supuestos
   //22. ¿Si se completan las Actividades programadas y se cumplen con los Supuestos asociados a éstas, se lograrán producir los componentes?
@@ -3978,13 +5724,58 @@ public Versiones: Array<string> = [
       this.PonMir22 = 4
     }
     else if (this.Mir22Calf == 6) {
-      this.textAreaValueMir22 = "";
+      //this.textAreaValueMir22 = "";
       this.PonMir22 = 2
     }
     else if (this.Mir22Calf == 3) {
-      this.textAreaValueMir22 = "";
+      //this.textAreaValueMir22 = "";
       this.PonMir22 = 0
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   //5.- Indicadores
   //¿Las fechas de disponibilidad de la información de indicadores son consistentes?
@@ -3996,13 +5787,58 @@ public Versiones: Array<string> = [
       this.PonMir23 = 2
     }
     else if (this.Mir23Calf == 6) {
-      this.textAreaValueMir23 = "";
+      //this.textAreaValueMir23 = "";
       this.PonMir23 = 1
     }
     else if (this.Mir23Calf == 3) {
-      this.textAreaValueMir23 = "";
+      //this.textAreaValueMir23 = "";
       this.PonMir23 = 0
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   //Seccion 3. Indicadores
   //¿Porcentaje de indicadores que tienen un plan de mejora autogestiva? para todos los niveles
@@ -4014,13 +5850,58 @@ public Versiones: Array<string> = [
       this.PonMir24 = 4
     }
     else if (this.Mir24Calf == 6) {
-      this.textAreaValueMir24 = "";
+      //this.textAreaValueMir24 = "";
       this.PonMir24 = 2
     }
     else if (this.Mir24Calf == 3) {
-      this.textAreaValueMir24 = "";
+      //this.textAreaValueMir24 = "";
       this.PonMir24 = 0
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   //Seccion 3. Indicadores
   //¿El algoritmo de los indicadores es congruente con su definición y unidad de medida?
@@ -4037,7 +5918,7 @@ public Versiones: Array<string> = [
       }
     }
     else if (this.Mir25Calf == 6) {
-      this.textAreaValueMir25 = "";
+      //this.textAreaValueMir25 = "";
       if (this.dep == "UG" || this.dep == "TJA" || this.dep == "PDH" || this.dep == "TEEG" || this.dep == "IEEG" || this.dep == "IACIP" || this.dep == "FGEG") {
         this.PonMir25 = 5;
       }
@@ -4046,7 +5927,7 @@ public Versiones: Array<string> = [
       }
     }
     else if (this.Mir25Calf == 3) {
-      this.textAreaValueMir25 = "";
+      //this.textAreaValueMir25 = "";
       if (this.dep == "UG" || this.dep == "TJA" || this.dep == "PDH" || this.dep == "TEEG" || this.dep == "IEEG" || this.dep == "IACIP" || this.dep == "FGEG") {
         this.PonMir25 = 0;
       }
@@ -4054,6 +5935,51 @@ public Versiones: Array<string> = [
         this.PonMir25 = 0
       }
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   //Seccion 5. supuestos
   //¿Existen supuestos que cumplen con los criterios de ser situaciones externas y de probabilidad media para cada uno de los niveles de la MIR?
@@ -4065,13 +5991,58 @@ public Versiones: Array<string> = [
       this.PonMir26 = 4
     }
     else if (this.Mir26Calf == 6) {
-      this.textAreaValueMir26 = "";
+      //this.textAreaValueMir26 = "";
       this.PonMir26 = 2
     }
     else if (this.Mir26Calf == 3) {
-      this.textAreaValueMir26 = "";
+      //this.textAreaValueMir26 = "";
       this.PonMir26 = 0
     }
+    this.TotalMir = this.PonMir1 + this.PonMir2 + this.PonMir3 + this.PonMir4 + this.PonMir5 + this.PonMir6 + this.PonMir7 + this.PonMir8 + this.PonMir9 + this.PonMir10 + this.PonMir11 + this.PonMir12 + this.PonMir13 + this.PonMir14 + this.PonMir15 + this.PonMir16 + this.PonMir17 + this.PonMir18 + this.PonMir19 + this.PonMir20 + this.PonMir21 + this.PonMir22 + this.PonMir23 + this.PonMir24 + this.PonMir25 + this.PonMir26;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalMir) {
+      case 50: this.updateAppearancetwo("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearancetwo("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearancetwo("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+
   }
   //----------------------------------------------------------------------------------------------
   //--------------------------------CATALOGOS DE DROPLIST-----------------------------------------
