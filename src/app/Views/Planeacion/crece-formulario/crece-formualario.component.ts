@@ -494,7 +494,8 @@ public Versiones: Array<string> = [
   public PonDp2: number = 0;
   public PonDp3: number = 0;
   public CalGlob: number;
-  public Dp4Calf: any;
+  public Dp4Calf: number;
+  
   public CalfDp4: string = "";
   public PonDp4: number = 0;
 
@@ -1182,6 +1183,7 @@ public Versiones: Array<string> = [
         console.log(error);
       })
   }
+  
   GetNombrePp() {
     if (this.pp == "E001") {
       this.NombrePp = "Acceso a la información pública del Estado de Guanajuato";
@@ -1220,7 +1222,7 @@ public Versiones: Array<string> = [
     }
     else if (this.pp == "E008") {
       this.NombrePp = "Atención integral a niñas, niños y adolescentes";
-      this.ListDepPar = "SEG, DIF, PEPNNA";
+      this.ListDepPar = "SG, DIF, PEPNNA";
       this.dep = "SG";
     }
     else if (this.pp == "E009") {
@@ -1260,7 +1262,7 @@ public Versiones: Array<string> = [
     }
     else if (this.pp == "E018") {
       this.NombrePp = "Cobertura en Educación Básica";
-      this.ListDepPar ="SEG, SICOM";
+      this.ListDepPar ="SEG";
       this.dep = "SEG";
     }
     else if (this.pp == "E020") {
@@ -1300,7 +1302,7 @@ public Versiones: Array<string> = [
     }
     else if (this.pp == "E030") {
       this.NombrePp = "Efectividad del sector de procuración de justicia";
-      this.ListDepPar ="FGEG, SEG, DIF";
+      this.ListDepPar ="FGEG, SEG";
       this.dep = "FGEG";
     }
     else if (this.pp == "E031") {
@@ -1310,7 +1312,7 @@ public Versiones: Array<string> = [
     }
     else if (this.pp == "E032") {
       this.NombrePp = "Eficiencia de la justicia laboral";
-      this.ListDepPar ="SG";
+      this.ListDepPar ="SG, CCL";
       this.dep = "SG";
     }
     else if (this.pp == "E035") {
@@ -1520,7 +1522,7 @@ public Versiones: Array<string> = [
     }
     else if (this.pp == "P003") {
       this.NombrePp = "Desarrollo regional, urbano y ordenamiento ecológico territorial";
-      this.ListDepPar = "SMAOT, IPLANEG, COVEG, SDSH";
+      this.ListDepPar = "SMAOT, IPLANEG, SDSH";
       this.dep = "SMAOT";
     }
     else if (this.pp == "P004") {
@@ -1540,7 +1542,7 @@ public Versiones: Array<string> = [
     }
     else if (this.pp == "P010") {
       this.NombrePp = "Sistema integral de movilidad";
-      this.ListDepPar = "SICOM,IPLANEG, SSP, SG";
+      this.ListDepPar = "SICOM, SSP, SG";
       this.dep = "SICOM";
     }
     else if (this.pp == "P011") {
@@ -1571,7 +1573,7 @@ public Versiones: Array<string> = [
     else if (this.pp == "R006") {
       this.NombrePp = "Coordinación de la Gestión Gubernamental";
       this.ListDepPar = "JEGAPE";
-      this.dep = "JEPAPE";
+      this.dep = "JEGAPE";
     }
     else if (this.pp == "R007") {
       this.NombrePp = "Comunicación social";
@@ -1583,7 +1585,7 @@ public Versiones: Array<string> = [
       this.ListDepPar = "SFIA";
       this.dep = "SFIA";
     }
-    else if (this.pp == "R009") {
+    else if (this.pp == "J001") {
       this.NombrePp = "Garantizar el otorgamiento y pago de seguros y prestaciones de los afiliados del ISSEG";
       this.ListDepPar = "ISSEG";
       this.dep = "ISSEG";
@@ -1605,7 +1607,7 @@ public Versiones: Array<string> = [
     }
     else if (this.pp == "S010") {
       this.NombrePp = "Cadena de valor y fortalecimiento de la productividad";
-      this.ListDepPar = "SDES, FOFIES, FOGIM, STyRC";
+      this.ListDepPar = "SDES, FOFIES, FOGIM";
       this.dep = "SDES";
     }
     else if (this.pp == "S011") {
@@ -1615,7 +1617,7 @@ public Versiones: Array<string> = [
     }
     else if (this.pp == "S016") {
       this.NombrePp = "Investigación, desarrollo tecnológico, transferencia de tecnología e innovación";
-      this.ListDepPar = "IDEA GTO, UTNG, ITESS, UTL";
+      this.ListDepPar = "IDEA GTO, UPGTO, UTNG, ITESS, UTL, ITESA, ITESI, ITESG, UPPE, UPB";
       this.dep = "IDEA GTO";
     }
     else if (this.pp == "S018") {
@@ -1624,7 +1626,7 @@ public Versiones: Array<string> = [
       this.dep = "SDES";
     }
     else if (this.pp == "S019") {
-      this.NombrePp = "Impulso a la infraestructura y servicios para el desarrollo comunitario y regional";
+      this.NombrePp = "Fortalecimiento de la infraestructura y servicios para el desarrollo comunitario y regional";
       this.ListDepPar = "SDSH";
       this.dep = "SDSH";
     }
@@ -1642,6 +1644,16 @@ public Versiones: Array<string> = [
       this.NombrePp = "Este Programa es Dummy";
       this.ListDepPar = "Dependencia Dummy";
       this.dep = "DD";
+    }
+    else if (this.pp == "O007") {
+      this.NombrePp = "Consolidación de un Guanajuato Íntegro desde el Servicio Público";
+      this.ListDepPar = "STRC";
+      this.dep = "STRC";
+    }
+    else if (this.pp == "O008") {
+      this.NombrePp = "Consolidación de una gestión pública abierta, transparente y cercana a la ciudadanía";
+      this.ListDepPar = "STRC";
+      this.dep = "STRC";
     }
 
 
@@ -6079,19 +6091,362 @@ public Versiones: Array<string> = [
 
     return json;
   }
-  // public parseObjectDates(target: any): any {
-  //   const result = Object.assign({}, target);
+  public selectionChange4dp(value: any): void {
+    
+    if (value == "9") {
+      this.textAreaValueDp4 = "Sin recomendaciones";
+      this.CalfDp4 = "La introducción del Diagnóstico es lo suficientemente clara para dar a conocer la problemática, como ésta será atendida y la justificación de la intervención de gobierno";
+      this.PonDp4 = 2;
+    }
+    else if (value == "6") {
+      //this.textAreaValueDp4 = "";
+      this.CalfDp4 = "La introducción del Diagnóstico no es lo suficientemente clara para dar a conocer la problemática, como ésta será atendida y la justificación de la intervención de gobierno, en este apartado se espera un resumen ejecutivo."
+        + "\nEsta recomendación se incluirá en el plan de mejora continua del Programa, su atención se considera deseable, pero no urgente.";
+      this.PonDp4 = 1;
+    }
+    else if (value== "3") {
+      //this.textAreaValueDp4 = "";
+      this.CalfDp4 = "La introducción del Diagnóstico no contiene los elementos necesarios que permitan identificar la problemática, su atención o la justificación del programa. Este apartado comprende un resumen ejecutivo del resto del documento."
+        + "\nEsta recomendación se incluirá en el plan de mejora continua del Programa, su atención se considera deseable, pero no urgente.";
+      this.PonDp4 = 0;
+    }
+    console.log("valueChange",value);
 
-  //   Object.keys(result).forEach((key) => {
-  //     const date = new Date(result[key]);
-  //     if (!isNaN(date.getTime())) {
-  //       result[key] = date;
-  //     }
-  //   });
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
 
-  //   return result;
-  // }
 
+    }
+
+
+  }
+  public selectionChange2(value: any): void {
+    
+    if (value == 2023 ) {
+      this.PonDp2 = 4;
+    }
+    else if ( value == 2022  ) {
+      this.PonDp2 = 2;
+    }
+    else if (value <= 2021 ) {
+      this.PonDp2 = 0;
+    }
+    else if (value == undefined) {
+      this.PonDp2 = null;
+    }
+    console.log("valueChange",value);
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+  }
+// Pregunta 3
+  public selectionChange3(value: any): void {
+    if (value == "Si") {
+      this.PonDp3 = 2;
+    }
+    else if (value == "Parcialmente") {
+      this.PonDp3 = 1;
+    }
+    else if (value == "No") {
+      this.PonDp3 = 0;
+    }
+    else if (value == undefined) {
+      this.PonDp3 = null;
+    }
+    
+   
+    console.log("valueChange",value);
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+  }
+//Pregunta 1
+  public selectionChange4(value: any): void {
+    this.elementos = [
+      this.checked1,
+      this.checked2,
+      this.checked3,
+      this.checked4,
+      this.checked5,
+      this.checked6,
+      this.checked7,
+      this.checked8,
+      this.checked9,
+      this.checked10,
+      this.checked11,
+      this.checked12,
+      this.checked13,
+      this.checked14,
+      this.checked15,
+      this.checked16,
+      this.checked17,
+      this.checked18,
+      this.checked19,
+      this.checked20,
+      this.checked21,
+      this.checked22,
+      this.checked23,
+      this.checked24
+    ];
+    this.elementosTrue = this.elementos.filter(element => element == true)
+    this.elementosFalse = this.elementos.filter(element => element == false)
+    //var length = this.elementos.length;
+    // for (var i = 0; i < this.elementos.length; i++) {
+    //   this.elementos[i];
+    // }
+    value = this.elementosTrue.length;
+    if (value == 0) {
+      this.Dp1Calf = 0
+    }
+    else if (value== 1) {
+      this.Dp1Calf = 0
+    }
+    else if (value == 2) {
+      this.Dp1Calf = 0
+    }
+    else if (value == 3) {
+      this.Dp1Calf = 0
+    }
+    else if (value== 4) {
+      this.Dp1Calf = 0
+    }
+    else if (value == 5) {
+      this.Dp1Calf = 0
+    }
+    else if (value == 6) {
+      this.Dp1Calf = 0
+    }
+    else if (value == 7) {
+      this.Dp1Calf = 0
+    }
+    else if (value == 8) {
+      this.Dp1Calf = 0
+    }
+    else if (value == 9) {
+      this.Dp1Calf = 0
+    }
+    else if (value == 10) {
+      this.Dp1Calf = 0
+    }
+    else if (value == 11) {
+      this.Dp1Calf = 0
+    }
+    else if (value == 12) {
+      this.Dp1Calf = 0
+    }
+    else if (value == 13) {
+      this.Dp1Calf = 0
+    }
+    else if (value == 14) {
+      this.Dp1Calf = 0
+    }
+    else if (value == 15) {
+      this.Dp1Calf = 2
+    }
+    else if (value == 16) {
+      this.Dp1Calf = 2
+    }
+    else if (value == 17) {
+      this.Dp1Calf = 2
+    }
+    else if (value == 18) {
+      this.Dp1Calf = 2
+    }
+    else if (value == 19) {
+      this.Dp1Calf = 2
+    }
+    else if (value == 20) {
+      this.Dp1Calf = 2
+    }
+    else if (value == 21) {
+      this.Dp1Calf = 2
+    }
+    else if (value == 22) {
+      this.Dp1Calf = 2
+    }
+    else if (value == 23) {
+      this.Dp1Calf = 2
+    }
+    else if (value == 24) {
+      this.Dp1Calf = 4
+    }
+    else if (value == undefined) {
+      this.Dp1Calf = null;
+    }
+    console.log("valueChange",value);
+    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+    this.CalGlob = this.TotalDp + this.TotalMir;
+    this.CalProm = this.CalGlob / 2;
+    switch (this.TotalDp) {
+      case 50: this.updateAppearance("#f50707");
+        break;
+      case 51:
+      case 52:
+      case 53:
+      case 54:
+      case 55:
+      case 56:
+      case 57:
+      case 58:
+      case 59:
+      case 60:
+      case 61:
+      case 70: this.updateAppearance("#ee9f05");
+        break;
+      case 71:
+      case 72:
+      case 73:
+      case 74:
+      case 75:
+      case 76:
+      case 77:
+      case 78:
+      case 79:
+      case 80: this.updateAppearance("#1C4822");
+        break;
+      case 81:
+      case 82:
+      case 83:
+      case 84:
+      case 85:
+      case 86:
+      case 87:
+      case 88:
+      case 89:
+      case 90:
+      default:
+
+
+    }
+    console.log(this.elementos);
+    console.log(this.elementosTrue);
+    console.log(this.checked1);
+    console.log(this.checked2);
+    console.log(this.checked3);
+    console.log(value);
+
+  }
   public handleChange(value: Date) {
     // Update the JSON birthDate string date
     this.model.value = this.intl.formatDate(value, "yyyy-MM-ddTHH:mm:ssZ");

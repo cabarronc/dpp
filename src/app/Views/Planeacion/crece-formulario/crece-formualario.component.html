@@ -169,7 +169,7 @@
                     <!-- <div style="width: auto;">
                         <kendo-floatinglabel text="Programa Presupuestario" style="font-weight: bold;">
                           <kendo-dropdownlist [data]="dataPp" [value]="selectedPp" [filterable]="true" formControlName="Pp"  [valuePrimitive]="true" [defaultItem]="defaultItemPp" textField="ClavePp"
-                            valueField="IdPp" (valueChange)="handlePpChange($event)">
+                            valueField="IdPp" (onchange)="handlePpChange($event)">
                           </kendo-dropdownlist>
                         </kendo-floatinglabel>
                       </div>
@@ -189,7 +189,7 @@
                       <kendo-formfield showHints="initial" showErrors="initial">
                         <kendo-floatinglabel text="Fecha" style="font-weight: bold;">
                           <kendo-datepicker style="font-weight: normal;" name="date" [(ngModel)]="fecha.value"
-                            click="GuardarCrece()" (valueChange)="handleChange($event)" format="yyyy-MM-dd"
+                            click="GuardarCrece()" (onchange)="handleChange($event)" format="yyyy-MM-dd"
                             formControlName="Fecha">
                           </kendo-datepicker>
                         </kendo-floatinglabel>
@@ -201,20 +201,15 @@
 
                     <div class="col-lg-12 d-flex flex-column" style="padding-top: 0.5rem;">
                       <kendo-floatinglabel text="Año de Actualizacion" style="font-weight: bold;">
-                        <kendo-dropdownlist style="font-weight: normal;" [data]="listYear" formControlName="Ano"
+                        <kendo-dropdownlist style="font-weight: normal;" (selectionChange)="selectionChange2($event)"[data]="listYear" formControlName="Ano"
                           value="" [(ngModel)]="year" (click)="RespuestaDp2()" (click)="GetNombrePp()" #Ano required>
-                          <ng-template kendoDropDownListPrefixTemplate>
-                            <button
-                              title="Esta etiqueta nos sirve para identificar a que versión corresponde la calificación."
-                              kendoButton fillMode="clear" icon="edit"></button>
-                            <kendo-textbox-separator></kendo-textbox-separator>
-                          </ng-template>
+                          
                         </kendo-dropdownlist>
                       </kendo-floatinglabel>
                     </div>
                     <div class="col-lg-12 d-flex flex-column" style="padding-top: 0.5rem; ;">
                       <kendo-floatinglabel text="Dep/Ent Participantes" style="font-weight: bold;">
-                        <kendo-dropdownlist style="font-weight: normal;" [(ngModel)]="depModelo"
+                        <kendo-dropdownlist style="font-weight: normal;" (selectionChange)="selectionChange3($event)" [(ngModel)]="depModelo"
                           (click)="RespuestaDp3()" [data]="listDepPar" (click)="GetNombrePp()" formControlName="DepPar"
                           value="" #DepPar required>
                           <ng-template kendoDropDownListPrefixTemplate>
@@ -368,7 +363,7 @@
 
                                       </tbody>
                                     </table>
-                                    <pagination-controls class="my-pagination" (pageChange)="p = $event"
+                                    <pagination-controls class="my-pagination"   (pageChange)="p = $event"
                                       previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
                                     <script>
                                       var myModal = document.getElementById('myModal')
@@ -1217,7 +1212,7 @@
                                     <kendo-formfield orientation="horizontal" showErros="initial">
                                       <input type="checkbox" size="large" #select [indeterminate]="false"
                                         [(ngModel)]="checked1" [ngModelOptions]="{standalone: true}"
-                                        formControlName="ClaveNombre" (click)="Anexo()" kendoCheckBox />
+                                        formControlName="ClaveNombre" (onchange)="selectionChange4($event)" (click)="Anexo()" kendoCheckBox />
                                     </kendo-formfield>
                                   </div>
                                 </div>
@@ -1231,7 +1226,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked2" [ngModelOptions]="{standalone: true}"
-                                      formControlName="DepResPp" (click)="Anexo()" kendoCheckBox />
+                                      formControlName="DepResPp" (onchange)="selectionChange4($event)" (click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                                 <!-- 2.3 Dependencias o Entidades participantes en el Programa Presupuestario -->
@@ -1244,7 +1239,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked3" [ngModelOptions]="{standalone: true}"
-                                      formControlName="DepParPp" (click)="Anexo()" kendoCheckBox />
+                                      formControlName="DepParPp" (onchange)="selectionChange4($event)" (click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                                 <!-- 2.4- Fecha de actualización del Diagnóstico Particular -->
@@ -1257,7 +1252,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked4" [ngModelOptions]="{standalone: true}"
-                                      formControlName="FechaADx" (click)="Anexo()" kendoCheckBox />
+                                      formControlName="FechaADx" (onchange)="selectionChange4($event)" (click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                                 <!-- 2.5.- Introducción -->
@@ -1269,7 +1264,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked5" [ngModelOptions]="{standalone: true}"
-                                      formControlName="Intro" (click)="Anexo()" kendoCheckBox />
+                                      formControlName="Intro" (onchange)="selectionChange4($event)" (click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                                 <!-- 2.6 - Análisis de involucrados -->
@@ -1281,7 +1276,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked6" [ngModelOptions]="{standalone: true}"
-                                      formControlName="AnalisisInvolucrados" (click)="Anexo()" kendoCheckBox />
+                                      formControlName="AnalisisInvolucrados"  (onchange)="selectionChange4($event)" (click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                                 <!-- 2.7 -Identificación/Definición del Problema -->
@@ -1293,7 +1288,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked7" [ngModelOptions]="{standalone: true}"
-                                      formControlName="DefProblema" (click)="Anexo()" kendoCheckBox />
+                                      formControlName="DefProblema" (onchange)="selectionChange4($event)" (click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                                 <!-- 2.8 -Evolución del problema -->
@@ -1305,7 +1300,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked8" [ngModelOptions]="{standalone: true}"
-                                      formControlName="EvoProblema" (click)="Anexo()" kendoCheckBox />
+                                      formControlName="EvoProblema" (onchange)="selectionChange4($event)" (click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                                 <!-- 2.9  Estado actual del problema -->
@@ -1317,7 +1312,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked9" [ngModelOptions]="{standalone: true}"
-                                      formControlName="EstActualProblema" (click)="Anexo()" kendoCheckBox />
+                                      formControlName="EstActualProblema" (onchange)="selectionChange4($event)" (click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                                 <!-- 2.10  Experiencias de Atención -->
@@ -1329,7 +1324,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked10" [ngModelOptions]="{standalone: true}"
-                                      formControlName="ExpAtencion" (click)="Anexo()" kendoCheckBox />
+                                      formControlName="ExpAtencion" (onchange)="selectionChange4($event)" (click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                                 <!-- 2.11  Definición de los objetivos -->
@@ -1341,7 +1336,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked11" [ngModelOptions]="{standalone: true}"
-                                      formControlName="DefObjetivos" (click)="Anexo()" kendoCheckBox />
+                                      formControlName="DefObjetivos" (onchange)="selectionChange4($event)" (click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                                 <!-- 2.12  Análisis de Corresponsabilidad -->
@@ -1353,7 +1348,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked12" [ngModelOptions]="{standalone: true}"
-                                      formControlName="AnalisisCorrespon" (click)="Anexo()" kendoCheckBox />
+                                      formControlName="AnalisisCorrespon" (onchange)="selectionChange4($event)"(click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                                 <!-- 2.13  Selección de Alternativa  -->
@@ -1365,7 +1360,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked13" [ngModelOptions]="{standalone: true}"
-                                      formControlName="SelecAlterna" (click)="Anexo()" kendoCheckBox />
+                                      formControlName="SelecAlterna" (onchange)="selectionChange4($event)" (click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                                 <!-- 2.14 Estructura analítica del programa    -->
@@ -1377,7 +1372,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked14" [ngModelOptions]="{standalone: true}"
-                                      formControlName="EstructuraAnalitica" (click)="Anexo()" kendoCheckBox />
+                                      formControlName="EstructuraAnalitica" (onchange)="selectionChange4($event)" (click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                                 <!-- 2.15  Justificación de los objetivos de la intervención   -->
@@ -1390,7 +1385,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked15" [ngModelOptions]="{standalone: true}"
-                                      formControlName="JustObj" (click)="Anexo()" kendoCheckBox />
+                                      formControlName="JustObj" (onchange)="selectionChange4($event)" (click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                                 <!-- 2.16  Identificación y cuantificación de la población   -->
@@ -1403,7 +1398,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked16" [ngModelOptions]="{standalone: true}"
-                                      formControlName="IdentificacionCuanPob" (click)="Anexo()" kendoCheckBox />
+                                      formControlName="IdentificacionCuanPob" (onchange)="selectionChange4($event)" (click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                                 <!-- 2.17 Identificación de las áreas de influencia  -->
@@ -1416,7 +1411,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked17" [ngModelOptions]="{standalone: true}"
-                                      formControlName="IdenficacionAreaInfluencia" (click)="Anexo()" kendoCheckBox />
+                                      formControlName="IdenficacionAreaInfluencia" (onchange)="selectionChange4($event)" (click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                                 <!-- 2.18 Relación con otros Programas Presupuestarios -->
@@ -1428,7 +1423,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked18" [ngModelOptions]="{standalone: true}"
-                                      formControlName="RelOtrosPP" (click)="Anexo()" kendoCheckBox />
+                                      formControlName="RelOtrosPP" (onchange)="selectionChange4($event)" (click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                                 <!-- 2.19  Elementos para la integración de un padrón de beneficiarios-->
@@ -1441,7 +1436,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked19" [ngModelOptions]="{standalone: true}"
-                                      formControlName="ElementosPEB" (click)="Anexo()" kendoCheckBox />
+                                      formControlName="ElementosPEB" (onchange)="selectionChange4($event)" (click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                                 <!-- 2.20   MIR-->
@@ -1453,7 +1448,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked20" [ngModelOptions]="{standalone: true}"
-                                      formControlName="MIR" (click)="Anexo()" kendoCheckBox />
+                                      formControlName="MIR" (onchange)="selectionChange4($event)" (click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                                 <!-- 2.21   Evolución del Programa Presupuestario-->
@@ -1465,7 +1460,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked21" [ngModelOptions]="{standalone: true}"
-                                      formControlName="EvoPp" (click)="Anexo()" kendoCheckBox />
+                                      formControlName="EvoPp" (onchange)="selectionChange4($event)" (click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                                 <!-- 2.22 Glosario de términos -->
@@ -1477,7 +1472,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked22" [ngModelOptions]="{standalone: true}"
-                                      formControlName="Glosario" kendoCheckBox (click)="Anexo()" />
+                                      formControlName="Glosario" (onchange)="selectionChange4($event)"   (click)="Anexo()" kendoCheckBox/>
                                   </kendo-formfield>
                                 </div>
                                 <!-- 2.23   Impacto presupuestario-->
@@ -1488,7 +1483,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked23" [ngModelOptions]="{standalone: true}"
-                                      formControlName="ImpactoPp" (click)="Anexo()" kendoCheckBox />
+                                      formControlName="ImpactoPp" (onchange)="selectionChange4($event)" (click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                                 <!-- 2.24 Fuentes de Financiamiento -->
@@ -1499,7 +1494,7 @@
                                   <kendo-formfield orientation="horizontal" showErros="initial">
                                     <input type="checkbox" size="large" #select [indeterminate]="false"
                                       [(ngModel)]="checked24" [ngModelOptions]="{standalone: true}"
-                                      formControlName="Fuente"  (click)="Anexo()" kendoCheckBox />
+                                      formControlName="Fuente"  (onchange)="selectionChange4($event)" (click)="Anexo()" kendoCheckBox />
                                   </kendo-formfield>
                                 </div>
                               </section>
@@ -1670,7 +1665,7 @@
                                       <div class="row pt-lg-0">
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
-                                          <input required type="radio" formControlName="Dp4"class="custom-size" name="Dp4" value="9" #9
+                                          <input required type="radio" formControlName="Dp4" (onchange)="selectionChange4dp($event)" class="custom-size" name="Dp4" value="9" #9
                                           [(ngModel)]="Dp4Calf" [ngModelOptions]="{standalone: true}" 
                                             (click)="RespuestaDp4()" kendoRadioButton />
                                         </div>
@@ -1682,7 +1677,7 @@
                                       <div class="row pt-lg-0">
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
-                                          <input required type="radio" formControlName="Dp4" class="custom-size" name="Dp4" value="6" #6
+                                          <input required type="radio" formControlName="Dp4"  (onchange)="selectionChange4dp($event)" class="custom-size" name="Dp4" value="6" #6
                                           [(ngModel)]="Dp4Calf" [ngModelOptions]="{standalone: true}"   
                                             (click)="RespuestaDp4()" kendoRadioButton />
                                         </div>
@@ -1695,7 +1690,7 @@
                                       <div class="row pt-lg-0">
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
-                                          <input required type="radio" formControlName="Dp4"class="custom-size" name="Dp4" value="3" #3
+                                          <input required type="radio" formControlName="Dp4" (onchange)="selectionChange4dp($event)" class="custom-size" name="Dp4" value="3" #3
                                           [(ngModel)]="Dp4Calf" [ngModelOptions]="{standalone: true}"   
                                             (click)="RespuestaDp4()" kendoRadioButton />
                                         </div>
