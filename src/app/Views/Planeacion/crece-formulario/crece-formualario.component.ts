@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild,ElementRef, ViewEncapsulation, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewChild,ElementRef, ViewEncapsulation, AfterViewInit, OnDestroy, HostListener } from '@angular/core';
 import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SelectEvent, TabPosition } from '@progress/kendo-angular-layout';
 import { ToastrService } from 'ngx-toastr';
@@ -61,7 +61,9 @@ export interface Grafico{
 })
 export class CreceFormualarioComponent implements OnInit, OnExit, AfterViewInit{
 //Variables para el Graficos
-  @ViewChild("chart")
+@ViewChild("dropdownlist2", { static: true }) 
+public dropdownlist2: any;
+@ViewChild("chart")
   private chart: ChartComponent;
   public graficos: Grafico[] = [];
   //public series: GroupResult[];
@@ -2670,6 +2672,8 @@ public Versiones: Array<string> = [
     this.RespuestaDp3();
     this.RespuestaDp4();
     this.Dp4Calf;
+    this.dropdownlist2.toggle(true);
+    console.log(this.dropdownlist2)
     
     
 
@@ -6072,6 +6076,17 @@ public Versiones: Array<string> = [
     "Parcialmente",
     "No"
   ];
+
+  // public OpDp4: Array<string> = [
+  //   "9.- Si",
+  //   "6.- Parcialmente (claridad de la redaccion)",
+  //   "3.- No"
+  // ];
+  public OpDp4: Array<{ text: string; value: string }> = [
+    { text: "9.- Si", value: "9"},
+    { text: "6.- Parcialmente (claridad de la redaccion)", value: "6" },
+    { text: "3.- No", value: "3" },
+  ];
   // A simple method for the string-to-date conversion
   private parse(json) {
     Object.keys(json).map((key) => {
@@ -6093,24 +6108,24 @@ public Versiones: Array<string> = [
   }
   public selectionChange4dp(value: any): void {
     
-    if (value == "9") {
+    if (value.value ==   9 ) {
       this.textAreaValueDp4 = "Sin recomendaciones";
       this.CalfDp4 = "La introducción del Diagnóstico es lo suficientemente clara para dar a conocer la problemática, como ésta será atendida y la justificación de la intervención de gobierno";
       this.PonDp4 = 2;
     }
-    else if (value == "6") {
+    else if (value.value == 6) {
       //this.textAreaValueDp4 = "";
       this.CalfDp4 = "La introducción del Diagnóstico no es lo suficientemente clara para dar a conocer la problemática, como ésta será atendida y la justificación de la intervención de gobierno, en este apartado se espera un resumen ejecutivo."
         + "\nEsta recomendación se incluirá en el plan de mejora continua del Programa, su atención se considera deseable, pero no urgente.";
       this.PonDp4 = 1;
     }
-    else if (value== "3") {
+    else if (value.value== 3) {
       //this.textAreaValueDp4 = "";
       this.CalfDp4 = "La introducción del Diagnóstico no contiene los elementos necesarios que permitan identificar la problemática, su atención o la justificación del programa. Este apartado comprende un resumen ejecutivo del resto del documento."
         + "\nEsta recomendación se incluirá en el plan de mejora continua del Programa, su atención se considera deseable, pero no urgente.";
       this.PonDp4 = 0;
     }
-    console.log("valueChange",value);
+    console.log("valueChange4DP",value.value);
 
     this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
     this.CalGlob = this.TotalDp + this.TotalMir;
@@ -6159,6 +6174,7 @@ public Versiones: Array<string> = [
 
 
   }
+  //PREGUNTA 2
   public selectionChange2(value: any): void {
     
     if (value == 2023 ) {
@@ -6219,7 +6235,7 @@ public Versiones: Array<string> = [
 
     }
   }
-// Pregunta 3
+// PREGUNTA 3
   public selectionChange3(value: any): void {
     if (value == "Si") {
       this.PonDp3 = 2;

@@ -85,6 +85,9 @@ kendo-listbox:nth-of-type(1) {
   background: rgb(44, 62, 163);
 
 }
+kendo-dropdownlist {
+  width: 170px;
+}
 
 
 .k-panelbar > .k-item > .k-link{
