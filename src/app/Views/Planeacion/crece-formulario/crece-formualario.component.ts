@@ -61,13 +61,17 @@ export interface Grafico{
 })
 export class CreceFormualarioComponent implements OnInit, OnExit, AfterViewInit{
 //Variables para el Graficos
-@ViewChild("dropdownlist2", { static: true }) 
-public dropdownlist2: any;
+// @ViewChild("dropdownlist2", { static: true })
+// public dropdownlist2: any;
+public defaultItem: { text: string; value: number } = {
+  text: "Seleccione un valor entre (9, 6, 3)",
+  value: null,
+};
 @ViewChild("chart")
   private chart: ChartComponent;
   public graficos: Grafico[] = [];
   //public series: GroupResult[];
- 
+
 
   //PDFViewer
   pdfSource = 'https://github.com/cabarronc/dpp/blob/master/src/assets/pdf/ManualMejora.pdf';
@@ -125,14 +129,14 @@ public Versiones: Array<string> = [
 
   public listPeriodo: Array<string> = [
     "1er Trimestre 2023",
-    "2do Trimestre 2023", 
+    "2do Trimestre 2023",
     "3er Trimestre 2023",
     "4to Trimestre 2023",
   ];
   public listversion: Array<string> = [
     "Preliminar",
-    "Final", 
- 
+    "Final",
+
   ];
 
 
@@ -496,8 +500,8 @@ public Versiones: Array<string> = [
   public PonDp2: number = 0;
   public PonDp3: number = 0;
   public CalGlob: number;
-  public Dp4Calf: number;
-  
+  public Dp4Calf: any;
+
   public CalfDp4: string = "";
   public PonDp4: number = 0;
 
@@ -1185,7 +1189,7 @@ public Versiones: Array<string> = [
         console.log(error);
       })
   }
-  
+
   GetNombrePp() {
     if (this.pp == "E001") {
       this.NombrePp = "Acceso a la información pública del Estado de Guanajuato";
@@ -2124,7 +2128,7 @@ public Versiones: Array<string> = [
         this.toastr.info('El CRECE ' + crece.NombrePp +' fue actualizada con exito!', 'Crece  Actualizado');
         this.obtenerCreces();
         this.form.reset();
-        
+
       }, error => {
         this.toastr.error('Error: ' + error.error.substr(-35,35),'Debe completar el siguiente campo:',{timeOut:10000,});
         this.toastr.error('Error: ' + error.message,'No es posible el envio de informacion:',{timeOut:10000,});
@@ -2670,12 +2674,12 @@ public Versiones: Array<string> = [
     this.CalculoDp();
     this.RespuestaDp2();
     this.RespuestaDp3();
-    this.RespuestaDp4();
+    //this.RespuestaDp4();
     this.Dp4Calf;
-    this.dropdownlist2.toggle(true);
-    console.log(this.dropdownlist2)
-    
-    
+    // this.dropdownlist2.toggle(true);
+    // console.log(this.dropdownlist2)
+
+
 
     this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.pdfSource)
     //this.fecha = this.parseExact(this.model);
@@ -3333,68 +3337,68 @@ public Versiones: Array<string> = [
 
   }
   //******************************PREGUNTA 4******************************************
-  public RespuestaDp4(): void {
-    if (this.Dp4Calf == 9) {
-      this.textAreaValueDp4 = "Sin recomendaciones";
-      this.CalfDp4 = "La introducción del Diagnóstico es lo suficientemente clara para dar a conocer la problemática, como ésta será atendida y la justificación de la intervención de gobierno";
-      this.PonDp4 = 2;
-    }
-    else if (this.Dp4Calf == 6) {
-      //this.textAreaValueDp4 = "";
-      this.CalfDp4 = "La introducción del Diagnóstico no es lo suficientemente clara para dar a conocer la problemática, como ésta será atendida y la justificación de la intervención de gobierno, en este apartado se espera un resumen ejecutivo."
-        + "\nEsta recomendación se incluirá en el plan de mejora continua del Programa, su atención se considera deseable, pero no urgente.";
-      this.PonDp4 = 1;
-    }
-    else if (this.Dp4Calf == 3) {
-      //this.textAreaValueDp4 = "";
-      this.CalfDp4 = "La introducción del Diagnóstico no contiene los elementos necesarios que permitan identificar la problemática, su atención o la justificación del programa. Este apartado comprende un resumen ejecutivo del resto del documento."
-        + "\nEsta recomendación se incluirá en el plan de mejora continua del Programa, su atención se considera deseable, pero no urgente.";
-      this.PonDp4 = 0;
-    }
-    this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
-    this.CalGlob = this.TotalDp + this.TotalMir;
-    this.CalProm = this.CalGlob / 2;
-    switch (this.TotalDp) {
-      case 50: this.updateAppearance("#f50707");
-        break;
-      case 51:
-      case 52:
-      case 53:
-      case 54:
-      case 55:
-      case 56:
-      case 57:
-      case 58:
-      case 59:
-      case 60:
-      case 61:
-      case 70: this.updateAppearance("#ee9f05");
-        break;
-      case 71:
-      case 72:
-      case 73:
-      case 74:
-      case 75:
-      case 76:
-      case 77:
-      case 78:
-      case 79:
-      case 80: this.updateAppearance("#1C4822");
-        break;
-      case 81:
-      case 82:
-      case 83:
-      case 84:
-      case 85:
-      case 86:
-      case 87:
-      case 88:
-      case 89:
-      case 90:
-      default:
+  // public RespuestaDp4(): void {
+  //   if (this.Dp4Calf == 9) {
+  //     this.textAreaValueDp4 = "Sin recomendaciones";
+  //     this.CalfDp4 = "La introducción del Diagnóstico es lo suficientemente clara para dar a conocer la problemática, como ésta será atendida y la justificación de la intervención de gobierno";
+  //     this.PonDp4 = 2;
+  //   }
+  //   else if (this.Dp4Calf == 6) {
+  //     //this.textAreaValueDp4 = "";
+  //     this.CalfDp4 = "La introducción del Diagnóstico no es lo suficientemente clara para dar a conocer la problemática, como ésta será atendida y la justificación de la intervención de gobierno, en este apartado se espera un resumen ejecutivo."
+  //       + "\nEsta recomendación se incluirá en el plan de mejora continua del Programa, su atención se considera deseable, pero no urgente.";
+  //     this.PonDp4 = 1;
+  //   }
+  //   else if (this.Dp4Calf == 3) {
+  //     //this.textAreaValueDp4 = "";
+  //     this.CalfDp4 = "La introducción del Diagnóstico no contiene los elementos necesarios que permitan identificar la problemática, su atención o la justificación del programa. Este apartado comprende un resumen ejecutivo del resto del documento."
+  //       + "\nEsta recomendación se incluirá en el plan de mejora continua del Programa, su atención se considera deseable, pero no urgente.";
+  //     this.PonDp4 = 0;
+  //   }
+  //   this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
+  //   this.CalGlob = this.TotalDp + this.TotalMir;
+  //   this.CalProm = this.CalGlob / 2;
+  //   switch (this.TotalDp) {
+  //     case 50: this.updateAppearance("#f50707");
+  //       break;
+  //     case 51:
+  //     case 52:
+  //     case 53:
+  //     case 54:
+  //     case 55:
+  //     case 56:
+  //     case 57:
+  //     case 58:
+  //     case 59:
+  //     case 60:
+  //     case 61:
+  //     case 70: this.updateAppearance("#ee9f05");
+  //       break;
+  //     case 71:
+  //     case 72:
+  //     case 73:
+  //     case 74:
+  //     case 75:
+  //     case 76:
+  //     case 77:
+  //     case 78:
+  //     case 79:
+  //     case 80: this.updateAppearance("#1C4822");
+  //       break;
+  //     case 81:
+  //     case 82:
+  //     case 83:
+  //     case 84:
+  //     case 85:
+  //     case 86:
+  //     case 87:
+  //     case 88:
+  //     case 89:
+  //     case 90:
+  //     default:
 
 
-    }
+  //   }
 
     // switch(this.Dp4Calf){
     //   case 9: this.PonDp4 = 2, this.textAreaValueDp4="Sin recomendaciones",this.CalfDp4 = "La introducción del Diagnóstico es lo suficientemente clara para dar a conocer la problemática, como ésta será atendida y la justificación de la intervención de gobierno";
@@ -3403,11 +3407,11 @@ public Versiones: Array<string> = [
     //        + "\nEsta recomendación se incluirá en el plan de mejora continua del Programa, su atención se considera deseable, pero no urgente.";
     //   break;
     //   case 3: this.PonDp4=0, this.CalfDp4 = "La introducción del Diagnóstico no contiene los elementos necesarios que permitan identificar la problemática, su atención o la justificación del programa. Este apartado comprende un resumen ejecutivo del resto del documento."
-    //       + "\nEsta recomendación se incluirá en el plan de mejora continua del Programa, su atención se considera deseable, pero no urgente.";     
-      
+    //       + "\nEsta recomendación se incluirá en el plan de mejora continua del Programa, su atención se considera deseable, pero no urgente.";
+
     // }
-  }
-  
+  //}
+
   //******************************PREGUNTA 5******************************************
   public RespuestaDp5(): void {
     if (this.Dp5Calf == 9) {
@@ -6107,7 +6111,7 @@ public Versiones: Array<string> = [
     return json;
   }
   public selectionChange4dp(value: any): void {
-    
+
     if (value.value ==   9 ) {
       this.textAreaValueDp4 = "Sin recomendaciones";
       this.CalfDp4 = "La introducción del Diagnóstico es lo suficientemente clara para dar a conocer la problemática, como ésta será atendida y la justificación de la intervención de gobierno";
@@ -6176,7 +6180,7 @@ public Versiones: Array<string> = [
   }
   //PREGUNTA 2
   public selectionChange2(value: any): void {
-    
+
     if (value == 2023 ) {
       this.PonDp2 = 4;
     }
@@ -6249,8 +6253,8 @@ public Versiones: Array<string> = [
     else if (value == undefined) {
       this.PonDp3 = null;
     }
-    
-   
+
+
     console.log("valueChange",value);
     this.TotalDp = this.Dp1Calf + this.PonDp2 + this.PonDp3 + this.PonDp4 + this.PonDp5 + this.PonDp6 + this.PonDp7 + this.PonDp8 + this.PonDp9 + this.PonDp10 + this.PonDp11 + this.PonDp12 + this.PonDp13 + this.PonDp14 + this.PonDp15 + this.PonDp16 + this.PonDp17 + this.PonDp18 + this.PonDp19 + this.PonDp20;
     this.CalGlob = this.TotalDp + this.TotalMir;

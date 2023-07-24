@@ -294,13 +294,13 @@
                                       <!-- FILTRO PARA BUSCAR POR VERSION -->
                                       <!-- <div class="col-md-2">
                                             <div class="input-group">
-                                              <div class="input-group-text bg-gray">                    
+                                              <div class="input-group-text bg-gray">
                                                 <i class="fa fa-search"></i>
                                               </div>
                                               <input type="text" name="filterrev" class="form-control"
                                                 placeholder="Versión" [(ngModel)]="filterver"
                                                 [ngModelOptions]="{standalone: true}">
-                                            </div>                                            
+                                            </div>
                                           </div>  -->
                                       <div class="col-md-3">
 
@@ -1683,13 +1683,20 @@
                                         </div>
                                         <div class="col-md-6">
                                           <kendo-dropdownlist #dropdownlist2 style="font-weight: normal;"
-                                            (selectionChange)="selectionChange4dp($event)" [(ngModel)]="Dp4Calf"
+                                            (selectionChange)="selectionChange4dp($event)" [defaultItem]="defaultItem"
                                             [data]="OpDp4" formControlName="Dp4" textField="text"
                                             valueField="value"  [valuePrimitive]="true"  #Dp4
                                             required>
                                             <ng-template kendoDropDownListPrefixTemplate>
                                               <button title="" kendoButton fillMode="clear" icon="edit"></button>
                                               <kendo-textbox-separator></kendo-textbox-separator>
+                                            </ng-template>
+                                            <ng-template kendoDropDownListItemTemplate let-dataItem>
+                                              <span class="template">{{ dataItem.value }}</span> {{ dataItem.text }}
+                                            </ng-template>
+                                            <ng-template kendoDropDownListValueTemplate let-dataItem>
+                                              <span class="template">{{ dataItem?.value }}</span
+                                              >&nbsp;{{ dataItem?.text }}
                                             </ng-template>
                                           </kendo-dropdownlist>
                                         </div>
@@ -1733,7 +1740,7 @@
                                           style="padding-top: 1rem; margin-left: 1rem;">
                                           <kendo-label class="k-radio-label" [for]="3">3.- No</kendo-label>
                                         </div>-->
-                                      </div> 
+                                      </div>
                                         <kendo-formerror>Error: Campo requerido </kendo-formerror>
                                     </kendo-formfield>
                                     <p> </p>
@@ -1763,7 +1770,7 @@
                                         name="CalfDp4" flow="horizontal">
                                         <kendo-textarea-suffix>
                                           <button kendoButton type="button" class="suffix-clear-button" fillMode="clear"
-                                            icon="edit" (click)="RespuestaDp4()">Respuesta Generica</button>
+                                            icon="edit" >Respuesta Generica</button>
                                         </kendo-textarea-suffix>
                                       </kendo-textarea>
                                       <kendo-formhint style="font-weight: normal;" align="start">4 DP Generica
@@ -1777,7 +1784,7 @@
                                         name="PonDp4" flow="horizontal">
                                         <kendo-textarea-suffix>
                                           <button kendoButton type="button" suffix-clear-button fillMode="clear"
-                                            icon="edit" (click)="RespuestaDp4()" [disabled]="true">Ponderacion</button>
+                                            icon="edit"  [disabled]="true">Ponderacion</button>
                                         </kendo-textarea-suffix>
                                       </kendo-textarea>
                                       <kendo-formhint style="font-weight: normal;" align="start">4 DP Ponderacion
