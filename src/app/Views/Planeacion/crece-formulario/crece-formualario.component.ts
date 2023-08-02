@@ -6087,9 +6087,9 @@ public Versiones: Array<string> = [
   //   "3.- No"
   // ];
   public OpDp4: Array<{ text: string; value: string }> = [
-    { text: "9.- Si", value: "9"},
-    { text: "6.- Parcialmente (claridad de la redaccion)", value: "6" },
-    { text: "3.- No", value: "3" },
+    { text: "Si", value: "9"},
+    { text: "Parcialmente (claridad de la redaccion)", value: "6" },
+    { text: "No", value: "3" },
   ];
   // A simple method for the string-to-date conversion
   private parse(json) {

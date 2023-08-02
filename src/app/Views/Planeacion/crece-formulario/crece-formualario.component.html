@@ -1692,7 +1692,7 @@
                                               <kendo-textbox-separator></kendo-textbox-separator>
                                             </ng-template>
                                             <ng-template kendoDropDownListItemTemplate let-dataItem>
-                                              <span class="template">{{ dataItem.value }}</span> {{ dataItem.text }}
+                                              <span class="template">{{ dataItem.value }}</span> &nbsp;&nbsp;{{ dataItem.text }}
                                             </ng-template>
                                             <ng-template kendoDropDownListValueTemplate let-dataItem>
                                               <span class="template">{{ dataItem?.value }}</span
@@ -1702,6 +1702,8 @@
                                         </div>
                                         <div class="col-md-1 d-flex flex-column"
                                           style="padding-top: 1rem; margin-left: 1rem;">
+                                        </div>
+                                        <div class="row pt-lg-3">
                                         </div>
                                         <!-- <input required type="radio" formControlName="Dp4"
                                             (selectionChange)="selectionChange4dp($event)" class="custom-size"
