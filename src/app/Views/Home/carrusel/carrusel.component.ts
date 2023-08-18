@@ -1,15 +1,47 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { LoginService } from 'src/app/services/login.service';
 import * as d3 from 'd3';
+// import {
+//   DrawerItem,
+//   DrawerItemExpandedFn,
+//   DrawerSelectEvent,
+// } from "@progress/kendo-angular-layout";
+// import { items } from '../../../helpers/items';
+// import { SVGIcon, menuIcon } from "@progress/kendo-svg-icons";
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
   selector: 'app-carrusel',
   templateUrl: './carrusel.component.html',
   styleUrls: ['./carrusel.component.css']
 })
 export class CarruselComponent implements OnInit {
+  // public selected = "Inbox";
+  // public menuSvg: SVGIcon = menuIcon;
+  // public expandedIndices = [2];
+
+  // public isItemExpanded: DrawerItemExpandedFn = (item): boolean => {
+  //   return this.expandedIndices.indexOf(item.id) >= 0;
+  // };
+
+  // public items: Array<DrawerItem> = items;
+
+  // public onSelect(ev: DrawerSelectEvent): void {
+  //   this.selected = ev.item.text;
+  //   const current = ev.item.id;
+
+  //   if (this.expandedIndices.indexOf(current) >= 0) {
+  //     this.expandedIndices = this.expandedIndices.filter(
+  //       (id) => id !== current
+  //     );
+  //   } else {
+  //     this.expandedIndices.push(current);
+  //   }
+  // }
+
+
 
   private data = [
     {"Eje": "Seguridad y paz social", "Presupuesto": "7434849194", "Released": "2014"},
