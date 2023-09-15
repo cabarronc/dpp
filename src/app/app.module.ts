@@ -2,6 +2,8 @@ import { NgModule,CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from "@angular/common";
 import {NgxPaginationModule} from 'ngx-pagination';
+import { APP_BASE_HREF } from "@angular/common";
+import { breadCrumbRouting, appRoutingProviders } from "../../src/app/helpers/breadcrumb.routes";
 
 //Modulos
 import { AppComponent } from './app.component';
@@ -85,6 +87,7 @@ import { ListBoxModule } from "@progress/kendo-angular-listbox";
 import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { TypographyModule } from '@progress/kendo-angular-typography';
 import { ChartsModule } from '@progress/kendo-angular-charts';
+import { NavigationModule } from "@progress/kendo-angular-navigation";
 
 
 //firebase
@@ -111,6 +114,16 @@ export function tokenGetter() {
 import "hammerjs";
 
 import { CreceProgramacionComponent } from './Views/Programacion/crece-programacion/crece-programacion.component';
+
+import { Planeacion2023Component } from './Views/EquipoGpR/Ejercicio2023/Home2023/Planeacion/planeacion2023.component';
+import { Programacion2023Component } from './Views/EquipoGpR/Ejercicio2023/Home2023/Programacion/programacion2023.component';
+import { Presupuestacion2023Component } from './Views/EquipoGpR/Ejercicio2023/Home2023/Presupuestacion/presupuestacion2023.component';
+import { EjercicioControl2023Component } from './Views/EquipoGpR/Ejercicio2023/Home2023/Ejercicio/ejercicio-control2023.component';
+import { Seguimiento2023Component } from './Views/EquipoGpR/Ejercicio2023/Home2023/Seguimiento/seguimiento2023.component';
+import { Rendicion2023Component } from './Views/EquipoGpR/Ejercicio2023/Home2023/Rendicion/rendicion2023.component';
+import { HomePf2023Component } from './Views/EquipoGpR/Ejercicio2023/Home2023/Home/home-pf2023.component';
+import { ScrollToTopComponent } from './Views/scroll-to-top/scroll-to-top.component';
+
 
 
 
@@ -171,6 +184,15 @@ import { CreceProgramacionComponent } from './Views/Programacion/crece-programac
     MapaComponent,
     FiltersPipe,
     CreceProgramacionComponent,
+    Planeacion2023Component,
+    Programacion2023Component,
+    Presupuestacion2023Component,
+    EjercicioControl2023Component,
+    Seguimiento2023Component,
+    Rendicion2023Component,
+    HomePf2023Component,
+    ScrollToTopComponent,
+  
  
 
 
@@ -201,7 +223,9 @@ import { CreceProgramacionComponent } from './Views/Programacion/crece-programac
     AngularFireDatabaseModule,
     LabelModule,
     InputsModule,
+    breadCrumbRouting,
     SafePipeModule,
+    NavigationModule, 
     LayoutModule,
     FloatingLabelModule,
     DateInputsModule,
@@ -226,6 +250,11 @@ import { CreceProgramacionComponent } from './Views/Programacion/crece-programac
 
 
   providers: [
+    appRoutingProviders,
+    {
+      provide: APP_BASE_HREF,
+      useValue: window.location.pathname,
+    },
     {provide: LocationStrategy, useClass: HashLocationStrategy},
     { provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true },
     DownloadUploadService,

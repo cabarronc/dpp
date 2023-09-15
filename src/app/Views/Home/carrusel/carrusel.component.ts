@@ -2,6 +2,13 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { LoginService } from 'src/app/services/login.service';
+import { SVGIcon, folderIcon } from "@progress/kendo-svg-icons";
+import {
+  ButtonSize,
+  ButtonThemeColor,
+} from "@progress/kendo-angular-buttons";
+
+
 import * as d3 from 'd3';
 // import {
 //   DrawerItem,
@@ -18,6 +25,8 @@ import * as d3 from 'd3';
   styleUrls: ['./carrusel.component.css']
 })
 export class CarruselComponent implements OnInit {
+  public folderSVG: SVGIcon = folderIcon;
+  public themeColor: ButtonThemeColor = "secondary";
   // public selected = "Inbox";
   // public menuSvg: SVGIcon = menuIcon;
   // public expandedIndices = [2];
@@ -103,9 +112,10 @@ private drawBars(data: any[]): void {
 }
 
   constructor(private cookieService:CookieService,private route:ActivatedRoute, private loginServices: LoginService, private router: Router) { }
-
+ 
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.route.paramMap.subscribe(paramMap=>{
       console.log(paramMap);
     }
@@ -120,6 +130,10 @@ private drawBars(data: any[]): void {
     this.cookieService.delete('token_access');
     this.router.navigate(['/login2']);
   }
+  // home23(): void
+  // {
+  //   this.router.navigate(['/carrusel/Home2023']);
+  // }
 
 
 }

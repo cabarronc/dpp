@@ -1,0 +1,326 @@
+html {
+    scroll-behavior: smooth;
+  }
+.enclose {
+    width: 100%;
+    perspective: 1000px;
+    position:relative;
+    padding-top: 5px;
+    padding-bottom: 30px;
+    margin-bottom: 15rem;
+}
+.entire-content2 {
+    width: 100%;
+    perspective: 1000px;
+    position:relative;
+    padding-top: 5px;
+}
+.emoji {
+    height: 100%;
+    line-height: 28px;
+    display: inline-block;
+  }
+  .options-wrapper {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    margin: 0 0 20px;
+    padding: 20px;
+  }
+
+  .options-wrapper kendo-label {
+    text-align: center;
+    display: inline-grid;
+  }
+
+  .options-wrapper .k-label {
+    color: #a1a1a1;
+  }
+
+  .example-wrapper {
+    width: 300px;
+    margin: 15px auto 0;
+    box-shadow: 0px 10px 20px #00000029;
+    border-radius: 30px;
+  }
+  .page {
+    padding: 20px 10px;
+  }
+  .content {
+    background: #f9f9f9;
+    border-radius: 30px 30px 0 0;
+    height: 450px;
+  }
+  .box {
+    padding: 0px;
+  }
+  .first {
+  
+    align-content: center;
+    justify-content: space-around;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+  .second {
+    align-content: center;
+    justify-content: space-around;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+  .third {
+    align-content: center;
+    justify-content: space-around;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+  .fourth {
+    align-content: center;
+    justify-content: space-around;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+  /* Diseño boton Planeacion */
+  .my-buttonPlaneacion {
+    padding: 10px 20px;
+    background-color:#558ed5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    display: block;
+    margin-bottom: 5px;
+ 
+  }
+    .caja1 {
+    -webkit-transition: font-size 1s ease;
+    transition: font-size 1s ease;
+    }
+    .caja1:hover{
+        font-size: 28px;
+      }
+  
+    .my-buttonPlaneacion:hover {
+    background-color:#568ed6;
+  }
+
+  .my-buttonPlaneacion:active {
+    background-color: #3e8e41;
+  }
+    /* Diseño boton Programacion */
+    .my-buttonProgramacion {
+        padding: 10px 20px;
+        background-color:#267bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+        display: block;
+        margin-bottom: 5px;
+     
+      }
+        .caja2 {
+        -webkit-transition: font-size 1s ease;
+        transition: font-size 1s ease;
+        }
+        .caja2:hover{
+            font-size: 28px;
+          }
+      
+      .my-buttonProgramacion:hover {
+        background-color:#267bff;
+      }
+    
+      .my-buttonProgramacion:active {
+        background-color: #3e8e41;
+      }
+
+      /* Diseño boton Presupesuatcion */
+    .my-buttonPresupuestacion {
+        padding: 10px 20px;
+        background-color:#0066cc;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+        display: block;
+        margin-bottom: 5px;
+     
+      }
+        .caja3 {
+        -webkit-transition: font-size 1s ease;
+        transition: font-size 1s ease;
+        }
+        .caja3:hover{
+            font-size: 28px;
+          }
+      
+      .my-buttonPresupuestacion:hover {
+        background-color:#0066cc;
+      }
+    
+      .my-buttonPresupuestacion:active {
+        background-color: #3e8e41;
+      }
+
+        /* Diseño boton Ejercicio y Control */
+    .my-buttonEjercicio {
+        padding: 10px 20px;
+        background-color:#2f5597;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+        display: block;
+        margin-bottom: 5px;
+     
+      }
+        .caja4 {
+        -webkit-transition: font-size 1s ease;
+        transition: font-size 1s ease;
+        }
+        .caja4:hover{
+            font-size: 28px;
+          }
+      
+      .my-buttonEjercicio:hover {
+        background-color:#2f5597;
+      }
+    
+      .my-buttonEjercicio:active {
+        background-color: #3e8e41;
+      }
+       /* Diseño boton Seguimiento */
+       .my-buttonSeguimiento {
+        padding: 10px 20px;
+        background-color:#1f1e7d;
+        color: whitesmoke;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+        display: block;
+        margin-bottom: 5px;
+     
+      }
+        .caja5 {
+        -webkit-transition: font-size 1s ease;
+        transition: font-size 1s ease;
+        }
+        .caja5:hover{
+            font-size: 28px;
+          }
+      
+      .my-buttonSeguimiento:hover {
+        background-color:#1f1e7d;
+      }
+    
+      .my-buttonSeguimiento:active {
+        background-color: #3e8e41;
+      }
+
+       /* Diseño boton Rendicion */
+       .my-buttonRendicion {
+        padding: 10px 20px;
+        background-color:#95b3d7;
+        color:#48576c;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+        display: block;
+        margin-bottom: 5px;
+     
+      }
+        .caja6 {
+        -webkit-transition: font-size 1s ease;
+        transition: font-size 1s ease;
+        }
+        .caja6:hover{
+            font-size: 28px;
+          }
+      
+      .my-buttonRendicion:hover {
+        background-color:#95b3d7;
+      }
+    
+      .my-buttonRendicion:active {
+        background-color: #3e8e41;
+      }
+  .tooltip-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip-text {
+    visibility: hidden;
+    width: 220px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    top: 50%; /* Posiciona el tooltip bajo del elemento */
+    left: 110%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 10;
+  }
+  .k-panelbar > .k-item > .k-link{
+    background: #3476AE;
+    color:rgb(255, 255, 255);
+  }
+  .k-panelbar > .k-item > .k-link:hover {
+    background: #3476AE;
+    color:rgb(255, 255, 255);
+  }
+  
+  .k-panelbar > .k-item > .k-link.k-state-selected
+  {
+  background: #3476AE;
+  color:rgb(255, 255, 255);
+  }
+  .k-panelbar > .k-item > .k-link.k-state-selected:hover {
+    background:  #3476AE;
+    color: rgb(255, 255, 255);
+  }
+ 
+  .k-item2 {
+    background: #571004;
+    color:rgb(255, 255, 255);
+  }
+  .example-info {
+    background: rgba(83, 146, 228, 0.1);
+    border-radius: 2px;
+    margin: 20px auto 40px auto;
+    padding: 10px;
+    border-left: 4px solid #5392e4;
+  }
+  .cambiocolor{
+    background: #571004;
+    color:#000;
+  }

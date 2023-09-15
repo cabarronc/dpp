@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import {ChangeDetectionStrategy} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -8,8 +8,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./app.component.css'],
    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent{
+export class AppComponent implements AfterViewInit {
+  title = 'scroll-top';
 
+  ngAfterViewInit() {
+    window.scrollTo(0, 0);
+  }
   // constructor(public route:ActivatedRoute ) {}
 
   // ngOnInit(): void {

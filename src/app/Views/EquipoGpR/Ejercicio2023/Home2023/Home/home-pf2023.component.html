@@ -1,0 +1,224 @@
+<app-home></app-home>
+
+<div class="entire-content2">
+      <div class="row">
+            <div class="col-md">
+                  <div class="card">
+                        <img class="card-img-top" height="300px" width="500px"
+                              src="../../../../assets/Images/SitioDpp/PaqueteFiscal2023_1.jpg">
+                  </div>
+                  <div class="row pt-lg-3">
+                  </div>
+                  <div class="row pt-lg-3">
+                  </div>
+                  <div class="row pt-lg-3">
+                  </div>
+                  <div class="container-fluid">
+
+
+                        <div class="row justify-content-md-center">
+                              <div class="col-md-3">
+                                    <img class="card-img-top" height="500px" width="500px"
+                                          src="../../../../assets/Images/SitioDpp/Ciclo_presupuestario.png">
+                              </div>
+                              <div class="col-md-3">
+                                    <kendo-stacklayout [style.height.%]="90" [orientation]="orientation"
+                                          [align]="{ horizontal: hAlign, vertical: vAlign }" [gap]="gap">
+                                          <div kendoTypography variant="h2" fontWeight="bold" themeColor="dark" textAlign="center">Ciclo presupuestario</div>
+                                          <!-- <h3>Ciclo presupuestario</h3> -->
+                                          <!-- Planeacion -->
+                                          <div class="box first">
+                                                <div class="tooltip-container">
+                                                      <span class="tooltip-text">Priorización de las necesidades
+                                                            sociales y definición de rutas estratégicas.
+                                                      </span>
+                                                      <button kendoButton size="none"
+                                                            imageUrl="https://github.com/cabarronc/dpp/blob/master/src/assets/Icons/Planeacion.png?raw=true"
+                                                            class="my-buttonPlaneacion caja1" *ngIf="!openedPlaneacion"
+                                                            (click)="openPlaneacion()">Planeación</button>
+
+                                                </div>
+
+                                                <kendo-window title="Planeacion" *ngIf="openedPlaneacion"
+                                                      (close)="closePlaneacion()" [minWidth]="250" [width]="750"
+                                                      autoFocusedElement="#headerPlaneacion">
+                                                      <div class="container-fluid">
+                                                            <img class="card-img-top" id="headerPlaneacion"
+                                                                  height="400px" width="600px"
+                                                                  src="../../../../assets/Images/SitioDpp/01 Planeación.jpeg">
+                                                      </div>
+                                                </kendo-window>
+                                          </div>
+                                          <!-- Programacion -->
+                                          <div class="box second">
+                                                <div class="tooltip-container">
+                                                      <span class="tooltip-text">Selección de las mejores alternativas
+                                                            para producir Bienes y Servicios.
+
+                                                      </span>
+                                                      <button kendoButton size="none"
+                                                            imageUrl="https://github.com/cabarronc/dpp/blob/master/src/assets/Icons/Programacion.png?raw=true"
+                                                            class="my-buttonProgramacion caja2"
+                                                            *ngIf="!openedProgramacion"
+                                                            (click)="openProgramacion()">Programación</button>
+
+                                                </div>
+                                                <kendo-window title="Programación" *ngIf="openedProgramacion"
+                                                      (close)="closeProgramacion()" [minWidth]="250" [width]="750">
+                                                      <div class="container-fluid">
+
+                                                            <div class="card">
+                                                                  <img class="card-img-top" height="300px" width="500px"
+                                                                        src="../../../../assets/Images/SitioDpp/Ciclo_presupuestario.png">
+
+                                                            </div>
+                                                      </div>
+                                                </kendo-window>
+                                          </div>
+                                          <!-- Presupuestacion -->
+                                          <div class="box third">
+                                                <div class="tooltip-container">
+                                                      <span class="tooltip-text">Optimización de los recursos.
+
+                                                      </span>
+                                                      <button kendoButton size="none"
+                                                            imageUrl="https://github.com/cabarronc/dpp/blob/master/src/assets/Icons/Presupuestacion.png?raw=true"
+                                                            class="my-buttonPresupuestacion  caja3"
+                                                            *ngIf="!openedPresupuestacion"
+                                                            (click)="openPresupuestacion()">&nbsp;Presupuestación</button>
+
+                                                </div>
+                                                <kendo-window title="Presupuestacion" *ngIf="openedPresupuestacion"
+                                                      (close)="closePresupuestacion()" [minWidth]="250" [width]="750">
+                                                      <div class="container-fluid">
+
+                                                            <div class="card">
+                                                                  <img class="card-img-top" height="300px" width="500px"
+                                                                        src="../../../../assets/Images/SitioDpp/Ciclo_presupuestario.png">
+
+                                                            </div>
+                                                      </div>
+                                                </kendo-window>
+                                          </div>
+                                          <!-- Ejercicio y Control -->
+                                          <div class="box fourth">
+                                                <div class="tooltip-container">
+                                                      <span class="tooltip-text">Ejecución en tiempo, (costo y calidad)
+                                                            en el logro de metas.
+
+                                                      </span>
+                                                      <button kendoButton size="none"
+                                                            imageUrl="https://github.com/cabarronc/dpp/blob/master/src/assets/Icons/EjercicioControl.png?raw=true"
+                                                            class="my-buttonEjercicio  caja4" *ngIf="!openedEjercicio"
+                                                            (click)="openEjercicio()">&nbsp;Ejercicio y Control</button>
+
+                                                </div>
+                                                <kendo-window title="Ejercicio y Control" *ngIf="openedEjercicio"
+                                                      (close)="closeEjercicio()" [minWidth]="250" [width]="750">
+                                                      <div class="container-fluid">
+
+                                                            <div class="card">
+                                                                  <img class="card-img-top" height="300px" width="500px"
+                                                                        src="../../../../assets/Images/SitioDpp/Ciclo_presupuestario.png">
+
+                                                            </div>
+                                                      </div>
+                                                </kendo-window>
+                                          </div>
+
+                                          <!-- Seguimiento y Evaluacion -->
+                                          <div class="box fourth">
+                                                <div class="tooltip-container">
+                                                      <span class="tooltip-text">Orientación hacia el aprendizaje
+                                                            y la mejora continua.
+
+                                                      </span>
+                                                      <button kendoButton size="none"
+                                                            imageUrl="https://github.com/cabarronc/dpp/blob/master/src/assets/Icons/Seguimiento.png?raw=true"
+                                                            class="my-buttonSeguimiento  caja5"
+                                                            *ngIf="!openedSeguimiento"
+                                                            (click)="openSeguimiento()">&nbsp;Seguimiento y
+                                                            Evaluación</button>
+
+                                                </div>
+                                                <kendo-window title="Seguimiento y Evaluación" *ngIf="openedSeguimiento"
+                                                      (close)="closeSeguimiento()" [minWidth]="250" [width]="750">
+                                                      <div class="container-fluid">
+
+                                                            <div class="card">
+                                                                  <img class="card-img-top" height="300px" width="500px"
+                                                                        src="../../../../assets/Images/SitioDpp/Ciclo_presupuestario.png">
+
+                                                            </div>
+                                                      </div>
+                                                </kendo-window>
+                                          </div>
+                                          <!-- Rendicion de Cuentas-->
+                                          <div class="box fourth">
+                                                <div class="tooltip-container">
+                                                      <span class="tooltip-text">Información transparente, clara y
+                                                            objetiva.
+
+                                                      </span>
+                                                      <button kendoButton size="none"
+                                                            imageUrl="https://github.com/cabarronc/dpp/blob/master/src/assets/Icons/Rendicion.png?raw=true"
+                                                            class="my-buttonRendicion  caja6" *ngIf="!openedRendicion"
+                                                            (click)="openRendicion()">&nbsp;Rendicion de
+                                                            Cuentas</button>
+
+                                                </div>
+                                                <kendo-window title="Rendicion de Cuentas" *ngIf="openedRendicion"
+                                                      (close)="closeRendicion()" [minWidth]="250" [width]="750">
+                                                      <div class="container-fluid">
+
+                                                            <div class="card">
+                                                                  <img class="card-img-top" height="300px" width="500px"
+                                                                        src="../../../../../../../dist/dpp/assets/Images/SitioDpp/Ciclo_presupuestario.png">
+
+                                                            </div>
+                                                      </div>
+                                                </kendo-window>
+                                          </div>
+                                    </kendo-stacklayout>
+                              </div>
+                        </div>
+                        <div class="row pt-lg-3">
+                        </div>
+                        <div class="row pt-lg-3">
+                        </div>
+                        <div class="row pt-lg-3">
+                        </div>
+                        <div class="container-fluid" style="padding-bottom:1rem; padding-left: 1.5rem; padding-right: 1.5rem;">
+                              <div class="row justify-content-md-center">
+                                    <div class="col-md-6">
+                                          <kendo-panelbar [animate]="true" size="none" class="cambiocolor">
+                                                <kendo-panelbar-item icon="folder"  title="Documentos de soporte" [expanded]="false">
+                                                  <ng-template kendoPanelBarContent>
+                                                      <div class="row justify-content-md-center">
+                                                      <iframe src="https://drive.google.com/file/d/1VIjHsrTDR6ls8cKurAjF7uK-gDe_PoMH/preview"   width="840" height="480" allow="autoplay" ></iframe>
+                                                       </div>
+                                                       
+                                                  </ng-template>
+                                                </kendo-panelbar-item>
+                                          </kendo-panelbar>
+                                          <div class="row pt-lg-3">
+                                          </div>
+                                          <kendo-panelbar [animate]="true" size="none" class="cambiocolor">
+                                                <kendo-panelbar-item icon="folder"  title="Documentos de soporte" [expanded]="false">
+                                                  <ng-template kendoPanelBarContent>
+                                                      <div class="row justify-content-md-center">
+                                                            <iframe src="//periodico.guanajuato.gob.mx/downloadfile?dir=anio_2022&file=PO_261_20ma_Parte_20221231.pdf" width="840" height="480" allow="autoplay"></iframe>
+                                                      </div>
+                                                  </ng-template>
+                                                </kendo-panelbar-item>
+                                          </kendo-panelbar>
+                                  
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+      </div>
+</div>
+
+<!-- <div class="enclose"></div> -->

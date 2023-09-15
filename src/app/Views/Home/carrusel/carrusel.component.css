@@ -13,13 +13,19 @@ html, body {
 
 #slideshow {
     margin: 0 auto;
-    padding-top: 20px;
-    height: 900px;
+    height: 300px;
     width: 100%;
 
     box-sizing: border-box;
 }
-
+#EquipoGpR {
+    margin: 0 auto;
+    height: 400px;
+    width: 100%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    box-sizing: border-box;
+}
 .slideshow-title {
     font-family: 'Allerta Stencil';
     font-size: 62px;
@@ -59,6 +65,13 @@ html, body {
     position: relative;
     padding-top: 80px;
 }
+.entire-content2 {
+    width: 100%;
+    perspective: 1000px;
+    position:relative;
+    padding-top: 5px;
+}
+
 
 .content-carrousel {
     width: 100%;
@@ -136,5 +149,5 @@ html, body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: -25%;
+    margin-top: 15%;
 }

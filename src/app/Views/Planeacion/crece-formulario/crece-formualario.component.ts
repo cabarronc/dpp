@@ -70,7 +70,10 @@ public defaultItem: { text: string; value: number } = {
   text: "Seleccione un valor entre (9, 6, 3)",
   value: null,
 };
-
+// @HostListener('document:input', ['$event']) 
+// onInput(e) {
+//   console.log(e);
+// }
 @ViewChild("chart")
   private chart: ChartComponent;
   public graficos: Grafico[] = [];
