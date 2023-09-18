@@ -5,7 +5,7 @@
             <div class="col-md">
                   <div class="card">
                         <img class="card-img-top" height="300px" width="500px"
-                              src="../../../../assets/Images/SitioDpp/PaqueteFiscal2023_1.jpg">
+                              src="https://github.com/cabarronc/dpp/blob/master/src/assets/Images/SitioDpp/PaqueteFiscal2023_1.jpg?raw=true">
                   </div>
                   <div class="row pt-lg-3">
                   </div>
@@ -19,13 +19,13 @@
                         <div class="row justify-content-md-center">
                               <div class="col-md-3">
                                     <img class="card-img-top" height="500px" width="500px"
-                                          src="../../../../assets/Images/SitioDpp/Ciclo_presupuestario.png">
+                                          src="https://github.com/cabarronc/dpp/blob/master/src/assets/Images/SitioDpp/Ciclo_presupuestario.png?raw=true">
                               </div>
                               <div class="col-md-3">
                                     <kendo-stacklayout [style.height.%]="90" [orientation]="orientation"
                                           [align]="{ horizontal: hAlign, vertical: vAlign }" [gap]="gap">
-                                          <div kendoTypography variant="h2" fontWeight="bold" themeColor="dark" textAlign="center">Ciclo presupuestario</div>
-                                          <!-- <h3>Ciclo presupuestario</h3> -->
+                                          <div kendoTypography variant="h2" fontWeight="bold" themeColor="dark"
+                                                textAlign="center">Ciclo presupuestario</div>
                                           <!-- Planeacion -->
                                           <div class="box first">
                                                 <div class="tooltip-container">
@@ -44,8 +44,7 @@
                                                       autoFocusedElement="#headerPlaneacion">
                                                       <div class="container-fluid">
                                                             <img class="card-img-top" id="headerPlaneacion"
-                                                                  height="400px" width="600px"
-                                                                  src="../../../../assets/Images/SitioDpp/01 Planeación.jpeg">
+                                                                  src="../../../../assets/Images/SitioDpp/Planeacion2023.png">
                                                       </div>
                                                 </kendo-window>
                                           </div>
@@ -68,8 +67,8 @@
                                                       <div class="container-fluid">
 
                                                             <div class="card">
-                                                                  <img class="card-img-top" height="300px" width="500px"
-                                                                        src="../../../../assets/Images/SitioDpp/Ciclo_presupuestario.png">
+                                                                  <img class="card-img-top"
+                                                                        src="../../../../assets/Images/SitioDpp/Programacion2023.png">
 
                                                             </div>
                                                       </div>
@@ -188,31 +187,59 @@
                         </div>
                         <div class="row pt-lg-3">
                         </div>
-                        <div class="container-fluid" style="padding-bottom:1rem; padding-left: 1.5rem; padding-right: 1.5rem;">
+                        <div class="container-fluid"
+                              style="padding-bottom:1rem; padding-left: 1.5rem; padding-right: 1.5rem;">
                               <div class="row justify-content-md-center">
                                     <div class="col-md-6">
-                                          <kendo-panelbar [animate]="true" size="none" class="cambiocolor">
-                                                <kendo-panelbar-item icon="folder"  title="Documentos de soporte" [expanded]="false">
-                                                  <ng-template kendoPanelBarContent>
-                                                      <div class="row justify-content-md-center">
-                                                      <iframe src="https://drive.google.com/file/d/1VIjHsrTDR6ls8cKurAjF7uK-gDe_PoMH/preview"   width="840" height="480" allow="autoplay" ></iframe>
-                                                       </div>
-                                                       
-                                                  </ng-template>
+                                          <kendo-panelbar >
+                                                <kendo-panelbar-item icon="folder-open" title="Documentos de soporte"
+                                                      [expanded]="false">
+                                                      <ng-template kendoPanelBarContent>
+                                                            <div class="row justify-content-md-center">
+                                                                  <iframe
+                                                                        src="https://drive.google.com/file/d/1VIjHsrTDR6ls8cKurAjF7uK-gDe_PoMH/preview"
+                                                                        width="840" height="480"
+                                                                        allow="autoplay"></iframe>
+                                                            </div>
+
+                                                      </ng-template>
                                                 </kendo-panelbar-item>
                                           </kendo-panelbar>
                                           <div class="row pt-lg-3">
                                           </div>
-                                          <kendo-panelbar [animate]="true" size="none" class="cambiocolor">
-                                                <kendo-panelbar-item icon="folder"  title="Documentos de soporte" [expanded]="false">
-                                                  <ng-template kendoPanelBarContent>
-                                                      <div class="row justify-content-md-center">
-                                                            <iframe src="//periodico.guanajuato.gob.mx/downloadfile?dir=anio_2022&file=PO_261_20ma_Parte_20221231.pdf" width="840" height="480" allow="autoplay"></iframe>
-                                                      </div>
-                                                  </ng-template>
+                                          <kendo-panelbar >
+                                                <kendo-panelbar-item icon="folder-open" title="Lineamientos Generales de Gestión para Resultados 2023 - Periodico Oficial"
+                                                      [expanded]="false">
+                                                      <ng-template kendoPanelBarContent>
+                                                            <div class="row justify-content-md-center">
+                                                                  <iframe
+                                                                        src="https://periodico.guanajuato.gob.mx/downloadfile?dir=anio_2022&file=PO_261_20ma_Parte_20221231.pdf"
+                                                                        width="840" height="480"
+                                                                        allow="autoplay"></iframe>
+                                                            </div>
+                                                      </ng-template>
                                                 </kendo-panelbar-item>
                                           </kendo-panelbar>
-                                  
+                                          <div class="row pt-lg-3"></div>
+
+                                          <kendo-panelbar>
+                                                <kendo-panelbar-item icon="folder-open" title="Disposicionest Administraivas 2023"
+                                                      [expanded]="false">
+                                                      <ng-template kendoPanelBarContent>
+                                                            <div class="container">
+                                                            <div class="row justify-content-md-center">
+                                                                  <a href="https://finanzas.guanajuato.gob.mx/mapa.php?id=430" target="_blank" class="btn btn-primary ">Ir al Sitio</a>
+                                                                  <iframe
+                                                                        src="https://finanzas.guanajuato.gob.mx/mapa.php?id=430"
+                                                                        width="840" height="480"
+                                                                        allow="autoplay"></iframe>
+                                                            </div>
+                                                      </div>
+                                                      </ng-template>
+                                                </kendo-panelbar-item>
+                                          </kendo-panelbar>
+                                              
+                                          
                                     </div>
                               </div>
                         </div>

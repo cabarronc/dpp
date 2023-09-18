@@ -17,6 +17,8 @@ export class HomePf2023Component implements OnInit{
 
   dangerousUrl: string;
   trustedUrl: SafeUrl;
+  removable: false;
+  label: 'Lineamientos Generales de Gestión para Resultados 2023 - Periodico Oficial';
   
  
   public recursos = "https://drive.google.com/file/d/1VIjHsrTDR6ls8cKurAjF7uK-gDe_PoMH/view";

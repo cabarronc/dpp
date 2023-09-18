@@ -290,6 +290,98 @@ html {
     visibility: visible;
     opacity: 10;
   }
+  div.a{
+    text-transform: uppercase;
+  }
+  h1{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+  
+    align-content: center;
+  
+    }
+    h2{
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+  
+      align-content: center;
+  
+      }
+  
+    hr{
+        height: 0.2em;
+        border-width: 200px;
+        max-width: 250px;
+        border-color: rgb(185, 13, 13);
+    }
+    #crecesection {
+        margin: 0 auto;
+        padding-top: 0px;
+        height: 900px;
+        width: 100%;
+  
+        box-sizing: border-box;
+    }
+    #sectiondefault {
+      margin: 0 auto;
+      height: 13700px;
+      width: 100%;
+      padding-top: 10px;
+      padding-left: 15px;
+      padding-right: 10px;
+  
+      box-sizing: border-box;
+    }
+  
+    .bd-callout-info {
+      border-left-color: #f70b0b;
+  }
+  .bd-callout {
+      padding: 1.25rem;
+      margin-top: 1.25rem;
+      margin-bottom: 1.25rem;
+      border: 1px solid #000000;
+      border-left-width: 0.25rem;
+      border-radius: 0.25rem;
+  
+  
+  }
+  
+  
+  *, ::after, ::before {
+      box-sizing: border-box;
+  }
+  
+  
+  input[type="radio"] {
+    margin-right: 30px;
+  }
+  .custom-size {
+    width: 14px;
+    height: 14px;
+  }
+  div#total{
+    float:right;
+    padding-right: 10px;
+  
+  }
+  kendo-listbox {
+    height: 270px;
+    width: 240px;
+  }
+  
+  kendo-listbox:nth-of-type(1) {
+    margin-right: 8px;
+  }
+  .my-pagination /deep/ .ngx-pagination .current {
+    background: rgb(44, 62, 163);
+  
+  }
+  kendo-dropdownlist {
+    width: 170px;
+  }
+  
+  
   .k-panelbar > .k-item > .k-link{
     background: #3476AE;
     color:rgb(255, 255, 255);
@@ -308,7 +400,6 @@ html {
     background:  #3476AE;
     color: rgb(255, 255, 255);
   }
- 
   .k-item2 {
     background: #571004;
     color:rgb(255, 255, 255);
@@ -320,7 +411,55 @@ html {
     padding: 10px;
     border-left: 4px solid #5392e4;
   }
-  .cambiocolor{
-    background: #571004;
-    color:#000;
+  .templatenull {
+    display: inline-block;
+    background:#3333333f;
+    color: #fff;
+    font-weight:bold;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    text-align: center;
   }
+  
+  .template {
+    display: inline-block;
+    background:#5392e4;
+    color: #fff;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+  }
+  
+  .template9 {
+    display: inline-block;
+    background:#09ac32;
+    color: #000000;
+    font-weight:bold;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+  }
+  .template6 {
+    display: inline-block;
+    background:#e0e406;
+    color: #000000;
+    font-weight:bold;
+    border-radius: 75%;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+  }
+  .template3 {
+    display: inline-block;
+    background:#f10808;
+    color:#000000;
+    font-weight:bold;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+  }
+  
