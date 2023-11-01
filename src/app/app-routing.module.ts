@@ -6,7 +6,7 @@ import { CreceComponent } from './Views/Planeacion/crece/crece.component';
 import { CreceCuestionarioComponent } from './Views/Planeacion/crece-cuestionario/crece-cuestionario.component';
 import { LoginComponent } from "./Views/login/login.component";
 import { RegisterComponent } from "./Views/register/register.component";
-import { CuestionariosComponent } from "./Views/Administracion/cuestionarios/cuestionarios.component";
+import { CatalogosComponent } from "./Views/Administracion/cuestionarios/catalogos.component";
 import { AppComponent } from './app.component';
 import { CarruselComponent } from './Views/Home/carrusel/carrusel.component';
 import { PruebaspdfComponent } from './Views/Administracion/pruebaspdf/pruebaspdf.component';
@@ -55,7 +55,7 @@ import { Seguimiento2023Component } from './Views/EquipoGpR/Ejercicio2023/Home20
 
 const routes: Routes = [
 
-  { path: 'cuestionarios', component: CuestionariosComponent, canActivate: [AuthGuard] },
+  { path: 'catalogos', component: CatalogosComponent, canActivate: [AuthGuard] },
 
   { path: 'usuarios', component: UsuariosComponent, canActivate: [RoleGuardServiceService, AuthGuard] },
   { path: 'crece', component: CreceComponent, canActivate: [AuthGuard] },

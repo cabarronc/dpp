@@ -1541,22 +1541,18 @@
           </div>
           <div class="col-md-12">
             <kendo-panelbar>
-              <kendo-panelbar-item class="k-item2" icon="folder" title="Evaluación al Diagnóstico Particular"
+              <kendo-panelbar-item #expadedtrue class="k-item2" icon="folder" title="Evaluación al Diagnóstico Particular"
                 [expanded]="true">
 
                 <ng-template kendoPanelBarContent>
                   <kendo-card width="auto" style="padding: 1rem; align-content: center;">
-                    <kendo-panelbar>
+                    <!-- <kendo-panelbar>
                       <kendo-panelbar-item icon="folder" title="General" [expanded]="true">
-                        <ng-template kendoPanelBarContent>
-                          <!-- <kendo-tabstrip [keepTabContent]="false" [scrollable]="settings" (tabSelect)="onTabSelect($event)"
-                                [tabPosition]="position">
+                        <ng-template kendoPanelBarContent>  -->
 
-                                <kendo-tabstrip-tab [selected]="true">
-                                  <ng-template kendoTabTitle>
-                                    <strong> 01. General</strong>
-                                  </ng-template>
-                                  <ng-template kendoTabContent> -->
+                        <kendo-expansionpanel expandIcon="k-icon k-font-icon k-i-plus" style="background-color: rgb(44, 62, 163);" collapseIcon="fa fa-minus" title="General" [(expanded)]="expandedState">
+
+                                         
                           <div class="container-fluid">
                             <p> </p>
 
@@ -1649,9 +1645,10 @@
 
                             </div>
                           </div>
-                        </ng-template>
+                        </kendo-expansionpanel>   
+                        <!-- </ng-template>
                       </kendo-panelbar-item>
-                    </kendo-panelbar>
+                    </kendo-panelbar> -->
                     <!-- ============================================================================================================ -->
                     <!--==========================================Seccion 3.2 Introduccion ========================================== -->
                     <!-- ============================================================================================================ -->

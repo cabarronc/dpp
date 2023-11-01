@@ -8,154 +8,173 @@
   </div>
 
   <!--Nav 1-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light " style="z-index: 0; width: auto;">
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light " style="z-index: 0;">
+          <div class="container-fluid">
 
-    <div class="container-fluid">
-
-      <a class="navbar-brand" routerLink="/carrusel" routerLinkActive="router-link-active"> <img src="https://github.com/cabarronc/dpp/blob/master/src/assets/Images/SitioDpp/Logo%20Finanzas%20transparente2.png?raw=true" width="192px" height="65px">
-       </a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- NAV MENU -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/carrusel"
-              routerLinkActive="router-link-active"><i class="bi bi-house-door"
-                style="font-size: 1.3rem; color:black "></i> Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false"><i class="bi bi-gear-wide-connected" style="font-size: 1.4rem; color:black"></i>
-              Administracion
+            <a class="navbar-brand" routerLink="/carrusel" routerLinkActive="router-link-active"> <img
+                src="https://github.com/cabarronc/dpp/blob/master/src/assets/Images/SitioDpp/Logo%20Finanzas%20transparente2.png?raw=true"
+                width="192px" height="65px">
             </a>
-            <ul class="dropdown-menu">
 
-              <li><a class="dropdown-item" routerLink="/cuestionarios" routerLinkActive="router-link-active"><i
-                    class="bi bi-card-list" style="color:black;font-size:1.5rem;"></i> Cuestionarios &raquo;</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- NAV MENU -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" routerLink="/carrusel"
+                    routerLinkActive="router-link-active"><i class="bi bi-house-door"
+                      style="font-size: 1.3rem; color:black "></i> Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-gear-wide-connected"
+                      style="font-size: 1.4rem; color:black"></i>
+                    Administracion
+                  </a>
+                  <ul class="dropdown-menu">
 
-              </li>
+                    <li><a class="dropdown-item" routerLink="/catalogos" routerLinkActive="router-link-active"><i
+                          class="bi bi-card-list" style="color:black;font-size:1.5rem;"></i> Catalogos </a>
 
-
-
-              <li><a class="dropdown-item" routerLink="/usuarios" routerLinkActive="router-link-active"><i
-                    class="bi bi-people-fill" style="font-size: 1.5em;"></i> Usuarios</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" routerLink="/pruebaspdf" routerLinkActive="router-link-active"><i
-                    class="bi bi-battery-charging" style="color: black; font-size:1.5rem;"></i> Area de pruebas y
-                  diversion</a></li>
-              <li><a class="dropdown-item" routerLink="/kendoui" routerLinkActive="router-link-active"><i
-                    class="bi bi-battery-charging" style="color: black; font-size:1.5rem;"></i> Kendo UI</a></li>
-              <li><a class="dropdown-item" routerLink="/catalogo_pp" routerLinkActive="router-link-active"><i
-                    class="bi bi-collection" style="color: black; font-size:1.5rem;"></i> Catalogo PP</a></li>
-              <li><a class="dropdown-item" routerLink="/chrtshigh" routerLinkActive="router-link-active"><i
-                    class="bi bi-collection" style="color: black; font-size:1.5rem;"></i> Highcharts</a></li>
-              <li><a class="dropdown-item" routerLink="/pruebaExcel" routerLinkActive="router-link-active"><i
-                    class="bi bi-collection" style="color: black; font-size:1.5rem;"></i> Excel CRECE</a></li>
-
-                    <li><a class="dropdown-item" routerLink="/prueba-firestore" routerLinkActive="router-link-active"><i
-                      class="bi bi-collection" style="color: black; font-size:1.5rem;"></i>Angular Firestore</a></li>
-                      <li><a class="dropdown-item" routerLink="/google-map" routerLinkActive="router-link-active"><i
-                        class="bi bi-collection" style="color: black; font-size:1.5rem;"></i>Google Maps</a></li>
-                        <li><a class="dropdown-item" routerLink="/map-paises" routerLinkActive="router-link-active"><i
-                          class="bi bi-collection" style="color: black; font-size:1.5rem;"></i>Mapa Paises</a></li>
-                          <li><a class="dropdown-item" routerLink="/apg" routerLinkActive="router-link-active"><i
-                            class="bi bi-collection" style="color: black; font-size:1.5rem;"></i>Programa de Gobierno</a></li>
-                            <li><a class="dropdown-item" routerLink="/mapa_bienes" routerLinkActive="router-link-active"><i
-                              class="bi bi-collection" style="color: black; font-size:1.5rem;"></i>Bienes y Servicios</a></li>
-                              <li><a class="dropdown-item" routerLink="/pruebad3" routerLinkActive="router-link-active"><i
-                                class="bi bi-collection" style="color: black; font-size:1.5rem;"></i>Pruebas Graficos</a></li>
-                  
-            </ul>
-          </li>
+                    </li>
 
 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false"><i class="bi bi-card-checklist" style="font-size: 1.3rem; color:black"></i> CRECE PLANEACIÓN
-            </a>
-            <ul class="dropdown-menu">
-              <!-- <li><a class="dropdown-item" routerLink="/crece" routerLinkActive="router-link-active"><i class="fa fa-bar-chart-o fa-spin" style="font-size:30px"></i> CRECE Informe</a></li> -->
 
-              <li><a class="dropdown-item" routerLink="/crece-formulario" routerLinkActive="router-link-active"><i
-                    class="bi bi-clipboard-plus" style="color:rgb(52, 49, 179); font-size: 1.5rem;"></i> Formulario</a>
-              </li>
-
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <!-- <li><a class="dropdown-item" routerLink="/crece_preguntas" routerLinkActive="router-link-active"><i
-                    class="bi bi-clipboard-check" style="font-size: 1.5rem;"></i> Preguntas</a></li> -->
-              <li><a class="dropdown-item" routerLink="/crece-respuestas" routerLinkActive="router-link-active"><i
-                    class="bi bi-file-earmark-excel" style="color:rgb(55, 160, 116); font-size: 1.5rem;"></i>
-                  Respuestas</a></li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
-              <li><a class="dropdown-item" routerLink="/crece-informe" routerLinkActive="router-link-active"><i
-                    class="bi bi-clipboard-plus" style="color:rgb(52, 49, 179); font-size: 1.5rem;"></i> Informe</a>
-              </li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" routerLink="/crece-monitor-seguimiento"
-                  routerLinkActive="router-link-active"><i class="bi bi-file-earmark-excel"
-                    style="color:rgb(55, 160, 116); font-size: 1.5rem;"></i> Monitor de Seguimiento</a></li>
+                    <li><a class="dropdown-item" routerLink="/usuarios" routerLinkActive="router-link-active"><i
+                          class="bi bi-people-fill" style="font-size: 1.5em;"></i> Usuarios</a></li>
                     <li>
                       <hr class="dropdown-divider">
                     </li>
-              <li><a class="dropdown-item" routerLink="/crece" routerLinkActive="router-link-active"><i
-                    class="bi bi-clipboard-data" style="color:darkorange; font-size: 1.5rem;"></i> Tablero</a></li>
-              <!-- <li><a class="dropdown-item" routerLink="/crece" routerLinkActive="router-link-active"><i
+                    <li><a class="dropdown-item" routerLink="/pruebaspdf" routerLinkActive="router-link-active"><i
+                          class="bi bi-battery-charging" style="color: black; font-size:1.5rem;"></i> Area de pruebas y
+                        diversion</a></li>
+                    <li><a class="dropdown-item" routerLink="/kendoui" routerLinkActive="router-link-active"><i
+                          class="bi bi-battery-charging" style="color: black; font-size:1.5rem;"></i> Kendo UI</a></li>
+                    <li><a class="dropdown-item" routerLink="/catalogo_pp" routerLinkActive="router-link-active"><i
+                          class="bi bi-collection" style="color: black; font-size:1.5rem;"></i> Catalogo PP</a></li>
+                    <li><a class="dropdown-item" routerLink="/chrtshigh" routerLinkActive="router-link-active"><i
+                          class="bi bi-collection" style="color: black; font-size:1.5rem;"></i> Highcharts</a></li>
+                    <li><a class="dropdown-item" routerLink="/pruebaExcel" routerLinkActive="router-link-active"><i
+                          class="bi bi-collection" style="color: black; font-size:1.5rem;"></i> Excel CRECE</a></li>
+
+                    <li><a class="dropdown-item" routerLink="/prueba-firestore" routerLinkActive="router-link-active"><i
+                          class="bi bi-collection" style="color: black; font-size:1.5rem;"></i>Angular Firestore</a>
+                    </li>
+                    <li><a class="dropdown-item" routerLink="/google-map" routerLinkActive="router-link-active"><i
+                          class="bi bi-collection" style="color: black; font-size:1.5rem;"></i>Google Maps</a></li>
+                    <li><a class="dropdown-item" routerLink="/map-paises" routerLinkActive="router-link-active"><i
+                          class="bi bi-collection" style="color: black; font-size:1.5rem;"></i>Mapa Paises</a></li>
+                    <li><a class="dropdown-item" routerLink="/apg" routerLinkActive="router-link-active"><i
+                          class="bi bi-collection" style="color: black; font-size:1.5rem;"></i>Programa de Gobierno</a>
+                    </li>
+                    <li><a class="dropdown-item" routerLink="/mapa_bienes" routerLinkActive="router-link-active"><i
+                          class="bi bi-collection" style="color: black; font-size:1.5rem;"></i>Bienes y Servicios</a>
+                    </li>
+                    <li><a class="dropdown-item" routerLink="/pruebad3" routerLinkActive="router-link-active"><i
+                          class="bi bi-collection" style="color: black; font-size:1.5rem;"></i>Pruebas Graficos</a></li>
+
+                  </ul>
+                </li>
+
+
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-card-checklist"
+                      style="font-size: 1.3rem; color:black"></i>
+                    CRECE
+                    PLANEACIÓN
+                  </a>
+                  <ul class="dropdown-menu">
+                    <!-- <li><a class="dropdown-item" routerLink="/crece" routerLinkActive="router-link-active"><i class="fa fa-bar-chart-o fa-spin" style="font-size:30px"></i> CRECE Informe</a></li> -->
+
+                    <li><a class="dropdown-item" routerLink="/crece-formulario" routerLinkActive="router-link-active"><i
+                          class="bi bi-clipboard-plus" style="color:rgb(52, 49, 179); font-size: 1.5rem;"></i>
+                        Formulario</a>
+                    </li>
+
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <!-- <li><a class="dropdown-item" routerLink="/crece_preguntas" routerLinkActive="router-link-active"><i
+                    class="bi bi-clipboard-check" style="font-size: 1.5rem;"></i> Preguntas</a></li> -->
+                    <li><a class="dropdown-item" routerLink="/crece-respuestas" routerLinkActive="router-link-active"><i
+                          class="bi bi-file-earmark-excel" style="color:rgb(55, 160, 116); font-size: 1.5rem;"></i>
+                        Respuestas</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" routerLink="/crece-informe" routerLinkActive="router-link-active"><i
+                          class="bi bi-clipboard-plus" style="color:rgb(52, 49, 179); font-size: 1.5rem;"></i>
+                        Informe</a>
+                    </li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" routerLink="/crece-monitor-seguimiento"
+                        routerLinkActive="router-link-active"><i class="bi bi-file-earmark-excel"
+                          style="color:rgb(55, 160, 116); font-size: 1.5rem;"></i> Monitor de Seguimiento</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" routerLink="/crece" routerLinkActive="router-link-active"><i
+                          class="bi bi-clipboard-data" style="color:darkorange; font-size: 1.5rem;"></i> Tablero</a>
+                    </li>
+                    <!-- <li><a class="dropdown-item" routerLink="/crece" routerLinkActive="router-link-active"><i
                     class="bi bi-clipboard-data" style="color:darkorange; font-size: 1.5rem;"></i> Plan de Mejora</a> -->
                     <li>
                       <hr class="dropdown-divider">
                     </li>
                     <li><a class="dropdown-item" routerLink="/crece" routerLinkActive="router-link-active"><i
-                      class="bi bi-table" style="color:rgb(55, 160, 116); font-size: 1.5rem;"></i> Plan de Mejora Continua version Dinamica</a>
-              </li>
+                          class="bi bi-table" style="color:rgb(55, 160, 116); font-size: 1.5rem;"></i> Plan de Mejora
+                        Continua version Dinamica</a>
+                    </li>
 
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" routerLink="/catalogo_pp" routerLinkActive="router-link-active"><i
-                class="bi bi-file-earmark-excel" style="color:rgb(55, 160, 116); font-size:1.5rem;"></i> PMC version Google Sheets</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" routerLink="/catalogo_pp" routerLinkActive="router-link-active"><i
+                          class="bi bi-file-earmark-excel" style="color:rgb(55, 160, 116); font-size:1.5rem;"></i> PMC
+                        version Google Sheets</a></li>
 
 
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false"><i class="bi bi-card-checklist" style="font-size: 1.3rem; color:black"></i> CRECE PROGRAMACION
-            </a>
-            <ul class="dropdown-menu">
-              <!-- <li><a class="dropdown-item" routerLink="/crece" routerLinkActive="router-link-active"><i class="fa fa-bar-chart-o fa-spin" style="font-size:30px"></i> CRECE Informe</a></li> -->
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-card-checklist"
+                      style="font-size: 1.3rem; color:black"></i>
+                    CRECE
+                    PROGRAMACIÓN
+                  </a>
+                  <ul class="dropdown-menu">
+                    <!-- <li><a class="dropdown-item" routerLink="/crece" routerLinkActive="router-link-active"><i class="fa fa-bar-chart-o fa-spin" style="font-size:30px"></i> CRECE Informe</a></li> -->
 
-              <li><a class="dropdown-item" routerLink="/crece_programacion" routerLinkActive="router-link-active"><i
-                    class="bi bi-clipboard-plus" style="color:rgb(52, 49, 179); font-size: 1.5rem;"></i>Crece Programacion</a>
-              </li>
-            </ul>
-          </li>
-          <!-- Paquete Fiscal 2023 -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false"><i class="bi bi-briefcase" style="font-size: 1.3rem; color:black"></i>
-              PF 2023
-            </a>
-            <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" routerLink="/crece_programacion"
+                        routerLinkActive="router-link-active"><i class="bi bi-clipboard-check"
+                          style="color:rgb(52, 49, 179); font-size: 1.5rem;"></i>&nbsp;Informes Programación</a>
+                    </li>
+                  </ul>
+                </li>
+                <!-- Paquete Fiscal 2023 -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-briefcase"
+                      style="font-size: 1.3rem; color:black"></i>
+                    PF 2023
+                  </a>
+                  <ul class="dropdown-menu">
 
                     <li><a class="dropdown-item" routerLink="/pf2023" routerLinkActive="router-link-active"><i
-                      class="bi bi-clipboard-data" style="color:darkorange; font-size: 1.5rem;"></i>Tablero</a></li>
+                          class="bi bi-clipboard-data" style="color:darkorange; font-size: 1.5rem;"></i>Tablero</a></li>
 
-            </ul>
-          </li>
-          <!-- Reestructura
+                  </ul>
+                </li>
+                <!-- Reestructura
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false"><i class="bi bi-arrow-down-up" style="font-size: 1.3rem; color:black"></i>
@@ -184,70 +203,75 @@
                     style="color:darkorange; font-size: 1.5rem;"></i> Tablero</a></li>
             </ul>
           </li> -->
-          <!-- INDICE DPP -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false"><i class="bi bi-graph-up-arrow" style="font-size: 1.3rem; color:black"></i>
-              Indice Dpp
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" routerLink="/indicedpp" routerLinkActive="router-link-active"><i
-                    class="bi bi-clipboard-data" style="color:darkorange; font-size: 1.5rem;"></i> Tablero</a></li>
-            </ul>
+                <!-- INDICE DPP -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-graph-up-arrow"
+                      style="font-size: 1.3rem; color:black"></i>
+                    Indice Dpp
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" routerLink="/indicedpp" routerLinkActive="router-link-active"><i
+                          class="bi bi-clipboard-data" style="color:darkorange; font-size: 1.5rem;"></i> Tablero</a>
+                    </li>
+                  </ul>
 
 
-          </li>
-          <!-- CAPACITACION-->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false"><i class="bi bi-book" style="font-size: 1.3rem; color:black"></i>
-              Capacitacion
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" routerLink="/integrador" routerLinkActive="router-link-active"><i
-                    class="bi bi-file-earmark-excel" style="color:rgb(55, 160, 116); font-size: 1.5rem;"></i>
-                  Integración PAC-GpR</a></li>
+                </li>
+                <!-- CAPACITACION-->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-book"
+                      style="font-size: 1.3rem; color:black"></i>
+                    Capacitacion
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" routerLink="/integrador" routerLinkActive="router-link-active"><i
+                          class="bi bi-file-earmark-excel" style="color:rgb(55, 160, 116); font-size: 1.5rem;"></i>
+                        Integración PAC-GpR</a></li>
 
 
-              <li><a class="dropdown-item" routerLink="/formulario_pac" routerLinkActive="router-link-active"><i
-                    class="bi bi-clipboard-plus" style="color:rgb(52, 49, 179); font-size: 1.5rem;"></i>
-                  formulario PAC-GpR</a></li>
-              <li><a class="dropdown-item" routerLink="/tablero_pac" routerLinkActive="router-link-active"><i
-                    class="bi bi-clipboard-data" style="color:darkorange; font-size: 1.5rem;"></i>
-                  tablero PAC-GpR</a></li>
+                    <li><a class="dropdown-item" routerLink="/formulario_pac" routerLinkActive="router-link-active"><i
+                          class="bi bi-clipboard-plus" style="color:rgb(52, 49, 179); font-size: 1.5rem;"></i>
+                        formulario PAC-GpR</a></li>
+                    <li><a class="dropdown-item" routerLink="/tablero_pac" routerLinkActive="router-link-active"><i
+                          class="bi bi-clipboard-data" style="color:darkorange; font-size: 1.5rem;"></i>
+                        tablero PAC-GpR</a></li>
 
-            </ul>
-            <!-- CENSO-->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false"><i class="bi bi-person-workspace" style="font-size: 1.3rem; color:black"></i>
-              Censo GpR
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" routerLink="/censo" routerLinkActive="router-link-active"><i
-                    class="bi bi-clipboard-data" style="color:rgb(55, 160, 116); font-size: 1.5rem;"></i>
-                  Censo</a></li>
-              <li><a class="dropdown-item" routerLink="/censo-seguimiento" routerLinkActive="router-link-active"><i
-                    class="bi bi-clipboard-data" style="color:rgb(55, 160, 116); font-size: 1.5rem;"></i>
-                  Censo Seguimiento</a></li>
-              <li><a class="dropdown-item" routerLink="/censo-tablero" routerLinkActive="router-link-active"><i
-                    class="bi bi-clipboard-data" style="color:darkorange; font-size: 1.5rem;"></i>
-                  Censo Tablero</a></li>
-              <li><a class="dropdown-item" routerLink="/directorio" routerLinkActive="router-link-active"><i
-                    class="bi bi-clipboard-data" style="color:darkorange; font-size: 1.5rem;"></i>
-                  Directorio Enlaces GpR</a></li>
-            </ul>
-        </ul>
+                  </ul>
+                  <!-- CENSO-->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-workspace"
+                      style="font-size: 1.3rem; color:black"></i>
+                    Censo GpR
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" routerLink="/censo" routerLinkActive="router-link-active"><i
+                          class="bi bi-clipboard-data" style="color:rgb(55, 160, 116); font-size: 1.5rem;"></i>
+                        Censo</a></li>
+                    <li><a class="dropdown-item" routerLink="/censo-seguimiento"
+                        routerLinkActive="router-link-active"><i class="bi bi-clipboard-data"
+                          style="color:rgb(55, 160, 116); font-size: 1.5rem;"></i>
+                        Censo Seguimiento</a></li>
+                    <li><a class="dropdown-item" routerLink="/censo-tablero" routerLinkActive="router-link-active"><i
+                          class="bi bi-clipboard-data" style="color:darkorange; font-size: 1.5rem;"></i>
+                        Censo Tablero</a></li>
+                    <li><a class="dropdown-item" routerLink="/directorio" routerLinkActive="router-link-active"><i
+                          class="bi bi-clipboard-data" style="color:darkorange; font-size: 1.5rem;"></i>
+                        Directorio Enlaces GpR</a></li>
+                  </ul>
+              </ul>
 
 
-        <form class="d-flex">
-          <a class="dropdown-item" (click)="logout()" routerLinkActive="router-link-active"><i align-text="center"
-              class="bi bi-box-arrow-right" style="color:black; font-size: 1.3rem;"></i> Salir</a>
-        </form>
+              <form class="d-flex">
+                <a class="dropdown-item" (click)="logout()" routerLinkActive="router-link-active"><i align-text="center"
+                    class="bi bi-box-arrow-right" style="color:black; font-size: 1.3rem;"></i> Salir</a>
+              </form>
+            </div>
+          </div>
+        </nav>
       </div>
-    </div>
-  </nav>
-</div>
 <!--/nav 1-->
 
 <!-- <router-outlet></router-outlet> -->

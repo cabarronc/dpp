@@ -34,6 +34,7 @@ import{drawScene} from './crear-escena'
 import { Surface } from "@progress/kendo-drawing";
 import { RespuestasService } from 'src/app/services/respuestas.service';
 import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
+import { LayoutModule } from "@progress/kendo-angular-layout";
 
 
 export interface JsonModel {
@@ -63,6 +64,9 @@ export interface Grafico{
   encapsulation: ViewEncapsulation.None,
 })
 export class CreceFormualarioComponent implements OnInit, OnExit, AfterViewInit{
+
+  @ViewChild('expadedtrue')someInput: ElementRef;
+  
 //Variables para el Graficos
 // @ViewChild("dropdownlist2", { static: true })
 // public dropdownlist2: any;
@@ -78,6 +82,12 @@ public defaultItem: { text: string; value: number } = {
   private chart: ChartComponent;
   public graficos: Grafico[] = [];
   //public series: GroupResult[];
+
+  public expandedState = false;
+
+  public expandCollapseContent(): void {
+    this.expandedState = !this.expandedState;
+  }
 
 
   //PDFViewer
@@ -2111,6 +2121,7 @@ public Versiones: Array<string> = [
       this.CrecePlaneacionService.saveCrece(crece).subscribe(_data => {
         this.toastr.success('El Crece del PP ' + crece.NombrePp + ' fue registrado con exito!', 'Crece Registrado');
         this.obtenerCreces();
+        this.someInput.nativeElement.expanded = false;
         this.form.reset();
         console.log(this.form.value);
         console.log(crece);

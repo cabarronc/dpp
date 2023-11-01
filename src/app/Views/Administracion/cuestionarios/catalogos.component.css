@@ -1,0 +1,20 @@
+/* html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+} */
+#carru {
+    margin: 0 auto;
+    padding-top: 5px;
+    height: 900px;
+    width: 100%;
+   
+    box-sizing: border-box;
+}
+.jumbotron{
+    padding-top: 5px;
+    padding-bottom: 3px;
+    background-color:burlywood;
+    position: sticky;
+}
+

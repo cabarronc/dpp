@@ -92,7 +92,7 @@
                                                       <div class="container-fluid">
 
                                                             <div class="card">
-                                                                  <img class="card-img-top" 
+                                                                  <img class="card-img-top"
                                                                         src="https://github.com/cabarronc/dpp/blob/master/src/assets/Images/SitioDpp/Presupuestacion2023.png?raw=true">
 
                                                             </div>
@@ -117,7 +117,7 @@
                                                       <div class="container-fluid">
 
                                                             <div class="card">
-                                                                  <img class="card-img-top" 
+                                                                  <img class="card-img-top"
                                                                         src="https://github.com/cabarronc/dpp/blob/master/src/assets/Images/SitioDpp/Control2023.png?raw=true">
 
                                                             </div>
@@ -145,7 +145,7 @@
                                                       <div class="container-fluid">
 
                                                             <div class="card">
-                                                                  <img class="card-img-top" 
+                                                                  <img class="card-img-top"
                                                                         src="https://github.com/cabarronc/dpp/blob/master/src/assets/Images/SitioDpp/Seguimiento2023.png?raw=true">
 
                                                             </div>
@@ -187,62 +187,69 @@
                         </div>
                         <div class="row pt-lg-3">
                         </div>
-                        <div class="container-fluid"
-                              style="padding-bottom:1rem; padding-left: 1.5rem; padding-right: 1.5rem;">
-                              <div class="row justify-content-md-center">
-                                    <div class="col-md-6">
-                                          <kendo-panelbar >
-                                                <kendo-panelbar-item icon="folder-open" title="Documentos de soporte"
-                                                      [expanded]="false">
-                                                      <ng-template kendoPanelBarContent>
-                                                            <div class="row justify-content-md-center">
-                                                                  <iframe
-                                                                        src="https://drive.google.com/file/d/1VIjHsrTDR6ls8cKurAjF7uK-gDe_PoMH/preview"
-                                                                        width="840" height="480"
-                                                                        allow="autoplay"></iframe>
-                                                            </div>
+                        <fieldset class="k-form-fieldset">
+                              <div class="container-fluid"
+                                    style="padding-bottom:1rem; padding-left: 1.5rem; padding-right: 1.5rem;">
+                                    <div class="row justify-content-md-center">
+                                          <div class="col-md-6">
+                                                <kendo-panelbar style="background-color:#087cac; border-width:2px; ">
+                                                      <kendo-panelbar-item icon="folder-open" style="background-color:#087cac;"
+                                                            title="Documentos de soporte"  [expanded]="false">
+                                                            <ng-template kendoPanelBarContent>
+                                                                  <div class="row justify-content-md-center">
+                                                                        <iframe
+                                                                              src="https://drive.google.com/file/d/1VIjHsrTDR6ls8cKurAjF7uK-gDe_PoMH/preview"
+                                                                              width="840" height="480"
+                                                                              allow="autoplay"></iframe>
+                                                                  </div>
 
-                                                      </ng-template>
-                                                </kendo-panelbar-item>
-                                          </kendo-panelbar>
-                                          <div class="row pt-lg-3">
+                                                            </ng-template>
+                                                      </kendo-panelbar-item>
+                                                </kendo-panelbar>
+                                                <div class="row pt-lg-3">
+                                                </div>
+                                                <kendo-panelbar>
+                                                      <kendo-panelbar-item icon="folder-open"
+                                                            title="Lineamientos Generales de Gestión para Resultados 2023 - Periodico Oficial"
+                                                            [expanded]="false">
+                                                            <ng-template kendoPanelBarContent>
+                                                                  <div class="row justify-content-md-center">
+                                                                        <iframe
+                                                                              src="https://periodico.guanajuato.gob.mx/downloadfile?dir=anio_2022&file=PO_261_20ma_Parte_20221231.pdf"
+                                                                              width="840" height="480"
+                                                                              allow="autoplay"></iframe>
+                                                                  </div>
+                                                            </ng-template>
+                                                      </kendo-panelbar-item>
+                                                </kendo-panelbar>
+                                                <div class="row pt-lg-3"></div>
+
+                                                <kendo-panelbar>
+                                                      <kendo-panelbar-item icon="folder-open"
+                                                            title="Disposicionest Administraivas 2023"
+                                                            [expanded]="false">
+                                                            <ng-template kendoPanelBarContent>
+                                                                  <div class="container">
+                                                                        <div class="row justify-content-md-center">
+                                                                              <a href="https://finanzas.guanajuato.gob.mx/mapa.php?id=430"
+                                                                                    target="_blank"
+                                                                                    class="btn btn-primary ">Ir al
+                                                                                    Sitio</a>
+                                                                              <iframe
+                                                                                    src="https://finanzas.guanajuato.gob.mx/mapa.php?id=430"
+                                                                                    width="840" height="480"
+                                                                                    allow="autoplay"></iframe>
+                                                                        </div>
+                                                                  </div>
+                                                            </ng-template>
+                                                      </kendo-panelbar-item>
+                                                </kendo-panelbar>
+
+
                                           </div>
-                                          <kendo-panelbar >
-                                                <kendo-panelbar-item icon="folder-open" title="Lineamientos Generales de Gestión para Resultados 2023 - Periodico Oficial"
-                                                      [expanded]="false">
-                                                      <ng-template kendoPanelBarContent>
-                                                            <div class="row justify-content-md-center">
-                                                                  <iframe
-                                                                        src="https://periodico.guanajuato.gob.mx/downloadfile?dir=anio_2022&file=PO_261_20ma_Parte_20221231.pdf"
-                                                                        width="840" height="480"
-                                                                        allow="autoplay"></iframe>
-                                                            </div>
-                                                      </ng-template>
-                                                </kendo-panelbar-item>
-                                          </kendo-panelbar>
-                                          <div class="row pt-lg-3"></div>
-
-                                          <kendo-panelbar>
-                                                <kendo-panelbar-item icon="folder-open" title="Disposicionest Administraivas 2023"
-                                                      [expanded]="false">
-                                                      <ng-template kendoPanelBarContent>
-                                                            <div class="container">
-                                                            <div class="row justify-content-md-center">
-                                                                  <a href="https://finanzas.guanajuato.gob.mx/mapa.php?id=430" target="_blank" class="btn btn-primary ">Ir al Sitio</a>
-                                                                  <iframe
-                                                                        src="https://finanzas.guanajuato.gob.mx/mapa.php?id=430"
-                                                                        width="840" height="480"
-                                                                        allow="autoplay"></iframe>
-                                                            </div>
-                                                      </div>
-                                                      </ng-template>
-                                                </kendo-panelbar-item>
-                                          </kendo-panelbar>
-                                              
-                                          
                                     </div>
                               </div>
-                        </div>
+                        </fieldset>
                   </div>
             </div>
       </div>

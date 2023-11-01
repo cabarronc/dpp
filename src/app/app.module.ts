@@ -59,7 +59,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS,HttpClientJsonpModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { CuestionariosComponent } from './Views/Administracion/cuestionarios/cuestionarios.component';
+import { CatalogosComponent } from './Views/Administracion/cuestionarios/catalogos.component';
 import { LoadingComponent } from './shared/loading/loading.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
@@ -140,7 +140,7 @@ import { ScrollToTopComponent } from './Views/scroll-to-top/scroll-to-top.compon
     CreceComponent,
     CreceCuestionarioComponent,
     RegisterComponent,
-    CuestionariosComponent,
+    CatalogosComponent,
     LoadingComponent,
     CarruselComponent,
     PieComponent,

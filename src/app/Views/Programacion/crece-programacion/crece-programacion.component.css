@@ -28,58 +28,8 @@ h1{
       box-sizing: border-box;
   }
   #sectiondefault {
-    margin: 0 auto;
-    height: 8200px;
+    padding-top: 5px;
+    height: 100%;
     width: 100%;
-    padding-top: 10px;
-    padding-left: 15px;
-    padding-right: 10px;
-
-    box-sizing: border-box;
   }
-
-  .bd-callout-info {
-    border-left-color: #f70b0b;
-}
-.bd-callout {
-    padding: 1.25rem;
-    margin-top: 1.25rem;
-    margin-bottom: 1.25rem;
-    border: 1px solid #000000;
-    border-left-width: 0.25rem;
-    border-radius: 0.25rem;
-
-
-}
-
-
-*, ::after, ::before {
-    box-sizing: border-box;
-}
-
-
-input[type="radio"] {
-  margin-right: 30px;
-}
-.custom-size {
-  width: 14px;
-  height: 14px;
-}
-div#total{
-  float:right;
-  padding-right: 10px;
-
-}
-kendo-listbox {
-  height: 270px;
-  width: 240px;
-}
-
-kendo-listbox:nth-of-type(1) {
-  margin-right: 8px;
-}
-.my-pagination /deep/ .ngx-pagination .current {
-  background: rgb(44, 62, 163);
-
-}
 
