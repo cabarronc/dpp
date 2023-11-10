@@ -21,10 +21,6 @@ import { CatalogoProgramasComponent } from './Views/Administracion/catalogo-prog
 import { ChrtshighComponent } from './Views/Administracion/highcharts/chrtshigh.component';
 import { Login2Component } from './Views/Administracion/login2/login2.component';
 import { PruebaExcelComponent } from './Views/Administracion/prueba-excel/prueba-excel.component';
-import { NuevoCuestionarioComponent } from './Views/Administracion/cuestionarios/nuevo-cuestionario/nuevo-cuestionario.component';
-import{PasoUnoComponent} from './Views/Administracion/cuestionarios/nuevo-cuestionario/paso-uno/paso-uno.component'
-import{PasoDosComponent} from './Views/Administracion/cuestionarios/nuevo-cuestionario/paso-dos/paso-dos.component'
-import{NuevaPreguntaComponent} from './Views/Administracion/cuestionarios/nuevo-cuestionario/paso-dos/nueva-pregunta/nueva-pregunta.component'
 import { CreceRespuestasComponent } from './Views/Planeacion/crece-respuestas/crece-respuestas.component';
 
 import { CreceMonitorAvanceComponent } from './Views/Planeacion/crece-monitor-avance/crece-monitor-avance.component';
@@ -59,7 +55,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS,HttpClientJsonpModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { CatalogosComponent } from './Views/Administracion/cuestionarios/catalogos.component';
+import { CatalogosComponent } from './Views/Administracion/Catalogos/catalogos.component';
 import { LoadingComponent } from './shared/loading/loading.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
@@ -88,6 +84,9 @@ import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { TypographyModule } from '@progress/kendo-angular-typography';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import { NavigationModule } from "@progress/kendo-angular-navigation";
+// import { PDFViewerModule } from '@progress/kendo-angular-pdfviewer';
+
+
 
 
 //firebase
@@ -150,10 +149,6 @@ import { ScrollToTopComponent } from './Views/scroll-to-top/scroll-to-top.compon
     ChrtshighComponent,
     Login2Component,
     PruebaExcelComponent,
-    NuevoCuestionarioComponent,
-    PasoUnoComponent,
-    PasoDosComponent,
-    NuevaPreguntaComponent,
     CreceRespuestasComponent,
     CreceMonitorAvanceComponent,
     CreceInformeComponent,
@@ -210,7 +205,6 @@ import { ScrollToTopComponent } from './Views/scroll-to-top/scroll-to-top.compon
     HttpClientModule,
     HttpClientJsonpModule,
     AppRoutingModule,
-    PdfViewerModule,
     DropDownsModule,
     GridModule,
     PDFModule,
@@ -222,7 +216,7 @@ import { ScrollToTopComponent } from './Views/scroll-to-top/scroll-to-top.compon
     AngularFireModule.initializeApp(environment.firebaseDb),
     AngularFireDatabaseModule,
     LabelModule,
-    InputsModule,
+    InputsModule,   
     breadCrumbRouting,
     SafePipeModule,
     NavigationModule, 

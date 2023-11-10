@@ -2,34 +2,41 @@
 <section id="sectiondefault">
 
 
-    <!-- <div class="container min-vh-10">
+  <!-- <div class="container min-vh-10">
 
         <div class="col-md-12 pt-3"> -->
 
 
-           <kendo-panelbar>
-           <kendo-panelbar-item  icon="folder" title="CRECE Ejercicio 2022"  >
-             <ng-template kendoPanelBarContent>
-               <div>
-                <iframe  src="https://docs.google.com/spreadsheets/d/1oHcCZfbWSQ0WM2Tw-JAj4198g1-6MHKQF5ziwVFtwqc/edit#gid=1234221774"
-                style="width: 100%;height: 600px;border: 0;" ></iframe>
-               </div>
-             </ng-template>
-            </kendo-panelbar-item>
-             <kendo-panelbar-item icon="folder"title="CRECE Ejercicio 2023" [expanded]="true">
-               <ng-template kendoPanelBarContent>
-                 <div>
+  <kendo-panelbar>
+    <kendo-panelbar-item icon="folder" title="Subir Diagnosticos Particulares" [expanded]="true">
+      <ng-template kendoPanelBarContent>
+        <div class="container-fluid">
+          <div class="row offset-1 gy-5 text-center">
+            <div class="col-md-4">
+              <div class="input-group mb-3">
+                <input type="file" (change)="capturarFile($event)" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-4" *ngIf="previsualizacion">
+              <button type="button" (click)="subirArchivo()">Subir Archivo</button>
+              <!-- <embed [src]="previsualizacion"  type="data:application/pdf;base64," width="100%" height="100%"/> -->
+              <iframe [src]="previsualizacion" width="200px" height="200px" ></iframe>
+              <img [src]="previsualizacion"width="200px" height="200px" >
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </kendo-panelbar-item>
+    <kendo-panelbar-item icon="folder" title="Visualizar Diagnosticos Particulares" [expanded]="true">
+      <ng-template kendoPanelBarContent>
+        <div>
 
-                   <iframe
-                     src="https://docs.google.com/spreadsheets/d/1_Oe164oVqGd-uc6raqwwsq1eIRE4wXVaVle3-GVw8Xg/edit?resourcekey#gid=1152821672"
-                     style="width: 100%;height: 600px;"></iframe>
-                 </div>
-               </ng-template>
+        </div>
+      </ng-template>
 
 
-               </kendo-panelbar-item>
-         </kendo-panelbar>
-      <!-- </div>
+    </kendo-panelbar-item>
+  </kendo-panelbar>
+  <!-- </div>
     </div> -->
 </section>
-

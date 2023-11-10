@@ -1,0 +1,303 @@
+<app-home></app-home>
+<section id="carru">
+    <!-- <div class="jumbotron text-center">
+         <h1>Bienvenido {{Nombre}}! con Rol: {{Rol}}</h1> 
+        <h2>
+            <p>Catalogos </p>
+        </h2>
+    </div> -->
+    <div class="container-fluid">
+        <div class="row offset-sm-1 pt-lg-4">
+            <div class="col-md-5">
+                <kendo-card width="auto">
+                    <kendo-card-header class="k-hstack">
+                        <kendo-avatar width="40px" height="40px" [imageSrc]="thumbnailSrc"
+                            shape="circle"></kendo-avatar>
+                        <div>
+                            <h1 kendoCardTitle>Catalogo de Programas Presupuestarios</h1>
+                            <p kendoCardSubtitle>Numero de PP: 91</p>
+                        </div>
+                    </kendo-card-header>
+                    <kendo-card-body>
+                        <h4>Programas Presupuestarios</h4>
+                        <hr kendoCardSeparator />
+
+                        <form class="k-form" [formGroup]="form" (ngSubmit)="GuardarPp()">
+                            <div class="col-lg-12 d-flex flex-column">
+                                <div class="row pt-lg-3">
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <i class="fa-solid fa-user fa-flip"
+                                                    style="--fa-animation-duration: 3s;"></i>
+                                                &nbsp;
+                                                <input placeholder="Coordinador" formControlName="NombreResp"
+                                                     [ngModelOptions]="{standalone: true}"
+                                                    kendoTextBox />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="input-group-prepend">
+                                            <i class="fa-solid fa-user fa-flip"
+                                                style="--fa-animation-duration: 3s;"></i>
+                                            &nbsp;
+                                            <input placeholder="Responsable" formControlName="Responsable"
+                                                kendoTextBox />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="input-group-prepend">
+                                            <i class="fa fa-calendar-days fa-flip"
+                                                style="--fa-animation-duration: 3s;"></i>&nbsp;
+                                            <kendo-maskedtextbox [maskOnFocus]="true" style="font-weight: normal;"
+                                                [includeLiterals]="includeLiterals" placeholder="DD/MM/YYYY"
+                                                [mask]="mask" [value]="maskvalue" formControlName="FechaAct"
+                                                [(ngModel)]="myDate" fillMode="solid">
+                                            </kendo-maskedtextbox>
+                                            <!-- <div id="date" class="form-text">
+                                                Fecha en que se actualiza
+                                                 </div> -->
+                                            <!-- <input type="text" placeholder="algo" formControlName="FechaAct" [(ngModel)]="myDate" kendoTextBox> -->
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="pt-lg-1">
+                                <div class="col-md-12 d-flex flex-column">
+                                    <div class="row pt-lg-3">
+                                        <div class="col-md-3">
+                                            <div class="input-group-prepend">
+                                                <i class="fa-solid fa-money-check-dollar fa-flip"
+                                                    style="--fa-animation-duration: 3s;"></i>
+                                                &nbsp;
+                                                <input type="text" placeholder="Clave PP" formControlName="ClavePp"
+                                                    kendoTextBox>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="input-group-prepend">
+                                                <i class="fa-solid fa-p fa-flip"
+                                                    style="--fa-animation-duration: 3s;"></i><i
+                                                    class="fa-solid fa-p fa-flip"
+                                                    style="--fa-animation-duration: 3s;"></i>
+                                                &nbsp;
+                                                <input type="text" placeholder="Nombre PP" formControlName="NombrePp"
+                                                    kendoTextBox>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pt-lg-1">
+                                <div class="col-md-12 d-flex flex-column">
+                                    <div class="row pt-lg-3">
+                                        <div class="col-md-5">
+                                            <div class="input-group-prepend">
+                                                <i class="fa-solid fa-money-check-dollar fa-flip"
+                                                    style="--fa-animation-duration: 3s;"></i>
+                                                &nbsp;
+                                                <input type="text" placeholder="Eje" formControlName="Eje" kendoTextBox>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="input-group-prepend">
+                                                <i class="fa-solid fa-money-check-dollar fa-flip"
+                                                    style="--fa-animation-duration: 3s;"></i>
+                                                &nbsp;
+                                                <input type="text" placeholder="Dependencia" formControlName="SiglaDp"
+                                                    kendoTextBox>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="input-group-prepend">
+                                                <i class="fa-solid fa-money-check-dollar fa-flip"
+                                                    style="--fa-animation-duration: 3s;"></i>
+                                                &nbsp;
+                                                <input type="text" placeholder="Dependencia Part."
+                                                    formControlName="SiglaDpPart" kendoTextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pt-lg-2"></div>
+                            <!-- <div class="pt-lg-1">
+                                <div class="col-md-12 d-flex flex-column">
+                                    <hr  />
+                                </div>
+                                
+                            </div> -->
+                            <div class="pt-lg-1">
+                                <div class="col-md-12 d-flex flex-column">
+                                    <div class="row">
+                                        <div class="col-md-1">
+
+                                            <button kendoButton type="submit" class="none" aria-hidden="true"
+                                                icon="save">Enviar/Actualizar</button>
+                                        </div>
+                                        <div class="col-md-8"></div>
+                                        <div class="col-md-2">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <button kendoButton type="button"   (click)="download()"
+                                                        icon="upload">Export</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-md-12 d-flex flex-column">
+                                <hr  />
+                            </div> -->
+                        </form>
+                    </kendo-card-body>
+                    <!--=================== AQUI SE POSICIONA EL GRID  ===========================-->
+                    <div class="row">
+                        <div class="col-md-12 d-flex flex-column">
+                            <!-- Aqui va el Grid -->
+                            <table class="table table-striped">
+                                <caption>
+                                    Registros del Catalogo
+                                </caption>
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Pp</th>
+                                        <th>Eje</th>
+                                        <th>Fecha</th>
+                                        <th>Nombre Pp</th>
+                                        <th>Coordinador</th>
+                                        <th>Responsable</th>
+                                        <th>Dep</th>
+                                        <th>Dep Part.</th>
+                                        <th>Editar</th>
+                                        <th>Eliminar</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- <i class="fas fa-redo" style="cursor:pointer" (click)="obtenerCreces()"></i> -->
+                                    <tr *ngFor="let Pp of Pps | paginate: { itemsPerPage: 5, currentPage: p }">
+                                        <td>{{ Pp.idPp }}</td>
+                                        <td>{{ Pp.clavePp }}</td>
+                                        <td>{{ Pp.eje}}</td>
+                                        <td>{{ Pp.fechaAct}}</td>
+                                        <td>{{ Pp.nombrePp}}</td>
+                                        <td>{{ Pp.nombreResp}}</td>
+                                        <td>{{ Pp.responsable}}</td>
+                                        <td>{{ Pp.siglaDp}}</td>
+                                        <td>{{ Pp.siglaDpPart}}</td>
+                                        <td>
+                                      <i (click)="editarPp(Pp)" class="far fa-edit text-info"
+                                        style="cursor:pointer"></i>
+                                    </td> 
+                                         <td>
+                                      <i (click)="eliminarPp(Pp.idPp)" class="far fa-trash-alt text-danger"
+                                        style="cursor:pointer"></i>
+                                    </td> 
+        
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <pagination-controls class="my-pagination" (pageChange)="p = $event"
+                                previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+
+                        </div>
+                    </div>
+                </kendo-card>
+            </div>
+            <!-- ---------------------------------Unidades Resposables-------------------------------- -->
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <kendo-card width="auto">
+                    <kendo-card-header class="k-hstack">
+                        <kendo-avatar width="40px" height="40px" [imageSrc]="thumbnailSrc"
+                            shape="circle"></kendo-avatar>
+                        <div>
+                            <h1 kendoCardTitle>Catalogo de Unidades Responsables</h1>
+                            <p kendoCardSubtitle>Numero de UR/URD: 91</p>
+                        </div>
+                    </kendo-card-header>
+                    <kendo-card-body>
+                        <h4>Unidades Responsables</h4>
+                        <hr kendoCardSeparator />
+                        <form class="k-form" [formGroup]="form" (ngSubmit)="GuardarPp()">
+                            <div class="col-lg-9 d-flex flex-column">
+                                <div class="row pt-lg-3">
+
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <i class="fa-solid fa-user fa-bounce"></i>
+                                            &nbsp;
+
+                                            <input placeholder="Nombre Usuario" [ngModelOptions]="{standalone: true}"
+                                                kendoTextBox />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pt-lg-2">
+                                <div class="col-md-3 d-flex flex-column">
+                                    <div class="input-group-prepend">
+                                        <i class="fa-solid fa-user fa-bounce"></i>
+                                        &nbsp;
+                                        <input type="text" placeholder="Clave PP" kendoTextBox>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pt-lg-2">
+                                <div class="col-md-9 d-flex flex-column">
+                                    <div class="input-group-prepend">
+                                        <i class="fa-solid fa-user fa-bounce"></i>
+                                        &nbsp;
+                                        <input type="text" placeholder="Nombre PP" kendoTextBox>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pt-lg-2">
+                                <div class="col-md-3 d-flex flex-column">
+                                    <div class="input-group-prepend">
+                                        <i class="fa fa-calendar-days fa-flip"
+                                            style="--fa-animation-duration: 3s;"></i>&nbsp;
+                                        <kendo-maskedtextbox [maskOnFocus]="true" style="font-weight: normal;"
+                                            [includeLiterals]="includeLiterals" placeholder="DD/MM/YYYY" [mask]="mask"
+                                            [value]="maskvalue" formControlName="FechaAct" fillMode="solid">
+                                        </kendo-maskedtextbox>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pt-lg-2">
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <button kendoButton type="submit" class="none" aria-hidden="true"
+                                            icon="redo">Enviar/Actualizar</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </kendo-card-body>
+                    <div class="row">
+                        <div class="col-md-12">
+
+
+                        </div>
+                    </div>
+
+                </kendo-card>
+            </div>
+        </div>
+    </div>
+</section>
