@@ -143,7 +143,7 @@ public Versiones: Array<string> = [
       text: "Final",
     }
   ];
-
+  public Pps: Array<{ idPp: number; clavePp: string ;eje:string; fechaAct:string; nombrePp:string; nombreResp:string; responsable:string; siglaDp:string; siglaDpPart:string}> = [];
   public listPeriodo: Array<string> = [
     "1er Trimestre 2023",
     "2do Trimestre 2023",
@@ -769,9 +769,42 @@ public Versiones: Array<string> = [
       }
 
     )
+    this._catPpService.getListPp().pipe(
+      map(response => response)
+    ).subscribe(
+      _data => {
+        
+        _data = _data?.map(_pp => {
+          const {idPp, clavePp,eje, fechaAct, nombrePp, nombreResp, responsable, siglaDp, siglaDpPart } = _pp;
+          return {
+            idPp: idPp,
+            clavePp: clavePp,
+            eje: eje,
+            fechaAct: fechaAct,
+            nombrePp: nombrePp, 
+            nombreResp: nombreResp,
+            responsable: responsable,
+            siglaDp: siglaDp,
+            siglaDpPart: siglaDpPart      
+  
+          }
+  
+        }
+  
+        );
+       //this._excelService.downloadExcel(_data);
+       this.NombrePp = _data.nombrePp;
+        console.log(_data);
+  
+      }, error => {
+        console.log(error);
+      }
+  
+    )
+    
   }
 
-  //---------------OBTENER DEPENDENCIAS--------------------
+         //---------------OBTENER DEPENDENCIAS--------------------
   obtenerDependencias() {
     this._depService.GetListDep().pipe(
       map(response => response)
@@ -1680,7 +1713,51 @@ public Versiones: Array<string> = [
       this.ListDepPar = "STRC";
       this.dep = "STRC";
     }
-
+    else if (this.pp == "M005") {
+      this.NombrePp = "Dirección estratégica gubernamental";
+      this.ListDepPar = "Todos los organismos";
+      this.dep = "SFIA";
+    }
+    else if (this.pp == "M006") {
+      this.NombrePp = "Apoyo administrativo gubernamental";
+      this.ListDepPar = "Todos los organismos";
+      this.dep = "SFIA";
+    }
+    else if (this.pp == "M007") {
+      this.NombrePp = "Soporte técnico gubernamental";
+      this.ListDepPar = "Todos los organismos";
+      this.dep = "SFIA";
+    }
+    else if (this.pp == "O009") {
+      this.NombrePp = "Fiscalización gubernamental";
+      this.ListDepPar = "Todos los organismos";
+      this.dep = "STRC";
+    }
+    else if (this.pp == "C001") {
+      this.NombrePp = "Participaciones a Municipios";
+      this.ListDepPar = "SFIA";
+      this.dep = "SFIA";
+    }
+    else if (this.pp == "D001") {
+      this.NombrePp = "Deuda Pública Estatal";
+      this.ListDepPar = "SFIA";
+      this.dep = "SFIA";
+    }
+    else if (this.pp == "I001") {
+      this.NombrePp = "Aportaciones para los Municipios";
+      this.ListDepPar = "SFIA";
+      this.dep = "SFIA";
+    }
+    else if (this.pp == "U001") {
+      this.NombrePp = "Erogaciones No Secotrizables";
+      this.ListDepPar = "SFIA";
+      this.dep = "SFIA";
+    }
+    else if (this.pp == "R009") {
+      this.NombrePp = "Provisiones Salariales y Económicas";
+      this.ListDepPar = "SFIA";
+      this.dep = "SFIA";
+    }
 
 
   }

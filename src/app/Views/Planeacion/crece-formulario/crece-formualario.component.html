@@ -45,6 +45,7 @@
               </strong> el Crece del Programa Presupuestario
               <strong>
                 <font color="black">{{pp}} - {{NombrePp}} </font>
+                
               </strong> de <strong>
                 <font color="black">{{dep}}</font>
               </strong>
@@ -1546,16 +1547,13 @@
 
                 <ng-template kendoPanelBarContent>
                   <kendo-card width="auto" style="padding: 1rem; align-content: center;">
-                    <!-- <kendo-panelbar>
+                    <kendo-panelbar>
                       <kendo-panelbar-item icon="folder" title="General" [expanded]="true">
-                        <ng-template kendoPanelBarContent>  -->
-
-                        <kendo-expansionpanel expandIcon="k-icon k-font-icon k-i-plus" style="background-color: rgb(44, 62, 163);" collapseIcon="fa fa-minus" title="General" [(expanded)]="expandedState">
-
-                                         
+                        <ng-template kendoPanelBarContent> 
+                          <!-- ESTE ES UNA ALTERNATIVA AL PROBLEMA DE IRRIGACION DE DATOS SOBRE ELEMENTOS CERARDOS -->
+                        <!-- <kendo-expansionpanel expandIcon="k-icon k-font-icon k-i-plus" style="background-color: rgb(44, 62, 163);" collapseIcon="fa fa-minus" title="General" [(expanded)]="expandedState"> -->                                      
                           <div class="container-fluid">
                             <p> </p>
-
                             <div class="row">
                               <div class="col-md-4">
                                 <!--1 Dp  &nbsp; -->
@@ -1641,14 +1639,12 @@
                                 </kendo-formfield>
                                 <p> </p>
                               </div>
-
-
                             </div>
                           </div>
-                        </kendo-expansionpanel>   
-                        <!-- </ng-template>
+                        <!-- </kendo-expansionpanel>    -->
+                        </ng-template>
                       </kendo-panelbar-item>
-                    </kendo-panelbar> -->
+                    </kendo-panelbar>
                     <!-- ============================================================================================================ -->
                     <!--==========================================Seccion 3.2 Introduccion ========================================== -->
                     <!-- ============================================================================================================ -->

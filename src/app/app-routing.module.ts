@@ -16,7 +16,7 @@ import { CatalogoProgramasComponent } from './Views/Administracion/catalogo-prog
 import { ChrtshighComponent } from './Views/Administracion/highcharts/chrtshigh.component';
 import { Login2Component } from './Views/Administracion/login2/login2.component';
 import { PruebaExcelComponent } from './Views/Administracion/prueba-excel/prueba-excel.component';
-import { CreceRespuestasComponent } from './Views/Planeacion/crece-respuestas/crece-respuestas.component';
+import { DiagnosticoComponent } from './Views/Planeacion/diagnostico/diagnostico';
 import { CreceMonitorAvanceComponent } from './Views/Planeacion/crece-monitor-avance/crece-monitor-avance.component';
 import { CreceInformeComponent } from './Views/Planeacion/crece-informe/crece-informe.component';
 import { FormatoComponent } from './Views/Reestructura/formato/formato.component';
@@ -68,7 +68,7 @@ const routes: Routes = [
   { path: "PF2023", component: HomePf2023Component, canActivate: [AuthGuard] },
   { path: "pruebaspdf", component: PruebaspdfComponent, canActivate: [AuthGuard] },
   { path: "pruebaExcel", component: PruebaExcelComponent, canActivate: [AuthGuard] },
-  { path: "crece-respuestas", component: CreceRespuestasComponent, canActivate: [AuthGuard] },
+  { path: "diagnostico", component: DiagnosticoComponent, canActivate: [AuthGuard] },
   { path: "crece-monitor-seguimiento", component: CreceMonitorAvanceComponent, canActivate: [AuthGuard] },
   { path: "crece-informe", component: CreceInformeComponent, canActivate: [AuthGuard] },
   { path: "formato", component: FormatoComponent, canActivate: [AuthGuard] },

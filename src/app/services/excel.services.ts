@@ -16,13 +16,13 @@ export class  ExcelService {
         await this._createmplate(dataExcel);
         this.woorbook.xlsx.writeBuffer().then((data)=>{
           const blob = new Blob([data]);  
-            fs.saveAs(blob, 'woorbook.xlsx');
+            fs.saveAs(blob, 'CatalogoPp.xlsx');
         });
 
     }
     private async _createmplate(dataExcel:IPp[]): Promise <void> {
         //creacamos la primer hoja
-        const sheet= this.woorbook.addWorksheet('prueba');
+        const sheet= this.woorbook.addWorksheet('CatalagoPp');
 
         //Establecemos el ancho y estilo de las columnas
         sheet.getColumn('A').width =5.71;//1. IdPp
@@ -59,36 +59,36 @@ export class  ExcelService {
     tituloCell.style.font ={bold:true,size:13}
 
     const tituloCell2 = sheet.getCell('B5');
-    tituloCell2.value ="ClavePp"
+    tituloCell2.value ="Clave Pp"
     tituloCell2.style.font ={bold:true,size:13}
 
     const tituloCell3 = sheet.getCell('C5');
-    tituloCell2.value ="Eje"
-    tituloCell2.style.font ={bold:true,size:13}
+    tituloCell3.value ="Eje"
+    tituloCell3.style.font ={bold:true,size:13}
 
     const tituloCell4 = sheet.getCell('D5');
-    tituloCell2.value ="NombrePp"
-    tituloCell2.style.font ={bold:true,size:13}
+    tituloCell4.value ="Nombre Pp"
+    tituloCell4.style.font ={bold:true,size:13}
 
     const tituloCell5 = sheet.getCell('E5');
-    tituloCell2.value ="NombreResp"
-    tituloCell2.style.font ={bold:true,size:13}
+    tituloCell5.value ="Coodinador"
+    tituloCell5.style.font ={bold:true,size:13}
 
     const tituloCell6 = sheet.getCell('F5');
-    tituloCell2.value ="Responsable"
-    tituloCell2.style.font ={bold:true,size:13}
+    tituloCell6.value ="Responsable"
+    tituloCell6.style.font ={bold:true,size:13}
 
     const tituloCell7 = sheet.getCell('G5');
-    tituloCell2.value ="SiglaDp"
-    tituloCell2.style.font ={bold:true,size:13}
+    tituloCell7.value ="Sigla Dep"
+    tituloCell7.style.font ={bold:true,size:13}
 
     const tituloCell8 = sheet.getCell('H5');
-    tituloCell2.value ="SiglaDpPart"
-    tituloCell2.style.font ={bold:true,size:13}
+    tituloCell8.value ="Sigla Dep Part"
+    tituloCell8.style.font ={bold:true,size:13}
 
     const tituloCell9 = sheet.getCell('H5');
-    tituloCell2.value ="FechaAct"
-    tituloCell2.style.font ={bold:true,size:13}
+    tituloCell9.value ="Fecha Act"
+    tituloCell9.style.font ={bold:true,size:13}
 
     //Insertamos los valores de mi Endpoint
    const rowToinsert =sheet.getRows(6,dataExcel.length)!;

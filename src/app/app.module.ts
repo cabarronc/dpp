@@ -21,7 +21,7 @@ import { CatalogoProgramasComponent } from './Views/Administracion/catalogo-prog
 import { ChrtshighComponent } from './Views/Administracion/highcharts/chrtshigh.component';
 import { Login2Component } from './Views/Administracion/login2/login2.component';
 import { PruebaExcelComponent } from './Views/Administracion/prueba-excel/prueba-excel.component';
-import { CreceRespuestasComponent } from './Views/Planeacion/crece-respuestas/crece-respuestas.component';
+import { DiagnosticoComponent } from './Views/Planeacion/diagnostico/diagnostico';
 
 import { CreceMonitorAvanceComponent } from './Views/Planeacion/crece-monitor-avance/crece-monitor-avance.component';
 import { CreceInformeComponent } from './Views/Planeacion/crece-informe/crece-informe.component';
@@ -149,7 +149,7 @@ import { ScrollToTopComponent } from './Views/scroll-to-top/scroll-to-top.compon
     ChrtshighComponent,
     Login2Component,
     PruebaExcelComponent,
-    CreceRespuestasComponent,
+    DiagnosticoComponent,
     CreceMonitorAvanceComponent,
     CreceInformeComponent,
     PresentacionComponent,

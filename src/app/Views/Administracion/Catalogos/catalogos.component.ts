@@ -22,6 +22,7 @@ import { pipeline } from 'stream';
 export class CatalogosComponent implements OnInit {
   //variables pata setear la fecha
   public myDate = new Intl.DateTimeFormat('mx-Mx',{dateStyle:'short'}).format(new Date());
+  public myDate2 = new Intl.DateTimeFormat('mx-Mx',{dateStyle:'short'}).format(new Date());
   public p :number;
   public maskvalue ="";
   public mask:string  = "00/00/00";
@@ -33,19 +34,34 @@ export class CatalogosComponent implements OnInit {
    public Nombre: string;
    public Responsable: string; 
    public FechaAct:string = this.myDate;
+   public FechaAct2:string = this.myDate2;
    public ClavePp:string;
    public Eje:string;
    public NombrePp:string;
    public SiglaDp:string;
    public SiglaDpPart:string;
-   
-
+   public RamoPatron ="^[A-Z]{2}$|^[0-9]{2}$"
+   public Ramo="";
+   public UR_HistPatron = "^[A-Z]{2}[0-9]{2}$|^[A-Z]{1}[0-9]{3}$|^[0-9]{4,4}$|^N/A$";
+   public Ur_historica="";
+   public UR_RecodPatron = "^[A-Z]{2}[0-9]{8}$|^[0-9]{10,10}$|^N/A$";
+   public Ur_recodificada ="";
+   public URD_HistPatron = "^[A-Z]{1}[0-9]{7}$|^[0-9]{8,8}$|^N/A$";
+  public Urd_historica ="";
+   public URD_RecodPatron = "^[A-Z]{2}[0-9]{8}$|^[0-9]{10,10}$|^N/A$";
+   public Urd_recodificada ="";
+   public SociedadPatron ="^[A-Z]{4}$|^[A-Z]{3}$|^N/A$";
+   public Sociedad="";
+   public CeGeSapPatron ="^[0-9]{9}[A-Z]{1}[0-9]{5}$|^N/A$|^[0-9]{5}[A-Z]{2}[0-9]{8}$|^[0-9]{7}[A-Z]{1}[0-9]{7}$"; 
+   public CeGeSap = "";
    public form: FormGroup;
+   public form2: FormGroup;
    public Rol: string;
    
    public thumbnailSrc =
-    "https://github.com/cabarronc/dpp/blob/master/src/assets/Images/SitioDpp/rayas.jpg?raw=true";
+    "https://github.com/cabarronc/dpp/blob/7eecac06a56301298a6968521884a8c5ad12fd6f/src/assets/Images/SitioDpp/Pp.png?raw=true";
    public Pps: Array<{ idPp: number; clavePp: string ;eje:string; fechaAct:string; nombrePp:string; nombreResp:string; responsable:string; siglaDp:string; siglaDpPart:string}> = [];
+   public Ur:Array<{ramo:number; fechaAct:string;}> =[];
 
   constructor(private loginServices:LoginService, private _catPpService: CatPpService,private fb: FormBuilder,private toastr: ToastrService,
     private datePipe : DatePipe, private _excelService: ExcelService) {
@@ -61,7 +77,23 @@ export class CatalogosComponent implements OnInit {
       SiglaDpPart:['', Validators.required],
       
     });
+    this.form2 = this.fb.group({
+      Ramo: [this.Ramo,[Validators.required,Validators.pattern(this.RamoPatron)]],
+      FechaAct2: ['', Validators.required],
+      Ur_historica:[this.Ur_historica,[Validators.required,Validators.pattern(this.UR_HistPatron)]],    
+      Ur_recodificada: [this.Ur_recodificada,[Validators.required, Validators.pattern(this.UR_RecodPatron)]],
+      Urd_historica: [this.Urd_historica, [Validators.required, Validators.pattern(this.URD_HistPatron)]],
+      Urd_recodificada: [this.Urd_recodificada, [Validators.required, Validators.pattern(this.URD_RecodPatron)]],
+      Nombre_ur:['', Validators.required],
+      Estatus:['', Validators.required],
+      Sociedad: [this.Sociedad, [Validators.required, Validators.pattern(this.SociedadPatron)]],
+      CeGeSap: [this.CeGeSap, [Validators.required, Validators.pattern(this.CeGeSapPatron)]],
+      NombreSap: ['', Validators.required],
+      CreadoPor: ['', Validators.required],
+      
+    });
 
+  
    
    }
 
@@ -140,7 +172,7 @@ GuardarPp() {
   if (this.id == undefined) {
     // Agregamos una nuevo crece
     this._catPpService.savePp(pp).subscribe(_data => {
-      this.toastr.success('El PP ' + pp.ClavePp +' - '+ pp.NombrePp + ' fue registrado con exito!', 'Crece Registrado');
+      this.toastr.success('El PP ' + pp.ClavePp +' - '+ pp.NombrePp + ' fue registrado con exito!', 'Pp Registrado');
       this.obtenerPp();
      // this.someInput.nativeElement.expanded = false;
       this.form.reset();
@@ -154,7 +186,7 @@ GuardarPp() {
       // }
 
     }, error => {
-      this.toastr.error('Error: ' + error.error.substr(-35,35));
+      
       console.log(error);
       console.log(this.form.value);
     })
@@ -166,7 +198,7 @@ GuardarPp() {
 
      // this.accion = 'Elaborando';
       this.id = undefined;
-      this.toastr.info('El PP ' + pp.ClavePp+' - '+ pp.NombrePp +' fue actualizada con exito!', 'Crece  Actualizado');
+      this.toastr.info('El PP ' + pp.ClavePp+' - '+ pp.NombrePp +' fue actualizada con exito!', 'PP Actualizado');
       this.obtenerPp();
       this.form.reset();
 
@@ -206,7 +238,20 @@ editarPp(pp: any) {
 
   });
 }
+// get Ur_recodificada () {
+//   return this.form2.get('Ur_recodificada');
+// } 
+//
+public listStatus: Array<{ text: string; value: string }> = [
+  { text: "Activo", value: "1"},
+  { text: "Inactivo", value: "0" },
+];
+public defaultItem: { text: string; value: number } = {
+  text: "Seleccione un valor",
+  value: null,
+};
+GuardarUR() {
 
-
+}
 
 }
