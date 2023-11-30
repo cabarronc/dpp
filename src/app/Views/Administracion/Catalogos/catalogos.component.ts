@@ -34,7 +34,7 @@ export class CatalogosComponent implements OnInit {
    public Nombre: string;
    public Responsable: string; 
    public FechaAct:string = this.myDate;
-   public FechaAct2:string = this.myDate2;
+   public Registrado:string = this.myDate2;
    public ClavePp:string;
    public Eje:string;
    public NombrePp:string;
@@ -79,7 +79,7 @@ export class CatalogosComponent implements OnInit {
     });
     this.form2 = this.fb.group({
       Ramo: [this.Ramo,[Validators.required,Validators.pattern(this.RamoPatron)]],
-      FechaAct2: ['', Validators.required],
+      Registrado: ['', Validators.required],
       Ur_historica:[this.Ur_historica,[Validators.required,Validators.pattern(this.UR_HistPatron)]],    
       Ur_recodificada: [this.Ur_recodificada,[Validators.required, Validators.pattern(this.UR_RecodPatron)]],
       Urd_historica: [this.Urd_historica, [Validators.required, Validators.pattern(this.URD_HistPatron)]],
