@@ -230,7 +230,7 @@
                     <kendo-card-body>
                         <h4>Unidades Responsables</h4>
                         <hr kendoCardSeparator />
-                        <form class="k-form" [formGroup]="form2" (ngSubmit)="GuardarUR()">
+                        <form class="k-form" [formGroup]="form2" (ngSubmit)="GuardarUr()">
                             <div class="col-lg-12 d-flex flex-column">
 
                                 <div class="row  pt-lg-3">
@@ -497,15 +497,18 @@
                                 </caption>
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
-                                        <th>Pp</th>
-                                        <th>Eje</th>
-                                        <th>Fecha</th>
-                                        <th>Nombre Pp</th>
-                                        <th>Coordinador</th>
-                                        <th>Responsable</th>
-                                        <th>Dep</th>
-                                        <th>Dep Part.</th>
+                                        <th>Ramo</th>
+                                        <th>Ur Hist.</th>
+                                        <th>Ur</th>
+                                        <th>Urd Hist.</th>
+                                        <th>Urd</th>
+                                        <th>Nombre Ur</th>
+                                        <th>Status</th>
+                                        <th>Sociedad</th>
+                                        <th>CeGeSap</th>
+                                        <th>Nombre Sap</th>
+                                        <th>Creado Por</th>
+                                        <th>Registrado</th>
                                         <th>Editar</th>
                                         <th>Eliminar</th>
 
@@ -513,22 +516,27 @@
                                 </thead>
                                 <tbody>
                                     <!-- <i class="fas fa-redo" style="cursor:pointer" (click)="obtenerCreces()"></i> -->
-                                    <tr *ngFor="let Pp of Pps | paginate: { itemsPerPage: 5, currentPage: p }">
-                                        <td>{{ Pp.idPp }}</td>
-                                        <td>{{ Pp.clavePp }}</td>
-                                        <td>{{ Pp.eje}}</td>
-                                        <td>{{ Pp.fechaAct}}</td>
-                                        <td>{{ Pp.nombrePp}}</td>
-                                        <td>{{ Pp.nombreResp}}</td>
-                                        <td>{{ Pp.responsable}}</td>
-                                        <td>{{ Pp.siglaDp}}</td>
-                                        <td>{{ Pp.siglaDpPart}}</td>
+                                    <tr *ngFor="let Ur of Urs | paginate: { itemsPerPage: 5, currentPage: p }">
+
+                                        <td>{{ Ur.ramo}}</td>
+                                        <td>{{ Ur.urHistorica}}</td>
+                                        <td>{{ Ur.urRecodificada}}</td>
+                                        <td>{{ Ur.urdHistorica}}</td>
+                                        <td>{{ Ur.urdRecodificada}}</td>
+                                        <td>{{ Ur.nombre}}</td>
+                                        <td>{{ Ur.status}}</td>
+                                        <td>{{ Ur.sociedad}}</td>
+                                        <td>{{ Ur.ceGeSap}}</td>
+                                        <td>{{ Ur.nombreSap}}</td>
+                                        <td>{{ Ur.creadoPor}}</td>
+                                        <td>{{ Ur.registro}}</td>
+
                                         <td>
-                                            <i (click)="editarPp(Pp)" class="far fa-edit text-info"
+                                            <i (click)="editarUr(Ur)" class="far fa-edit text-info"
                                                 style="cursor:pointer"></i>
                                         </td>
                                         <td>
-                                            <i (click)="eliminarPp(Pp.idPp)" class="far fa-trash-alt text-danger"
+                                            <i (click)="eliminarUr(Ur.idUr)" class="far fa-trash-alt text-danger"
                                                 style="cursor:pointer"></i>
                                         </td>
 

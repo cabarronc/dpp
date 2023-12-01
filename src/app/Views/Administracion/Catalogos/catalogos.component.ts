@@ -11,6 +11,7 @@ import { Pp } from '../../../models/pp'
 import { ExcelService } from 'src/app/services/excel.services';
 import { ToastrService } from 'ngx-toastr';
 import { pipeline } from 'stream';
+import { CatUrService } from 'src/app/services/cat-ur.service';
 
 
 @Component({
@@ -61,11 +62,12 @@ export class CatalogosComponent implements OnInit {
    public thumbnailSrc =
     "https://github.com/cabarronc/dpp/blob/7eecac06a56301298a6968521884a8c5ad12fd6f/src/assets/Images/SitioDpp/Pp.png?raw=true";
    public Pps: Array<{ idPp: number; clavePp: string ;eje:string; fechaAct:string; nombrePp:string; nombreResp:string; responsable:string; siglaDp:string; siglaDpPart:string}> = [];
-   public Ur:Array<{ramo:number; fechaAct:string;}> =[];
+   public Urs: Array<{idUr:number, ramo:string, urHistorica:string, urRecodificada:string, urdHistorica:string, urdRecodificada:string, nombre:string, status:string, sociedad:string, ceGeSap:string, nombreSap:string, creadoPor:string, registro:string}> =[];
+   //public Ur:Array<{ramo:number; fechaAct:string;}> =[];
 
-  constructor(private loginServices:LoginService, private _catPpService: CatPpService,private fb: FormBuilder,private toastr: ToastrService,
+  constructor(private loginServices:LoginService, private _catPpService: CatPpService, private _catUrService: CatUrService, private fb: FormBuilder,private toastr: ToastrService,
     private datePipe : DatePipe, private _excelService: ExcelService) {
-    
+      this.obtenerUr();
     this.form = this.fb.group({
       NombreResp: ['',Validators.required],
       Responsable:['',Validators.required],
@@ -106,7 +108,8 @@ export class CatalogosComponent implements OnInit {
    }
   ngOnInit(): void {
     this.getUsuario();
-    this.obtenerPp()
+    this.obtenerPp();
+    this.obtenerUr();
   }
 
 
@@ -118,6 +121,7 @@ export class CatalogosComponent implements OnInit {
     console.log(this.loginServices.getTokenDecoded());
 
  }
+ //Mostrar el catalogo de programas presupuestarios
  obtenerPp() {
   this._catPpService.getListPp().pipe(
     map(response => response)
@@ -144,6 +148,45 @@ export class CatalogosComponent implements OnInit {
       );
      //this._excelService.downloadExcel(_data);
      this.Pps = _data;
+      console.log(_data);
+
+    }, error => {
+      console.log(error);
+    }
+
+  )
+}
+//Mostrar el catalogo de Unidades Responsables
+obtenerUr() {
+  this._catUrService.getListUr().pipe(
+    map(response => response)
+  ).subscribe(
+    _data => {
+      
+      _data = _data?.map(_ur => {
+        const {idUr, ramo, urHistorica, urRecodificada, urdHistorica, urdRecodificada, nombre, status, sociedad, ceGeSap, nombreSap, creadoPor, registro  } = _ur;
+        return {
+          idUr: idUr,
+          ramo: ramo, 
+          urHistorica: urHistorica,
+          urRecodificada: urRecodificada,
+          urdHistorica: urdHistorica,
+          urdRecodificada: urdRecodificada,
+          nombre: nombre,
+          status: status,
+          sociedad: sociedad,
+          ceGeSap: ceGeSap,
+          nombreSap: nombreSap,
+          creadoPor: creadoPor,
+          registro: registro      
+
+        }
+
+      }
+
+      );
+     //this._excelService.downloadExcel(_data);
+     this.Urs = _data;
       console.log(_data);
 
     }, error => {
@@ -238,6 +281,104 @@ editarPp(pp: any) {
 
   });
 }
+//-------------------------------------------------------------------------------------------------------------
+  //-------------------------------------Metodo para registrar los Nuevas UR'S---------------------------------
+  //-------------------------------------------------------------------------------------------------------------
+  GuardarUr() {
+
+
+    const ur: any = {
+
+      Ramo: this.form2.get('Ramo')?.value,
+      Ur_historica: this.form2.get('Ur_historica')?.value,
+      Ur_recodificada: this.form2.get('Ur_recodificada')?.value, 
+      Urd_historica: this.form2.get('Urd_historica')?.value,
+      Urd_recodificada: this.form2.get('Urd_recodificada')?.value,
+      Nombre_ur: this.form2.get('Nombre_ur')?.value,
+      Estatus: this.form2.get('Estatus')?.value,
+      Sociedad: this.form2.get('Sociedad')?.value,
+      CeGeSap: this.form2.get('CeGeSap')?.value,
+      NombreSap: this.form2.get('CeGeSap')?.value,
+      CreadoPor: this.form2.get('CreadoPor')?.value,
+      Registrado: this.form2.get('Registrado')?.value,
+   
+    }
+  
+    if (this.id == undefined) {
+      // Agregamos una nuevo crece
+      this._catUrService.saveUr(ur).subscribe(_data => {
+        this.toastr.success('El Ramo ' + ur.urRecodificada +' / '+ ur.urdRecodificada + ' fue registrado con exito!', 'UR/URD Registrada');
+        this.obtenerUr();
+       // this.someInput.nativeElement.expanded = false;
+        this.form2.reset();
+        console.log(this.form2.value);
+        console.log(ur);
+        // if (this.form.valid) {
+        //   this.form.value;
+  
+        //   console.log("Form Submitted!");
+        //   this.form.reset();
+        // }
+  
+      }, error => {
+        
+        console.log(error);
+        console.log(this.form2.value);
+      })
+    }
+    else {
+      ur.idUr = this.id
+      // Editamos usuario
+      this._catUrService.updateUr(this.id, ur).subscribe(_data => {
+  
+       // this.accion = 'Elaborando';
+        this.id = undefined;
+        this.toastr.info('El PP ' + ur.urRecodificada +' / '+ ur.urdRecodificada +' fue actualizada con exito!', 'UR Actualizado');
+        this.obtenerUr();
+        this.form2.reset();
+  
+      }, error => {
+        this.toastr.error('Error: ' + error.error.substr(-35,35),'Debe completar el siguiente campo:',{timeOut:10000,});
+        this.toastr.error('Error: ' + error.message,'No es posible el envio de informacion:',{timeOut:10000,});
+        console.log(error);
+      })
+  
+    }
+  }
+  //-----------------------------------------------------------------------------------------
+  //-------------------------ELIMINAR UR-------------------------------------------------
+  //-----------------------------------------------------------------------------------------
+  
+  eliminarUr(id: number) {
+    this._catUrService.deleteUr(id).subscribe(_data => {
+      this.toastr.error('El PP fue eliminado con exito!', 'eliminado');
+      this.obtenerUr();
+    }, error => {
+      console.log(error);
+    })
+    
+  }
+  editarUr(ur: any) {
+    this.id = ur.idUr;
+    
+    this.form2.patchValue({
+
+      Ramo: ur.ramo,
+      Ur_historica: ur.urHistorica,
+      Ur_recodificada: ur.urRecodificada,
+      Urd_historica: ur.urdHistorica,
+      Urd_recodificada: ur.urdRecodificada,
+      Nombre_ur: ur.nombre_ur,
+      Estatus: ur.status,
+      Sociedad: ur.sociedad,
+      CeGeSap:  ur.ceGeSap,
+      NombreSap: ur.nombreSap,
+      CreadoPor: ur.creadoPor,
+      Registrado: this.FechaAct
+      
+  
+    });
+  }
 // get Ur_recodificada () {
 //   return this.form2.get('Ur_recodificada');
 // } 
@@ -250,8 +391,6 @@ public defaultItem: { text: string; value: number } = {
   text: "Seleccione un valor",
   value: null,
 };
-GuardarUR() {
 
-}
 
 }
