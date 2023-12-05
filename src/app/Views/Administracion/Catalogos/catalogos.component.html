@@ -50,7 +50,7 @@
                                             <i class="fa fa-calendar-days fa-flip"
                                                 style="--fa-animation-duration: 3s;"></i>&nbsp;
                                             <kendo-maskedtextbox [maskOnFocus]="true" style="font-weight: normal;"
-                                                [includeLiterals]="includeLiterals" placeholder="DD/MM/YYYY"
+                                                [includeLiterals]="includeLiterals" placeholder="DD/MM/YY"
                                                 [mask]="mask" [value]="maskvalue" formControlName="FechaAct"
                                                 [(ngModel)]="myDate" fillMode="solid">
                                             </kendo-maskedtextbox>
@@ -224,7 +224,7 @@
                             shape="circle"></kendo-avatar>
                         <div>
                             <h1 kendoCardTitle>Catalogo de Unidades Responsables</h1>
-                            <p kendoCardSubtitle>Numero de UR/URD: 91</p>
+                            <p kendoCardSubtitle>Numero de UR/URD: <b>{{Urs.length}}{{Ramo.length}}</b></p>
                         </div>
                     </kendo-card-header>
                     <kendo-card-body>
@@ -242,11 +242,13 @@
                                                 &nbsp;
                                                 <div kendoTooltip style="text-align: center;" [for]="input"
                                                     [closable]="false">
+                                                    <!-- <kendo-textbox placeholder="Ramo" formControlName="Ramo"
+                                                        title="Ramo:" [(ngModel)]="Ramo" [showSuccessIcon]="Ramo.length == 2"
+                                                        showErrorIcon="initial" [clearButton]="true" >
+                                                    </kendo-textbox> -->
                                                     <kendo-textbox placeholder="Ramo" formControlName="Ramo"
-                                                        title="Ramo: " autocapitalize="characters"
-                                                        oninput="this.value = this.value.toUpperCase()"
-                                                        [(ngModel)]="Ramo" [showSuccessIcon]="Ramo.length == 2"
-                                                        showErrorIcon="initial" [clearButton]="true">
+                                                        title="Ramo:" [(ngModel)]="Ramo" [showSuccessIcon]="Ramo.length == 2"
+                                                        showErrorIcon="initial" [clearButton]="true" >
                                                     </kendo-textbox>
                                                 </div>
                                             </div>
@@ -265,10 +267,10 @@
                                                 <i class="fa-solid fa-t"></i> -->
                                             &nbsp;
                                             <div kendoTooltip style="text-align: center;" [closable]="false">
-                                                <kendo-textbox placeholder="Ur Historica" formControlName="Ur_historica"
-                                                    [(ngModel)]="Ur_historica"
+                                                <kendo-textbox placeholder="Ur Historica" formControlName="UrHistorica"
+                                                    [(ngModel)]="UrHistorica"
                                                     title="Ur Historica: Si no aplica poner 'N/A'. "
-                                                    [showSuccessIcon]="Ur_historica.length == 4 || Ur_historica == 'N/A'"
+                                                    
                                                     showErrorIcon="initial" [clearButton]="true">
                                                 </kendo-textbox>
                                             </div>
@@ -283,9 +285,9 @@
                                             &nbsp;
                                             <div kendoTooltip style="text-align: center;" [closable]="false">
                                                 <kendo-textbox placeholder="Ur Recodificada"
-                                                    formControlName="Ur_recodificada" [(ngModel)]="Ur_recodificada"
+                                                    formControlName="UrRecodificada" [(ngModel)]="UrRecodificada"
                                                     title="Ur Recodificada: Si no aplica poner 'N/A'. "
-                                                    [showSuccessIcon]="Ur_recodificada.length == 10 || Ur_recodificada == 'N/A'"
+                                                    
                                                     showErrorIcon="initial" [clearButton]="true">
                                                 </kendo-textbox>
                                             </div>
@@ -306,7 +308,7 @@
                                             style="--fa-animation-duration: 3s;"></i>&nbsp;
                                         <div kendoTooltip style="text-align: center;" [closable]="false">
                                             <kendo-maskedtextbox [maskOnFocus]="true" style="font-weight: normal;"
-                                                [includeLiterals]="includeLiterals" placeholder="DD/MM/YYYY"
+                                                [includeLiterals]="includeLiterals" placeholder="DD/MM/YY"
                                                 [mask]="mask" [value]="maskvalue" [(ngModel)]="myDate2"
                                                 formControlName="Registrado" fillMode="solid" title="Fecha:">
                                             </kendo-maskedtextbox>
@@ -318,10 +320,10 @@
                                         <i class="fa fa-clock-rotate-left"></i>
                                         &nbsp;
                                         <div kendoTooltip style="text-align: center;" [closable]="false">
-                                            <kendo-textbox placeholder="Urd Historica" formControlName="Urd_historica"
-                                                [(ngModel)]="Urd_historica"
+                                            <kendo-textbox placeholder="Urd Historica" formControlName="UrdHistorica"
+                                                [(ngModel)]="UrdHistorica"
                                                 title="Urd Historica: Si no aplica poner 'N/A'. "
-                                                [showSuccessIcon]="Urd_historica.length == 8 || Urd_historica == 'N/A'"
+                                                
                                                 showErrorIcon="initial" [clearButton]="true">
                                             </kendo-textbox>
                                         </div>
@@ -333,9 +335,9 @@
                                         &nbsp;
                                         <div kendoTooltip style="text-align: center;" [closable]="false">
                                             <kendo-textbox placeholder="Urd Recodificada"
-                                                formControlName="Urd_recodificada" [(ngModel)]="Urd_recodificada"
+                                                formControlName="UrdRecodificada" [(ngModel)]="UrdRecodificada"
                                                 title="Urd Recodificada: Si no aplica poner 'N/A'. "
-                                                [showSuccessIcon]="Urd_recodificada.length == 10 || Urd_recodificada == 'N/A'"
+                                                
                                                 showErrorIcon="initial" [clearButton]="true">
                                             </kendo-textbox>
                                         </div>
@@ -347,7 +349,7 @@
                                         &nbsp;
                                         <div kendoTooltip style="text-align: center;" [closable]="false">
                                             <kendo-dropdownlist style="font-weight: normal;" [defaultItem]="defaultItem"
-                                                [data]="listStatus" formControlName="Estatus" textField="text"
+                                                [data]="listStatus" formControlName="Status" textField="text"
                                                 valueField="text" [valuePrimitive]="true" title="Estatus:" required>
                                                 <ng-template kendoDropDownListPrefixTemplate>
                                                     <button title="" kendoButton fillMode="clear" icon="edit"></button>
@@ -407,7 +409,7 @@
                                         &nbsp;
                                         <div kendoTooltip style="text-align: center;" [closable]="false">
                                             <input #input type="text" placeholder="Nombre UR/URD" title="Nombre UR/URD"
-                                                formControlName="Nombre_ur"
+                                                formControlName="Nombre"
                                                 oninput="this.value=this.value.toUpperCase()" kendoTextBox>
 
                                         </div>
@@ -422,7 +424,7 @@
                                         <div kendoTooltip style="text-align: center;" [closable]="false">
                                             <kendo-textbox placeholder="Sociedad" formControlName="Sociedad"
                                                 [(ngModel)]="Sociedad" title="Sociedad: Si no aplica poner 'N/A'. "
-                                                [showSuccessIcon]="Sociedad.length == 3 || Sociedad == 'N/A' || Sociedad.length == 2  "
+                                               
                                                 showErrorIcon="initial" [clearButton]="true">
                                             </kendo-textbox>
 
@@ -436,7 +438,7 @@
                                         <div kendoTooltip style="text-align: center;" [closable]="false">
                                             <kendo-textbox placeholder="CeGeSap" formControlName="CeGeSap"
                                                 [(ngModel)]="CeGeSap" title="CeGeSap: Si no aplica poner 'N/A'. "
-                                                [showSuccessIcon]="CeGeSap.length == 15 || CeGeSap == 'N/A'  "
+                                                
                                                 showErrorIcon="initial" [clearButton]="true">
                                             </kendo-textbox>
 
@@ -479,7 +481,7 @@
                                 <div class="col-md-2">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <button kendoButton type="button" (click)="download()"
+                                            <button kendoButton type="button" (click)="downloadUr()"
                                                 icon="upload">Export</button>
                                         </div>
                                     </div>
@@ -516,7 +518,7 @@
                                 </thead>
                                 <tbody>
                                     <!-- <i class="fas fa-redo" style="cursor:pointer" (click)="obtenerCreces()"></i> -->
-                                    <tr *ngFor="let Ur of Urs | paginate: { itemsPerPage: 5, currentPage: p }">
+                                    <tr *ngFor="let Ur of Urs | paginate: { itemsPerPage: 5, currentPage: p2 }">
 
                                         <td>{{ Ur.ramo}}</td>
                                         <td>{{ Ur.urHistorica}}</td>
@@ -529,7 +531,7 @@
                                         <td>{{ Ur.ceGeSap}}</td>
                                         <td>{{ Ur.nombreSap}}</td>
                                         <td>{{ Ur.creadoPor}}</td>
-                                        <td>{{ Ur.registro}}</td>
+                                        <td>{{ Ur.registrado}}</td>
 
                                         <td>
                                             <i (click)="editarUr(Ur)" class="far fa-edit text-info"
@@ -545,7 +547,7 @@
                                 </tbody>
                                 &emsp;
                             </table>
-                            <pagination-controls class="my-pagination" (pageChange)="p = $event"
+                            <pagination-controls class="my-pagination2" (pageChange)="p2 = $event"
                                 previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
 
 
