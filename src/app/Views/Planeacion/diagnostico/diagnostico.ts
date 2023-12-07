@@ -12,44 +12,46 @@ export class DiagnosticoComponent implements OnInit {
   public archivos: any = []
   public previsualizacion: string;
   public PDF:string = PDF;
+  public pdfSanitizado: any;
+ 
 
   constructor(private sanitizer: DomSanitizer) { }
-
+  public UrSanitizada  = this.sanitizer.bypassSecurityTrustResourceUrl(PDF);
   ngOnInit(): void {
   }
   capturarFile(event): any {
     const archivoCapturado = event.target.files[0]
     this.extraeBase64(archivoCapturado).then((pdf:any) => {
       this.previsualizacion = pdf.base;
-      console.log(pdf);
+      this.pdfSanitizado = this.sanitizer.bypassSecurityTrustResourceUrl(this.previsualizacion);
+     // console.log(pdf);
+      console.log(this.pdfSanitizado);
+      //console.log(this.previsualizacion);
       
     });
      this.archivos.push(archivoCapturado)
     // console.log(event.target.files);
   }
-  subirArchivo(){
-    
+ 
+  subirArchivo():any{
+   try {
+    const formularioDedatos = new FormData();
+    this.archivos.forEach(archivo=>{
+      formularioDedatos.append('files',archivo);
+      console.log(archivo);
+
+    });
+      
+   } catch (e) {
+    console.log('Error:',e);
+   }
   }
-  // subirArchivo():any{
-  //  try {
-  //   const formularioDedatos = new FormData();
-  //   this.archivos.forEach(archivo=>{
-  //     console.log(archivo);
-  //     formularioDedatos.append('files',archivo);
-
-  //   });
-    
-  //  } catch (e) {
-  //   console.log('Error:',e);
-  //  }
-
-  // }
 
 
   extraeBase64 = async ($event: any) => new Promise((resolve, reject) => {
     try {
-      const unsafeImg = window.URL.createObjectURL($event);
-      const pdf = this.sanitizer.bypassSecurityTrustResourceUrl(unsafeImg);
+      const unsafePdf = window.URL.createObjectURL($event);
+      const pdf = this.sanitizer.bypassSecurityTrustResourceUrl(unsafePdf);
       const reader = new FileReader();
       reader.readAsDataURL($event);
       reader.onload = () =>

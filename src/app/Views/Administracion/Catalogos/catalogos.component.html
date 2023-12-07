@@ -224,7 +224,7 @@
                             shape="circle"></kendo-avatar>
                         <div>
                             <h1 kendoCardTitle>Catalogo de Unidades Responsables</h1>
-                            <p kendoCardSubtitle>Numero de UR/URD: <b>{{Urs.length}}{{Ramo.length}}</b></p>
+                            <p kendoCardSubtitle>Numero de UR/URD: <b>{{Urs.length}}</b></p>
                         </div>
                     </kendo-card-header>
                     <kendo-card-body>
@@ -247,7 +247,7 @@
                                                         showErrorIcon="initial" [clearButton]="true" >
                                                     </kendo-textbox> -->
                                                     <kendo-textbox placeholder="Ramo" formControlName="Ramo"
-                                                        title="Ramo:" [(ngModel)]="Ramo" [showSuccessIcon]="Ramo.length == 2"
+                                                        title="Ramo:" [(ngModel)]="Ramo" 
                                                         showErrorIcon="initial" [clearButton]="true" >
                                                     </kendo-textbox>
                                                 </div>

@@ -11,17 +11,18 @@
     <kendo-panelbar-item icon="folder" title="Subir Diagnosticos Particulares" [expanded]="true">
       <ng-template kendoPanelBarContent>
         <div class="container-fluid">
-          <div class="row offset-1 gy-5 text-center">
+          <div class="row offset-1 gy-5 text-center pt-lg-3">
             <div class="col-md-4">
               <div class="input-group mb-3">
                 <input type="file" (change)="capturarFile($event)" class="form-control">
               </div>
             </div>
             <div class="col-md-4" *ngIf="previsualizacion">
-              <button type="button" (click)="subirArchivo()">Subir Archivo</button>
-              <!-- <embed [src]="previsualizacion"  type="data:application/pdf;base64," width="100%" height="100%"/> -->
-              <iframe [src]="previsualizacion" width="200px" height="200px" ></iframe>
-              <img [src]="previsualizacion"width="200px" height="200px" >
+              <button type="button" class="btn-outline-primary" (click)="subirArchivo()">Subir Archivo</button>
+              <div class="row pt-lg-3"></div>
+              <object [data]='pdfSanitizado'  type="application/pdf" width="600px" height="700px"></object> 
+              <!-- <iframe [src]="previsualizacion" width="200px" height="200px" ></iframe>
+              <img [src]="previsualizacion"width="200px" height="200px" > -->
             </div>
           </div>
         </div>
