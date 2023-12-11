@@ -3,8 +3,14 @@
   padding-top: 20px;
   padding-left: 50px;
   padding-right: 50px;
-  height: 1100px;
+  height: 2200px;
   width: 100%;
 
   box-sizing: border-box;
 }
+.row{
+  flex-wrap: wrap;
+  display: flex;
+overflow-x: auto;  
+}
+

@@ -35,6 +35,7 @@ import { Surface } from "@progress/kendo-drawing";
 import { RespuestasService } from 'src/app/services/respuestas.service';
 import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 import { LayoutModule } from "@progress/kendo-angular-layout";
+import { FileService } from 'src/app/services/file.service';
 
 
 export interface JsonModel {
@@ -98,6 +99,20 @@ public defaultItem: { text: string; value: number } = {
   public labelContent(e: AxisLabelContentArgs): string {
     return `${e.dataItem.time.substring(0, 2)}h`;
   }
+//Varaibles Dx Particular
+public opened = false;
+public windowTop = 450;
+public windowLeft = 900;
+public Files: Array<{ idFile: number; programa: string; ejercicio: string; trimestre: string ;file:string; archivoNombre:string;fecha:string}> = [];
+
+public onClick(): void {
+  alert(this. obtenerFile());
+}
+public toggle(isOpened: boolean): void {
+  this.opened = isOpened;
+}
+
+
 
 //varaibles Grid
 public view: Observable<any>;
@@ -2491,7 +2506,8 @@ public Versiones: Array<string> = [
     private intl: IntlService,
     private graficosService: GraficosService,
     private sanitizer: DomSanitizer,
-    private respuestaService:RespuestasService
+    private respuestaService:RespuestasService,
+    private _fileService: FileService
   ) {
     //this.series = groupBy(this.graficos, [{ field: "pp" }]) as GroupResult[];
 
@@ -2751,6 +2767,40 @@ public Versiones: Array<string> = [
 
 
   }
+  //Metodo para Visualizar los Dx particulares
+   //Mostrar el catalogo de Unidades Responsables
+   obtenerFile() {
+    this._fileService.getListFile().pipe(
+      map(response => response)
+    ).subscribe(
+      _data => {
+
+        _data = _data?.map(_file => {
+          const { idFile, programa, ejercicio, trimestre, file, archivoNombre, fecha  } = _file;
+          return {
+            idFile: idFile,
+            programa:programa,
+            ejercicio:ejercicio,
+            trimestre:trimestre,
+            file:file,
+            archivoNombre:archivoNombre,
+            fecha:fecha      
+
+          }
+
+        }
+
+        );
+        //this._excelService.downloadExcel(_data);
+        this.Files = _data;
+        console.log(_data);
+
+      }, error => {
+        console.log(error);
+      }
+
+    )
+  }
 
 
   //----------------------------------------------------------------------------------------------------------------------------------
@@ -2773,6 +2823,7 @@ public Versiones: Array<string> = [
     this.RespuestaDp3();
     //this.RespuestaDp4();
     this.Dp4Calf;
+    this.obtenerFile(); 
     // this.dropdownlist2.toggle(true);
     // console.log(this.dropdownlist2)
 
