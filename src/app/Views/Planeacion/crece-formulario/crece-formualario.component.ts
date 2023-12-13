@@ -105,9 +105,7 @@ public windowTop = 450;
 public windowLeft = 900;
 public Files: Array<{ idFile: number; programa: string; ejercicio: string; trimestre: string ;file:string; archivoNombre:string;fecha:string}> = [];
 
-public onClick(): void {
-  alert(this. obtenerFile());
-}
+
 public toggle(isOpened: boolean): void {
   this.opened = isOpened;
 }

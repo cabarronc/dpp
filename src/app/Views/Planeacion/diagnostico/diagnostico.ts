@@ -21,7 +21,10 @@ export class DiagnosticoComponent implements OnInit {
  public form: FormGroup;
  public p: number;
  public ejercicio = new Intl.DateTimeFormat('mx-Mx',{ year:'numeric', timeZone:'UTC' }).format(new Date());
- public primer:string = '1er Trimestre'+this.ejercicio;
+ public primer:string = '1er Trimestre '+this.ejercicio;
+ public segundo:string = '2do Trimestre '+this.ejercicio;
+ public tercero:string = '3er Trimestre '+this.ejercicio;
+ public cuarto:string = '4to Trimestre '+this.ejercicio;
  public myDate = new Intl.DateTimeFormat('mx-Mx',{ month:'2-digit', day:'2-digit', year:'2-digit', timeZone:'UTC' }).format(new Date());
  public Files: Array<{ idFile: number; programa: string; ejercicio: string; trimestre: string ;file:string; archivoNombre:string;fecha:string}> = [];
  public id: number | undefined; 
@@ -43,7 +46,7 @@ export class DiagnosticoComponent implements OnInit {
  constructor(private toastr: ToastrService,private sanitizer: DomSanitizer,private fb: FormBuilder, private _fileService: FileService) { 
     this.form = this.fb.group({
       Programa: ['', Validators.required],
-      Ejercicio: ['', Validators.required],
+      Ejercicio: [this.ejercicio, Validators.required],
       Trimestre: ['', Validators.required],
      
 

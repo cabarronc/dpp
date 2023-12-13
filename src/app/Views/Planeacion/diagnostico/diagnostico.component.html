@@ -32,7 +32,7 @@
               <div class="col-md-2">
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon3">Ejercicicio </span>
-                  <input formControlName="Ejercicio" type="text" class="form-control" aria-describedby="basic-addon3"
+                  <input formControlName="Ejercicio" [(ngModel)]="ejercicio"type="text" class="form-control" aria-describedby="basic-addon3"
                     placeholder="Año">
                 </div>
               </div>
@@ -41,9 +41,9 @@
                   <select formControlName="Trimestre" class="form-select" aria-label="Default select example">
                     <option selected>Trimestre</option>
                     <option value={{primer}}>1er Trimestre {{ejercicio }}</option>
-                    <option value="2do Trimestre">2do Trimestre</option>
-                    <option value="3er Trimestre">3er Trimestre</option>
-                    <option value="4to Trimestre">4to Trimestre</option>
+                    <option value={{segundo}}>2do Trimestre {{ejercicio }}</option>
+                    <option value={{tercero}}>3er Trimestre {{ejercicio }}</option>
+                    <option value={{cuarto}}>4to Trimestre {{ejercicio }}</option>
                   </select>
                 </div>
               </div>

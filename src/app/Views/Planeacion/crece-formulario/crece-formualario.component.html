@@ -303,7 +303,7 @@
                                                 [ngModelOptions]="{standalone: true}">
                                             </div>
                                           </div>  -->
-                                      <div class="col-md-3">
+                                      <div class="col-md-2">
 
                                         <div class="input-group-text ">
                                           <i class="fa-solid fa-code-branch fa-bounce"></i>
@@ -391,12 +391,9 @@
                           </strong>
                         </ng-template>
                         <ng-template kendoTabContent>
-                          <div class="container-fluid">
-                            <div class="col-lg-12">
-                              <div class="card">
-                                <div class="card-body">
+                          <div class="container-fluid">                         
                                   <h5 class="titulo">DIAGNOSTICOS PARTICULARES {{filterclavepp}} </h5>
-                                  <div class="row">
+                                  <div class="row2">
                                     <div class="container-fluid">
                                       <div class="row pt-lg-3">
                             
@@ -420,7 +417,7 @@
                                             </thead>
                                             <tbody>
                                               <!-- <i class="fas fa-redo" style="cursor:pointer" (click)="obtenerCreces()"></i> -->
-                                              <tr *ngFor="let File of Files | filters:'programa': filterclavepp | paginate: { itemsPerPage: 5, currentPage: p }">
+                                              <tr *ngFor="let File of Files | filters:'programa': filterclavepp | filters:'trimestre': filterrev |paginate: { itemsPerPage: 5, currentPage: p }">
                                                 <td>{{ File.programa }}</td>
                                                 <td>{{ File.ejercicio}}</td>
                                                 <td>{{ File.trimestre}}</td>
@@ -435,7 +432,6 @@
                                                     [height]="500" [width]="600">
                                                     <kendo-window-titlebar>
                                                       <div class="k-window-title">Diagnostico Particular del Programa {{File.programa}}</div>
-                                                      <button kendoButton (click)="onClick()" icon="folder"></button>
                                                       <button kendoWindowMaximizeAction></button>
                                                       <button kendoWindowMinimizeAction></button>
                                                       <button kendoWindowRestoreAction></button>
@@ -464,9 +460,6 @@
                                     </div> 
                                     
                                   </div>
-                                </div>
-                              </div>
-                            </div>
                           </div>
                         </ng-template>
                       </kendo-tabstrip-tab>
@@ -1236,16 +1229,70 @@
                     [expanded]="false">
                     <ng-template kendoPanelBarContent>
 
-                      <div class="col-md-12">
-                        <div class="container-fluid">
-                          <kendo-card width="100%" style="padding-top: 0.5rem; align-content: center;">
-
-                            Ejecutar
-
-
-                          </kendo-card>
+                      <div class="container-fluid">
+                        <div class="row2">
+              
+                          <div class="col-md-12 d-flex flex-column">
+                            <!-- Aqui va el Grid -->
+                            <table class="table table-striped">
+                              <caption>
+                                Registros Archivos
+                              </caption>
+                              <thead>
+                                <tr>
+                                 
+                                  <!-- <th>File</th> -->
+                                  <th style="font-size:80%;">Programa</th>
+                                  <th style="font-size:80%;">Fecha</th>
+                                  <th style="font-size:80%;">Archivo</th>
+                                
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <!-- <i class="fas fa-redo" style="cursor:pointer" (click)="obtenerCreces()"></i> -->
+                                <tr *ngFor="let File of Files | filters:'programa': filterclavepp | filters:'trimestre': filterrev |paginate: { itemsPerPage: 5, currentPage: p }">
+                                 
+                                  <!-- <td  style="width:10px">
+                                            <object [data]="File.file | safe: 'resourceUrl'" type="application/pdf" width="600px" height="700px"></object></td> -->
+                                  <td style="font-size:80%;">{{ File.programa}}</td>
+                                  <td style="font-size:80%;">{{ File.fecha}}</td>
+                                  <td style="font-size:80%;">
+                                    <button class="btn-primary" kendoButton *ngIf="!opened" (click)="toggle(true)">Dx
+                                      Particular del Programa {{File.programa}}</button>
+                                    <kendo-window *ngIf="opened" [(top)]="windowTop" [(left)]="windowLeft" (close)="toggle(false)"
+                                      [height]="500" [width]="600">
+                                      <kendo-window-titlebar>
+                                        <div class="k-window-title">Dx Particular del Programa {{File.programa}}</div>
+                                        <button kendoWindowMaximizeAction></button>
+                                        <button kendoWindowMinimizeAction></button>
+                                        <button kendoWindowRestoreAction></button>
+                                        <button kendoWindowCloseAction></button>
+                                      </kendo-window-titlebar>
+                                      <p style="text-align: center;">PROGRAMA: <b>{{File.programa}}</b> </p>
+                                      <p style="text-align: center;">TRIMESTRE: <b>{{File.trimestre}}</b> </p>
+                                      <p style="text-align: center;">NOMBRE ARCHIVO: <b>{{File.archivoNombre}}</b> </p>
+                                      
+        
+              
+                                      <!-- <iframe src="{{gridItems.PlandeMejora}}"  style="width:100%;height: 900px;"></iframe> -->
+                                      <iframe [src]="File.file | safe: 'resourceUrl'" style="width:100%;height: 900px;"></iframe>
+                                    </kendo-window>
+                                    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                              data-bs-target="#exampleModal">Plan de Mejora Continua de {{gridItems.PP}}</button> -->
+                                  </td>
+              
+                                </tr>
+              
+                              </tbody>
+                              &emsp;
+                            </table>
+                            <pagination-controls class="my-pagination" (pageChange)="p = $event" previousLabel="Anterior"
+                              nextLabel="Siguiente"></pagination-controls>
+              
+                          </div>
                         </div>
                       </div>
+                  
                     </ng-template>
                   </kendo-panelbar-item>
                 </kendo-panelbar>
