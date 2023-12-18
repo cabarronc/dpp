@@ -11,54 +11,83 @@
     <kendo-panelbar-item icon="folder" title="Subir Diagnosticos Particulares" [expanded]="true">
       <ng-template kendoPanelBarContent>
         <form class="k-form" [formGroup]="form" (ngSubmit)="GuardarFile()">
-          <div class="container-fluid" style="padding-bottom: 3rem;">
+          <div class="container-fluid" style="padding-bottom: 3rem;padding-bottom: 3rem;">
             <div class="row offset-1 gy-5 text-center pt-lg-3">
-              <div class="col-md-4">
-                <div class="input-group mb-3">
-                  <input type="file" (change)="capturarFile($event)" class="form-control">
+              <div class="col-md-6">
+                <!-- <div class="input-group mb-3">
+                  <input type="file" (change)="capturarFile($event)" accept="pdf/*" class="form-control">
 
+                </div> -->
+                <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon3">Seleccionar URL de DX</span>
+                <input formControlName="File"  [(ngModel)]="file" id="Dx" type="text" class="form-control" aria-describedby="basic-addon3"
+                  placeholder="URL">
                 </div>
               </div>
+              <div class="col-md-1">
 
-            </div>
-            <div class="row offset-1 gy-5 text-center pt-lg-3">
+              </div>
               <div class="col-md-3">
+                <!-- <div class="input-group mb-3">
+                  <input type="file" (change)="capturarFile($event)" accept="pdf/*" class="form-control">
+
+                </div> -->
                 <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon3">Diagnostico Particular </span>
-                  <input formControlName="Programa" type="text" class="form-control" aria-describedby="basic-addon3"
-                    placeholder="Programa">
+                <span class="input-group-text" id="basic-addon3">Nombre Archivo</span>
+                <input formControlName="ArchivoNombre" n  id="Nom" type="text" class="form-control" aria-describedby="basic-addon3"
+                  placeholder="Nombre Archivo">
                 </div>
               </div>
-              <div class="col-md-2">
-                <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon3">Ejercicicio </span>
-                  <input formControlName="Ejercicio" [(ngModel)]="ejercicio"type="text" class="form-control" aria-describedby="basic-addon3"
-                    placeholder="Año">
-                </div>
+              <div class="col-md-1">
+
               </div>
-              <div class="col-md-2">
-                <div class="input-group mb-3">
-                  <select formControlName="Trimestre" class="form-select" aria-label="Default select example">
-                    <option selected>Trimestre</option>
-                    <option value={{primer}}>1er Trimestre {{ejercicio }}</option>
+            </div>
+
+          
+          <div class="row offset-1 gy-5 text-center pt-lg-3">
+            <div class="col-md-3">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon3">Diagnostico Particular </span>
+                <input formControlName="Programa" [(ngModel)]="pp" oninput="this.value=this.value.toUpperCase()" id="Dx" type="text" class="form-control"
+                  aria-describedby="basic-addon3" placeholder="Programa">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon3">Ejercicicio </span>
+                <input formControlName="Ejercicio" id="ejer" [(ngModel)]="ejercicio" type="text" class="form-control"
+                  aria-describedby="basic-addon3" placeholder="Año">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon3">Trimestre </span>
+                <select formControlName="Trimestre" id="trim" placeholder="Trimestre"  class="form-select" aria-label="Trimestre">
+                  <option selected>Trimestre</option>
+                  <!-- <option value={{primer}}>1er Trimestre {{ejercicio }}</option>
                     <option value={{segundo}}>2do Trimestre {{ejercicio }}</option>
                     <option value={{tercero}}>3er Trimestre {{ejercicio }}</option>
-                    <option value={{cuarto}}>4to Trimestre {{ejercicio }}</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="row offset-1 gy-5 text-center pt-lg-3">
-              <div class="col-md-9" *ngIf="previsualizacion">
-                <button type="button" class="btn-outline-primary btn-lg" (click)="subirArchivo()">Subir Archivo</button>
-                <div class="row pt-lg-3"></div>
-                <object [data]='pdfSanitizado' type="application/pdf" width="600px" height="700px"></object>
-                <!-- <iframe [src]="previsualizacion" width="200px" height="200px" ></iframe>
-              <img [src]="previsualizacion"width="200px" height="200px" > -->
+                    <option value={{cuarto}}>4to Trimestre {{ejercicio }}</option> -->
+                  <option value="1er Trimestre 2024">1er Trimestre 2024</option>
+                  <option value="2do Trimestre 2024">2do Trimestre 2024</option>
+                  <option value="3er Trimestre 2024">3er Trimestre 2024</option>
+                  <option value="4to Trimestre 2024">4to Trimestre 2024</option>
+                </select>
               </div>
             </div>
           </div>
+
+          <div class="row offset-1 gy-5 text-center pt-lg-3">
+            <!-- <div class="col-md-9" *ngIf="previsualizacion"> -->
+              <div class="col-md-9" *ngIf="file">
+              <button type="button" class="btn-outline-primary btn-lg" (click)="subirArchivo()">Subir Archivo</button>
+              <div class="row pt-lg-3">
+                 <!-- <object [data]='pdfSanitizado' type="application/pdf" width="600px" height="700px"></object>  -->
+                 <iframe [src]="file | safe: 'resourceUrl'"  type="application/pdf" width="600px" height="700px" frameborder="0"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
         </form>
       </ng-template>
     </kendo-panelbar-item>
@@ -81,7 +110,7 @@
                     <!-- <th>File</th> -->
                     <th style="width:10px">Nombre Archivo</th>
                     <th>Fecha</th>
-                    <th>File2</th>
+                    <th>Diagnostico</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
 
@@ -114,7 +143,8 @@
                         <p style="text-align: center;">Nombre Archivo:{{File.archivoNombre}} </p>
 
                         <!-- <iframe src="{{gridItems.PlandeMejora}}"  style="width:100%;height: 900px;"></iframe> -->
-                        <iframe [src]="File.file | safe: 'resourceUrl'" style="width:100%;height: 900px;"></iframe>
+                        <iframe id="win" [src]="File.file | safe: 'resourceUrl'"
+                          style="width:100%;height: 900px;"></iframe>
                       </kendo-window>
                       <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal">Plan de Mejora Continua de {{gridItems.PP}}</button> -->

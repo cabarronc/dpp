@@ -84,7 +84,7 @@ import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { TypographyModule } from '@progress/kendo-angular-typography';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import { NavigationModule } from "@progress/kendo-angular-navigation";
-// import { PDFViewerModule } from '@progress/kendo-angular-pdfviewer';
+ //import { PDFViewerModule } from '@progress/kendo-angular-pdfviewer';
 
 
 
@@ -200,7 +200,6 @@ import { ScrollToTopComponent } from './Views/scroll-to-top/scroll-to-top.compon
     ReactiveFormsModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    BrowserModule,
     GoogleMapsModule,
     HttpClientModule,
     HttpClientJsonpModule,
