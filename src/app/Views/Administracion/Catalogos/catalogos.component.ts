@@ -60,8 +60,10 @@ export class CatalogosComponent implements OnInit {
   public form2: FormGroup;
   public Rol: string;
 
-  public thumbnailSrc =
-    "https://github.com/cabarronc/dpp/blob/7eecac06a56301298a6968521884a8c5ad12fd6f/src/assets/Images/SitioDpp/Pp.png?raw=true";
+  public PpImagen ="https://github.com/cabarronc/dpp/blob/master/dist/dpp/assets/Images/SitioDpp/Pp.png?raw=true";
+  public UrImagen = "https://github.com/cabarronc/dpp/blob/master/dist/dpp/assets/Images/SitioDpp/UR.png?raw=true";
+  public IndImagen = "https://github.com/cabarronc/dpp/blob/master/dist/dpp/assets/Images/SitioDpp/Indicadores.png?raw=true";
+
   public Pps: Array<{ idPp: number; clavePp: string; eje: string; fechaAct: string; nombrePp: string; nombreResp: string; responsable: string; siglaDp: string; siglaDpPart: string }> = [];
   public Urs: Array<{ idUr: number, ramo: string, urHistorica: string, urRecodificada: string, urdHistorica: string, urdRecodificada: string, nombre: string, status: string, sociedad: string, ceGeSap: string, nombreSap: string, creadoPor: string, registrado: string }> = [];
   //public Ur:Array<{ramo:number; fechaAct:string;}> =[];

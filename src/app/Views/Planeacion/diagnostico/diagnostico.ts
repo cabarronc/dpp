@@ -27,15 +27,15 @@ export class DiagnosticoComponent implements OnInit {
  public archivoNombre:string;
  public form: FormGroup;
  public p: number;
-//  public ejercicio = new Intl.DateTimeFormat('mx-Mx',{ year:'numeric', timeZone:'UTC' }).format(new Date());
- public ejercicio="2024";
+ public ejercicio = new Intl.DateTimeFormat('mx-Mx',{ year:'numeric', timeZone:'UTC' }).format(new Date());
+ //public ejercicio="2024";
  public file:string;
  public pp = "";
  
-//  public primer:string = '1er Trimestre '+this.ejercicio;
-//  public segundo:string = '2do Trimestre '+this.ejercicio;
-//  public tercero:string = '3er Trimestre '+this.ejercicio;
-//  public cuarto:string = '4to Trimestre '+this.ejercicio;
+public primer:string = '1er Trimestre '+this.ejercicio;
+public segundo:string = '2do Trimestre '+this.ejercicio;  
+public tercero:string = '3er Trimestre '+this.ejercicio;
+public cuarto:string = '4to Trimestre '+this.ejercicio;
  
  public myDate = new Intl.DateTimeFormat('mx-Mx',{ month:'2-digit', day:'2-digit', year:'2-digit', timeZone:'UTC' }).format(new Date());
  public Files: Array<{ idFile: number; programa: string; ejercicio: string; trimestre: string ;file:string; archivoNombre:string;fecha:string}> = [];
@@ -46,7 +46,7 @@ export class DiagnosticoComponent implements OnInit {
  public windowLeft = 900;
 
  public onClick(): void {
-   alert(this. obtenerFile());
+   alert(this.obtenerFile());
  }
 
  public toggle(isOpened: boolean): void {
@@ -163,6 +163,7 @@ export class DiagnosticoComponent implements OnInit {
       return null;
     }
   })
+
   GuardarFile() {
 
 
@@ -172,14 +173,14 @@ export class DiagnosticoComponent implements OnInit {
       Trimestre: this.form.get('Trimestre')?.value,
       // File: this.previsualizacion,   //Forma de hacerlo con archivos locales
       File: this.form.get('File')?.value,
-      // ArchivoNombre: this.archivoNombre,//Fomra de hacerlo con archivos locales
+      // ArchivoNombre: this.archivoNombre,//Forma de hacerlo con archivos locales
       ArchivoNombre: this.form.get('ArchivoNombre')?.value,
       Fecha: this.myDate
             
     }
 
     if (this.id == undefined) {
-      //Agregamos una nuevo crece
+      //Agregamos una nuevo archivo
       this._fileService.saveFile(file).subscribe(_data => {
        this.toastr.success('El Dx Particular del Programa '+this.pp + ' fue registrado con exito!', 'Correcto!!');
        this.obtenerFile();
@@ -204,7 +205,7 @@ export class DiagnosticoComponent implements OnInit {
    }
    else {
      file.idFile = this.id
-      //Editamos usuario
+      //Editamos archivo
      this._fileService.updateFile(this.id, file).subscribe(_data => {
 
        // this.accion = 'Elaborando';
@@ -236,7 +237,7 @@ eliminarFile(id: number) {
   }
   editarFile(file: any) {
     this.id = file.idFile;
-   // this.archivoNombre = file.archivoNombre;  //forna de hacerlo con archivos locales
+   // this.archivoNombre = file.archivoNombre;  //forma de hacerlo con archivos locales
    // this.previsualizacion = file.previsualizacion; // Forma de hacerlo con archivos locales
     this.myDate = file.fecha;
 

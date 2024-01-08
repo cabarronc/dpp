@@ -64,14 +64,14 @@
                 <span class="input-group-text" id="basic-addon3">Trimestre </span>
                 <select formControlName="Trimestre" id="trim" placeholder="Trimestre"  class="form-select" aria-label="Trimestre">
                   <option selected>Trimestre</option>
-                  <!-- <option value={{primer}}>1er Trimestre {{ejercicio }}</option>
+                  <option value={{primer}}>1er Trimestre {{ejercicio }}</option>
                     <option value={{segundo}}>2do Trimestre {{ejercicio }}</option>
                     <option value={{tercero}}>3er Trimestre {{ejercicio }}</option>
-                    <option value={{cuarto}}>4to Trimestre {{ejercicio }}</option> -->
-                  <option value="1er Trimestre 2024">1er Trimestre 2024</option>
+                    <option value={{cuarto}}>4to Trimestre {{ejercicio }}</option>
+                  <!-- <option value="1er Trimestre 2024">1er Trimestre 2024</option>
                   <option value="2do Trimestre 2024">2do Trimestre 2024</option>
                   <option value="3er Trimestre 2024">3er Trimestre 2024</option>
-                  <option value="4to Trimestre 2024">4to Trimestre 2024</option>
+                  <option value="4to Trimestre 2024">4to Trimestre 2024</option> -->
                 </select>
               </div>
             </div>
@@ -119,25 +119,26 @@
                 </thead>
                 <tbody>
                   <!-- <i class="fas fa-redo" style="cursor:pointer" (click)="obtenerCreces()"></i> -->
-                  <tr *ngFor="let File of Files | paginate: { itemsPerPage: 5, currentPage: p }">
-                    <td>{{ File.programa }}</td>
-                    <td>{{ File.ejercicio}}</td>
-                    <td>{{ File.trimestre}}</td>
+                 
+                  <tr  *ngFor="let File of Files | paginate: { itemsPerPage: 5, currentPage: p }">
+                    <td> {{ File.programa }}</td>
+                    <td> {{ File.ejercicio}}</td>
+                    <td> {{ File.trimestre}}</td>
                     <!-- <td  style="width:10px">
                               <object [data]="File.file | safe: 'resourceUrl'" type="application/pdf" width="600px" height="700px"></object></td> -->
                     <td>{{ File.archivoNombre}}</td>
                     <td>{{ File.fecha}}</td>
                     <td>
                       <button class="btn-primary" kendoButton *ngIf="!opened" (click)="toggle(true)">Diagnostico
-                        Particular del Programa {{File.programa}}</button>
+                        Particular del Programa {{File.programa}}  </button>
                       <kendo-window *ngIf="opened" [(top)]="windowTop" [(left)]="windowLeft" (close)="toggle(false)"
                         [height]="500" [width]="600">
                         <kendo-window-titlebar>
                           <div class="k-window-title">Diagnostico Particular del Programa {{File.programa}}</div>
-                          <button kendoButton (click)="onClick()" icon="folder"></button>
+                          <!-- <button kendoButton (click)="onClick()" icon="folder"></button> -->
                           <button kendoWindowMaximizeAction></button>
                           <button kendoWindowMinimizeAction></button>
-                          <button kendoWindowRestoreAction></button>
+                         <button kendoWindowRestoreAction></button> 
                           <button kendoWindowCloseAction></button>
                         </kendo-window-titlebar>
                         <p style="text-align: center;">Nombre Archivo:{{File.archivoNombre}} </p>
@@ -146,6 +147,7 @@
                         <iframe id="win" [src]="File.file | safe: 'resourceUrl'"
                           style="width:100%;height: 900px;"></iframe>
                       </kendo-window>
+                  
                       <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal">Plan de Mejora Continua de {{gridItems.PP}}</button> -->
                     </td>
@@ -159,7 +161,8 @@
                     </td>
 
                   </tr>
-
+              
+                 
                 </tbody>
                 &emsp;
               </table>
