@@ -11,6 +11,12 @@
    
     box-sizing: border-box;
 }
+.custom-label-class {
+  padding-bottom: 5px;
+  padding-right: 10rem;
+  margin-left: 90px;
+  margin-bottom: 70px;
+}
 .jumbotron{
     padding-top: 5px;
     padding-bottom: 3px;

@@ -608,46 +608,93 @@
                                     <h4>Crear/Actualizar Indicadores</h4>
                                     <hr kendoCardSeparator />
 
-                                    <form class="k-form" [formGroup]="form" (ngSubmit)="GuardarPp()">
+                                    <form class="k-form" [formGroup]="form3" (ngSubmit)="GuardarIndicadores">
                                         <div class="col-lg-12 d-flex flex-column">
                                             <div class="row pt-lg-3">
-                                                <div class="col-md-6">
+                                                <div class="col-md-1">
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
-                                                            <i class="fa-solid fa-user fa-flip"
-                                                                style="--fa-animation-duration: 3s;"></i>
+                                                            <i class="fa-solid fa-calendar-days"></i>
                                                             &nbsp;
-                                                            <input placeholder="Coordinador"
-                                                                formControlName="NombreResp"
+                                                            <input placeholder="Ejercicio" formControlName="Ejercicio"
                                                                 [ngModelOptions]="{standalone: true}" kendoTextBox />
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
-                                                    <div class="input-group-prepend">
-                                                        <i class="fa-solid fa-user fa-flip"
-                                                            style="--fa-animation-duration: 3s;"></i>
-                                                        &nbsp;
-                                                        <input placeholder="Responsable" formControlName="Responsable"
-                                                            kendoTextBox />
-                                                    </div>
+                                                <div class="col-md-2">
+
+                                                    <!-- <input placeholder="CONAC" formControlName="ClvConac"
+                                                            kendoTextBox /> -->
+                                                    <kendo-floatinglabel text="Clave CONAC">
+                                                        <kendo-dropdownlist style="font-weight: normal;"
+                                                            formControlName="ClvConac" [valuePrimitive]="true"
+                                                            placeholder="Clave CONAC" [(ngModel)]="ClvConac"
+                                                            (click)="GetNombrePp()" [data]="ProgramaPresupuestario"
+                                                            textField="text" valueField="text">
+                                                        </kendo-dropdownlist>
+                                                    </kendo-floatinglabel>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="input-group-prepend">
-                                                        <i class="fa fa-calendar-days fa-flip"
-                                                            style="--fa-animation-duration: 3s;"></i>&nbsp;
+                                                        <i class="fa-solid fa-user-pen"></i>
+                                                        &nbsp;
+                                                        <input placeholder="Nombre CONAC" [(ngModel)]="NomConac"
+                                                            formControlName="NomConac" kendoTextBox />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 d-flex flex-column">
+                                                    <kendo-floatinglabel text="Dependencia">
+
+                                                        <kendo-dropdownlist style="font-weight: normal;"
+                                                            placeholder="Dependencia" formControlName="Dependencia"
+                                                            [(ngModel)]="Dependencia" [data]="listDep"
+                                                            [valuePrimitive]="true" textField="text" valueField="text">
+                                                        </kendo-dropdownlist>
+
+                                                    </kendo-floatinglabel>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <i class="fa-solid fa-users-between-lines"></i>
+                                                            &nbsp;
+                                                            <input placeholder="UR" formControlName="UR"
+                                                                [ngModelOptions]="{standalone: true}" kendoTextBox />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <i class="fa-solid fa-bars"></i>
+                                                            &nbsp;
+                                                            <input placeholder="Nivel" formControlName="Nivel"
+                                                                [ngModelOptions]="{standalone: true}" kendoTextBox />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <i class="fa-solid fa-calendar-days"></i>
+                                                            &nbsp;
+                                                            <input placeholder="Clave" formControlName="Clave"
+                                                                [ngModelOptions]="{standalone: true}" kendoTextBox />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="col-md-2">
+                                                    <div class="input-group-prepend">
+                                                        <i class="fa fa-calendar-days"></i>&nbsp;
                                                         <kendo-maskedtextbox [maskOnFocus]="true"
                                                             style="font-weight: normal;"
                                                             [includeLiterals]="includeLiterals" placeholder="DD/MM/YY"
                                                             [mask]="mask" [value]="maskvalue" formControlName="FechaAct"
                                                             [(ngModel)]="myDate" fillMode="solid">
                                                         </kendo-maskedtextbox>
-                                                        <!-- <div id="date" class="form-text">
-                                                Fecha en que se actualiza
-                                                 </div> -->
-                                                        <!-- <input type="text" placeholder="algo" formControlName="FechaAct" [(ngModel)]="myDate" kendoTextBox> -->
                                                     </div>
-                                                </div>
+                                                </div> -->
+
 
                                             </div>
                                         </div>
@@ -656,25 +703,49 @@
                                                 <div class="row pt-lg-3">
                                                     <div class="col-md-3">
                                                         <div class="input-group-prepend">
-                                                            <i class="fa-solid fa-money-check-dollar fa-flip"
-                                                                style="--fa-animation-duration: 3s;"></i>
+                                                            <i class="fa-solid fa-file-invoice"></i>
                                                             &nbsp;
-                                                            <input type="text" placeholder="Clave PP"
-                                                                formControlName="ClavePp" kendoTextBox>
+                                                            <input type="text" placeholder="Resumen"
+                                                                formControlName="Resumen" kendoTextBox>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-9">
+                                                    <div class="col-md-1">
                                                         <div class="input-group-prepend">
-                                                            <i class="fa-solid fa-p fa-flip"
-                                                                style="--fa-animation-duration: 3s;"></i><i
-                                                                class="fa-solid fa-p fa-flip"
-                                                                style="--fa-animation-duration: 3s;"></i>
+                                                            <i class="fa-solid fa-s"></i>
+                                                            <i class="fa-solid fa-e"></i>
+                                                            <i class="fa-solid fa-d"></i>
                                                             &nbsp;
-                                                            <input type="text" placeholder="Nombre PP"
-                                                                formControlName="NombrePp" kendoTextBox>
+                                                            <input type="text" placeholder="Id Indicador Sed"
+                                                                formControlName="IdIndicadorSed" kendoTextBox>
 
                                                         </div>
-
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="input-group-prepend">
+                                                            <i class="fa-solid fa-gauge"
+                                                               ></i>
+                                                            &nbsp;
+                                                            <input type="text" placeholder="Nombre Indicador"
+                                                                formControlName="NombreIndicador" kendoTextBox>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="input-group-prepend">
+                                                            <i class="fa-solid fa-gauge"
+                                                               ></i>
+                                                            &nbsp;
+                                                            <input type="text" placeholder="Dimension"
+                                                                formControlName="Dimension" kendoTextBox>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="input-group-prepend">
+                                                            <i class="fa-solid fa-gauge"
+                                                               ></i>
+                                                            &nbsp;
+                                                            <input type="text" placeholder="Orientacion"
+                                                                formControlName="Orientacionr" kendoTextBox>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
