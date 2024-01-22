@@ -1,10 +1,11 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PDF } from "../../../helpers/pdf"
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FileService } from 'src/app/services/file.service';
 import { map } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { WindowService } from '@progress/kendo-angular-dialog';
 
 
 @Component({
@@ -55,7 +56,7 @@ public cuarto:string = '4to Trimestre '+this.ejercicio;
  
  
  
- constructor(private toastr: ToastrService,private sanitizer: DomSanitizer,private fb: FormBuilder, private _fileService: FileService) { 
+ constructor(private toastr: ToastrService,private sanitizer: DomSanitizer,private fb: FormBuilder, private _fileService: FileService, private windowService: WindowService ) { 
     this.form = this.fb.group({
       Programa: [this.pp, Validators.required],
       // Ejercicio: [this.ejercicio, Validators.required],
@@ -67,6 +68,17 @@ public cuarto:string = '4to Trimestre '+this.ejercicio;
 
     });
    
+  }
+  public showList(template: TemplateRef<unknown>): void {
+    this.windowService.open({
+      title: "Diagnostico Particualr",
+      content: template,
+      width: 500,
+      height: 400,
+      top:500
+      
+    });
+    
   }
   public UrSanitizada  = this.sanitizer.bypassSecurityTrustResourceUrl(PDF);
   ngOnInit(): void {

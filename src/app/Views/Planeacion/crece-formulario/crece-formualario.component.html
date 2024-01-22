@@ -1175,29 +1175,21 @@
                                   <td style="font-size:80%;">{{ File.programa}}</td>
                                   <td style="font-size:80%;">{{ File.fecha}}</td>
                                   <td style="font-size:80%;">
-                                    <button class="btn-primary" kendoButton *ngIf="!opened" (click)="toggle(true)">Dx
-                                      Particular del Programa {{File.programa}}</button>
-                                    <kendo-window *ngIf="opened" [(top)]="windowTop" [(left)]="windowLeft" (close)="toggle(false)"
-                                      [height]="500" [width]="600">
-                                      <kendo-window-titlebar>
-                                        <div class="k-window-title">Dx Particular del Programa {{File.programa}}</div>
-                                        <button kendoWindowMaximizeAction></button>
-                                        <button kendoWindowMinimizeAction></button>
-                                        <button kendoWindowRestoreAction></button>
-                                        <button kendoWindowCloseAction></button>
-                                      </kendo-window-titlebar>
-                                      <p style="text-align: center;">PROGRAMA: <b>{{File.programa}}</b> </p>
-                                      <p style="text-align: center;">TRIMESTRE: <b>{{File.trimestre}}</b> </p>
-                                      <p style="text-align: center;">NOMBRE ARCHIVO: <b>{{File.archivoNombre}}</b> </p>
-                                      
-        
-              
-                                      <!-- <iframe src="{{gridItems.PlandeMejora}}"  style="width:100%;height: 900px;"></iframe> -->
-                                      <iframe [src]="File.file | safe: 'resourceUrl'" style="width:100%;height: 900px;"></iframe>
-                                    </kendo-window>
-                                    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                              data-bs-target="#exampleModal">Plan de Mejora Continua de {{gridItems.PP}}</button> -->
-                                  </td>
+                             
+                                              <ng-template #itemListRef>
+                                                <p style="text-align: center;">PROGRAMA: <b>{{File.programa}}</b> </p>
+                                                <p style="text-align: center;">TRIMESTRE: <b>{{File.trimestre}}</b> </p>
+                                                <p style="text-align: center;">NOMBRE ARCHIVO: <b>{{File.archivoNombre}}</b> </p>
+                                                <iframe id="win" [src]="File.file | safe: 'resourceUrl'" 
+                                                  style="width:100%;height: 900px;"></iframe>
+                                              </ng-template>
+                        
+                                              <button kendoButton   type="button" (click)="showList(itemListRef)">
+                                                Diagnostico Particular del Programa {{File.programa}} 
+                                              </button>
+                                          
+                                              <div kendoWindowContainer></div>
+                                            </td>
               
                                 </tr>
               

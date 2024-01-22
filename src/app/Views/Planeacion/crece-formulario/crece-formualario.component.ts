@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild,ElementRef, ViewEncapsulation, AfterViewInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit, ViewChild,ElementRef, ViewEncapsulation, AfterViewInit, OnDestroy, HostListener, TemplateRef } from '@angular/core';
 import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SelectEvent, TabPosition } from '@progress/kendo-angular-layout';
 import { ToastrService } from 'ngx-toastr';
@@ -36,6 +36,7 @@ import { RespuestasService } from 'src/app/services/respuestas.service';
 import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 import { LayoutModule } from "@progress/kendo-angular-layout";
 import { FileService } from 'src/app/services/file.service';
+import { WindowService } from '@progress/kendo-angular-dialog';
 
 
 export interface JsonModel {
@@ -2505,7 +2506,8 @@ public Versiones: Array<string> = [
     private graficosService: GraficosService,
     private sanitizer: DomSanitizer,
     private respuestaService:RespuestasService,
-    private _fileService: FileService
+    private _fileService: FileService,
+    private windowService: WindowService
   ) {
     //this.series = groupBy(this.graficos, [{ field: "pp" }]) as GroupResult[];
 
@@ -2764,6 +2766,17 @@ public Versiones: Array<string> = [
 //  saveAs(converted, tituloArchivo + '.doxc');
 
 
+  }
+  //Metodo para mostras los Dx particlaues en un template
+  public showList(template: TemplateRef<unknown>): void {
+    this.windowService.open({
+      title: "Diagnostico Particular",
+      content: template,
+      width: 500,
+      height: 400,
+      top:500
+      
+    });
   }
   //Metodo para Visualizar los Dx particulares
    //Mostrar el catalogo de Unidades Responsables
