@@ -1,0 +1,9 @@
+[quote="hrishikesh, post:22, topic:106276"]
+```
+[[redirects]]
+  from = "/*"
+  status = 200
+  to = "/index.html"
+```
+[/quote]
+
