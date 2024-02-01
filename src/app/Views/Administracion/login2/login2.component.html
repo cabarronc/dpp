@@ -11,7 +11,7 @@
               <br>
 
               <app-loading *ngIf="loading"></app-loading>
-              <form [formGroup]="login" (ngSubmit)=log() name="login" style="padding: 10px;" netlify>
+              <form [formGroup]="login" (ngSubmit)=log() name="login" style="padding: 10px;">
                   <div class="form-group" style="text-align: start;">
                       <input type="text" class="form-control" placeholder="Email" formControlName="email">
                       <span class="text-danger ml-2"
