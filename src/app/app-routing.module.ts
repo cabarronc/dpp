@@ -52,7 +52,7 @@ import { HomePf2023Component } from './Views/EquipoGpR/Ejercicio2023/Home2023/Ho
 import { Planeacion2023Component } from './Views/EquipoGpR/Ejercicio2023/Home2023/Planeacion/planeacion2023.component';
 import { Programacion2023Component } from './Views/EquipoGpR/Ejercicio2023/Home2023/Programacion/programacion2023.component';
 import { Seguimiento2023Component } from './Views/EquipoGpR/Ejercicio2023/Home2023/Seguimiento/seguimiento2023.component';
-
+import {DiagnosticofilesComponent} from './Views/Planeacion/diagnosticofiles/diagnosticofiles.component';
 const routes: Routes = [
 
   { path: 'catalogos', component: CatalogosComponent, canActivate: [AuthGuard] },
@@ -108,6 +108,7 @@ const routes: Routes = [
   { path: "crece_programacion", component: CreceProgramacionComponent, canActivate: [AuthGuard] },
 
   { path: "chrtshigh", component: ChrtshighComponent },
+  {path: "DiagnosticoFiles", component:DiagnosticofilesComponent},
 
   { path: '', redirectTo: 'login2', pathMatch: 'full' }
 ];

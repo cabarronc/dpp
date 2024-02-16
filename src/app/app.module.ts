@@ -122,6 +122,7 @@ import { Seguimiento2023Component } from './Views/EquipoGpR/Ejercicio2023/Home20
 import { Rendicion2023Component } from './Views/EquipoGpR/Ejercicio2023/Home2023/Rendicion/rendicion2023.component';
 import { HomePf2023Component } from './Views/EquipoGpR/Ejercicio2023/Home2023/Home/home-pf2023.component';
 import { ScrollToTopComponent } from './Views/scroll-to-top/scroll-to-top.component';
+import { DiagnosticofilesComponent } from './Views/Planeacion/diagnosticofiles/diagnosticofiles.component';
 
 
 
@@ -187,6 +188,7 @@ import { ScrollToTopComponent } from './Views/scroll-to-top/scroll-to-top.compon
     Rendicion2023Component,
     HomePf2023Component,
     ScrollToTopComponent,
+    DiagnosticofilesComponent,
   
  
 

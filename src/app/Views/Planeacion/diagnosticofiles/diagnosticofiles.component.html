@@ -1,0 +1,189 @@
+<app-home></app-home>
+<section id="sectiondefault">
+
+  <kendo-panelbar>
+    <kendo-panelbar-item icon="folder" title="Subir Diagnosticos Particulares" [expanded]="true">
+      <ng-template kendoPanelBarContent>
+        <form class="k-form" [formGroup]="form" (ngSubmit)="GuardarFile()">
+          <div class="container-fluid" style="padding-bottom: 3rem;padding-bottom: 3rem;">
+            <div class="row offset-1 gy-5 text-center pt-lg-3">
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <input type="file" (change)="capturarFile($event)" accept="pdf/*" class="form-control">
+
+                </div>
+                <!-- <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon3">Seleccionar URL de DX</span>
+                  <input formControlName="File" [(ngModel)]="file" id="Dx" type="text" class="form-control"
+                    aria-describedby="basic-addon3" placeholder="URL">
+                </div> -->
+              </div>
+              <div class="col-md-1">
+
+              </div>
+              <div class="col-md-3">
+                <!-- <div class="input-group mb-3">
+                  <input type="file" (change)="capturarFile($event)" accept="pdf/*" class="form-control">
+
+                </div> -->
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon3">Nombre Archivo</span>
+                  <input formControlName="ArchivoNombre" [(ngModel)]="archivoNombre" id="Nom" type="text" class="form-control"
+                    aria-describedby="basic-addon3" placeholder="Nombre Archivo"  >
+                </div>
+              </div>
+              <div class="col-md-1">
+
+              </div>
+            </div>
+
+
+            <div class="row offset-1 gy-5 text-center pt-lg-3">
+              <div class="col-md-3">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon3">Diagnostico Particular </span>
+                  <input formControlName="Programa" [(ngModel)]="pp" oninput="this.value=this.value.toUpperCase()"
+                    id="Dx" type="text" class="form-control" aria-describedby="basic-addon3" placeholder="Programa">
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon3">Ejercicicio </span>
+                  <input formControlName="Ejercicio" id="ejer" [(ngModel)]="ejercicio" type="text" class="form-control"
+                    aria-describedby="basic-addon3" placeholder="Año">
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon3">Trimestre </span>
+                  <select formControlName="Trimestre" id="trim" placeholder="Trimestre" class="form-select"
+                    aria-label="Trimestre">
+                    <option selected>Trimestre</option>
+                    <option value={{primer}}>1er Trimestre {{ejercicio }}</option>
+                    <option value={{segundo}}>2do Trimestre {{ejercicio }}</option>
+                    <option value={{tercero}}>3er Trimestre {{ejercicio }}</option>
+                    <option value={{cuarto}}>4to Trimestre {{ejercicio }}</option>
+                    <!-- <option value="1er Trimestre 2024">1er Trimestre 2024</option>
+                  <option value="2do Trimestre 2024">2do Trimestre 2024</option>
+                  <option value="3er Trimestre 2024">3er Trimestre 2024</option>
+                  <option value="4to Trimestre 2024">4to Trimestre 2024</option> -->
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="row offset-1 gy-5 text-center pt-lg-3">
+              <div class="col-md-9" *ngIf="previsualizacion">
+                <!-- <div class="col-md-9" *ngIf="file"> -->
+                <button type="button" class="btn-outline-primary btn-lg" (click)="subirArchivo()">Subir Archivo</button>
+                <div class="row pt-lg-3">
+                  <object [data]='pdfSanitizado' type="application/pdf" width="600px" height="700px"></object>
+                  <!-- <iframe [src]="file | safe: 'resourceUrl'"  type="application/pdf" width="600px" height="700px" frameborder="0"></iframe> -->
+                </div>
+              </div>
+            </div>
+            </div>
+          
+        </form>
+      </ng-template>
+    </kendo-panelbar-item>
+    <kendo-panelbar-item icon="folder" title="Visualizar Diagnosticos Particulares" [expanded]="true">
+      <ng-template kendoPanelBarContent>
+        <div class="container-fluid">
+          <div class="row pt-lg-3">
+
+            <div class="col-md-12 d-flex flex-column">
+              <!-- Aqui va el Grid -->
+              <table class="table table-striped">
+                <caption>
+                  Registros Archivos
+                </caption>
+                <thead>
+                  <tr>
+                    <th>Programa</th>
+                    <th>Ejercicio</th>
+                    <th>Trimestre</th>
+                    <!-- <th>File</th> -->
+                    <th style="width:10px">Nombre Archivo</th>
+                    <th>Fecha</th>
+                    <th>Diagnostico</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                    <th>Vista previa</th>
+
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- <i class="fas fa-redo" style="cursor:pointer" (click)="obtenerCreces()"></i> -->
+
+                  <tr *ngFor="let File of Files | paginate: { itemsPerPage: 5, currentPage: p }">
+                    <td> {{ File.programa }}</td>
+                    <td> {{ File.ejercicio}}</td>
+                    <td> {{ File.trimestre}}</td>
+                    <!-- <td  style="width:10px">
+                              <object [data]="File.file | safe: 'resourceUrl'" type="application/pdf" width="600px" height="700px"></object></td> -->
+                    <td>{{ File.archivoNombre}}</td>
+                    <td>{{ File.fecha}}</td>
+                    <td>
+                      <!--   ----------------------Kendo Window tag -----------
+                         <button class="btn-primary" kendoButton *ngIf="!opened" (click)="toggle(true)">Diagnostico
+                        Particular del Programa {{File.programa}} </button>
+                      <kendo-window *ngIf="opened" [(top)]="windowTop" [(left)]="windowLeft" (close)="toggle(false)"
+                        [height]="500" [width]="600">
+                        <kendo-window-titlebar>
+                          <div class="k-window-title">Diagnostico Particular del Programa {{File.programa}}</div>
+                          <button kendoWindowMaximizeAction></button>
+                          <button kendoWindowMinimizeAction></button>
+                          <button kendoWindowRestoreAction></button>
+                          <button kendoWindowCloseAction></button>
+                        </kendo-window-titlebar>
+                        <p style="text-align: center;">Nombre Archivo:{{File.archivoNombre}} </p>
+
+                        <iframe id="win" [src]="File.file | safe: 'resourceUrl'" 
+                          style="width:100%;height: 900px;"></iframe>
+                      </kendo-window> -->
+                      <ng-template #itemListRef>
+                        <iframe id="win" [src]="File.file | safe: 'resourceUrl'" 
+                          style="width:100%;height: 900px;"></iframe>
+                      </ng-template>
+
+                      <button kendoButton (click)="showList(itemListRef)">
+                        Diagnostico Particular del Programa {{File.programa}} 
+                      </button>
+                  
+                      <div kendoWindowContainer></div>
+
+
+                    </td>
+                    
+                    <td>
+                      <i (click)="editarFile(File)" class="far fa-edit text-info" style="cursor:pointer"></i>
+                    </td>
+                    <td>
+                      <i (click)="eliminarFile(File.idFile)" class="far fa-trash-alt text-danger"
+                        style="cursor:pointer"></i>
+                    </td>
+                    <!-- <td><iframe id="win" [src]="File.file | safe: 'resourceUrl'" 
+                      style="width:100%;height: 400px;"></iframe></td> -->
+                  </tr>
+
+
+                </tbody>
+                &emsp;
+              </table>
+              <pagination-controls class="my-pagination" (pageChange)="p = $event" previousLabel="Anterior"
+                nextLabel="Siguiente"></pagination-controls>
+
+            </div>
+          </div>
+
+        </div>
+      </ng-template>
+
+
+    </kendo-panelbar-item>
+  </kendo-panelbar>
+  <!-- </div>
+    </div> -->
+</section>
