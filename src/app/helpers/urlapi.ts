@@ -1,1 +1,1 @@
-export const UrlApi ="http://172.31.141.96:8088";
+export const UrlApi ="http://172.31.141.144:8088";
