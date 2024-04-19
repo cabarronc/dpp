@@ -33,6 +33,8 @@
   background: -webkit-linear-gradient(to right, #8dc3e7, #2c3e50);
   background: linear-gradient(to right, #79b9ee, #2c3e50);
   font-family: var(--bs-font-sans-serif);
+  overflow: scroll;
+  position: relative;
 
 
 

@@ -7,7 +7,17 @@
                         <img class="card-img-top" height="300px" width="500px"
                               src="https://github.com/cabarronc/dpp/blob/master/src/assets/Images/SitioDpp/PaqueteFiscal2023_1.png?raw=true">
                   </div>
-                  <div class="row pt-lg-3">
+                  <div class="row pt-lg-3 offset-3">
+                        <nav aria-label="breadcrumb">
+                              <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a class="bi bi-house-door"
+                                                style="font-size: 1.3rem; color:black; text-decoration: none;"
+                                                routerLink="/carrusel" routerLinkActive="router-link-active"> <b> Home
+                                                </b></a></li>
+                                    <li class="breadcrumb-item active" aria-current="page"
+                                          style="font-size: 1.3rem; color:black"> Paquete Fiscal 2023 </li>
+                              </ol>
+                        </nav>
                   </div>
                   <div class="row pt-lg-3">
                   </div>
@@ -24,7 +34,7 @@
                               <div class="col-md-3">
                                     <kendo-stacklayout [style.height.%]="90" [orientation]="orientation"
                                           [align]="{ horizontal: hAlign, vertical: vAlign }" [gap]="gap">
-                                          <div kendoTypography variant="h2" fontWeight="bold" themeColor="dark"
+                                          <div kendoTypography variant="h1" fontWeight="bold" themeColor="inherit"
                                                 textAlign="center">Ciclo presupuestario</div>
                                           <!-- Planeacion -->
                                           <div class="box first">
@@ -40,12 +50,251 @@
                                                 </div>
 
                                                 <kendo-window title="Planeacion" *ngIf="openedPlaneacion"
-                                                      (close)="closePlaneacion()" [minWidth]="150" [width]="750"
+                                                      (close)="closePlaneacion()" [minWidth]="150" [width]="1300"
                                                       autoFocusedElement="#headerPlaneacion">
-                                                      <div class="container-fluid">
-                                                            <img class="card-img-top" id="headerPlaneacion"
-                                                                  src="https://github.com/cabarronc/dpp/blob/master/src/assets/Images/SitioDpp/Planeacion2023.png?raw=true">
+                                                      <div class="container" data-bs-target="#navbar-example3"
+                                                            data-bs-spy="scroll">
+                                                            <div class="row">
+                                                                  <img class="card-img-top" id="headerPlaneacion"
+                                                                        width="100%"
+                                                                        src="https://github.com/cabarronc/dpp/blob/master/src/assets/Images/SitioDpp/Planeacion2023.png?raw=true">
+                                                            </div>
+                                                            <div>
+                                                                  <div class="row ">
+                                                                        <div class="col-md-6">
+                                                                              <nav id="navbar-example3"
+                                                                                    class="navbar navbar-light bg-light"
+                                                                                    style="background-color: #e3f2fd;">
+
+                                                                                    <div class="hit-the-floor">
+                                                                                         <ul class="nav nav-pills flex-column">
+                                                                                                <li>
+                                                                                                      <a class="nav-item"
+                                                                                                            href="#item-1">Portal
+                                                                                                            IPLANEG
+                                                                                                      </a>
+                                                                                                </li>
+                                                                                          </ul>
+
+                                                                                          <nav
+                                                                                                class="nav nav-pills flex-column">
+                                                                                                <a class="nav-item"
+                                                                                                      href="#item-2">Plan
+                                                                                                      Estatal
+                                                                                                      de Desarrollo
+                                                                                                      2040</a>
+                                                                                          </nav>
+                                                                                          <nav
+                                                                                                class="nav nav-pills flex-column">
+                                                                                                <a class="nav-item"
+                                                                                                      href="#item-3">Programa
+                                                                                                      Estatal de
+                                                                                                      Desarrollo
+                                                                                                      Urbano y
+                                                                                                      de
+                                                                                                      Ordenamiento
+                                                                                                      Ecológico
+                                                                                                      Territorial
+                                                                                                      2040</a>
+                                                                                          </nav>
+                                                                                          <nav
+                                                                                                class="nav nav-pills flex-column">
+                                                                                                <a class="nav-item"
+                                                                                                      href="#item-4">Programa
+                                                                                                      de
+                                                                                                      Gobierno 2018 -
+                                                                                                      2024
+                                                                                                </a>
+                                                                                          </nav>
+                                                                                          <nav
+                                                                                                class="nav nav-pills flex-column">
+                                                                                                <a class="nav-item"
+                                                                                                      href="#item-5">Planes
+                                                                                                      y
+                                                                                                      Programas</a>
+                                                                                          </nav>
+
+                                                                                          <!-- <nav class="nav nav-pills flex-column">
+                                                                            <a class="nav-link ml-3 my-1" href="#item-3-1">Item 3-1</a>
+                                                                            <a class="nav-link ml-3 my-1" href="#item-3-2">Item 3-2</a>
+                                                                          </nav> -->
+
+                                                                                    </div>
+                                                                              </nav>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+
+                                                                              <div data-spy="scroll"
+                                                                                    data-target="#navbar-example3"
+                                                                                    data-offset="0"
+                                                                                    class="scrollspy-example p-5 m-5"
+                                                                                    tabindex="0">
+                                                                                    <h4 id="item-1">Portal IPLANEG</h4>
+                                                                                    <kendo-panelbar>
+                                                                                          <kendo-panelbar-item
+                                                                                                icon="folder-open"
+                                                                                                title=""
+                                                                                                [expanded]="true">
+                                                                                                <ng-template
+                                                                                                      kendoPanelBarContent>
+                                                                                                      <div
+                                                                                                            class="container-fluid">
+                                                                                                            <div
+                                                                                                                  class="row justify-content-md-center">
+                                                                                                                  <a href="https://iplaneg.guanajuato.gob.mx/planeacion"
+                                                                                                                        target="_blank"
+                                                                                                                        class="btn btn-primary ">Ir
+                                                                                                                        al
+                                                                                                                        Sitio</a>
+
+                                                                                                            </div>
+                                                                                                            <img class="card-img-top"
+                                                                                                                  width="100%"
+                                                                                                                  src="https://github.com/cabarronc/dpp/blob/master/src/assets/Images/SitioDpp/Logo-IPLANEG.png?raw=true">
+                                                                                                      </div>
+                                                                                                </ng-template>
+                                                                                          </kendo-panelbar-item>
+                                                                                    </kendo-panelbar>
+
+                                                                                    <h4 id="item-2">Plan Estatal de
+                                                                                          Desarrollo
+                                                                                          2040
+                                                                                    </h4>
+                                                                                    <kendo-panelbar>
+                                                                                          <kendo-panelbar-item
+                                                                                                icon="folder-open"
+                                                                                                title=""
+                                                                                                [expanded]="true">
+                                                                                                <ng-template
+                                                                                                      kendoPanelBarContent>
+                                                                                                      <div
+                                                                                                            class="container-fluid">
+                                                                                                            <div
+                                                                                                                  class="row justify-content-md-center">
+                                                                                                                  <a href="https://iplaneg.guanajuato.gob.mx/ped2040/#:~:text=El%20Plan%20Estatal%20de%20Desarrollo%20Guanajuato%202040%20(PED%202040)%20es,una%20visi%C3%B3n%20de%20largo%20plazo."
+                                                                                                                        target="_blank"
+                                                                                                                        class="btn btn-primary ">Ir
+                                                                                                                        al
+                                                                                                                        Plan
+                                                                                                                        Estatal
+                                                                                                                        de
+                                                                                                                        Desarrollo
+                                                                                                                        2040</a>
+
+                                                                                                            </div>
+                                                                                                            <img class="card-img-top"
+                                                                                                                  width="100%"
+                                                                                                                  src="https://github.com/cabarronc/dpp/blob/master/src/assets/Images/SitioDpp/PED2040.jpeg?raw=true">
+                                                                                                      </div>
+                                                                                                </ng-template>
+                                                                                          </kendo-panelbar-item>
+                                                                                    </kendo-panelbar>
+
+                                                                                    <h4 id="item-3">Programa
+                                                                                          Estatal de Desarrollo Urbano y
+                                                                                          de
+                                                                                          Ordenamiento Ecológico
+                                                                                          Territorial
+                                                                                          2040</h4>
+                                                                                    <kendo-panelbar>
+                                                                                          <kendo-panelbar-item
+                                                                                                icon="folder-open"
+                                                                                                title=""
+                                                                                                [expanded]="true">
+                                                                                                <ng-template
+                                                                                                      kendoPanelBarContent>
+                                                                                                      <div
+                                                                                                            class="container-fluid">
+                                                                                                            <div
+                                                                                                                  class="row justify-content-md-center">
+                                                                                                                  <a href="https://iplaneg.guanajuato.gob.mx/planeacion/"
+                                                                                                                        target="_blank"
+                                                                                                                        class="btn btn-primary ">Ir
+                                                                                                                        al
+                                                                                                                        Sitio</a>
+
+                                                                                                            </div>
+                                                                                                            <iframe
+                                                                                                                  src="https://iplaneg.guanajuato.gob.mx/planeacion/view"
+                                                                                                                  width="100%"
+                                                                                                                  height="280"
+                                                                                                                  allow="autoplay"></iframe>
+                                                                                                      </div>
+                                                                                                </ng-template>
+                                                                                          </kendo-panelbar-item>
+                                                                                    </kendo-panelbar>
+
+
+
+                                                                                    <h4 id="item-4">Programa de
+                                                                                          Gobierno 2018 - 2024</h4>
+                                                                                    <kendo-panelbar>
+                                                                                          <kendo-panelbar-item
+                                                                                                icon="folder-open"
+                                                                                                title=""
+                                                                                                [expanded]="true">
+                                                                                                <ng-template
+                                                                                                      kendoPanelBarContent>
+                                                                                                      <div
+                                                                                                            class="container-fluid">
+                                                                                                            <div
+                                                                                                                  class="row justify-content-md-center">
+                                                                                                                  <a href="https://iplaneg.guanajuato.gob.mx/planeacion/"
+                                                                                                                        target="_blank"
+                                                                                                                        class="btn btn-primary ">Ir
+                                                                                                                        al
+                                                                                                                        Sitio</a>
+
+                                                                                                            </div>
+                                                                                                            <!-- <iframe
+                                                                                                src="https://iplaneg.guanajuato.gob.mx/planeacion/view"
+                                                                                                width="100%"
+                                                                                                height="280"
+                                                                                                allow="autoplay"></iframe> -->
+                                                                                                      </div>
+                                                                                                </ng-template>
+                                                                                          </kendo-panelbar-item>
+                                                                                    </kendo-panelbar>
+
+
+                                                                                    <h4 id="item-5">Planes y Programas
+                                                                                    </h4>
+                                                                                    <kendo-panelbar>
+                                                                                          <kendo-panelbar-item
+                                                                                                icon="folder-open"
+                                                                                                title=""
+                                                                                                [expanded]="true">
+                                                                                                <ng-template
+                                                                                                      kendoPanelBarContent>
+                                                                                                      <div
+                                                                                                            class="container-fluid">
+                                                                                                            <div
+                                                                                                                  class="row justify-content-md-center">
+                                                                                                                  <a href="https://iplaneg.guanajuato.gob.mx/planeacion/"
+                                                                                                                        target="_blank"
+                                                                                                                        class="btn btn-primary ">Ir
+                                                                                                                        al
+                                                                                                                        Sitio</a>
+
+                                                                                                            </div>
+                                                                                                            <!-- <iframe
+                                                                                                src="https://iplaneg.guanajuato.gob.mx/planeacion/view"
+                                                                                                width="100%"
+                                                                                                height="280"
+                                                                                                allow="autoplay"></iframe> -->
+                                                                                                      </div>
+                                                                                                </ng-template>
+                                                                                          </kendo-panelbar-item>
+                                                                                    </kendo-panelbar>
+
+
+
+                                                                              </div>
+                                                                        </div>
+                                                                  </div>
+                                                            </div>
                                                       </div>
+
                                                 </kendo-window>
                                           </div>
                                           <!-- Programacion -->
@@ -192,9 +441,10 @@
                                     style="padding-bottom:1rem; padding-left: 1.5rem; padding-right: 1.5rem;">
                                     <div class="row justify-content-md-center">
                                           <div class="col-md-6">
-                                                <kendo-panelbar >
-                                                      <kendo-panelbar-item icon="folder-open" style="background-color:#087cac;"
-                                                            title="Documentos de soporte"  [expanded]="false">
+                                                <kendo-panelbar>
+                                                      <kendo-panelbar-item icon="folder-open"
+                                                            style="background-color:#087cac;"
+                                                            title="Documentos de soporte" [expanded]="false">
                                                             <ng-template kendoPanelBarContent>
                                                                   <div class="row justify-content-md-center">
                                                                         <iframe
