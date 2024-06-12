@@ -117,12 +117,14 @@ public toggle(isOpened: boolean): void {
 public view: Observable<any>;
 public view2: Observable<any>;
 
+
+public anio:any = new Date().getFullYear().toString();
+
 public Periodos: Array<string> = [
-  "4to Trimestre 2022",
-  "1er Trimestre 2023",
-  "2do Trimestre 2023",
-  "3er Trimestre 2023",
-  "4to Trimestre 2023",
+  "1er Trimestre "+this.anio,
+  "2do Trimestre "+this.anio,
+  "3er Trimestre "+this.anio,
+  "4to Trimestre "+this.anio,
 ];
 
 public Versiones: Array<string> = [
@@ -159,10 +161,10 @@ public Versiones: Array<string> = [
   ];
   public Pps: Array<{ idPp: number; clavePp: string ;eje:string; fechaAct:string; nombrePp:string; nombreResp:string; responsable:string; siglaDp:string; siglaDpPart:string}> = [];
   public listPeriodo: Array<string> = [
-    "1er Trimestre 2023",
-    "2do Trimestre 2023",
-    "3er Trimestre 2023",
-    "4to Trimestre 2023",
+    "1er Trimestre 2024",
+    "2do Trimestre 2024",
+    "3er Trimestre 2024",
+    "4to Trimestre 2024",
   ];
   public listversion: Array<string> = [
     "Preliminar",
@@ -1528,10 +1530,23 @@ public Versiones: Array<string> = [
       this.dep = "UG";
     }
     else if (this.pp == "E068") {
-      this.NombrePp = "Vinculación del estudiante con los sectores económico y social";
+      this.NombrePp = "Vinculación de la comunidad universitaria con los sectores económico y social";
       this.ListDepPar = "UG";
       this.dep = "UG";
     }
+
+    else if (this.pp == "E069") {
+      this.NombrePp = "Gestión del Sistema Estatal de Archivos, Conservación, Preservación y Difusión del Patrimonio del Estado de Guanajuato";
+      this.ListDepPar = "AGEG";
+      this.dep = "AGEG";
+    }
+
+    else if (this.pp == "E070") {
+      this.NombrePp = "Sistema Integral de Transparencia, Acceso a la Información Pública y Protección de Datos Personales";
+      this.ListDepPar = "UTAPE";
+      this.dep = "UTAPE";
+    }
+
     else if (this.pp == "G001") {
       this.NombrePp = "Fortalecimiento institucional de la inspección y vigilancia para la administración sustentable del territorio";
       this.ListDepPar = "PAOT";
@@ -2510,7 +2525,7 @@ public Versiones: Array<string> = [
     private windowService: WindowService
   ) {
     //this.series = groupBy(this.graficos, [{ field: "pp" }]) as GroupResult[];
-
+    this.anio = new Date().getFullYear;
 
     this.obtenerCreces();
     this.creces;
@@ -2821,6 +2836,7 @@ public Versiones: Array<string> = [
 
 
   ngOnInit(): void {
+    this.anio = new Date().getFullYear
     this.creces;
     this.obtenerDependencias();
     this.obtenerCreces()
@@ -6775,13 +6791,13 @@ public Versiones: Array<string> = [
   //PREGUNTA 2
   public selectionChange2(value: any): void {
 
-    if (value == 2023 ) {
+    if (value == 2024 ) {
       this.PonDp2 = 4;
     }
-    else if ( value == 2022  ) {
+    else if ( value == 2023  ) {
       this.PonDp2 = 2;
     }
-    else if (value <= 2021 ) {
+    else if (value <= 2022 ) {
       this.PonDp2 = 0;
     }
     else if (value == undefined) {
